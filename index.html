@@ -3,39 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desert Camel – Secure Web3 Wallet for SidraChain</title>
-  
-  <!-- SEO & Social Meta -->
-  <meta name="description" content="Desert Camel is a non-custodial Web3 wallet for SidraChain. Securely manage tokens, swap assets, and keep full control of your private keys.">
-  <meta name="keywords" content="Desert Camel, SidraChain, Web3 Wallet, DeFi, Crypto Swap, Non-Custodial">
-  <meta property="og:title" content="Desert Camel – Secure Web3 Wallet">
-  <meta property="og:description" content="Your keys. Your crypto. Your desert. A fast, non-custodial wallet for SidraChain.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://your-domain.com/">
-  <meta name="twitter:card" content="summary_large_image">
-  
-  <!-- Google / Schema Structured Data for Trust -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Desert Camel",
-    "description": "Non-custodial Web3 wallet for SidraChain",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Android, Web",
-    "offers": {
-      "@type": "Offer",
-      "price": "0"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "Desert Camel Team"
+  <title>Desert Camel – Secure Web3 Wallet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  }
-  </script>
-
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐪</text></svg>">
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fcf9f2;
+      color: #2d2a24;
+      line-height: 1.6;
+      padding: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e6d5b8;
+      margin-bottom: 2rem;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .logo span {
+      color: #c89b3c;
+    }
+    nav a {
+      margin-left: 1.2rem;
+      color: #2d2a24;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    nav a:hover {
+      color: #c89b3c;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      background: linear-gradient(135deg, #f5ede1, #e8dccc);
+      padding: 2.5rem;
+      border-radius: 2rem;
+      margin-bottom: 3rem;
+    }
+    .hero-text {
+      flex: 1 1 300px;
+    }
+    .hero-text h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+    .hero-text h1 span {
+      color: #c89b3c;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      margin: 1.2rem 0;
+    }
+    .btn {
+      display: inline-block;
+      background: #c89b3c;
+      color: #fff;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #a87b2a;
+      transform: scale(1.02);
+    }
+    .trust-badge {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.6);
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+    }
+    .hero-mockup {
+      flex: 1 1 250px;
+      display: flex;
+      justify-content: center;
+    }
+    .phone {
+      width: 200px;
+      height: 400px;
+      background: #111;
+      border-radius: 36px;
+      padding: 10px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #fcf3e6, #f0e3d0);
+      border-radius: 28px;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+    }
+    .app-ui .wallet-header {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .app-ui .balance {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 16px 0;
+    }
+    .app-ui .token {
+      background: rgba(255,255,255,0.7);
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .app-ui .swap-btn {
+      margin-top: 16px;
+      background: #c89b3c;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .features {
+      margin: 3rem 0;
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+    }
+    .feature-card {
+      background: #fff;
+      padding: 1.8rem 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .feature-card .icon {
+      font-size: 2.5rem;
+    }
+    .feature-card h3 {
+      margin: 0.8rem 0 0.4rem;
+      font-size: 1.2rem;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #5a4a34;
+    }
+    footer {
+      margin-top: auto;
+      border-top: 1px solid #e6d5b8;
+      padding-top: 1.8rem;
+      text-align: center;
+      color: #5a4a34;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #a87b2a;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+      }
+      nav a {
+        margin: 0 0.6rem;
+        font-size: 0.85rem;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+      .phone {
+        width: 160px;
+        height: 320px;
+      }
+      .app-ui .balance {
+        font-size: 1.4rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 450px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -47,17 +236,15 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-
   <main>
     <section class="hero">
       <div class="hero-text">
         <h1>Your Keys. <br>Your Crypto. <br><span>Your Desert.</span></h1>
-        <p>Desert Camel is a <strong>non-custodial</strong> Web3 wallet built for SidraChain. Manage, swap, and secure your tokens without giving up control of your private keys.</p>
+        <p>Desert Camel is a <strong>non-custodial</strong> Web3 wallet built for SidraChain. Manage, swap, and secure your tokens without giving up control.</p>
         <a href="#" class="btn">🚀 Coming Soon on Google Play</a>
         <div class="trust-badge">🔒 Private keys stay on your device. Always.</div>
       </div>
       <div class="hero-mockup">
-        <!-- CSS Phone Mockup -->
         <div class="phone">
           <div class="phone-screen">
             <div class="app-ui">
@@ -73,37 +260,19 @@
         </div>
       </div>
     </section>
-
     <section class="features">
       <h2>Why Desert Camel?</h2>
       <div class="feature-grid">
-        <div class="feature-card">
-          <div class="icon">🔐</div>
-          <h3>Non-Custodial</h3>
-          <p>We never store your private keys or seed phrases. Full ownership stays with you.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon">🔄</div>
-          <h3>Decentralized Swaps</h3>
-          <p>Swap SidraChain tokens directly within the app. No middlemen, pure DeFi.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon">🛡️</div>
-          <h3>Self-Custody</h3>
-          <p>Control your assets entirely. Transactions are signed locally on your device.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon">⚡</div>
-          <h3>Fast & Light</h3>
-          <p>Optimized for mobile. Enjoy quick blockchain interactions with minimal data usage.</p>
-        </div>
+        <div class="feature-card"><div class="icon">🔐</div><h3>Non-Custodial</h3><p>We never store your private keys. Full ownership stays with you.</p></div>
+        <div class="feature-card"><div class="icon">🔄</div><h3>Decentralized Swaps</h3><p>Swap SidraChain tokens directly within the app. No middlemen.</p></div>
+        <div class="feature-card"><div class="icon">🛡️</div><h3>Self-Custody</h3><p>Control your assets entirely. Transactions signed locally.</p></div>
+        <div class="feature-card"><div class="icon">⚡</div><h3>Fast & Light</h3><p>Optimized for mobile. Quick blockchain interactions.</p></div>
       </div>
     </section>
   </main>
-
   <footer>
     <p>📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
-    <p>© 2026 Desert Camel. Built for the SidraChain community.</p>
+    <p>© 2026 Desert Camel. Built for SidraChain.</p>
   </footer>
 </body>
 </html>

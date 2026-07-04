@@ -4,8 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy – Desert Camel</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐪</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fcf9f2;
+      color: #2d2a24;
+      line-height: 1.6;
+      padding: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e6d5b8;
+      margin-bottom: 2rem;
+    }
+    .logo { font-size: 1.6rem; font-weight: 700; }
+    .logo span { color: #c89b3c; }
+    nav a { margin-left: 1.2rem; color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+    nav a:hover { color: #c89b3c; }
+    h1 { font-size: 2.4rem; border-bottom: 3px solid #c89b3c; padding-bottom: 0.5rem; margin-bottom: 0.5rem; }
+    h2 { margin-top: 2rem; font-size: 1.4rem; color: #a87b2a; }
+    p, li { margin-bottom: 0.8rem; }
+    ul { padding-left: 1.5rem; }
+    footer {
+      margin-top: auto;
+      border-top: 1px solid #e6d5b8;
+      padding-top: 1.8rem;
+      text-align: center;
+      color: #5a4a34;
+      font-size: 0.9rem;
+    }
+    footer a { color: #a87b2a; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    a { color: #c89b3c; text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    @media (max-width: 700px) {
+      header { flex-direction: column; gap: 0.8rem; align-items: center; }
+      nav a { margin: 0 0.6rem; font-size: 0.85rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -17,37 +65,26 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-
-  <main class="legal-page">
+  <main>
     <h1>Privacy Policy</h1>
     <p><em>Last Updated: July 4, 2026</em></p>
-
     <h2>1. Information We Collect</h2>
-    <p>Desert Camel is a <strong>non-custodial</strong> Web3 wallet. We do <strong>not</strong> collect, store, or transmit any personal identifiable information (PII) such as your name, email address, phone number, or physical location.</p>
-    
+    <p>Desert Camel is a <strong>non-custodial</strong> Web3 wallet. We do <strong>not</strong> collect, store, or transmit any personal identifiable information (PII) such as your name, email, phone number, or physical location.</p>
     <h2>2. Private Keys & Recovery Phrases</h2>
-    <p>Your private keys and recovery phrases (seed phrases) are generated and stored <strong>locally</strong> on your device's secure storage. They are <strong>never</strong> transmitted to our servers, shared with third parties, or accessible by us. You are solely responsible for safeguarding this information.</p>
-    
+    <p>Your private keys and recovery phrases are generated and stored <strong>locally</strong> on your device. They are <strong>never</strong> transmitted to our servers or accessible by us.</p>
     <h2>3. Blockchain Transactions</h2>
-    <p>All transactions you perform are recorded on the public SidraChain blockchain. Wallet addresses and transaction histories are publicly visible by nature. Desert Camel does not control or store this data.</p>
-    
+    <p>All transactions are recorded on the public SidraChain blockchain. Wallet addresses and transaction histories are publicly visible by nature.</p>
     <h2>4. Third-Party Services</h2>
-    <p>The app connects to the SidraChain network via third-party RPC (Remote Procedure Call) providers to broadcast transactions and fetch on-chain data. These providers may collect IP addresses for network functionality but are not authorized to use your data for any other purpose.</p>
-    
+    <p>The app connects to the SidraChain network via third-party RPC providers. These providers may collect IP addresses for functionality but are not authorized to use your data for other purposes.</p>
     <h2>5. Cookies & Analytics</h2>
     <p>This website does not use tracking cookies or analytics scripts that collect personal data.</p>
-    
     <h2>6. Data Security</h2>
-    <p>We implement industry-standard security practices to protect our infrastructure. However, as blockchain transactions are irreversible and your keys are locally stored, you must take precautions to prevent unauthorized access to your device.</p>
-    
+    <p>We implement industry-standard practices to protect our infrastructure. However, you are responsible for securing your device.</p>
     <h2>7. Your Rights</h2>
-    <p>Since we do not store your personal data, there is no data to access, modify, or delete. If you have any privacy-related concerns, you can contact us at the email below.</p>
-    
+    <p>Since we do not store your personal data, there is no data to access, modify, or delete. If you have concerns, contact us below.</p>
     <h2>8. Contact</h2>
-    <p>If you have any questions about this policy, please reach out to:</p>
     <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
   </main>
-
   <footer>
     <p>📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
     <p>© 2026 Desert Camel</p>

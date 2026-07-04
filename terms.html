@@ -6,7 +6,6 @@
   <title>Terms of Service – Desert Camel</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
   <style>
-    /* Copy CSS giống như privacy (hoặc dùng chung) */
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
@@ -70,12 +69,15 @@
       <select class="lang-select" id="langSelector" onchange="switchLang(this.value)">
         <option value="en">🇬🇧 English</option>
         <option value="zh">🇨🇳 中文</option>
-        <option value="vi">🇻🇳 Tiếng Việt</option>
         <option value="hi">🇮🇳 हिंदी</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
         <option value="ar">🇸🇦 العربية</option>
         <option value="id">🇮🇩 Indonesia</option>
         <option value="ms">🇲🇾 Melayu</option>
-        <option value="lo">🇱🇦 ລາວ</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="ja">🇯🇵 日本語</option>
       </select>
     </nav>
   </header>
@@ -115,26 +117,97 @@
   </footer>
 
   <script>
-    // Bản dịch các phần menu và footer (giống như index)
     const translations = {
-      en: { home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact', 'terms-title': 'Terms of Service', 'last-updated': 'Last Updated: July 4, 2026', 'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Built for SidraChain.' },
-      zh: { home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们', 'terms-title': '服务条款', 'last-updated': '最后更新：2026年7月4日', 'footer-support': '📧 支持：<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel。为 SidraChain 构建。' },
-      vi: { home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ', 'terms-title': 'Điều khoản sử dụng', 'last-updated': 'Cập nhật lần cuối: 4 tháng 7, 2026', 'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.' },
-      hi: { home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें', 'terms-title': 'सेवा की शर्तें', 'last-updated': 'अंतिम अद्यतन: 4 जुलाई, 2026', 'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel। SidraChain के लिए निर्मित।' },
-      ar: { home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا', 'terms-title': 'شروط الخدمة', 'last-updated': 'آخر تحديث: 4 يوليو 2026', 'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. مبني لـ SidraChain.' },
-      id: { home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Hubungi', 'terms-title': 'Syarat Layanan', 'last-updated': 'Terakhir diperbarui: 4 Juli 2026', 'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.' },
-      ms: { home: 'Laman Utama', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi', 'terms-title': 'Terma Perkhidmatan', 'last-updated': 'Dikemaskini: 4 Julai 2026', 'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.' },
-      lo: { home: 'ໜ້າຫຼັກ', privacy: 'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ', terms: 'ຂໍ້ກຳນົດການໃຊ້ງານ', contact: 'ຕິດຕໍ່', 'terms-title': 'ຂໍ້ກຳນົດການໃຊ້ງານ', 'last-updated': 'ອັບເດດຫຼ້າສຸດ: 4 ກໍລະກົດ 2026', 'footer-support': '📧 ສະໜັບສະໜຸນ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. ສ້າງຂຶ້ນສຳລັບ SidraChain.' }
+      en: {
+        home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
+        'terms-title': 'Terms of Service',
+        'last-updated': 'Last Updated: July 4, 2026',
+        'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Built for SidraChain.'
+      },
+      zh: {
+        home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们',
+        'terms-title': '服务条款',
+        'last-updated': '最后更新：2026年7月4日',
+        'footer-support': '📧 支持：<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel。为 SidraChain 构建。'
+      },
+      hi: {
+        home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
+        'terms-title': 'सेवा की शर्तें',
+        'last-updated': 'अंतिम अद्यतन: 4 जुलाई, 2026',
+        'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel। SidraChain के लिए निर्मित।'
+      },
+      vi: {
+        home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
+        'terms-title': 'Điều khoản sử dụng',
+        'last-updated': 'Cập nhật lần cuối: 4 tháng 7, 2026',
+        'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
+      },
+      ar: {
+        home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
+        'terms-title': 'شروط الخدمة',
+        'last-updated': 'آخر تحديث: 4 يوليو 2026',
+        'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. مبني لـ SidraChain.'
+      },
+      id: {
+        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Hubungi',
+        'terms-title': 'Syarat Layanan',
+        'last-updated': 'Terakhir diperbarui: 4 Juli 2026',
+        'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.'
+      },
+      ms: {
+        home: 'Laman Utama', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
+        'terms-title': 'Terma Perkhidmatan',
+        'last-updated': 'Dikemaskini: 4 Julai 2026',
+        'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.'
+      },
+      fr: {
+        home: 'Accueil', privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact',
+        'terms-title': 'Conditions d\'utilisation',
+        'last-updated': 'Dernière mise à jour : 4 juillet 2026',
+        'footer-support': '📧 Support : <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Conçu pour SidraChain.'
+      },
+      pt: {
+        home: 'Início', privacy: 'Privacidade', terms: 'Termos', contact: 'Contato',
+        'terms-title': 'Termos de Serviço',
+        'last-updated': 'Última atualização: 4 de julho de 2026',
+        'footer-support': '📧 Suporte: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Construído para SidraChain.'
+      },
+      ko: {
+        home: '홈', privacy: '개인정보처리방침', terms: '이용약관', contact: '연락처',
+        'terms-title': '이용약관',
+        'last-updated': '최종 업데이트: 2026년 7월 4일',
+        'footer-support': '📧 지원: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. SidraChain용으로 제작됨.'
+      },
+      ja: {
+        home: 'ホーム', privacy: 'プライバシーポリシー', terms: '利用規約', contact: 'お問い合わせ',
+        'terms-title': '利用規約',
+        'last-updated': '最終更新日: 2026年7月4日',
+        'footer-support': '📧 サポート: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel。SidraChainのために構築。'
+      }
     };
 
     const termsTranslations = {
       zh: '<h2>1. 接受条款</h2><p>下载、安装或使用 Desert Camel 即表示您同意这些条款。</p><h2>2. 非托管钱包</h2><p>Desert Camel 是非托管应用程序，我们无法访问您的私钥、恢复短语或资金。</p><h2>3. 用户责任</h2><ul><li>您全权负责保护您的私钥和恢复短语。</li><li>确保您的设备安全且无恶意软件。</li><li>遵守有关加密货币使用的所有适用法律。</li></ul><h2>4. 区块链风险与免责</h2><p>区块链交易不可逆转。代币价格、网络可用性和交易费用不受我们控制。您接受与区块链技术相关的所有风险。</p><p>应用程序按“现状”提供，不作任何担保。</p><h2>5. 责任限制</h2><p>在法律允许的最大范围内，Desert Camel 不对因使用本应用程序而引起的任何间接、偶然或后果性损害承担责任。</p><h2>6. 知识产权</h2><p>应用程序中的所有内容、商标和代码均为 Desert Camel 的财产。您被授予有限的、非独占的个人使用许可。</p><h2>7. 管辖法律</h2><p>这些条款受您所居住的司法管辖区的法律管辖。</p><h2>8. 联系</h2><p>📧 desertcamel.app@gmail.com</p>',
-      vi: '<h2>1. Chấp nhận điều khoản</h2><p>Bằng cách tải xuống, cài đặt hoặc sử dụng Desert Camel, bạn đồng ý bị ràng buộc bởi các Điều khoản này.</p><h2>2. Ví phi tập trung</h2><p>Desert Camel là ứng dụng phi tập trung, chúng tôi không nắm giữ hoặc truy cập khóa riêng, cụm từ khôi phục hoặc tiền của bạn.</p><h2>3. Trách nhiệm của người dùng</h2><ul><li>Bạn tự bảo vệ khóa riêng và cụm từ khôi phục.</li><li>Đảm bảo thiết bị an toàn và không có phần mềm độc hại.</li><li>Tuân thủ các luật hiện hành về sử dụng tiền mã hóa.</li></ul><h2>4. Rủi ro blockchain và tuyên bố miễn trừ</h2><p>Giao dịch blockchain không thể đảo ngược. Giá token, khả năng mạng và phí giao dịch nằm ngoài tầm kiểm soát của chúng tôi. Bạn chấp nhận mọi rủi ro.</p><p>Ứng dụng được cung cấp “nguyên trạng” không có bảo hành.</p><h2>5. Giới hạn trách nhiệm</h2><p>Trong phạm vi luật cho phép, Desert Camel sẽ không chịu trách nhiệm cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên hoặc do hậu quả nào phát sinh từ việc sử dụng ứng dụng.</p><h2>6. Sở hữu trí tuệ</h2><p>Mọi nội dung, nhãn hiệu và mã nguồn đều thuộc về Desert Camel. Bạn được cấp giấy phép hạn chế, không độc quyền cho mục đích cá nhân.</p><h2>7. Luật điều chỉnh</h2><p>Các Điều khoản này sẽ được điều chỉnh bởi luật pháp của khu vực bạn cư trú.</p><h2>8. Liên hệ</h2><p>📧 desertcamel.app@gmail.com</p>',
       hi: '<h2>1. शर्तों की स्वीकृति</h2><p>Desert Camel को डाउनलोड, इंस्टॉल या उपयोग करके, आप इन शर्तों से बंधे होने के लिए सहमत होते हैं।</p><h2>2. गैर-संरक्षक वॉलेट</h2><p>Desert Camel एक गैर-संरक्षक ऐप है, हम आपकी निजी कुंजियों, पुनर्प्राप्ति वाक्यांश या धन तक नहीं पहुँच सकते।</p><h2>3. उपयोगकर्ता की जिम्मेदारियाँ</h2><ul><li>आप अपनी निजी कुंजियों की सुरक्षा के लिए स्वयं जिम्मेदार हैं।</li><li>सुनिश्चित करें कि आपका डिवाइस सुरक्षित है।</li><li>क्रिप्टोकरेंसी उपयोग से संबंधित सभी लागू कानूनों का पालन करें।</li></ul><h2>4. ब्लॉकचेन जोखिम और अस्वीकरण</h2><p>ब्लॉकचेन लेन-देन अपरिवर्तनीय हैं। टोकन की कीमतें, नेटवर्क उपलब्धता और लेन-देन शुल्क हमारे नियंत्रण से बाहर हैं।</p><p>ऐप बिना किसी वारंटी के "जैसा है" प्रदान किया जाता है।</p><h2>5. दायित्व की सीमा</h2><p>Desert Camel ऐप के उपयोग से उत्पन्न किसी भी अप्रत्यक्ष या परिणामी क्षति के लिए उत्तरदायी नहीं होगा।</p><h2>6. बौद्धिक संपदा</h2><p>ऐप की सभी सामग्री Desert Camel की संपत्ति है। आपको व्यक्तिगत उपयोग के लिए सीमित लाइसेंस दिया गया है।</p><h2>7. शासी कानून</h2><p>ये शर्तें उस क्षेत्र के कानूनों द्वारा शासित होंगी जिसमें आप रहते हैं।</p><h2>8. संपर्क</h2><p>📧 desertcamel.app@gmail.com</p>',
+      vi: '<h2>1. Chấp nhận điều khoản</h2><p>Bằng cách tải xuống, cài đặt hoặc sử dụng Desert Camel, bạn đồng ý bị ràng buộc bởi các Điều khoản này.</p><h2>2. Ví phi tập trung</h2><p>Desert Camel là ứng dụng phi tập trung, chúng tôi không nắm giữ hoặc truy cập khóa riêng, cụm từ khôi phục hoặc tiền của bạn.</p><h2>3. Trách nhiệm của người dùng</h2><ul><li>Bạn tự bảo vệ khóa riêng và cụm từ khôi phục.</li><li>Đảm bảo thiết bị an toàn và không có phần mềm độc hại.</li><li>Tuân thủ các luật hiện hành về sử dụng tiền mã hóa.</li></ul><h2>4. Rủi ro blockchain và tuyên bố miễn trừ</h2><p>Giao dịch blockchain không thể đảo ngược. Giá token, khả năng mạng và phí giao dịch nằm ngoài tầm kiểm soát của chúng tôi. Bạn chấp nhận mọi rủi ro.</p><p>Ứng dụng được cung cấp “nguyên trạng” không có bảo hành.</p><h2>5. Giới hạn trách nhiệm</h2><p>Trong phạm vi luật cho phép, Desert Camel sẽ không chịu trách nhiệm cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên hoặc do hậu quả nào phát sinh từ việc sử dụng ứng dụng.</p><h2>6. Sở hữu trí tuệ</h2><p>Mọi nội dung, nhãn hiệu và mã nguồn đều thuộc về Desert Camel. Bạn được cấp giấy phép hạn chế, không độc quyền cho mục đích cá nhân.</p><h2>7. Luật điều chỉnh</h2><p>Các Điều khoản này sẽ được điều chỉnh bởi luật pháp của khu vực bạn cư trú.</p><h2>8. Liên hệ</h2><p>📧 desertcamel.app@gmail.com</p>',
       ar: '<h2>1. قبول الشروط</h2><p>بتنزيل أو تثبيت أو استخدام Desert Camel، فإنك توافق على الالتزام بهذه الشروط.</p><h2>2. محفظة غير استضافة</h2><p>Desert Camel هو تطبيق غير استضافة، لا يمكننا الوصول إلى مفاتيحك الخاصة أو عبارات الاسترداد أو أموالك.</p><h2>3. مسؤوليات المستخدم</h2><ul><li>أنت وحدك المسؤول عن حماية مفاتيحك الخاصة.</li><li>تأكد من أن جهازك آمن.</li><li>امتثل لجميع القوانين المنطبقة بشأن استخدام العملات المشفرة.</li></ul><h2>4. مخاطر البلوكشين وإخلاء المسؤولية</h2><p>معاملات البلوكشين غير قابلة للعكس. أسعار الرموز وتوافر الشبكة ورسوم المعاملات خارج سيطرتنا.</p><p>يتم تقديم التطبيق "كما هو" دون أي ضمانات.</p><h2>5. حدود المسؤولية</h2><p>لن تكون Desert Camel مسؤولة عن أي أضرار غير مباشرة أو عرضية أو تبعية ناتجة عن استخدام التطبيق.</p><h2>6. الملكية الفكرية</h2><p>جميع المحتويات والعلامات التجارية والشفرة داخل التطبيق هي ملك لـ Desert Camel.</p><h2>7. القانون الحاكم</h2><p>تخضع هذه الشروط لقوانين الولاية القضائية التي تقيم فيها.</p><h2>8. الاتصال</h2><p>📧 desertcamel.app@gmail.com</p>',
       id: '<h2>1. Penerimaan Syarat</h2><p>Dengan mengunduh, menginstal, atau menggunakan Desert Camel, Anda setuju untuk terikat oleh Syarat ini.</p><h2>2. Dompet Non-Kustodian</h2><p>Desert Camel adalah aplikasi non-kustodian, kami tidak memiliki akses ke kunci pribadi, frasa pemulihan, atau dana Anda.</p><h2>3. Tanggung Jawab Pengguna</h2><ul><li>Anda bertanggung jawab penuh atas keamanan kunci pribadi Anda.</li><li>Pastikan perangkat Anda aman.</li><li>Patuhi semua hukum yang berlaku terkait penggunaan mata uang kripto.</li></ul><h2>4. Risiko Blockchain dan Penafian</h2><p>Transaksi blockchain tidak dapat dibatalkan. Harga token, ketersediaan jaringan, dan biaya transaksi di luar kendali kami.</p><p>Aplikasi disediakan "APA ADANYA" tanpa jaminan.</p><h2>5. Batasan Tanggung Jawab</h2><p>Desert Camel tidak bertanggung jawab atas kerugian tidak langsung, insidental, atau konsekuensial yang timbul dari penggunaan Aplikasi.</p><h2>6. Kekayaan Intelektual</h2><p>Semua konten, merek dagang, dan kode dalam Aplikasi adalah milik Desert Camel.</p><h2>7. Hukum yang Berlaku</h2><p>Syarat ini diatur oleh hukum yurisdiksi tempat Anda tinggal.</p><h2>8. Kontak</h2><p>📧 desertcamel.app@gmail.com</p>',
       ms: '<h2>1. Penerimaan Terma</h2><p>Dengan memuat turun, memasang, atau menggunakan Desert Camel, anda bersetuju untuk terikat oleh Terma ini.</p><h2>2. Dompet Bukan Kustodian</h2><p>Desert Camel adalah aplikasi bukan kustodian, kami tidak mempunyai akses ke kunci peribadi, frasa pemulihan, atau dana anda.</p><h2>3. Tanggungjawab Pengguna</h2><ul><li>Anda bertanggungjawab sepenuhnya untuk melindungi kunci peribadi anda.</li><li>Pastikan peranti anda selamat.</li><li>Patuhi semua undang-undang yang berkenaan mengenai penggunaan mata wang kripto.</li></ul><h2>4. Risiko Blockchain dan Penafian</h2><p>Transaksi blockchain tidak boleh diterbalikkan. Harga token, ketersediaan rangkaian, dan yuran transaksi di luar kawalan kami.</p><p>Aplikasi disediakan "SEBAGAIMANA ADANYA" tanpa sebarang waranti.</p><h2>5. Had Liabiliti</h2><p>Desert Camel tidak bertanggungjawab atas sebarang kerugian tidak langsung atau berbangkit yang timbul daripada penggunaan Aplikasi.</p><h2>6. Harta Intelek</h2><p>Semua kandungan, tanda dagangan, dan kod dalam Aplikasi adalah hak milik Desert Camel.</p><h2>7. Undang-undang yang Mentadbir</h2><p>Terma ini ditadbir oleh undang-undang bidang kuasa di mana anda tinggal.</p><h2>8. Hubungi</h2><p>📧 desertcamel.app@gmail.com</p>',
-      lo: '<h2>1. ການຍອມຮັບຂໍ້ກຳນົດ</h2><p>ໂດຍການດາວໂຫຼດ, ຕິດຕັ້ງ ຫຼື ໃຊ້ Desert Camel, ທ່ານຕົກລົງທີ່ຈະຖືກຜູກມັດໂດຍຂໍ້ກຳນົດເຫຼົ່ານີ້.</p><h2>2. ກະເປົາເງິນທີ່ບໍ່ມີຜູ້ຄຸ້ມຄອງ</h2><p>Desert Camel ແມ່ນແອັບທີ່ບໍ່ມີຜູ້ຄຸ້ມຄອງ, ພວກເຮົາບໍ່ສາມາດເຂົ້າເຖິງກະແຈສ່ວນຕົວ, ປະໂຫຍກການຟື້ນຟູ ຫຼື ເງິນທຶນຂອງທ່ານ.</p><h2>3. ຄວາມຮັບຜິດຊອບຂອງຜູ້ໃຊ້</h2><ul><li>ທ່ານຮັບຜິດຊອບເອງໃນການປົກປ້ອງກະແຈສ່ວນຕົວຂອງທ່ານ.</li><li>ໃຫ້ແນ່ໃຈວ່າອຸປະກອນຂອງທ່ານປອດໄພ.</li><li>ປະຕິບັດຕາມກົດໝາຍທີ່ກ່ຽວຂ້ອງກັບການໃຊ້ງານສະກຸນເງິນດິຈິຕອນ.</li></ul><h2>4. ຄວາມສ່ຽງ Blockchain ແລະ ການປະຕິເສດ</h2><p>ທຸລະກຳ Blockchain ບໍ່ສາມາດຍົກເລີກໄດ້. ລາຄາ token, ຄວາມພ້ອມຂອງເຄືອຂ່າຍ ແລະ ຄ່າທຳນຽມທຸລະກຳຢູ່ນອກການຄວບຄຸມຂອງພວກເຮົາ.</p><p>ແອັບຖືກສະໜອງໃຫ້ "ຕາມສະພາບ" ໂດຍບໍ່ມີການຮັບປະກັນ.</p><h2>5. ຂໍ້ຈຳກັດຄວາມຮັບຜິດຊອບ</h2><p>Desert Camel ຈະບໍ່ຮັບຜິດຊອບຕໍ່ຄວາມເສຍຫາຍທາງອ້ອມ ຫຼື ຜົນສືບເນື່ອງໃດໆທີ່ເກີດຈາກການໃຊ້ແອັບ.</p><h2>6. ຊັບສິນທາງປັນຍາ</h2><p>ເນື້ອຫາ, ເຄື່ອງໝາຍການຄ້າ ແລະ ລະຫັດພາຍໃນແອັບເປັນຂອງ Desert Camel.</p><h2>7. ກົດໝາຍທີ່ຄຸ້ມຄອງ</h2><p>ຂໍ້ກຳນົດເຫຼົ່ານີ້ຈະຖືກຄຸ້ມຄອງໂດຍກົດໝາຍຂອງເຂດທີ່ທ່ານອາໄສຢູ່.</p><h2>8. ຕິດຕໍ່</h2><p>📧 desertcamel.app@gmail.com</p>'
+      fr: '<h2>1. Acceptation des conditions</h2><p>En téléchargeant, installant ou utilisant Desert Camel, vous acceptez d\'être lié par ces conditions.</p><h2>2. Portefeuille non custodial</h2><p>Desert Camel est une application non custodiale, nous n\'avons pas accès à vos clés privées, phrases de récupération ou fonds.</p><h2>3. Responsabilités de l\'utilisateur</h2><ul><li>Vous êtes seul responsable de la protection de vos clés privées.</li><li>Assurez-vous que votre appareil est sécurisé.</li><li>Respectez toutes les lois applicables concernant l\'utilisation des cryptomonnaies.</li></ul><h2>4. Risques liés à la blockchain et exclusions de responsabilité</h2><p>Les transactions blockchain sont irréversibles. Les prix des jetons, la disponibilité du réseau et les frais de transaction échappent à notre contrôle.</p><p>L\'application est fournie "EN L\'ÉTAT" sans aucune garantie.</p><h2>5. Limitation de responsabilité</h2><p>Dans toute la mesure permise par la loi, Desert Camel ne sera pas responsable des dommages indirects, accessoires ou consécutifs découlant de l\'utilisation de l\'Application.</p><h2>6. Propriété intellectuelle</h2><p>Tout le contenu, les marques et le code de l\'Application sont la propriété de Desert Camel.</p><h2>7. Droit applicable</h2><p>Ces conditions sont régies par les lois de la juridiction dans laquelle vous résidez.</p><h2>8. Contact</h2><p>📧 desertcamel.app@gmail.com</p>',
+      pt: '<h2>1. Aceitação dos Termos</h2><p>Ao baixar, instalar ou usar o Desert Camel, você concorda em ficar vinculado a estes Termos.</p><h2>2. Carteira não custodial</h2><p>Desert Camel é um aplicativo não custodial, não temos acesso às suas chaves privadas, frases de recuperação ou fundos.</p><h2>3. Responsabilidades do Usuário</h2><ul><li>Você é o único responsável pela proteção de suas chaves privadas.</li><li>Certifique-se de que seu dispositivo esteja seguro.</li><li>Cumpra todas as leis aplicáveis sobre o uso de criptomoedas.</li></ul><h2>4. Riscos da Blockchain e Isenções</h2><p>As transações em blockchain são irreversíveis. Os preços dos tokens, a disponibilidade da rede e as taxas de transação estão fora do nosso controle.</p><p>O Aplicativo é fornecido "COMO ESTÁ" sem quaisquer garantias.</p><h2>5. Limitação de Responsabilidade</h2><p>Na extensão máxima permitida por lei, o Desert Camel não será responsável por quaisquer danos indiretos, incidentais ou consequenciais decorrentes do uso do Aplicativo.</p><h2>6. Propriedade Intelectual</h2><p>Todo o conteúdo, marcas registradas e código dentro do Aplicativo são propriedade da Desert Camel.</p><h2>7. Lei Aplicável</h2><p>Estes Termos serão regidos pelas leis da jurisdição em que você reside.</p><h2>8. Contato</h2><p>📧 desertcamel.app@gmail.com</p>',
+      ko: '<h2>1. 약관 동의</h2><p>Desert Camel을 다운로드, 설치 또는 사용함으로써 귀하는 본 약관에 구속되는 데 동의합니다.</p><h2>2. 비수탁 지갑</h2><p>Desert Camel은 비수탁 애플리케이션으로, 당사는 귀하의 개인 키, 복구 문구 또는 자금에 접근할 수 없습니다.</p><h2>3. 사용자 책임</h2><ul><li>귀하는 개인 키와 복구 문구를 보호할 책임이 있습니다.</li><li>기기가 안전한지 확인하십시오.</li><li>암호화폐 사용에 관한 모든 관련 법률을 준수해야 합니다.</li></ul><h2>4. 블록체인 위험 및 면책 조항</h2><p>블록체인 거래는 되돌릴 수 없습니다. 토큰 가격, 네트워크 가용성 및 거래 수수료는 당사 통제 범위를 벗어납니다.</p><p>애플리케이션은 어떠한 보증도 없이 "있는 그대로" 제공됩니다.</p><h2>5. 책임의 제한</h2><p>법이 허용하는 최대 한도 내에서 Desert Camel은 애플리케이션 사용으로 인해 발생하는 간접적, 부수적 또는 결과적 손해에 대해 책임을 지지 않습니다.</p><h2>6. 지적 재산권</h2><p>애플리케이션 내의 모든 콘텐츠, 상표 및 코드는 Desert Camel의 재산입니다.</p><h2>7. 준거법</h2><p>본 약관은 귀하가 거주하는 관할권의 법률에 따라 규율됩니다.</p><h2>8. 연락처</h2><p>📧 desertcamel.app@gmail.com</p>',
+      ja: '<h2>1. 利用規約の承諾</h2><p>Desert Camelをダウンロード、インストール、または使用することにより、本規約に拘束されることに同意したものとします。</p><h2>2. 非保管型ウォレット</h2><p>Desert Camelは非保管型アプリケーションであり、当社はお客様の秘密鍵、リカバリーフレーズ、または資金にアクセスできません。</p><h2>3. ユーザーの責任</h2><ul><li>お客様は、秘密鍵とリカバリーフレーズを保護する責任を負います。</li><li>お使いのデバイスが安全であることを確認してください。</li><li>暗号通貨の使用に関するすべての該当法律を遵守する必要があります。</li></ul><h2>4. ブロックチェーンのリスクと免責事項</h2><p>ブロックチェーン取引は元に戻せません。トークンの価格、ネットワークの可用性、取引手数料は当社の管理外です。</p><p>アプリケーションは保証なしで「現状有姿」で提供されます。</p><h2>5. 責任の制限</h2><p>法律で認められる最大限の範囲において、Desert Camelはアプリケーションの使用から生じるいかなる間接的、偶発的、または結果的損害についても責任を負いません。</p><h2>6. 知的財産権</h2><p>アプリケーション内のすべてのコンテンツ、商標、コードはDesert Camelの財産です。</p><h2>7. 準拠法</h2><p>本規約は、お客様が居住する管轄区域の法律に準拠します。</p><h2>8. 連絡先</h2><p>📧 desertcamel.app@gmail.com</p>'
     };
 
     function switchLang(lang) {

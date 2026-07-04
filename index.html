@@ -6,7 +6,6 @@
   <title>Desert Camel – Secure Web3 Wallet</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
   <style>
-    /* Giữ nguyên CSS như đã có, thêm style cho dropdown */
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
@@ -85,7 +84,7 @@
     .app-ui .token {
       background: rgba(255,255,255,0.7);
       padding: 10px 12px; border-radius: 12px; margin-bottom: 8px;
-      display: flex; justify-content: space-between;gap: 12px; font-size: 0.9rem; font-weight: 500;
+      display: flex; justify-content: space-between; gap: 12px; font-size: 0.9rem; font-weight: 500;
     }
     .app-ui .swap-btn {
       margin-top: 16px; background: #c89b3c; color: white; text-align: center;
@@ -138,12 +137,15 @@
       <select class="lang-select" id="langSelector" onchange="switchLang(this.value)">
         <option value="en">🇬🇧 English</option>
         <option value="zh">🇨🇳 中文</option>
-        <option value="vi">🇻🇳 Tiếng Việt</option>
         <option value="hi">🇮🇳 हिंदी</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
         <option value="ar">🇸🇦 العربية</option>
         <option value="id">🇮🇩 Indonesia</option>
         <option value="ms">🇲🇾 Melayu</option>
-        <option value="lo">🇱🇦 ລາວ</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="ja">🇯🇵 日本語</option>
       </select>
     </nav>
   </header>
@@ -187,7 +189,6 @@
   </footer>
 
   <script>
-    // Đối tượng chứa tất cả bản dịch
     const translations = {
       en: {
         home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
@@ -235,29 +236,6 @@
         'footer-support': '📧 支持：<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
         'footer-copy': '© 2026 Desert Camel。为 SidraChain 构建。'
       },
-      vi: {
-        home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
-        'hero-title1': 'Khóa của bạn.',
-        'hero-title2': 'Tiền của bạn.',
-        'hero-title3': 'Sa mạc của bạn.',
-        'hero-desc': 'Desert Camel là ví Web3 <strong>phi tập trung</strong> dành cho SidraChain. Quản lý, hoán đổi và bảo vệ token mà không mất quyền kiểm soát.',
-        'hero-btn': '🚀 Sắp ra mắt trên Google Play',
-        'trust-badge': '🔒 Khóa riêng tư luôn được lưu trên thiết bị của bạn.',
-        'mockup-wallet': '🐪 Ví',
-        'mockup-balance': '$ 1.245,80',
-        'mockup-swap': 'Hoán đổi ngay',
-        'features-title': 'Tại sao chọn Desert Camel?',
-        'feature1-title': 'Phi tập trung',
-        'feature1-desc': 'Chúng tôi không lưu khóa riêng. Quyền sở hữu hoàn toàn thuộc về bạn.',
-        'feature2-title': 'Hoán đổi phi tập trung',
-        'feature2-desc': 'Hoán đổi token SidraChain trực tiếp trong ứng dụng. Không qua trung gian.',
-        'feature3-title': 'Tự quản lý',
-        'feature3-desc': 'Kiểm soát tài sản của bạn. Giao dịch được ký cục bộ.',
-        'feature4-title': 'Nhanh và nhẹ',
-        'feature4-desc': 'Tối ưu cho di động. Tương tác blockchain nhanh.',
-        'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
-      },
       hi: {
         home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
         'hero-title1': 'आपकी कुंजियाँ।',
@@ -280,6 +258,29 @@
         'feature4-desc': 'मोबाइल के लिए अनुकूलित। त्वरित ब्लॉकचेन इंटरैक्शन।',
         'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
         'footer-copy': '© 2026 Desert Camel। SidraChain के लिए निर्मित।'
+      },
+      vi: {
+        home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
+        'hero-title1': 'Khóa của bạn.',
+        'hero-title2': 'Tiền của bạn.',
+        'hero-title3': 'Sa mạc của bạn.',
+        'hero-desc': 'Desert Camel là ví Web3 <strong>phi tập trung</strong> dành cho SidraChain. Quản lý, hoán đổi và bảo vệ token mà không mất quyền kiểm soát.',
+        'hero-btn': '🚀 Sắp ra mắt trên Google Play',
+        'trust-badge': '🔒 Khóa riêng tư luôn được lưu trên thiết bị của bạn.',
+        'mockup-wallet': '🐪 Ví',
+        'mockup-balance': '$ 1.245,80',
+        'mockup-swap': 'Hoán đổi ngay',
+        'features-title': 'Tại sao chọn Desert Camel?',
+        'feature1-title': 'Phi tập trung',
+        'feature1-desc': 'Chúng tôi không lưu khóa riêng. Quyền sở hữu hoàn toàn thuộc về bạn.',
+        'feature2-title': 'Hoán đổi phi tập trung',
+        'feature2-desc': 'Hoán đổi token SidraChain trực tiếp trong ứng dụng. Không qua trung gian.',
+        'feature3-title': 'Tự quản lý',
+        'feature3-desc': 'Kiểm soát tài sản của bạn. Giao dịch được ký cục bộ.',
+        'feature4-title': 'Nhanh và nhẹ',
+        'feature4-desc': 'Tối ưu cho di động. Tương tác blockchain nhanh.',
+        'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
       },
       ar: {
         home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
@@ -350,50 +351,113 @@
         'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
         'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.'
       },
-      lo: {
-        home: 'ໜ້າຫຼັກ', privacy: 'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ', terms: 'ຂໍ້ກຳນົດການໃຊ້ງານ', contact: 'ຕິດຕໍ່',
-        'hero-title1': 'ກະແຈຂອງທ່ານ.',
-        'hero-title2': 'ສະກຸນເງິນຂອງທ່ານ.',
-        'hero-title3': 'ທະເລຊາຍຂອງທ່ານ.',
-        'hero-desc': 'Desert Camel ແມ່ນກະເປົາເງິນ Web3 <strong>ທີ່ບໍ່ມີຜູ້ຄຸ້ມຄອງ</strong> ທີ່ສ້າງຂຶ້ນສຳລັບ SidraChain. ຈັດການ, ແລກປ່ຽນ ແລະ ຮັກສາ token ຂອງທ່ານໂດຍບໍ່ສູນເສຍການຄວບຄຸມ.',
-        'hero-btn': '🚀 ຈະມາເຖິງໃນ Google Play',
-        'trust-badge': '🔒 ກະແຈສ່ວນຕົວຍັງຢູ່ໃນອຸປະກອນຂອງທ່ານ. ສະເໝີ.',
-        'mockup-wallet': '🐪 ກະເປົາເງິນ',
+      fr: {
+        home: 'Accueil', privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact',
+        'hero-title1': 'Vos clés.',
+        'hero-title2': 'Vos crypto.',
+        'hero-title3': 'Votre désert.',
+        'hero-desc': 'Desert Camel est un portefeuille Web3 <strong>non custodial</strong> conçu pour SidraChain. Gérez, échangez et sécurisez vos jetons sans perdre le contrôle.',
+        'hero-btn': '🚀 Bientôt sur Google Play',
+        'trust-badge': '🔒 Les clés privées restent sur votre appareil. Toujours.',
+        'mockup-wallet': '🐪 Portefeuille',
+        'mockup-balance': '$ 1 245,80',
+        'mockup-swap': 'Échanger',
+        'features-title': 'Pourquoi Desert Camel ?',
+        'feature1-title': 'Non custodial',
+        'feature1-desc': 'Nous ne stockons jamais vos clés privées. La pleine propriété vous appartient.',
+        'feature2-title': 'Échanges décentralisés',
+        'feature2-desc': 'Échangez des jetons SidraChain directement dans l\'app. Sans intermédiaires.',
+        'feature3-title': 'Auto-garde',
+        'feature3-desc': 'Contrôlez vos actifs. Transactions signées localement.',
+        'feature4-title': 'Rapide & léger',
+        'feature4-desc': 'Optimisé pour mobile. Interactions blockchain rapides.',
+        'footer-support': '📧 Support : <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Conçu pour SidraChain.'
+      },
+      pt: {
+        home: 'Início', privacy: 'Privacidade', terms: 'Termos', contact: 'Contato',
+        'hero-title1': 'Suas chaves.',
+        'hero-title2': 'Suas criptos.',
+        'hero-title3': 'Seu deserto.',
+        'hero-desc': 'Desert Camel é uma carteira Web3 <strong>não custodial</strong> construída para SidraChain. Gerencie, troque e proteja seus tokens sem perder o controle.',
+        'hero-btn': '🚀 Em breve no Google Play',
+        'trust-badge': '🔒 As chaves privadas permanecem no seu dispositivo. Sempre.',
+        'mockup-wallet': '🐪 Carteira',
+        'mockup-balance': '$ 1.245,80',
+        'mockup-swap': 'Trocar',
+        'features-title': 'Por que Desert Camel?',
+        'feature1-title': 'Não custodial',
+        'feature1-desc': 'Nunca armazenamos suas chaves privadas. A propriedade total é sua.',
+        'feature2-title': 'Trocas descentralizadas',
+        'feature2-desc': 'Troque tokens SidraChain diretamente no app. Sem intermediários.',
+        'feature3-title': 'Autocustódia',
+        'feature3-desc': 'Controle total de seus ativos. Transações assinadas localmente.',
+        'feature4-title': 'Rápido e leve',
+        'feature4-desc': 'Otimizado para celular. Interações blockchain rápidas.',
+        'footer-support': '📧 Suporte: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Construído para SidraChain.'
+      },
+      ko: {
+        home: '홈', privacy: '개인정보처리방침', terms: '이용약관', contact: '연락처',
+        'hero-title1': '당신의 키.',
+        'hero-title2': '당신의 암호화폐.',
+        'hero-title3': '당신의 사막.',
+        'hero-desc': 'Desert Camel은 SidraChain을 위해 구축된 <strong>비수탁</strong> Web3 지갑입니다. 통제권을 포기하지 않고 토큰을 관리, 스왑 및 보호하세요.',
+        'hero-btn': '🚀 곧 Google Play에 출시',
+        'trust-badge': '🔒 개인 키는 항상 기기에 저장됩니다.',
+        'mockup-wallet': '🐪 지갑',
         'mockup-balance': '$ 1,245.80',
-        'mockup-swap': 'ແລກປ່ຽນດຽວນີ້',
-        'features-title': 'ເປັນຫຍັງຕ້ອງເລືອກ Desert Camel?',
-        'feature1-title': 'ບໍ່ມີຜູ້ຄຸ້ມຄອງ',
-        'feature1-desc': 'ພວກເຮົາບໍ່ເກັບກະແຈສ່ວນຕົວຂອງທ່ານ. ການເປັນເຈົ້າຂອງຢ່າງເຕັມທີ່ຍັງຢູ່ກັບທ່ານ.',
-        'feature2-title': 'ການແລກປ່ຽນແບບກະຈາຍສູນ',
-        'feature2-desc': 'ແລກປ່ຽນ token SidraChain ໂດຍກົງພາຍໃນແອັບ. ບໍ່ມີຄົນກາງ.',
-        'feature3-title': 'ການຄຸ້ມຄອງຕົນເອງ',
-        'feature3-desc': 'ຄວບຄຸມຊັບສິນຂອງທ່ານຢ່າງສົມບູນ. ທຸລະກຳຖືກລົງນາມໃນທ້ອງຖິ່ນ.',
-        'feature4-title': 'ໄວ ແລະ ເບົາ',
-        'feature4-desc': 'ປັບປຸງສຳລັບມືຖື. ການໂຕ້ຕອບ blockchain ໄວ.',
-        'footer-support': '📧 ສະໜັບສະໜຸນ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. ສ້າງຂຶ້ນສຳລັບ SidraChain.'
+        'mockup-swap': '지금 스왑',
+        'features-title': '왜 Desert Camel인가?',
+        'feature1-title': '비수탁',
+        'feature1-desc': '당사의 개인 키를 절대 저장하지 않습니다. 완전한 소유권은 당신에게 있습니다.',
+        'feature2-title': '분산형 스왑',
+        'feature2-desc': '앱 내에서 직접 SidraChain 토큰을 스왑하세요. 중개자 없음.',
+        'feature3-title': '자가 보관',
+        'feature3-desc': '자산을 완전히 통제하세요. 거래는 로컬에서 서명됩니다.',
+        'feature4-title': '빠르고 가벼움',
+        'feature4-desc': '모바일 최적화. 빠른 블록체인 상호작용.',
+        'footer-support': '📧 지원: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. SidraChain용으로 제작됨.'
+      },
+      ja: {
+        home: 'ホーム', privacy: 'プライバシーポリシー', terms: '利用規約', contact: 'お問い合わせ',
+        'hero-title1': 'あなたの鍵。',
+        'hero-title2': 'あなたの暗号資産。',
+        'hero-title3': 'あなたの砂漠。',
+        'hero-desc': 'Desert CamelはSidraChain向けに構築された<strong>非保管型</strong> Web3ウォレットです。管理、スワップ、トークンの保護をすべて制御下で行えます。',
+        'hero-btn': '🚀 まもなくGoogle Playで',
+        'trust-badge': '🔒 秘密鍵は常にあなたのデバイスに残ります。',
+        'mockup-wallet': '🐪 ウォレット',
+        'mockup-balance': '$ 1,245.80',
+        'mockup-swap': '今すぐスワップ',
+        'features-title': 'Desert Camelを選ぶ理由',
+        'feature1-title': '非保管型',
+        'feature1-desc': '私たちはあなたの秘密鍵を一切保存しません。完全な所有権はあなたにあります。',
+        'feature2-title': '分散型スワップ',
+        'feature2-desc': 'アプリ内で直接SidraChainトークンをスワップ。仲介者なし。',
+        'feature3-title': '自己保管',
+        'feature3-desc': '資産を完全に管理。取引はローカルで署名されます。',
+        'feature4-title': '高速・軽量',
+        'feature4-desc': 'モバイル向け最適化。高速なブロックチェーン連携。',
+        'footer-support': '📧 サポート: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel。SidraChainのために構築。'
       }
     };
 
     function switchLang(lang) {
-      // Lưu ngôn ngữ đã chọn vào localStorage để áp dụng cho các trang khác
       localStorage.setItem('preferredLang', lang);
-      // Cập nhật tất cả các phần tử có data-key
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[lang] && translations[lang][key] !== undefined) {
-          // Nếu nội dung có HTML (như <strong>), giữ nguyên
           el.innerHTML = translations[lang][key];
         }
       });
-      // Cập nhật select
       document.getElementById('langSelector').value = lang;
     }
 
-    // Khi tải trang, kiểm tra ngôn ngữ đã lưu hoặc mặc định
     window.onload = function() {
       const savedLang = localStorage.getItem('preferredLang') || 'en';
-      // Nếu ngôn ngữ hợp lệ thì áp dụng
       if (translations[savedLang]) {
         switchLang(savedLang);
       } else {

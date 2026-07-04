@@ -1,1 +1,1 @@
-body{font-family:Arial;background:#fffdf7;color:#222;padding:30px}a{background:#D4A017;color:#fff;padding:10px 16px;text-decoration:none}
+body{font-family:Arial,sans-serif;max-width:900px;margin:auto;padding:24px;background:#faf8f3;color:#333}header,footer{text-align:center}nav a,.btn{color:#8a5a00;text-decoration:none;font-weight:bold}.hero{padding:30px 0}.btn{display:inline-block;border:2px solid #c89b3c;padding:10px 18px;border-radius:8px}

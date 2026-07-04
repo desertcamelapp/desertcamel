@@ -6,11 +6,8 @@
   <title>Desert Camel – Secure Web3 Wallet</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Giữ nguyên CSS như đã có, thêm style cho dropdown */
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: #fcf9f2;
@@ -32,23 +29,12 @@
       border-bottom: 2px solid #e6d5b8;
       margin-bottom: 2rem;
     }
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-    }
-    .logo span {
-      color: #c89b3c;
-    }
-    nav a {
-      margin-left: 1.2rem;
-      color: #2d2a24;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-    nav a:hover {
-      color: #c89b3c;
-    }
+    .logo { font-size: 1.6rem; font-weight: 700; }
+    .logo span { color: #c89b3c; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 1rem; }
+    nav a { color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+    nav a:hover { color: #c89b3c; }
+    .lang-select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid #c89b3c; background: white; font-size: 0.9rem; cursor: pointer; }
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -59,21 +45,10 @@
       border-radius: 2rem;
       margin-bottom: 3rem;
     }
-    .hero-text {
-      flex: 1 1 300px;
-    }
-    .hero-text h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      line-height: 1.2;
-      font-weight: 800;
-    }
-    .hero-text h1 span {
-      color: #c89b3c;
-    }
-    .hero-text p {
-      font-size: 1.1rem;
-      margin: 1.2rem 0;
-    }
+    .hero-text { flex: 1 1 300px; }
+    .hero-text h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.2; font-weight: 800; }
+    .hero-text h1 span { color: #c89b3c; }
+    .hero-text p { font-size: 1.1rem; margin: 1.2rem 0; }
     .btn {
       display: inline-block;
       background: #c89b3c;
@@ -84,10 +59,7 @@
       text-decoration: none;
       transition: 0.3s;
     }
-    .btn:hover {
-      background: #a87b2a;
-      transform: scale(1.02);
-    }
+    .btn:hover { background: #a87b2a; transform: scale(1.02); }
     .trust-badge {
       margin-top: 1.2rem;
       font-size: 0.9rem;
@@ -96,88 +68,43 @@
       border-radius: 30px;
       display: inline-block;
     }
-    .hero-mockup {
-      flex: 1 1 250px;
-      display: flex;
-      justify-content: center;
-    }
+    .hero-mockup { flex: 1 1 250px; display: flex; justify-content: center; }
     .phone {
-      width: 200px;
-      height: 400px;
-      background: #111;
-      border-radius: 36px;
-      padding: 10px;
+      width: 200px; height: 400px;
+      background: #111; border-radius: 36px; padding: 10px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
     .phone-screen {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       background: linear-gradient(145deg, #fcf3e6, #f0e3d0);
-      border-radius: 28px;
-      padding: 16px 12px;
-      display: flex;
-      flex-direction: column;
+      border-radius: 28px; padding: 16px 12px;
+      display: flex; flex-direction: column;
     }
-    .app-ui .wallet-header {
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    .app-ui .balance {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin: 16px 0;
-    }
+    .app-ui .wallet-header { font-weight: 700; font-size: 1.1rem; }
+    .app-ui .balance { font-size: 1.8rem; font-weight: 800; margin: 16px 0; }
     .app-ui .token {
       background: rgba(255,255,255,0.7);
-      padding: 10px 12px;
-      border-radius: 12px;
-      margin-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      font-weight: 500;
+      padding: 10px 12px; border-radius: 12px; margin-bottom: 8px;
+      display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 500;
     }
     .app-ui .swap-btn {
-      margin-top: 16px;
-      background: #c89b3c;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
+      margin-top: 16px; background: #c89b3c; color: white; text-align: center;
+      padding: 10px; border-radius: 40px; font-weight: 600; font-size: 0.9rem;
     }
-    .features {
-      margin: 3rem 0;
-    }
-    .features h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
+    .features { margin: 3rem 0; }
+    .features h2 { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.8rem;
     }
     .feature-card {
-      background: #fff;
-      padding: 1.8rem 1.5rem;
-      border-radius: 1.5rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      text-align: center;
+      background: #fff; padding: 1.8rem 1.5rem; border-radius: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08); text-align: center;
     }
-    .feature-card .icon {
-      font-size: 2.5rem;
-    }
-    .feature-card h3 {
-      margin: 0.8rem 0 0.4rem;
-      font-size: 1.2rem;
-    }
-    .feature-card p {
-      font-size: 0.95rem;
-      color: #5a4a34;
-    }
+    .feature-card .icon { font-size: 2.5rem; }
+    .feature-card h3 { margin: 0.8rem 0 0.4rem; font-size: 1.2rem; }
+    .feature-card p { font-size: 0.95rem; color: #5a4a34; }
     footer {
       margin-top: auto;
       border-top: 1px solid #e6d5b8;
@@ -186,93 +113,293 @@
       color: #5a4a34;
       font-size: 0.9rem;
     }
-    footer a {
-      color: #a87b2a;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a { color: #a87b2a; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
     @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: center;
-      }
-      nav a {
-        margin: 0 0.6rem;
-        font-size: 0.85rem;
-      }
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1.5rem;
-      }
-      .phone {
-        width: 160px;
-        height: 320px;
-      }
-      .app-ui .balance {
-        font-size: 1.4rem;
-      }
-      .feature-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      header { flex-direction: column; gap: 0.8rem; align-items: center; }
+      nav { justify-content: center; }
+      nav a { margin: 0 0.4rem; font-size: 0.85rem; }
+      .hero { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+      .phone { width: 160px; height: 320px; }
+      .app-ui .balance { font-size: 1.4rem; }
+      .feature-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 450px) {
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 450px) { .feature-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">🐪 <span>Desert Camel</span></div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html" data-key="home">Home</a>
+      <a href="privacy.html" data-key="privacy">Privacy</a>
+      <a href="terms.html" data-key="terms">Terms</a>
+      <a href="contact.html" data-key="contact">Contact</a>
+      <select class="lang-select" id="langSelector" onchange="switchLang(this.value)">
+        <option value="en">🇬🇧 English</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="hi">🇮🇳 हिंदी</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="id">🇮🇩 Indonesia</option>
+        <option value="ms">🇲🇾 Melayu</option>
+        <option value="lo">🇱🇦 ລາວ</option>
+      </select>
     </nav>
   </header>
   <main>
     <section class="hero">
       <div class="hero-text">
-        <h1>Your Keys. <br>Your Crypto. <br><span>Your Desert.</span></h1>
-        <p>Desert Camel is a <strong>non-custodial</strong> Web3 wallet built for SidraChain. Manage, swap, and secure your tokens without giving up control.</p>
-        <a href="#" class="btn">🚀 Coming Soon on Google Play</a>
-        <div class="trust-badge">🔒 Private keys stay on your device. Always.</div>
+        <h1><span data-key="hero-title1">Your Keys.</span><br><span data-key="hero-title2">Your Crypto.</span><br><span data-key="hero-title3">Your Desert.</span></h1>
+        <p data-key="hero-desc">Desert Camel is a <strong>non-custodial</strong> Web3 wallet built for SidraChain. Manage, swap, and secure your tokens without giving up control.</p>
+        <a href="#" class="btn" data-key="hero-btn">🚀 Coming Soon on Google Play</a>
+        <div class="trust-badge" data-key="trust-badge">🔒 Private keys stay on your device. Always.</div>
       </div>
       <div class="hero-mockup">
         <div class="phone">
           <div class="phone-screen">
             <div class="app-ui">
-              <div class="wallet-header">🐪 Wallet</div>
-              <div class="balance">$ 1,245.80</div>
+              <div class="wallet-header" data-key="mockup-wallet">🐪 Wallet</div>
+              <div class="balance" data-key="mockup-balance">$ 1,245.80</div>
               <div class="token-list">
                 <div class="token">SIDRA <span>1,200.00</span></div>
                 <div class="token">USDC <span>450.50</span></div>
               </div>
-              <div class="swap-btn">Swap Now</div>
+              <div class="swap-btn" data-key="mockup-swap">Swap Now</div>
             </div>
           </div>
         </div>
       </div>
     </section>
     <section class="features">
-      <h2>Why Desert Camel?</h2>
+      <h2 data-key="features-title">Why Desert Camel?</h2>
       <div class="feature-grid">
-        <div class="feature-card"><div class="icon">🔐</div><h3>Non-Custodial</h3><p>We never store your private keys. Full ownership stays with you.</p></div>
-        <div class="feature-card"><div class="icon">🔄</div><h3>Decentralized Swaps</h3><p>Swap SidraChain tokens directly within the app. No middlemen.</p></div>
-        <div class="feature-card"><div class="icon">🛡️</div><h3>Self-Custody</h3><p>Control your assets entirely. Transactions signed locally.</p></div>
-        <div class="feature-card"><div class="icon">⚡</div><h3>Fast & Light</h3><p>Optimized for mobile. Quick blockchain interactions.</p></div>
+        <div class="feature-card"><div class="icon">🔐</div><h3 data-key="feature1-title">Non-Custodial</h3><p data-key="feature1-desc">We never store your private keys. Full ownership stays with you.</p></div>
+        <div class="feature-card"><div class="icon">🔄</div><h3 data-key="feature2-title">Decentralized Swaps</h3><p data-key="feature2-desc">Swap SidraChain tokens directly within the app. No middlemen.</p></div>
+        <div class="feature-card"><div class="icon">🛡️</div><h3 data-key="feature3-title">Self-Custody</h3><p data-key="feature3-desc">Control your assets entirely. Transactions signed locally.</p></div>
+        <div class="feature-card"><div class="icon">⚡</div><h3 data-key="feature4-title">Fast & Light</h3><p data-key="feature4-desc">Optimized for mobile. Quick blockchain interactions.</p></div>
       </div>
     </section>
   </main>
   <footer>
-    <p>📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
-    <p>© 2026 Desert Camel. Built for SidraChain.</p>
+    <p data-key="footer-support">📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+    <p data-key="footer-copy">© 2026 Desert Camel. Built for SidraChain.</p>
   </footer>
+
+  <script>
+    // Đối tượng chứa tất cả bản dịch
+    const translations = {
+      en: {
+        home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
+        'hero-title1': 'Your Keys.',
+        'hero-title2': 'Your Crypto.',
+        'hero-title3': 'Your Desert.',
+        'hero-desc': 'Desert Camel is a <strong>non-custodial</strong> Web3 wallet built for SidraChain. Manage, swap, and secure your tokens without giving up control.',
+        'hero-btn': '🚀 Coming Soon on Google Play',
+        'trust-badge': '🔒 Private keys stay on your device. Always.',
+        'mockup-wallet': '🐪 Wallet',
+        'mockup-balance': '$ 1,245.80',
+        'mockup-swap': 'Swap Now',
+        'features-title': 'Why Desert Camel?',
+        'feature1-title': 'Non-Custodial',
+        'feature1-desc': 'We never store your private keys. Full ownership stays with you.',
+        'feature2-title': 'Decentralized Swaps',
+        'feature2-desc': 'Swap SidraChain tokens directly within the app. No middlemen.',
+        'feature3-title': 'Self-Custody',
+        'feature3-desc': 'Control your assets entirely. Transactions signed locally.',
+        'feature4-title': 'Fast & Light',
+        'feature4-desc': 'Optimized for mobile. Quick blockchain interactions.',
+        'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Built for SidraChain.'
+      },
+      zh: {
+        home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们',
+        'hero-title1': '您的密钥。',
+        'hero-title2': '您的加密资产。',
+        'hero-title3': '您的沙漠。',
+        'hero-desc': 'Desert Camel 是一款为 SidraChain 构建的<strong>非托管</strong> Web3 钱包。管理、交换和保护您的代币，同时完全掌控。',
+        'hero-btn': '🚀 即将在 Google Play 上线',
+        'trust-badge': '🔒 私钥始终保存在您的设备上。',
+        'mockup-wallet': '🐪 钱包',
+        'mockup-balance': '$ 1,245.80',
+        'mockup-swap': '立即交换',
+        'features-title': '为什么选择 Desert Camel？',
+        'feature1-title': '非托管',
+        'feature1-desc': '我们从不存储您的私钥。所有权完全属于您。',
+        'feature2-title': '去中心化交换',
+        'feature2-desc': '直接在应用内交换 SidraChain 代币。无中间商。',
+        'feature3-title': '自我保管',
+        'feature3-desc': '完全控制您的资产。交易在本地签名。',
+        'feature4-title': '快速轻量',
+        'feature4-desc': '为移动端优化。快速区块链交互。',
+        'footer-support': '📧 支持：<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel。为 SidraChain 构建。'
+      },
+      vi: {
+        home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
+        'hero-title1': 'Khóa của bạn.',
+        'hero-title2': 'Tiền của bạn.',
+        'hero-title3': 'Sa mạc của bạn.',
+        'hero-desc': 'Desert Camel là ví Web3 <strong>phi tập trung</strong> dành cho SidraChain. Quản lý, hoán đổi và bảo vệ token mà không mất quyền kiểm soát.',
+        'hero-btn': '🚀 Sắp ra mắt trên Google Play',
+        'trust-badge': '🔒 Khóa riêng tư luôn được lưu trên thiết bị của bạn.',
+        'mockup-wallet': '🐪 Ví',
+        'mockup-balance': '$ 1.245,80',
+        'mockup-swap': 'Hoán đổi ngay',
+        'features-title': 'Tại sao chọn Desert Camel?',
+        'feature1-title': 'Phi tập trung',
+        'feature1-desc': 'Chúng tôi không lưu khóa riêng. Quyền sở hữu hoàn toàn thuộc về bạn.',
+        'feature2-title': 'Hoán đổi phi tập trung',
+        'feature2-desc': 'Hoán đổi token SidraChain trực tiếp trong ứng dụng. Không qua trung gian.',
+        'feature3-title': 'Tự quản lý',
+        'feature3-desc': 'Kiểm soát tài sản của bạn. Giao dịch được ký cục bộ.',
+        'feature4-title': 'Nhanh và nhẹ',
+        'feature4-desc': 'Tối ưu cho di động. Tương tác blockchain nhanh.',
+        'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
+      },
+      hi: {
+        home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
+        'hero-title1': 'आपकी कुंजियाँ।',
+        'hero-title2': 'आपकी क्रिप्टो।',
+        'hero-title3': 'आपका मरुस्थल।',
+        'hero-desc': 'Desert Camel SidraChain के लिए बनाया गया एक <strong>गैर-संरक्षक</strong> Web3 वॉलेट है। बिना नियंत्रण खोए अपने टोकन प्रबंधित करें, स्वैप करें और सुरक्षित रखें।',
+        'hero-btn': '🚀 जल्द ही Google Play पर',
+        'trust-badge': '🔒 निजी कुंजियाँ हमेशा आपके डिवाइस पर रहती हैं।',
+        'mockup-wallet': '🐪 वॉलेट',
+        'mockup-balance': '$ 1,245.80',
+        'mockup-swap': 'अभी स्वैप करें',
+        'features-title': 'Desert Camel क्यों?',
+        'feature1-title': 'गैर-संरक्षक',
+        'feature1-desc': 'हम आपकी निजी कुंजियाँ कभी संग्रहीत नहीं करते। पूर्ण स्वामित्व आपके पास रहता है।',
+        'feature2-title': 'विकेन्द्रीकृत स्वैप',
+        'feature2-desc': 'SidraChain टोकन सीधे ऐप में स्वैप करें। बिचौलिए नहीं।',
+        'feature3-title': 'आत्म-संरक्षण',
+        'feature3-desc': 'अपनी संपत्तियों का पूर्ण नियंत्रण रखें। लेन-देन स्थानीय रूप से हस्ताक्षरित होते हैं।',
+        'feature4-title': 'तेज़ और हल्का',
+        'feature4-desc': 'मोबाइल के लिए अनुकूलित। त्वरित ब्लॉकचेन इंटरैक्शन।',
+        'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel। SidraChain के लिए निर्मित।'
+      },
+      ar: {
+        home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
+        'hero-title1': 'مفاتيحك.',
+        'hero-title2': 'عملاتك المشفرة.',
+        'hero-title3': 'صحراؤك.',
+        'hero-desc': 'Desert Camel هو محفظة Web3 <strong>غير استضافة</strong> مبنية لـ SidraChain. إدارة وتبادل وتأمين رموزك دون التخلي عن السيطرة.',
+        'hero-btn': '🚀 قريباً على Google Play',
+        'trust-badge': '🔒 المفاتيح الخاصة تبقى على جهازك. دائماً.',
+        'mockup-wallet': '🐪 المحفظة',
+        'mockup-balance': '$ ١,٢٤٥.٨٠',
+        'mockup-swap': 'تبادل الآن',
+        'features-title': 'لماذا Desert Camel؟',
+        'feature1-title': 'غير استضافة',
+        'feature1-desc': 'نحن لا نخزن مفاتيحك الخاصة. الملكية الكاملة تبقى لك.',
+        'feature2-title': 'تبادل لامركزي',
+        'feature2-desc': 'تبادل رموز SidraChain مباشرة داخل التطبيق. بدون وسطاء.',
+        'feature3-title': 'الحفظ الذاتي',
+        'feature3-desc': 'السيطرة الكاملة على أصولك. يتم توقيع المعاملات محلياً.',
+        'feature4-title': 'سريع وخفيف',
+        'feature4-desc': 'محسّن للهواتف المحمولة. تفاعلات سريعة مع البلوكشين.',
+        'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. مبني لـ SidraChain.'
+      },
+      id: {
+        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Hubungi',
+        'hero-title1': 'Kunci Anda.',
+        'hero-title2': 'Kripto Anda.',
+        'hero-title3': 'Gurun Anda.',
+        'hero-desc': 'Desert Camel adalah dompet Web3 <strong>non-kustodian</strong> yang dibangun untuk SidraChain. Kelola, tukar, dan amankan token Anda tanpa kehilangan kendali.',
+        'hero-btn': '🚀 Segera di Google Play',
+        'trust-badge': '🔒 Kunci pribadi tetap di perangkat Anda. Selalu.',
+        'mockup-wallet': '🐪 Dompet',
+        'mockup-balance': '$ 1.245,80',
+        'mockup-swap': 'Tukar Sekarang',
+        'features-title': 'Mengapa Desert Camel?',
+        'feature1-title': 'Non-Kustodian',
+        'feature1-desc': 'Kami tidak menyimpan kunci pribadi Anda. Kepemilikan penuh tetap pada Anda.',
+        'feature2-title': 'Tukar Desentralisasi',
+        'feature2-desc': 'Tukar token SidraChain langsung di dalam aplikasi. Tanpa perantara.',
+        'feature3-title': 'Kustodi Mandiri',
+        'feature3-desc': 'Kendalikan aset Anda sepenuhnya. Transaksi ditandatangani secara lokal.',
+        'feature4-title': 'Cepat & Ringan',
+        'feature4-desc': 'Dioptimalkan untuk seluler. Interaksi blockchain cepat.',
+        'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.'
+      },
+      ms: {
+        home: 'Laman Utama', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
+        'hero-title1': 'Kunci Anda.',
+        'hero-title2': 'Kripto Anda.',
+        'hero-title3': 'Padang Pasir Anda.',
+        'hero-desc': 'Desert Camel adalah dompet Web3 <strong>bukan kustodian</strong> yang dibina untuk SidraChain. Urus, tukar, dan selamatkan token anda tanpa kehilangan kawalan.',
+        'hero-btn': '🚀 Akan Datang di Google Play',
+        'trust-badge': '🔒 Kunci peribadi kekal di peranti anda. Sentiasa.',
+        'mockup-wallet': '🐪 Dompet',
+        'mockup-balance': '$ 1,245.80',
+        'mockup-swap': 'Tukar Sekarang',
+        'features-title': 'Mengapa Desert Camel?',
+        'feature1-title': 'Bukan Kustodian',
+        'feature1-desc': 'Kami tidak menyimpan kunci peribadi anda. Pemilikan penuh kekal dengan anda.',
+        'feature2-title': 'Tukaran Terpencar',
+        'feature2-desc': 'Tukar token SidraChain terus dalam aplikasi. Tanpa perantara.',
+        'feature3-title': 'Kustodi Sendiri',
+        'feature3-desc': 'Kawal aset anda sepenuhnya. Transaksi ditandatangani secara setempat.',
+        'feature4-title': 'Cepat & Ringan',
+        'feature4-desc': 'Dioptimumkan untuk mudah alih. Interaksi blockchain pantas.',
+        'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.'
+      },
+      lo: {
+        home: 'ໜ້າຫຼັກ', privacy: 'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ', terms: 'ຂໍ້ກຳນົດການໃຊ້ງານ', contact: 'ຕິດຕໍ່',
+        'hero-title1': 'ກະແຈຂອງທ່ານ.',
+        'hero-title2': 'ສະກຸນເງິນຂອງທ່ານ.',
+        'hero-title3': 'ທະເລຊາຍຂອງທ່ານ.',
+        'hero-desc': 'Desert Camel ແມ່ນກະເປົາເງິນ Web3 <strong>ທີ່ບໍ່ມີຜູ້ຄຸ້ມຄອງ</strong> ທີ່ສ້າງຂຶ້ນສຳລັບ SidraChain. ຈັດການ, ແລກປ່ຽນ ແລະ ຮັກສາ token ຂອງທ່ານໂດຍບໍ່ສູນເສຍການຄວບຄຸມ.',
+        'hero-btn': '🚀 ຈະມາເຖິງໃນ Google Play',
+        'trust-badge': '🔒 ກະແຈສ່ວນຕົວຍັງຢູ່ໃນອຸປະກອນຂອງທ່ານ. ສະເໝີ.',
+        'mockup-wallet': '🐪 ກະເປົາເງິນ',
+        'mockup-balance': '$ 1,245.80',
+        'mockup-swap': 'ແລກປ່ຽນດຽວນີ້',
+        'features-title': 'ເປັນຫຍັງຕ້ອງເລືອກ Desert Camel?',
+        'feature1-title': 'ບໍ່ມີຜູ້ຄຸ້ມຄອງ',
+        'feature1-desc': 'ພວກເຮົາບໍ່ເກັບກະແຈສ່ວນຕົວຂອງທ່ານ. ການເປັນເຈົ້າຂອງຢ່າງເຕັມທີ່ຍັງຢູ່ກັບທ່ານ.',
+        'feature2-title': 'ການແລກປ່ຽນແບບກະຈາຍສູນ',
+        'feature2-desc': 'ແລກປ່ຽນ token SidraChain ໂດຍກົງພາຍໃນແອັບ. ບໍ່ມີຄົນກາງ.',
+        'feature3-title': 'ການຄຸ້ມຄອງຕົນເອງ',
+        'feature3-desc': 'ຄວບຄຸມຊັບສິນຂອງທ່ານຢ່າງສົມບູນ. ທຸລະກຳຖືກລົງນາມໃນທ້ອງຖິ່ນ.',
+        'feature4-title': 'ໄວ ແລະ ເບົາ',
+        'feature4-desc': 'ປັບປຸງສຳລັບມືຖື. ການໂຕ້ຕອບ blockchain ໄວ.',
+        'footer-support': '📧 ສະໜັບສະໜຸນ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. ສ້າງຂຶ້ນສຳລັບ SidraChain.'
+      }
+    };
+
+    function switchLang(lang) {
+      // Lưu ngôn ngữ đã chọn vào localStorage để áp dụng cho các trang khác
+      localStorage.setItem('preferredLang', lang);
+      // Cập nhật tất cả các phần tử có data-key
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          // Nếu nội dung có HTML (như <strong>), giữ nguyên
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      // Cập nhật select
+      document.getElementById('langSelector').value = lang;
+    }
+
+    // Khi tải trang, kiểm tra ngôn ngữ đã lưu hoặc mặc định
+    window.onload = function() {
+      const savedLang = localStorage.getItem('preferredLang') || 'en';
+      // Nếu ngôn ngữ hợp lệ thì áp dụng
+      if (translations[savedLang]) {
+        switchLang(savedLang);
+      } else {
+        switchLang('en');
+      }
+    };
+  </script>
 </body>
 </html>

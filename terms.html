@@ -6,6 +6,7 @@
   <title>Terms of Service – Desert Camel</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
   <style>
+    /* Copy CSS giống như privacy (hoặc dùng chung) */
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
@@ -30,8 +31,10 @@
     }
     .logo { font-size: 1.6rem; font-weight: 700; }
     .logo span { color: #c89b3c; }
-    nav a { margin-left: 1.2rem; color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 1rem; }
+    nav a { color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
     nav a:hover { color: #c89b3c; }
+    .lang-select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid #c89b3c; background: white; font-size: 0.9rem; cursor: pointer; }
     h1 { font-size: 2.4rem; border-bottom: 3px solid #c89b3c; padding-bottom: 0.5rem; margin-bottom: 0.5rem; }
     h2 { margin-top: 2rem; font-size: 1.4rem; color: #a87b2a; }
     p, li { margin-bottom: 0.8rem; }
@@ -50,7 +53,8 @@
     a:hover { text-decoration: underline; }
     @media (max-width: 700px) {
       header { flex-direction: column; gap: 0.8rem; align-items: center; }
-      nav a { margin: 0 0.6rem; font-size: 0.85rem; }
+      nav { justify-content: center; }
+      nav a { margin: 0 0.4rem; font-size: 0.85rem; }
       h1 { font-size: 1.8rem; }
     }
   </style>
@@ -59,40 +63,109 @@
   <header>
     <div class="logo">🐪 <span>Desert Camel</span></div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html" data-key="home">Home</a>
+      <a href="privacy.html" data-key="privacy">Privacy</a>
+      <a href="terms.html" data-key="terms">Terms</a>
+      <a href="contact.html" data-key="contact">Contact</a>
+      <select class="lang-select" id="langSelector" onchange="switchLang(this.value)">
+        <option value="en">🇬🇧 English</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="hi">🇮🇳 हिंदी</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="id">🇮🇩 Indonesia</option>
+        <option value="ms">🇲🇾 Melayu</option>
+        <option value="lo">🇱🇦 ລາວ</option>
+      </select>
     </nav>
   </header>
   <main>
-    <h1>Terms of Service</h1>
-    <p><em>Last Updated: July 4, 2026</em></p>
-    <h2>1. Acceptance of Terms</h2>
-    <p>By downloading, installing, or using Desert Camel, you agree to be bound by these Terms. If you do not agree, please do not use the App.</p>
-    <h2>2. Non-Custodial Wallet</h2>
-    <p>Desert Camel is a <strong>non-custodial</strong> application. We do <strong>not</strong> hold, control, or have access to your private keys, recovery phrases, or funds.</p>
-    <h2>3. User Responsibilities</h2>
-    <ul>
-      <li>You are solely responsible for safeguarding your private keys and recovery phrase.</li>
-      <li>You must ensure your device is secure and free from malware.</li>
-      <li>You must comply with all applicable laws regarding cryptocurrency use.</li>
-    </ul>
-    <h2>4. Blockchain Risks & Disclaimers</h2>
-    <p>Blockchain transactions are <strong>irreversible</strong>. Token prices, network availability, and transaction fees are outside our control. You accept all risks associated with blockchain technology.</p>
-    <p>The App is provided on an <strong>"AS IS"</strong> basis without any warranties.</p>
-    <h2>5. Limitation of Liability</h2>
-    <p>To the fullest extent permitted by law, Desert Camel shall <strong>not</strong> be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
-    <h2>6. Intellectual Property</h2>
-    <p>All content, trademarks, and code within the App are the property of Desert Camel. You are granted a limited, non-exclusive license for personal use.</p>
-    <h2>7. Governing Law</h2>
-    <p>These Terms shall be governed by the laws of Vietnam.</p>
-    <h2>8. Contact</h2>
-    <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+    <h1 data-key="terms-title">Terms of Service</h1>
+    <p><em data-key="last-updated">Last Updated: July 4, 2026</em></p>
+    <div id="terms-content">
+      <div class="en-content">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using Desert Camel, you agree to be bound by these Terms. If you do not agree, please do not use the App.</p>
+        <h2>2. Non-Custodial Wallet</h2>
+        <p>Desert Camel is a <strong>non-custodial</strong> application. We do <strong>not</strong> hold, control, or have access to your private keys, recovery phrases, or funds.</p>
+        <h2>3. User Responsibilities</h2>
+        <ul>
+          <li>You are solely responsible for safeguarding your private keys and recovery phrase.</li>
+          <li>You must ensure your device is secure and free from malware.</li>
+          <li>You must comply with all applicable laws regarding cryptocurrency use.</li>
+        </ul>
+        <h2>4. Blockchain Risks & Disclaimers</h2>
+        <p>Blockchain transactions are <strong>irreversible</strong>. Token prices, network availability, and transaction fees are outside our control. You accept all risks associated with blockchain technology.</p>
+        <p>The App is provided on an <strong>"AS IS"</strong> basis without any warranties.</p>
+        <h2>5. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, Desert Camel shall <strong>not</strong> be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
+        <h2>6. Intellectual Property</h2>
+        <p>All content, trademarks, and code within the App are the property of Desert Camel. You are granted a limited, non-exclusive license for personal use.</p>
+        <h2>7. Governing Law</h2>
+        <p>These Terms shall be governed by the laws of the jurisdiction in which you reside.</p>
+        <h2>8. Contact</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      </div>
+      <div id="translated-content" style="display:none;"></div>
+    </div>
   </main>
   <footer>
-    <p>📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
-    <p>© 2026 Desert Camel</p>
+    <p data-key="footer-support">📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+    <p data-key="footer-copy">© 2026 Desert Camel. Built for SidraChain.</p>
   </footer>
+
+  <script>
+    // Bản dịch các phần menu và footer (giống như index)
+    const translations = {
+      en: { home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact', 'terms-title': 'Terms of Service', 'last-updated': 'Last Updated: July 4, 2026', 'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Built for SidraChain.' },
+      zh: { home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们', 'terms-title': '服务条款', 'last-updated': '最后更新：2026年7月4日', 'footer-support': '📧 支持：<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel。为 SidraChain 构建。' },
+      vi: { home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ', 'terms-title': 'Điều khoản sử dụng', 'last-updated': 'Cập nhật lần cuối: 4 tháng 7, 2026', 'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.' },
+      hi: { home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें', 'terms-title': 'सेवा की शर्तें', 'last-updated': 'अंतिम अद्यतन: 4 जुलाई, 2026', 'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel। SidraChain के लिए निर्मित।' },
+      ar: { home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا', 'terms-title': 'شروط الخدمة', 'last-updated': 'آخر تحديث: 4 يوليو 2026', 'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. مبني لـ SidraChain.' },
+      id: { home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Hubungi', 'terms-title': 'Syarat Layanan', 'last-updated': 'Terakhir diperbarui: 4 Juli 2026', 'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.' },
+      ms: { home: 'Laman Utama', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi', 'terms-title': 'Terma Perkhidmatan', 'last-updated': 'Dikemaskini: 4 Julai 2026', 'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.' },
+      lo: { home: 'ໜ້າຫຼັກ', privacy: 'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ', terms: 'ຂໍ້ກຳນົດການໃຊ້ງານ', contact: 'ຕິດຕໍ່', 'terms-title': 'ຂໍ້ກຳນົດການໃຊ້ງານ', 'last-updated': 'ອັບເດດຫຼ້າສຸດ: 4 ກໍລະກົດ 2026', 'footer-support': '📧 ສະໜັບສະໜຸນ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. ສ້າງຂຶ້ນສຳລັບ SidraChain.' }
+    };
+
+    const termsTranslations = {
+      zh: '<h2>1. 接受条款</h2><p>下载、安装或使用 Desert Camel 即表示您同意这些条款。</p><h2>2. 非托管钱包</h2><p>Desert Camel 是非托管应用程序，我们无法访问您的私钥、恢复短语或资金。</p><h2>3. 用户责任</h2><ul><li>您全权负责保护您的私钥和恢复短语。</li><li>确保您的设备安全且无恶意软件。</li><li>遵守有关加密货币使用的所有适用法律。</li></ul><h2>4. 区块链风险与免责</h2><p>区块链交易不可逆转。代币价格、网络可用性和交易费用不受我们控制。您接受与区块链技术相关的所有风险。</p><p>应用程序按“现状”提供，不作任何担保。</p><h2>5. 责任限制</h2><p>在法律允许的最大范围内，Desert Camel 不对因使用本应用程序而引起的任何间接、偶然或后果性损害承担责任。</p><h2>6. 知识产权</h2><p>应用程序中的所有内容、商标和代码均为 Desert Camel 的财产。您被授予有限的、非独占的个人使用许可。</p><h2>7. 管辖法律</h2><p>这些条款受您所居住的司法管辖区的法律管辖。</p><h2>8. 联系</h2><p>📧 desertcamel.app@gmail.com</p>',
+      vi: '<h2>1. Chấp nhận điều khoản</h2><p>Bằng cách tải xuống, cài đặt hoặc sử dụng Desert Camel, bạn đồng ý bị ràng buộc bởi các Điều khoản này.</p><h2>2. Ví phi tập trung</h2><p>Desert Camel là ứng dụng phi tập trung, chúng tôi không nắm giữ hoặc truy cập khóa riêng, cụm từ khôi phục hoặc tiền của bạn.</p><h2>3. Trách nhiệm của người dùng</h2><ul><li>Bạn tự bảo vệ khóa riêng và cụm từ khôi phục.</li><li>Đảm bảo thiết bị an toàn và không có phần mềm độc hại.</li><li>Tuân thủ các luật hiện hành về sử dụng tiền mã hóa.</li></ul><h2>4. Rủi ro blockchain và tuyên bố miễn trừ</h2><p>Giao dịch blockchain không thể đảo ngược. Giá token, khả năng mạng và phí giao dịch nằm ngoài tầm kiểm soát của chúng tôi. Bạn chấp nhận mọi rủi ro.</p><p>Ứng dụng được cung cấp “nguyên trạng” không có bảo hành.</p><h2>5. Giới hạn trách nhiệm</h2><p>Trong phạm vi luật cho phép, Desert Camel sẽ không chịu trách nhiệm cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên hoặc do hậu quả nào phát sinh từ việc sử dụng ứng dụng.</p><h2>6. Sở hữu trí tuệ</h2><p>Mọi nội dung, nhãn hiệu và mã nguồn đều thuộc về Desert Camel. Bạn được cấp giấy phép hạn chế, không độc quyền cho mục đích cá nhân.</p><h2>7. Luật điều chỉnh</h2><p>Các Điều khoản này sẽ được điều chỉnh bởi luật pháp của khu vực bạn cư trú.</p><h2>8. Liên hệ</h2><p>📧 desertcamel.app@gmail.com</p>',
+      hi: '<h2>1. शर्तों की स्वीकृति</h2><p>Desert Camel को डाउनलोड, इंस्टॉल या उपयोग करके, आप इन शर्तों से बंधे होने के लिए सहमत होते हैं।</p><h2>2. गैर-संरक्षक वॉलेट</h2><p>Desert Camel एक गैर-संरक्षक ऐप है, हम आपकी निजी कुंजियों, पुनर्प्राप्ति वाक्यांश या धन तक नहीं पहुँच सकते।</p><h2>3. उपयोगकर्ता की जिम्मेदारियाँ</h2><ul><li>आप अपनी निजी कुंजियों की सुरक्षा के लिए स्वयं जिम्मेदार हैं।</li><li>सुनिश्चित करें कि आपका डिवाइस सुरक्षित है।</li><li>क्रिप्टोकरेंसी उपयोग से संबंधित सभी लागू कानूनों का पालन करें।</li></ul><h2>4. ब्लॉकचेन जोखिम और अस्वीकरण</h2><p>ब्लॉकचेन लेन-देन अपरिवर्तनीय हैं। टोकन की कीमतें, नेटवर्क उपलब्धता और लेन-देन शुल्क हमारे नियंत्रण से बाहर हैं।</p><p>ऐप बिना किसी वारंटी के "जैसा है" प्रदान किया जाता है।</p><h2>5. दायित्व की सीमा</h2><p>Desert Camel ऐप के उपयोग से उत्पन्न किसी भी अप्रत्यक्ष या परिणामी क्षति के लिए उत्तरदायी नहीं होगा।</p><h2>6. बौद्धिक संपदा</h2><p>ऐप की सभी सामग्री Desert Camel की संपत्ति है। आपको व्यक्तिगत उपयोग के लिए सीमित लाइसेंस दिया गया है।</p><h2>7. शासी कानून</h2><p>ये शर्तें उस क्षेत्र के कानूनों द्वारा शासित होंगी जिसमें आप रहते हैं।</p><h2>8. संपर्क</h2><p>📧 desertcamel.app@gmail.com</p>',
+      ar: '<h2>1. قبول الشروط</h2><p>بتنزيل أو تثبيت أو استخدام Desert Camel، فإنك توافق على الالتزام بهذه الشروط.</p><h2>2. محفظة غير استضافة</h2><p>Desert Camel هو تطبيق غير استضافة، لا يمكننا الوصول إلى مفاتيحك الخاصة أو عبارات الاسترداد أو أموالك.</p><h2>3. مسؤوليات المستخدم</h2><ul><li>أنت وحدك المسؤول عن حماية مفاتيحك الخاصة.</li><li>تأكد من أن جهازك آمن.</li><li>امتثل لجميع القوانين المنطبقة بشأن استخدام العملات المشفرة.</li></ul><h2>4. مخاطر البلوكشين وإخلاء المسؤولية</h2><p>معاملات البلوكشين غير قابلة للعكس. أسعار الرموز وتوافر الشبكة ورسوم المعاملات خارج سيطرتنا.</p><p>يتم تقديم التطبيق "كما هو" دون أي ضمانات.</p><h2>5. حدود المسؤولية</h2><p>لن تكون Desert Camel مسؤولة عن أي أضرار غير مباشرة أو عرضية أو تبعية ناتجة عن استخدام التطبيق.</p><h2>6. الملكية الفكرية</h2><p>جميع المحتويات والعلامات التجارية والشفرة داخل التطبيق هي ملك لـ Desert Camel.</p><h2>7. القانون الحاكم</h2><p>تخضع هذه الشروط لقوانين الولاية القضائية التي تقيم فيها.</p><h2>8. الاتصال</h2><p>📧 desertcamel.app@gmail.com</p>',
+      id: '<h2>1. Penerimaan Syarat</h2><p>Dengan mengunduh, menginstal, atau menggunakan Desert Camel, Anda setuju untuk terikat oleh Syarat ini.</p><h2>2. Dompet Non-Kustodian</h2><p>Desert Camel adalah aplikasi non-kustodian, kami tidak memiliki akses ke kunci pribadi, frasa pemulihan, atau dana Anda.</p><h2>3. Tanggung Jawab Pengguna</h2><ul><li>Anda bertanggung jawab penuh atas keamanan kunci pribadi Anda.</li><li>Pastikan perangkat Anda aman.</li><li>Patuhi semua hukum yang berlaku terkait penggunaan mata uang kripto.</li></ul><h2>4. Risiko Blockchain dan Penafian</h2><p>Transaksi blockchain tidak dapat dibatalkan. Harga token, ketersediaan jaringan, dan biaya transaksi di luar kendali kami.</p><p>Aplikasi disediakan "APA ADANYA" tanpa jaminan.</p><h2>5. Batasan Tanggung Jawab</h2><p>Desert Camel tidak bertanggung jawab atas kerugian tidak langsung, insidental, atau konsekuensial yang timbul dari penggunaan Aplikasi.</p><h2>6. Kekayaan Intelektual</h2><p>Semua konten, merek dagang, dan kode dalam Aplikasi adalah milik Desert Camel.</p><h2>7. Hukum yang Berlaku</h2><p>Syarat ini diatur oleh hukum yurisdiksi tempat Anda tinggal.</p><h2>8. Kontak</h2><p>📧 desertcamel.app@gmail.com</p>',
+      ms: '<h2>1. Penerimaan Terma</h2><p>Dengan memuat turun, memasang, atau menggunakan Desert Camel, anda bersetuju untuk terikat oleh Terma ini.</p><h2>2. Dompet Bukan Kustodian</h2><p>Desert Camel adalah aplikasi bukan kustodian, kami tidak mempunyai akses ke kunci peribadi, frasa pemulihan, atau dana anda.</p><h2>3. Tanggungjawab Pengguna</h2><ul><li>Anda bertanggungjawab sepenuhnya untuk melindungi kunci peribadi anda.</li><li>Pastikan peranti anda selamat.</li><li>Patuhi semua undang-undang yang berkenaan mengenai penggunaan mata wang kripto.</li></ul><h2>4. Risiko Blockchain dan Penafian</h2><p>Transaksi blockchain tidak boleh diterbalikkan. Harga token, ketersediaan rangkaian, dan yuran transaksi di luar kawalan kami.</p><p>Aplikasi disediakan "SEBAGAIMANA ADANYA" tanpa sebarang waranti.</p><h2>5. Had Liabiliti</h2><p>Desert Camel tidak bertanggungjawab atas sebarang kerugian tidak langsung atau berbangkit yang timbul daripada penggunaan Aplikasi.</p><h2>6. Harta Intelek</h2><p>Semua kandungan, tanda dagangan, dan kod dalam Aplikasi adalah hak milik Desert Camel.</p><h2>7. Undang-undang yang Mentadbir</h2><p>Terma ini ditadbir oleh undang-undang bidang kuasa di mana anda tinggal.</p><h2>8. Hubungi</h2><p>📧 desertcamel.app@gmail.com</p>',
+      lo: '<h2>1. ການຍອມຮັບຂໍ້ກຳນົດ</h2><p>ໂດຍການດາວໂຫຼດ, ຕິດຕັ້ງ ຫຼື ໃຊ້ Desert Camel, ທ່ານຕົກລົງທີ່ຈະຖືກຜູກມັດໂດຍຂໍ້ກຳນົດເຫຼົ່ານີ້.</p><h2>2. ກະເປົາເງິນທີ່ບໍ່ມີຜູ້ຄຸ້ມຄອງ</h2><p>Desert Camel ແມ່ນແອັບທີ່ບໍ່ມີຜູ້ຄຸ້ມຄອງ, ພວກເຮົາບໍ່ສາມາດເຂົ້າເຖິງກະແຈສ່ວນຕົວ, ປະໂຫຍກການຟື້ນຟູ ຫຼື ເງິນທຶນຂອງທ່ານ.</p><h2>3. ຄວາມຮັບຜິດຊອບຂອງຜູ້ໃຊ້</h2><ul><li>ທ່ານຮັບຜິດຊອບເອງໃນການປົກປ້ອງກະແຈສ່ວນຕົວຂອງທ່ານ.</li><li>ໃຫ້ແນ່ໃຈວ່າອຸປະກອນຂອງທ່ານປອດໄພ.</li><li>ປະຕິບັດຕາມກົດໝາຍທີ່ກ່ຽວຂ້ອງກັບການໃຊ້ງານສະກຸນເງິນດິຈິຕອນ.</li></ul><h2>4. ຄວາມສ່ຽງ Blockchain ແລະ ການປະຕິເສດ</h2><p>ທຸລະກຳ Blockchain ບໍ່ສາມາດຍົກເລີກໄດ້. ລາຄາ token, ຄວາມພ້ອມຂອງເຄືອຂ່າຍ ແລະ ຄ່າທຳນຽມທຸລະກຳຢູ່ນອກການຄວບຄຸມຂອງພວກເຮົາ.</p><p>ແອັບຖືກສະໜອງໃຫ້ "ຕາມສະພາບ" ໂດຍບໍ່ມີການຮັບປະກັນ.</p><h2>5. ຂໍ້ຈຳກັດຄວາມຮັບຜິດຊອບ</h2><p>Desert Camel ຈະບໍ່ຮັບຜິດຊອບຕໍ່ຄວາມເສຍຫາຍທາງອ້ອມ ຫຼື ຜົນສືບເນື່ອງໃດໆທີ່ເກີດຈາກການໃຊ້ແອັບ.</p><h2>6. ຊັບສິນທາງປັນຍາ</h2><p>ເນື້ອຫາ, ເຄື່ອງໝາຍການຄ້າ ແລະ ລະຫັດພາຍໃນແອັບເປັນຂອງ Desert Camel.</p><h2>7. ກົດໝາຍທີ່ຄຸ້ມຄອງ</h2><p>ຂໍ້ກຳນົດເຫຼົ່ານີ້ຈະຖືກຄຸ້ມຄອງໂດຍກົດໝາຍຂອງເຂດທີ່ທ່ານອາໄສຢູ່.</p><h2>8. ຕິດຕໍ່</h2><p>📧 desertcamel.app@gmail.com</p>'
+    };
+
+    function switchLang(lang) {
+      localStorage.setItem('preferredLang', lang);
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      const contentDiv = document.getElementById('translated-content');
+      const enContent = document.querySelector('.en-content');
+      if (lang === 'en') {
+        enContent.style.display = 'block';
+        contentDiv.style.display = 'none';
+      } else if (termsTranslations[lang]) {
+        enContent.style.display = 'none';
+        contentDiv.style.display = 'block';
+        contentDiv.innerHTML = termsTranslations[lang];
+      } else {
+        enContent.style.display = 'block';
+        contentDiv.style.display = 'none';
+      }
+      document.getElementById('langSelector').value = lang;
+    }
+
+    window.onload = function() {
+      const savedLang = localStorage.getItem('preferredLang') || 'en';
+      if (translations[savedLang]) switchLang(savedLang);
+      else switchLang('en');
+    };
+  </script>
 </body>
 </html>

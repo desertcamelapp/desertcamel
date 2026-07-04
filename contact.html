@@ -30,15 +30,14 @@
     }
     .logo { font-size: 1.6rem; font-weight: 700; }
     .logo span { color: #c89b3c; }
-    nav a { margin-left: 1.2rem; color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 1rem; }
+    nav a { color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
     nav a:hover { color: #c89b3c; }
+    .lang-select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid #c89b3c; background: white; font-size: 0.9rem; cursor: pointer; }
     h1 { font-size: 2.4rem; border-bottom: 3px solid #c89b3c; padding-bottom: 0.5rem; margin-bottom: 1rem; }
     .contact-card {
-      background: #fff;
-      padding: 1.8rem 2rem;
-      border-radius: 1.5rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      margin-top: 2rem;
+      background: #fff; padding: 1.8rem 2rem; border-radius: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08); margin-top: 2rem;
     }
     .contact-card h2 { font-size: 1.2rem; color: #a87b2a; margin-bottom: 0.5rem; }
     .contact-card a { color: #c89b3c; text-decoration: none; font-weight: 600; }
@@ -57,7 +56,8 @@
     footer a:hover { text-decoration: underline; }
     @media (max-width: 700px) {
       header { flex-direction: column; gap: 0.8rem; align-items: center; }
-      nav a { margin: 0 0.6rem; font-size: 0.85rem; }
+      nav { justify-content: center; }
+      nav a { margin: 0 0.4rem; font-size: 0.85rem; }
       h1 { font-size: 1.8rem; }
     }
   </style>
@@ -66,37 +66,197 @@
   <header>
     <div class="logo">🐪 <span>Desert Camel</span></div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html" data-key="home">Home</a>
+      <a href="privacy.html" data-key="privacy">Privacy</a>
+      <a href="terms.html" data-key="terms">Terms</a>
+      <a href="contact.html" data-key="contact">Contact</a>
+      <select class="lang-select" id="langSelector" onchange="switchLang(this.value)">
+        <option value="en">🇬🇧 English</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="hi">🇮🇳 हिंदी</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="id">🇮🇩 Indonesia</option>
+        <option value="ms">🇲🇾 Melayu</option>
+        <option value="lo">🇱🇦 ລາວ</option>
+      </select>
     </nav>
   </header>
   <main>
-    <h1>📬 Get in Touch</h1>
-    <p>We are here to help! Whether you have a technical issue, a feature request, or just want to say hello, feel free to reach out.</p>
+    <h1 data-key="contact-title">📬 Get in Touch</h1>
+    <p data-key="contact-desc">We are here to help! Whether you have a technical issue, a feature request, or just want to say hello, feel free to reach out.</p>
     <div class="contact-card">
-      <h2>📧 Email Support</h2>
+      <h2 data-key="email-title">📧 Email Support</h2>
       <p><a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
-      <p><small>Response time: Usually within 24 hours.</small></p>
+      <p><small data-key="email-response">Response time: Usually within 24 hours.</small></p>
     </div>
     <div class="contact-card">
-      <h2>🌐 Community & Social</h2>
-      <p>Stay updated and join the community:</p>
+      <h2 data-key="social-title">🌐 Community & Social</h2>
+      <p data-key="social-desc">Stay updated and join the community:</p>
       <div class="social-links">
-        <a href="#">🐦 Twitter (X)</a>
-        <a href="#">💬 Telegram</a>
-        <a href="#">🐙 GitHub</a>
+        <a href="#" data-key="twitter">🐦 Twitter (X)</a>
+        <a href="#" data-key="telegram">💬 Telegram</a>
+        <a href="#" data-key="github">🐙 GitHub</a>
       </div>
     </div>
     <div class="contact-card">
-      <h2>📍 Region</h2>
-      <p>We operate globally, with a focus on serving the SidraChain ecosystem. Our team is based in Vietnam.</p>
+      <h2 data-key="region-title">📍 Region</h2>
+      <p data-key="region-desc">We operate globally, with a focus on serving the SidraChain ecosystem. Our team is based in Vietnam.</p>
     </div>
   </main>
   <footer>
-    <p>📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
-    <p>© 2026 Desert Camel</p>
+    <p data-key="footer-support">📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+    <p data-key="footer-copy">© 2026 Desert Camel. Built for SidraChain.</p>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
+        'contact-title': '📬 Get in Touch',
+        'contact-desc': 'We are here to help! Whether you have a technical issue, a feature request, or just want to say hello, feel free to reach out.',
+        'email-title': '📧 Email Support',
+        'email-response': 'Response time: Usually within 24 hours.',
+        'social-title': '🌐 Community & Social',
+        'social-desc': 'Stay updated and join the community:',
+        'twitter': '🐦 Twitter (X)',
+        'telegram': '💬 Telegram',
+        'github': '🐙 GitHub',
+        'region-title': '📍 Region',
+        'region-desc': 'We operate globally, with a focus on serving the SidraChain ecosystem. Our team is based in Vietnam.',
+        'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Built for SidraChain.'
+      },
+      zh: {
+        home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们',
+        'contact-title': '📬 联系我们',
+        'contact-desc': '我们随时为您提供帮助！无论您是遇到技术问题、提出功能请求，还是只是想打个招呼，都可以随时联系我们。',
+        'email-title': '📧 邮件支持',
+        'email-response': '回复时间：通常在24小时内。',
+        'social-title': '🌐 社区与社交',
+        'social-desc': '保持更新并加入社区：',
+        'twitter': '🐦 Twitter (X)',
+        'telegram': '💬 Telegram',
+        'github': '🐙 GitHub',
+        'region-title': '📍 区域',
+        'region-desc': '我们在全球运营，专注于服务 SidraChain 生态系统。我们的团队位于越南。',
+        'footer-support': '📧 支持：<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel。为 SidraChain 构建。'
+      },
+      vi: {
+        home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
+        'contact-title': '📬 Liên hệ',
+        'contact-desc': 'Chúng tôi sẵn sàng giúp đỡ! Nếu bạn gặp vấn đề kỹ thuật, có yêu cầu tính năng hoặc chỉ muốn chào hỏi, hãy liên hệ với chúng tôi.',
+        'email-title': '📧 Hỗ trợ qua email',
+        'email-response': 'Thời gian phản hồi: Thường trong vòng 24 giờ.',
+        'social-title': '🌐 Cộng đồng & Mạng xã hội',
+        'social-desc': 'Cập nhật và tham gia cộng đồng:',
+        'twitter': '🐦 Twitter (X)',
+        'telegram': '💬 Telegram',
+        'github': '🐙 GitHub',
+        'region-title': '📍 Khu vực',
+        'region-desc': 'Chúng tôi hoạt động toàn cầu, tập trung phục vụ hệ sinh thái SidraChain. Đội ngũ của chúng tôi có trụ sở tại Việt Nam.',
+        'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
+      },
+      hi: {
+        home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
+        'contact-title': '📬 संपर्क करें',
+        'contact-desc': 'हम मदद के लिए यहाँ हैं! चाहे आपको तकनीकी समस्या हो, सुविधा अनुरोध हो, या बस नमस्ते कहना हो, बेझिझक संपर्क करें।',
+        'email-title': '📧 ईमेल सहायता',
+        'email-response': 'प्रतिक्रिया समय: आमतौर पर 24 घंटे के भीतर।',
+        'social-title': '🌐 समुदाय और सोशल',
+        'social-desc': 'अपडेट रहें और समुदाय से जुड़ें:',
+        'twitter': '🐦 Twitter (X)',
+        'telegram': '💬 Telegram',
+        'github': '🐙 GitHub',
+        'region-title': '📍 क्षेत्र',
+        'region-desc': 'हम वैश्विक स्तर पर काम करते हैं, SidraChain पारिस्थितिकी तंत्र पर ध्यान केंद्रित करते हैं। हमारी टीम वियतनाम में स्थित है।',
+        'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel। SidraChain के लिए निर्मित।'
+      },
+      ar: {
+        home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
+        'contact-title': '📬 تواصل معنا',
+        'contact-desc': 'نحن هنا للمساعدة! سواء كانت لديك مشكلة تقنية، أو طلب ميزة، أو تريد فقط إلقاء التحية، فلا تتردد في الاتصال بنا.',
+        'email-title': '📧 الدعم عبر البريد الإلكتروني',
+        'email-response': 'وقت الرد: عادة في غضون 24 ساعة.',
+        'social-title': '🌐 المجتمع والتواصل الاجتماعي',
+        'social-desc': 'ابق على اطلاع وانضم إلى المجتمع:',
+        'twitter': '🐦 Twitter (X)',
+        'telegram': '💬 Telegram',
+        'github': '🐙 GitHub',
+        'region-title': '📍 المنطقة',
+        'region-desc': 'نحن نعمل عالمياً، مع التركيز على خدمة نظام SidraChain البيئي. فريقنا مقره في فيتنام.',
+        'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. مبني لـ SidraChain.'
+      },
+      id: {
+        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Hubungi',
+        'contact-title': '📬 Hubungi Kami',
+        'contact-desc': 'Kami siap membantu! Apakah Anda memiliki masalah teknis, permintaan fitur, atau hanya ingin menyapa, jangan ragu untuk menghubungi kami.',
+        'email-title': '📧 Dukungan Email',
+        'email-response': 'Waktu respons: Biasanya dalam 24 jam.',
+        'social-title': '🌐 Komunitas & Sosial',
+        'social-desc': 'Tetap terupdate dan bergabung dengan komunitas:',
+        'twitter': '🐦 Twitter (X)',
+        'telegram': '💬 Telegram',
+        'github': '🐙 GitHub',
+        'region-title': '📍 Wilayah',
+        'region-desc': 'Kami beroperasi secara global, dengan fokus melayani ekosistem SidraChain. Tim kami berbasis di Vietnam.',
+        'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.'
+      },
+      ms: {
+        home: 'Laman Utama', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
+        'contact-title': '📬 Hubungi Kami',
+        'contact-desc': 'Kami sedia membantu! Sama ada anda mempunyai masalah teknikal, permintaan ciri, atau hanya ingin bertanya khabar, sila hubungi kami.',
+        'email-title': '📧 Sokongan E-mel',
+        'email-response': 'Masa tindak balas: Biasanya dalam 24 jam.',
+        'social-title': '🌐 Komuniti & Sosial',
+        'social-desc': 'Kekal dikemas kini dan sertai komuniti:',
+        'twitter': '🐦 Twitter (X)',
+        'telegram': '💬 Telegram',
+        'github': '🐙 GitHub',
+        'region-title': '📍 Wilayah',
+        'region-desc': 'Kami beroperasi di peringkat global, dengan tumpuan untuk melayani ekosistem SidraChain. Pasukan kami berpangkalan di Vietnam.',
+        'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.'
+      },
+      lo: {
+        home: 'ໜ້າຫຼັກ', privacy: 'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ', terms: 'ຂໍ້ກຳນົດການໃຊ້ງານ', contact: 'ຕິດຕໍ່',
+        'contact-title': '📬 ຕິດຕໍ່ພວກເຮົາ',
+        'contact-desc': 'ພວກເຮົາພ້ອມໃຫ້ຄວາມຊ່ວຍເຫຼືອ! ບໍ່ວ່າທ່ານຈະມີບັນຫາທາງດ້ານເຕັກນິກ, ການຮ້ອງຂໍຄຸນສົມບັດ, ຫຼືພຽງແຕ່ຢາກທັກທາຍ, ກະລຸນາຕິດຕໍ່ພວກເຮົາ.',
+        'email-title': '📧 ການສະໜັບສະໜຸນທາງອີເມວ',
+        'email-response': 'ເວລາຕອບກັບ: ປົກກະຕິພາຍໃນ 24 ຊົ່ວໂມງ.',
+        'social-title': '🌐 ຊຸມຊົນ ແລະ ສັງຄົມ',
+        'social-desc': 'ຕິດຕາມຂ່າວສານ ແລະ ເຂົ້າຮ່ວມຊຸມຊົນ:',
+        'twitter': '🐦 Twitter (X)',
+        'telegram': '💬 Telegram',
+        'github': '🐙 GitHub',
+        'region-title': '📍 ພາກພື້ນ',
+        'region-desc': 'ພວກເຮົາດຳເນີນງານໃນລະດັບໂລກ, ໂດຍເນັ້ນໃສ່ການບໍລິການລະບົບນິເວດ SidraChain. ທີມງານຂອງພວກເຮົາຕັ້ງຢູ່ປະເທດຫວຽດນາມ.',
+        'footer-support': '📧 ສະໜັບສະໜຸນ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. ສ້າງຂຶ້ນສຳລັບ SidraChain.'
+      }
+    };
+
+    function switchLang(lang) {
+      localStorage.setItem('preferredLang', lang);
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('langSelector').value = lang;
+    }
+
+    window.onload = function() {
+      const savedLang = localStorage.getItem('preferredLang') || 'en';
+      if (translations[savedLang]) switchLang(savedLang);
+      else switchLang('en');
+    };
+  </script>
 </body>
 </html>

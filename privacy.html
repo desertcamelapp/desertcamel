@@ -6,6 +6,7 @@
   <title>Privacy Policy – Desert Camel</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
   <style>
+    /* Giống style của index, có thể copy nguyên phần CSS từ index để đồng bộ */
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
@@ -30,8 +31,10 @@
     }
     .logo { font-size: 1.6rem; font-weight: 700; }
     .logo span { color: #c89b3c; }
-    nav a { margin-left: 1.2rem; color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 1rem; }
+    nav a { color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
     nav a:hover { color: #c89b3c; }
+    .lang-select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid #c89b3c; background: white; font-size: 0.9rem; cursor: pointer; }
     h1 { font-size: 2.4rem; border-bottom: 3px solid #c89b3c; padding-bottom: 0.5rem; margin-bottom: 0.5rem; }
     h2 { margin-top: 2rem; font-size: 1.4rem; color: #a87b2a; }
     p, li { margin-bottom: 0.8rem; }
@@ -50,7 +53,8 @@
     a:hover { text-decoration: underline; }
     @media (max-width: 700px) {
       header { flex-direction: column; gap: 0.8rem; align-items: center; }
-      nav a { margin: 0 0.6rem; font-size: 0.85rem; }
+      nav { justify-content: center; }
+      nav a { margin: 0 0.4rem; font-size: 0.85rem; }
       h1 { font-size: 1.8rem; }
     }
   </style>
@@ -59,35 +63,160 @@
   <header>
     <div class="logo">🐪 <span>Desert Camel</span></div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html" data-key="home">Home</a>
+      <a href="privacy.html" data-key="privacy">Privacy</a>
+      <a href="terms.html" data-key="terms">Terms</a>
+      <a href="contact.html" data-key="contact">Contact</a>
+      <select class="lang-select" id="langSelector" onchange="switchLang(this.value)">
+        <option value="en">🇬🇧 English</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="hi">🇮🇳 हिंदी</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="id">🇮🇩 Indonesia</option>
+        <option value="ms">🇲🇾 Melayu</option>
+        <option value="lo">🇱🇦 ລາວ</option>
+      </select>
     </nav>
   </header>
   <main>
-    <h1>Privacy Policy</h1>
-    <p><em>Last Updated: July 4, 2026</em></p>
-    <h2>1. Information We Collect</h2>
-    <p>Desert Camel is a <strong>non-custodial</strong> Web3 wallet. We do <strong>not</strong> collect, store, or transmit any personal identifiable information (PII) such as your name, email, phone number, or physical location.</p>
-    <h2>2. Private Keys & Recovery Phrases</h2>
-    <p>Your private keys and recovery phrases are generated and stored <strong>locally</strong> on your device. They are <strong>never</strong> transmitted to our servers or accessible by us.</p>
-    <h2>3. Blockchain Transactions</h2>
-    <p>All transactions are recorded on the public SidraChain blockchain. Wallet addresses and transaction histories are publicly visible by nature.</p>
-    <h2>4. Third-Party Services</h2>
-    <p>The app connects to the SidraChain network via third-party RPC providers. These providers may collect IP addresses for functionality but are not authorized to use your data for other purposes.</p>
-    <h2>5. Cookies & Analytics</h2>
-    <p>This website does not use tracking cookies or analytics scripts that collect personal data.</p>
-    <h2>6. Data Security</h2>
-    <p>We implement industry-standard practices to protect our infrastructure. However, you are responsible for securing your device.</p>
-    <h2>7. Your Rights</h2>
-    <p>Since we do not store your personal data, there is no data to access, modify, or delete. If you have concerns, contact us below.</p>
-    <h2>8. Contact</h2>
-    <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+    <h1 data-key="privacy-title">Privacy Policy</h1>
+    <p><em data-key="last-updated">Last Updated: July 4, 2026</em></p>
+    <div id="privacy-content">
+      <!-- Nội dung chính bằng tiếng Anh (mặc định) -->
+      <div class="en-content">
+        <h2>1. Information We Collect</h2>
+        <p>Desert Camel is a <strong>non-custodial</strong> Web3 wallet. We do <strong>not</strong> collect, store, or transmit any personal identifiable information (PII) such as your name, email, phone number, or physical location.</p>
+        <h2>2. Private Keys & Recovery Phrases</h2>
+        <p>Your private keys and recovery phrases are generated and stored <strong>locally</strong> on your device. They are <strong>never</strong> transmitted to our servers or accessible by us.</p>
+        <h2>3. Blockchain Transactions</h2>
+        <p>All transactions are recorded on the public SidraChain blockchain. Wallet addresses and transaction histories are publicly visible by nature.</p>
+        <h2>4. Third-Party Services</h2>
+        <p>The app connects to the SidraChain network via third-party RPC providers. These providers may collect IP addresses for functionality but are not authorized to use your data for other purposes.</p>
+        <h2>5. Cookies & Analytics</h2>
+        <p>This website does not use tracking cookies or analytics scripts that collect personal data.</p>
+        <h2>6. Data Security</h2>
+        <p>We implement industry-standard practices to protect our infrastructure. However, you are responsible for securing your device.</p>
+        <h2>7. Your Rights</h2>
+        <p>Since we do not store your personal data, there is no data to access, modify, or delete. If you have concerns, contact us below.</p>
+        <h2>8. Contact</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      </div>
+      <!-- Các bản dịch sẽ được chèn vào đây bằng JavaScript -->
+      <div id="translated-content" style="display:none;"></div>
+    </div>
   </main>
   <footer>
-    <p>📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
-    <p>© 2026 Desert Camel</p>
+    <p data-key="footer-support">📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+    <p data-key="footer-copy">© 2026 Desert Camel. Built for SidraChain.</p>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
+        'privacy-title': 'Privacy Policy',
+        'last-updated': 'Last Updated: July 4, 2026',
+        'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Built for SidraChain.'
+      },
+      zh: {
+        home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们',
+        'privacy-title': '隐私政策',
+        'last-updated': '最后更新：2026年7月4日',
+        'footer-support': '📧 支持：<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel。为 SidraChain 构建。'
+      },
+      vi: {
+        home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
+        'privacy-title': 'Chính sách bảo mật',
+        'last-updated': 'Cập nhật lần cuối: 4 tháng 7, 2026',
+        'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
+      },
+      hi: {
+        home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
+        'privacy-title': 'गोपनीयता नीति',
+        'last-updated': 'अंतिम अद्यतन: 4 जुलाई, 2026',
+        'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel। SidraChain के लिए निर्मित।'
+      },
+      ar: {
+        home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
+        'privacy-title': 'سياسة الخصوصية',
+        'last-updated': 'آخر تحديث: 4 يوليو 2026',
+        'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. مبني لـ SidraChain.'
+      },
+      id: {
+        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Hubungi',
+        'privacy-title': 'Kebijakan Privasi',
+        'last-updated': 'Terakhir diperbarui: 4 Juli 2026',
+        'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.'
+      },
+      ms: {
+        home: 'Laman Utama', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
+        'privacy-title': 'Dasar Privasi',
+        'last-updated': 'Dikemaskini: 4 Julai 2026',
+        'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.'
+      },
+      lo: {
+        home: 'ໜ້າຫຼັກ', privacy: 'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ', terms: 'ຂໍ້ກຳນົດການໃຊ້ງານ', contact: 'ຕິດຕໍ່',
+        'privacy-title': 'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ',
+        'last-updated': 'ອັບເດດຫຼ້າສຸດ: 4 ກໍລະກົດ 2026',
+        'footer-support': '📧 ສະໜັບສະໜຸນ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. ສ້າງຂຶ້ນສຳລັບ SidraChain.'
+      }
+    };
+
+    // Bản dịch tóm tắt cho privacy (để hiển thị khi chọn ngôn ngữ khác)
+    const privacyTranslations = {
+      zh: '<h2>1. 我们收集的信息</h2><p>Desert Camel 是一款非托管 Web3 钱包。我们不会收集、存储或传输任何个人身份信息。</p><h2>2. 私钥和恢复短语</h2><p>您的私钥和恢复短语在本地生成并存储在您的设备上，绝不会传输到我们的服务器。</p><h2>3. 区块链交易</h2><p>所有交易都记录在公开的 SidraChain 区块链上。</p><h2>4. 第三方服务</h2><p>应用程序通过第三方 RPC 提供商连接 SidraChain 网络。</p><h2>5. Cookies 和分析</h2><p>本网站不使用跟踪 cookie 或分析脚本。</p><h2>6. 数据安全</h2><p>我们采用行业标准实践，但您有责任保护您的设备。</p><h2>7. 您的权利</h2><p>由于我们不存储您的个人数据，因此没有数据可访问、修改或删除。</p><h2>8. 联系</h2><p>📧 desertcamel.app@gmail.com</p>',
+      vi: '<h2>1. Thông tin chúng tôi thu thập</h2><p>Desert Camel là ví Web3 phi tập trung. Chúng tôi không thu thập, lưu trữ hoặc truyền bất kỳ thông tin nhận dạng cá nhân nào.</p><h2>2. Khóa riêng tư và cụm từ khôi phục</h2><p>Khóa riêng và cụm từ khôi phục được tạo và lưu trữ cục bộ trên thiết bị của bạn, không bao giờ được gửi đến máy chủ của chúng tôi.</p><h2>3. Giao dịch blockchain</h2><p>Mọi giao dịch đều được ghi lại trên blockchain SidraChain công khai.</p><h2>4. Dịch vụ bên thứ ba</h2><p>Ứng dụng kết nối với mạng SidraChain qua nhà cung cấp RPC bên thứ ba.</p><h2>5. Cookie và phân tích</h2><p>Trang web này không sử dụng cookie theo dõi hoặc tập lệnh phân tích.</p><h2>6. Bảo mật dữ liệu</h2><p>Chúng tôi áp dụng các thông lệ tiêu chuẩn nhưng bạn có trách nhiệm bảo mật thiết bị của mình.</p><h2>7. Quyền của bạn</h2><p>Vì chúng tôi không lưu dữ liệu cá nhân nên không có dữ liệu để truy cập, sửa đổi hoặc xóa.</p><h2>8. Liên hệ</h2><p>📧 desertcamel.app@gmail.com</p>',
+      hi: '<h2>1. हम कौन सी जानकारी एकत्र करते हैं</h2><p>Desert Camel एक गैर-संरक्षक Web3 वॉलेट है। हम कोई व्यक्तिगत पहचान योग्य जानकारी एकत्र, संग्रहीत या प्रसारित नहीं करते हैं।</p><h2>2. निजी कुंजियाँ और पुनर्प्राप्ति वाक्यांश</h2><p>आपकी निजी कुंजियाँ और पुनर्प्राप्ति वाक्यांश स्थानीय रूप से आपके डिवाइस पर उत्पन्न और संग्रहीत होते हैं, कभी भी हमारे सर्वर पर प्रसारित नहीं होते।</p><h2>3. ब्लॉकचेन लेन-देन</h2><p>सभी लेन-देन सार्वजनिक SidraChain ब्लॉकचेन पर रिकॉर्ड किए जाते हैं।</p><h2>4. तृतीय-पक्ष सेवाएँ</h2><p>ऐप तृतीय-पक्ष RPC प्रदाताओं के माध्यम से SidraChain नेटवर्क से जुड़ता है।</p><h2>5. कुकीज़ और विश्लेषण</h2><p>यह वेबसाइट ट्रैकिंग कुकीज़ या विश्लेषण स्क्रिप्ट का उपयोग नहीं करती है।</p><h2>6. डेटा सुरक्षा</h2><p>हम उद्योग-मानक प्रथाओं को लागू करते हैं, लेकिन आपके डिवाइस की सुरक्षा आपकी जिम्मेदारी है।</p><h2>7. आपके अधिकार</h2><p>चूंकि हम आपका व्यक्तिगत डेटा संग्रहीत नहीं करते, इसलिए कोई डेटा एक्सेस, संशोधित या हटाने योग्य नहीं है।</p><h2>8. संपर्क</h2><p>📧 desertcamel.app@gmail.com</p>',
+      ar: '<h2>1. المعلومات التي نجمعها</h2><p>Desert Camel هو محفظة Web3 غير استضافة. نحن لا نجمع أو نخزن أو ننقل أي معلومات تعريف شخصية.</p><h2>2. المفاتيح الخاصة وعبارات الاسترداد</h2><p>يتم إنشاء مفاتيحك الخاصة وعبارات الاسترداد وتخزينها محلياً على جهازك، ولا يتم إرسالها أبداً إلى خوادمنا.</p><h2>3. معاملات البلوكشين</h2><p>جميع المعاملات مسجلة على البلوكشين العام SidraChain.</p><h2>4. خدمات الطرف الثالث</h2><p>يتصل التطبيق بشبكة SidraChain عبر مزودي RPC من طرف ثالث.</p><h2>5. ملفات تعريف الارتباط والتحليلات</h2><p>لا يستخدم هذا الموقع ملفات تعريف ارتباط التتبع أو نصوص التحليلات.</p><h2>6. أمان البيانات</h2><p>نطبق ممارسات معيارية ولكن مسؤولية تأمين جهازك تقع على عاتقك.</p><h2>7. حقوقك</h2><p>نظراً لأننا لا نخزن بياناتك الشخصية، فلا توجد بيانات للوصول أو تعديل أو حذف.</p><h2>8. الاتصال</h2><p>📧 desertcamel.app@gmail.com</p>',
+      id: '<h2>1. Informasi yang Kami Kumpulkan</h2><p>Desert Camel adalah dompet Web3 non-kustodian. Kami tidak mengumpulkan, menyimpan, atau mengirimkan informasi pribadi apa pun.</p><h2>2. Kunci Pribadi dan Frasa Pemulihan</h2><p>Kunci pribadi dan frasa pemulihan Anda dihasilkan dan disimpan secara lokal di perangkat Anda, tidak pernah dikirim ke server kami.</p><h2>3. Transaksi Blockchain</h2><p>Semua transaksi dicatat di blockchain SidraChain publik.</p><h2>4. Layanan Pihak Ketiga</h2><p>Aplikasi terhubung ke jaringan SidraChain melalui penyedia RPC pihak ketiga.</p><h2>5. Cookie dan Analitik</h2><p>Situs ini tidak menggunakan cookie pelacakan atau skrip analitik.</p><h2>6. Keamanan Data</h2><p>Kami menerapkan praktik standar industri tetapi Anda bertanggung jawab untuk mengamankan perangkat Anda.</p><h2>7. Hak Anda</h2><p>Karena kami tidak menyimpan data pribadi Anda, tidak ada data yang dapat diakses, dimodifikasi, atau dihapus.</p><h2>8. Kontak</h2><p>📧 desertcamel.app@gmail.com</p>',
+      ms: '<h2>1. Maklumat yang Kami Kumpul</h2><p>Desert Camel ialah dompet Web3 bukan kustodian. Kami tidak mengumpul, menyimpan, atau menghantar sebarang maklumat peribadi.</p><h2>2. Kunci Peribadi dan Frasa Pemulihan</h2><p>Kunci peribadi dan frasa pemulihan anda dihasilkan dan disimpan secara tempatan di peranti anda, tidak pernah dihantar ke pelayan kami.</p><h2>3. Transaksi Blockchain</h2><p>Semua transaksi direkodkan di blockchain SidraChain awam.</p><h2>4. Perkhidmatan Pihak Ketiga</h2><p>Aplikasi ini bersambung ke rangkaian SidraChain melalui pembekal RPC pihak ketiga.</p><h2>5. Kuki dan Analitis</h2><p>Laman web ini tidak menggunakan kuki penjejakan atau skrip analitis.</p><h2>6. Keselamatan Data</h2><p>Kami mengamalkan amalan standard industri tetapi anda bertanggungjawab untuk mengamankan peranti anda.</p><h2>7. Hak Anda</h2><p>Memandangkan kami tidak menyimpan data peribadi anda, tiada data untuk diakses, diubah suai, atau dipadam.</p><h2>8. Hubungi</h2><p>📧 desertcamel.app@gmail.com</p>',
+      lo: '<h2>1. ຂໍ້ມູນທີ່ພວກເຮົາເກັບກຳ</h2><p>Desert Camel ແມ່ນກະເປົາເງິນ Web3 ທີ່ບໍ່ມີຜູ້ຄຸ້ມຄອງ. ພວກເຮົາບໍ່ເກັບກຳ, ເກັບຮັກສາ ຫຼື ສົ່ງຂໍ້ມູນສ່ວນຕົວໃດໆ.</p><h2>2. ກະແຈສ່ວນຕົວ ແລະ ປະໂຫຍກການຟື້ນຟູ</h2><p>ກະແຈສ່ວນຕົວ ແລະ ປະໂຫຍກການຟື້ນຟູຂອງທ່ານຖືກສ້າງ ແລະ ເກັບໄວ້ໃນທ້ອງຖິ່ນຂອງອຸປະກອນຂອງທ່ານ, ບໍ່ເຄີຍຖືກສົ່ງໄປຫາເຊີຟເວີຂອງພວກເຮົາ.</p><h2>3. ທຸລະກຳ Blockchain</h2><p>ທຸລະກຳທັງໝົດຖືກບັນທຶກໄວ້ໃນ blockchain SidraChain ສາທາລະນະ.</p><h2>4. ການບໍລິການພາກສ່ວນທີສາມ</h2><p>ແອັບພລິເຄຊັນເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍ SidraChain ຜ່ານຜູ້ໃຫ້ບໍລິການ RPC ພາກສ່ວນທີສາມ.</p><h2>5. ຄຸກກີ ແລະ ການວິເຄາະ</h2><p>ເວັບໄຊນີ້ບໍ່ໃຊ້ຄຸກກີຕິດຕາມ ຫຼື ສະຄຣິບວິເຄາະ.</p><h2>6. ຄວາມປອດໄພຂໍ້ມູນ</h2><p>ພວກເຮົາໃຊ້ມາດຕະຖານອຸດສາຫະກຳ ແຕ່ທ່ານຮັບຜິດຊອບຮັກສາຄວາມປອດໄພຂອງອຸປະກອນຂອງທ່ານ.</p><h2>7. ສິດທິຂອງທ່ານ</h2><p>ເນື່ອງຈາກພວກເຮົາບໍ່ເກັບຂໍ້ມູນສ່ວນຕົວຂອງທ່ານ, ບໍ່ມີຂໍ້ມູນໃຫ້ເຂົ້າເຖິງ, ແກ້ໄຂ ຫຼື ລຶບ.</p><h2>8. ຕິດຕໍ່</h2><p>📧 desertcamel.app@gmail.com</p>'
+    };
+
+    function switchLang(lang) {
+      localStorage.setItem('preferredLang', lang);
+      // Cập nhật các phần tử có data-key
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      // Cập nhật nội dung privacy
+      const contentDiv = document.getElementById('translated-content');
+      const enContent = document.querySelector('.en-content');
+      if (lang === 'en') {
+        enContent.style.display = 'block';
+        contentDiv.style.display = 'none';
+      } else if (privacyTranslations[lang]) {
+        enContent.style.display = 'none';
+        contentDiv.style.display = 'block';
+        contentDiv.innerHTML = privacyTranslations[lang];
+      } else {
+        // fallback to English
+        enContent.style.display = 'block';
+        contentDiv.style.display = 'none';
+      }
+      document.getElementById('langSelector').value = lang;
+    }
+
+    window.onload = function() {
+      const savedLang = localStorage.getItem('preferredLang') || 'en';
+      if (translations[savedLang]) {
+        switchLang(savedLang);
+      } else {
+        switchLang('en');
+      }
+    };
+  </script>
 </body>
 </html>

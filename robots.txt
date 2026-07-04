@@ -1,0 +1,6 @@
+# Allow all bots to crawl
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://desertcamel.app/sitemap.xml

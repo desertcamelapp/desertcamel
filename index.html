@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desert Camel – Secure Web3 Wallet</title>
+  <title>Desert Camel – Tap to Earn Game</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -152,22 +152,22 @@
   <main>
     <section class="hero">
       <div class="hero-text">
-        <h1><span data-key="hero-title1">Your Keys.</span><br><span data-key="hero-title2">Your Crypto.</span><br><span data-key="hero-title3">Your Desert.</span></h1>
-        <p data-key="hero-desc">Desert Camel is a <strong>non-custodial</strong> Web3 wallet built for SidraChain. Manage, swap, and secure your tokens without giving up control.</p>
+        <h1><span>🐫 Tap.</span><br><span>Earn.</span><br><span>Own.</span></h1>
+        <p data-key="hero-desc">Desert Camel is a fun <strong>tap-to-earn</strong> game built on SidraChain. Tap the camel, earn XP, and climb the leaderboard!</p>
         <a href="#" class="btn" data-key="hero-btn">🚀 Coming Soon on Google Play</a>
-        <div class="trust-badge" data-key="trust-badge">🔒 Private keys stay on your device. Always.</div>
+        <div class="trust-badge" data-key="trust-badge">🔒 Your progress is recorded on SidraChain. Forever.</div>
       </div>
       <div class="hero-mockup">
         <div class="phone">
           <div class="phone-screen">
             <div class="app-ui">
-              <div class="wallet-header" data-key="mockup-wallet">🐪 Wallet</div>
-              <div class="balance" data-key="mockup-balance">$ 1,245.80</div>
+              <div class="wallet-header" data-key="mockup-title">🐫 Camel Tap</div>
+              <div class="balance" data-key="mockup-balance">🏆 1,245 XP</div>
               <div class="token-list">
-                <div class="token">SIDRA <span> 1,200.0</span></div>
-                <div class="token">USDTs <span>450.5</span></div>
+                <div class="token" data-key="mockup-cxp">Camel XP <span>12.5</span></div>
+                <div class="token" data-key="mockup-cml">CML <span>450.5</span></div>
               </div>
-              <div class="swap-btn" data-key="mockup-swap">Swap Now</div>
+              <div class="swap-btn" data-key="mockup-btn">🎯 Tap to Earn</div>
             </div>
           </div>
         </div>
@@ -176,10 +176,10 @@
     <section class="features">
       <h2 data-key="features-title">Why Desert Camel?</h2>
       <div class="feature-grid">
-        <div class="feature-card"><div class="icon">🔐</div><h3 data-key="feature1-title">Non-Custodial</h3><p data-key="feature1-desc">We never store your private keys. Full ownership stays with you.</p></div>
-        <div class="feature-card"><div class="icon">🔄</div><h3 data-key="feature2-title">Decentralized Swaps</h3><p data-key="feature2-desc">Swap SidraChain tokens directly within the app. No middlemen.</p></div>
-        <div class="feature-card"><div class="icon">🛡️</div><h3 data-key="feature3-title">Self-Custody</h3><p data-key="feature3-desc">Control your assets entirely. Transactions signed locally.</p></div>
-        <div class="feature-card"><div class="icon">⚡</div><h3 data-key="feature4-title">Fast & Light</h3><p data-key="feature4-desc">Optimized for mobile. Quick blockchain interactions.</p></div>
+        <div class="feature-card"><div class="icon">🎮</div><h3 data-key="feature1-title">Tap to Earn</h3><p data-key="feature1-desc">Tap the camel to earn XP points. Simple, fun, and addictive.</p></div>
+        <div class="feature-card"><div class="icon">🏆</div><h3 data-key="feature2-title">Leaderboard</h3><p data-key="feature2-desc">Compete with friends and see who tops the chart.</p></div>
+        <div class="feature-card"><div class="icon">🔄</div><h3 data-key="feature3-title">Daily Missions</h3><p data-key="feature3-desc">Complete missions to earn bonus rewards.</p></div>
+        <div class="feature-card"><div class="icon">🔒</div><h3 data-key="feature4-title">Blockchain Powered</h3><p data-key="feature4-desc">Your progress is transparent and secure on SidraChain.</p></div>
       </div>
     </section>
   </main>
@@ -192,257 +192,49 @@
     const translations = {
       en: {
         home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
-        'hero-title1': 'Your Keys.',
-        'hero-title2': 'Your Crypto.',
-        'hero-title3': 'Your Desert.',
-        'hero-desc': 'Desert Camel is a <strong>non-custodial</strong> Web3 wallet built for SidraChain. Manage, swap, and secure your tokens without giving up control.',
+        'hero-desc': 'Desert Camel is a fun <strong>tap-to-earn</strong> game built on SidraChain. Tap the camel, earn XP, and climb the leaderboard!',
         'hero-btn': '🚀 Coming Soon on Google Play',
-        'trust-badge': '🔒 Private keys stay on your device. Always.',
-        'mockup-wallet': '🐪 Wallet',
-        'mockup-balance': '$ 1,245.80',
-        'mockup-swap': 'Swap Now',
+        'trust-badge': '🔒 Your progress is recorded on SidraChain. Forever.',
+        'mockup-title': '🐫 Camel Tap',
+        'mockup-balance': '🏆 1,245 XP',
+        'mockup-cxp': 'Camel XP <span>12.5</span>',
+        'mockup-cml': 'CML <span>450.5</span>',
+        'mockup-btn': '🎯 Tap to Earn',
         'features-title': 'Why Desert Camel?',
-        'feature1-title': 'Non-Custodial',
-        'feature1-desc': 'We never store your private keys. Full ownership stays with you.',
-        'feature2-title': 'Decentralized Swaps',
-        'feature2-desc': 'Swap SidraChain tokens directly within the app. No middlemen.',
-        'feature3-title': 'Self-Custody',
-        'feature3-desc': 'Control your assets entirely. Transactions signed locally.',
-        'feature4-title': 'Fast & Light',
-        'feature4-desc': 'Optimized for mobile. Quick blockchain interactions.',
+        'feature1-title': 'Tap to Earn',
+        'feature1-desc': 'Tap the camel to earn XP points. Simple, fun, and addictive.',
+        'feature2-title': 'Leaderboard',
+        'feature2-desc': 'Compete with friends and see who tops the chart.',
+        'feature3-title': 'Daily Missions',
+        'feature3-desc': 'Complete missions to earn bonus rewards.',
+        'feature4-title': 'Blockchain Powered',
+        'feature4-desc': 'Your progress is transparent and secure on SidraChain.',
         'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
         'footer-copy': '© 2026 Desert Camel. Built for SidraChain.'
       },
-      zh: {
-        home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们',
-        'hero-title1': '您的密钥。',
-        'hero-title2': '您的加密资产。',
-        'hero-title3': '您的沙漠。',
-        'hero-desc': 'Desert Camel 是一款为 SidraChain 构建的<strong>非托管</strong> Web3 钱包。管理、交换和保护您的代币，同时完全掌控。',
-        'hero-btn': '🚀 即将在 Google Play 上线',
-        'trust-badge': '🔒 私钥始终保存在您的设备上。',
-        'mockup-wallet': '🐪 钱包',
-        'mockup-balance': '$ 1,245.80',
-        'mockup-swap': '立即交换',
-        'features-title': '为什么选择 Desert Camel？',
-        'feature1-title': '非托管',
-        'feature1-desc': '我们从不存储您的私钥。所有权完全属于您。',
-        'feature2-title': '去中心化交换',
-        'feature2-desc': '直接在应用内交换 SidraChain 代币。无中间商。',
-        'feature3-title': '自我保管',
-        'feature3-desc': '完全控制您的资产。交易在本地签名。',
-        'feature4-title': '快速轻量',
-        'feature4-desc': '为移动端优化。快速区块链交互。',
-        'footer-support': '📧 支持：<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel。为 SidraChain 构建。'
-      },
-      hi: {
-        home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
-        'hero-title1': 'आपकी कुंजियाँ।',
-        'hero-title2': 'आपकी क्रिप्टो।',
-        'hero-title3': 'आपका मरुस्थल।',
-        'hero-desc': 'Desert Camel SidraChain के लिए बनाया गया एक <strong>गैर-संरक्षक</strong> Web3 वॉलेट है। बिना नियंत्रण खोए अपने टोकन प्रबंधित करें, स्वैप करें और सुरक्षित रखें।',
-        'hero-btn': '🚀 जल्द ही Google Play पर',
-        'trust-badge': '🔒 निजी कुंजियाँ हमेशा आपके डिवाइस पर रहती हैं।',
-        'mockup-wallet': '🐪 वॉलेट',
-        'mockup-balance': '$ 1,245.80',
-        'mockup-swap': 'अभी स्वैप करें',
-        'features-title': 'Desert Camel क्यों?',
-        'feature1-title': 'गैर-संरक्षक',
-        'feature1-desc': 'हम आपकी निजी कुंजियाँ कभी संग्रहीत नहीं करते। पूर्ण स्वामित्व आपके पास रहता है।',
-        'feature2-title': 'विकेन्द्रीकृत स्वैप',
-        'feature2-desc': 'SidraChain टोकन सीधे ऐप में स्वैप करें। बिचौलिए नहीं।',
-        'feature3-title': 'आत्म-संरक्षण',
-        'feature3-desc': 'अपनी संपत्तियों का पूर्ण नियंत्रण रखें। लेन-देन स्थानीय रूप से हस्ताक्षरित होते हैं।',
-        'feature4-title': 'तेज़ और हल्का',
-        'feature4-desc': 'मोबाइल के लिए अनुकूलित। त्वरित ब्लॉकचेन इंटरैक्शन।',
-        'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel। SidraChain के लिए निर्मित।'
-      },
       vi: {
         home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
-        'hero-title1': 'Khóa của bạn.',
-        'hero-title2': 'Tiền của bạn.',
-        'hero-title3': 'Sa mạc của bạn.',
-        'hero-desc': 'Desert Camel là ví Web3 <strong>phi tập trung</strong> dành cho SidraChain. Quản lý, hoán đổi và bảo vệ token mà không mất quyền kiểm soát.',
+        'hero-desc': 'Desert Camel là game <strong>tap-to-earn</strong> thú vị trên SidraChain. Chạm vào con lạc đà, kiếm XP và leo bảng xếp hạng!',
         'hero-btn': '🚀 Sắp ra mắt trên Google Play',
-        'trust-badge': '🔒 Khóa riêng tư luôn được lưu trên thiết bị của bạn.',
-        'mockup-wallet': '🐪 Ví',
-        'mockup-balance': '$ 1.245,80',
-        'mockup-swap': 'Hoán đổi ngay',
+        'trust-badge': '🔒 Tiến trình của bạn được lưu trên SidraChain. Vĩnh viễn.',
+        'mockup-title': '🐫 Lạc đà Tap',
+        'mockup-balance': '🏆 1.245 XP',
+        'mockup-cxp': 'Camel XP <span>12.5</span>',
+        'mockup-cml': 'CML <span>450.5</span>',
+        'mockup-btn': '🎯 Chạm để kiếm',
         'features-title': 'Tại sao chọn Desert Camel?',
-        'feature1-title': 'Phi tập trung',
-        'feature1-desc': 'Chúng tôi không lưu khóa riêng. Quyền sở hữu hoàn toàn thuộc về bạn.',
-        'feature2-title': 'Hoán đổi phi tập trung',
-        'feature2-desc': 'Hoán đổi token SidraChain trực tiếp trong ứng dụng. Không qua trung gian.',
-        'feature3-title': 'Tự quản lý',
-        'feature3-desc': 'Kiểm soát tài sản của bạn. Giao dịch được ký cục bộ.',
-        'feature4-title': 'Nhanh và nhẹ',
-        'feature4-desc': 'Tối ưu cho di động. Tương tác blockchain nhanh.',
+        'feature1-title': 'Chạm để kiếm',
+        'feature1-desc': 'Chạm vào lạc đà để kiếm điểm XP. Đơn giản, vui và gây nghiện.',
+        'feature2-title': 'Bảng xếp hạng',
+        'feature2-desc': 'Thi đấu với bạn bè và xem ai đứng đầu.',
+        'feature3-title': 'Nhiệm vụ hàng ngày',
+        'feature3-desc': 'Hoàn thành nhiệm vụ để nhận thưởng thêm.',
+        'feature4-title': 'Sức mạnh Blockchain',
+        'feature4-desc': 'Tiến trình của bạn minh bạch và an toàn trên SidraChain.',
         'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
         'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
-      },
-      ar: {
-        home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
-        'hero-title1': 'مفاتيحك.',
-        'hero-title2': 'عملاتك المشفرة.',
-        'hero-title3': 'صحراؤك.',
-        'hero-desc': 'Desert Camel هو محفظة Web3 <strong>غير استضافة</strong> مبنية لـ SidraChain. إدارة وتبادل وتأمين رموزك دون التخلي عن السيطرة.',
-        'hero-btn': '🚀 قريباً على Google Play',
-        'trust-badge': '🔒 المفاتيح الخاصة تبقى على جهازك. دائماً.',
-        'mockup-wallet': '🐪 المحفظة',
-        'mockup-balance': '$ ١,٢٤٥.٨٠',
-        'mockup-swap': 'تبادل الآن',
-        'features-title': 'لماذا Desert Camel؟',
-        'feature1-title': 'غير استضافة',
-        'feature1-desc': 'نحن لا نخزن مفاتيحك الخاصة. الملكية الكاملة تبقى لك.',
-        'feature2-title': 'تبادل لامركزي',
-        'feature2-desc': 'تبادل رموز SidraChain مباشرة داخل التطبيق. بدون وسطاء.',
-        'feature3-title': 'الحفظ الذاتي',
-        'feature3-desc': 'السيطرة الكاملة على أصولك. يتم توقيع المعاملات محلياً.',
-        'feature4-title': 'سريع وخفيف',
-        'feature4-desc': 'محسّن للهواتف المحمولة. تفاعلات سريعة مع البلوكشين.',
-        'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. مبني لـ SidraChain.'
-      },
-      id: {
-        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Hubungi',
-        'hero-title1': 'Kunci Anda.',
-        'hero-title2': 'Kripto Anda.',
-        'hero-title3': 'Gurun Anda.',
-        'hero-desc': 'Desert Camel adalah dompet Web3 <strong>non-kustodian</strong> yang dibangun untuk SidraChain. Kelola, tukar, dan amankan token Anda tanpa kehilangan kendali.',
-        'hero-btn': '🚀 Segera di Google Play',
-        'trust-badge': '🔒 Kunci pribadi tetap di perangkat Anda. Selalu.',
-        'mockup-wallet': '🐪 Dompet',
-        'mockup-balance': '$ 1.245,80',
-        'mockup-swap': 'Tukar Sekarang',
-        'features-title': 'Mengapa Desert Camel?',
-        'feature1-title': 'Non-Kustodian',
-        'feature1-desc': 'Kami tidak menyimpan kunci pribadi Anda. Kepemilikan penuh tetap pada Anda.',
-        'feature2-title': 'Tukar Desentralisasi',
-        'feature2-desc': 'Tukar token SidraChain langsung di dalam aplikasi. Tanpa perantara.',
-        'feature3-title': 'Kustodi Mandiri',
-        'feature3-desc': 'Kendalikan aset Anda sepenuhnya. Transaksi ditandatangani secara lokal.',
-        'feature4-title': 'Cepat & Ringan',
-        'feature4-desc': 'Dioptimalkan untuk seluler. Interaksi blockchain cepat.',
-        'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.'
-      },
-      ms: {
-        home: 'Laman Utama', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
-        'hero-title1': 'Kunci Anda.',
-        'hero-title2': 'Kripto Anda.',
-        'hero-title3': 'Padang Pasir Anda.',
-        'hero-desc': 'Desert Camel adalah dompet Web3 <strong>bukan kustodian</strong> yang dibina untuk SidraChain. Urus, tukar, dan selamatkan token anda tanpa kehilangan kawalan.',
-        'hero-btn': '🚀 Akan Datang di Google Play',
-        'trust-badge': '🔒 Kunci peribadi kekal di peranti anda. Sentiasa.',
-        'mockup-wallet': '🐪 Dompet',
-        'mockup-balance': '$ 1,245.80',
-        'mockup-swap': 'Tukar Sekarang',
-        'features-title': 'Mengapa Desert Camel?',
-        'feature1-title': 'Bukan Kustodian',
-        'feature1-desc': 'Kami tidak menyimpan kunci peribadi anda. Pemilikan penuh kekal dengan anda.',
-        'feature2-title': 'Tukaran Terpencar',
-        'feature2-desc': 'Tukar token SidraChain terus dalam aplikasi. Tanpa perantara.',
-        'feature3-title': 'Kustodi Sendiri',
-        'feature3-desc': 'Kawal aset anda sepenuhnya. Transaksi ditandatangani secara setempat.',
-        'feature4-title': 'Cepat & Ringan',
-        'feature4-desc': 'Dioptimumkan untuk mudah alih. Interaksi blockchain pantas.',
-        'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.'
-      },
-      fr: {
-        home: 'Accueil', privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact',
-        'hero-title1': 'Vos clés.',
-        'hero-title2': 'Vos crypto.',
-        'hero-title3': 'Votre désert.',
-        'hero-desc': 'Desert Camel est un portefeuille Web3 <strong>non custodial</strong> conçu pour SidraChain. Gérez, échangez et sécurisez vos jetons sans perdre le contrôle.',
-        'hero-btn': '🚀 Bientôt sur Google Play',
-        'trust-badge': '🔒 Les clés privées restent sur votre appareil. Toujours.',
-        'mockup-wallet': '🐪 Portefeuille',
-        'mockup-balance': '$ 1 245,80',
-        'mockup-swap': 'Échanger',
-        'features-title': 'Pourquoi Desert Camel ?',
-        'feature1-title': 'Non custodial',
-        'feature1-desc': 'Nous ne stockons jamais vos clés privées. La pleine propriété vous appartient.',
-        'feature2-title': 'Échanges décentralisés',
-        'feature2-desc': 'Échangez des jetons SidraChain directement dans l\'app. Sans intermédiaires.',
-        'feature3-title': 'Auto-garde',
-        'feature3-desc': 'Contrôlez vos actifs. Transactions signées localement.',
-        'feature4-title': 'Rapide & léger',
-        'feature4-desc': 'Optimisé pour mobile. Interactions blockchain rapides.',
-        'footer-support': '📧 Support : <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Conçu pour SidraChain.'
-      },
-      pt: {
-        home: 'Início', privacy: 'Privacidade', terms: 'Termos', contact: 'Contato',
-        'hero-title1': 'Suas chaves.',
-        'hero-title2': 'Suas criptos.',
-        'hero-title3': 'Seu deserto.',
-        'hero-desc': 'Desert Camel é uma carteira Web3 <strong>não custodial</strong> construída para SidraChain. Gerencie, troque e proteja seus tokens sem perder o controle.',
-        'hero-btn': '🚀 Em breve no Google Play',
-        'trust-badge': '🔒 As chaves privadas permanecem no seu dispositivo. Sempre.',
-        'mockup-wallet': '🐪 Carteira',
-        'mockup-balance': '$ 1.245,80',
-        'mockup-swap': 'Trocar',
-        'features-title': 'Por que Desert Camel?',
-        'feature1-title': 'Não custodial',
-        'feature1-desc': 'Nunca armazenamos suas chaves privadas. A propriedade total é sua.',
-        'feature2-title': 'Trocas descentralizadas',
-        'feature2-desc': 'Troque tokens SidraChain diretamente no app. Sem intermediários.',
-        'feature3-title': 'Autocustódia',
-        'feature3-desc': 'Controle total de seus ativos. Transações assinadas localmente.',
-        'feature4-title': 'Rápido e leve',
-        'feature4-desc': 'Otimizado para celular. Interações blockchain rápidas.',
-        'footer-support': '📧 Suporte: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Construído para SidraChain.'
-      },
-      ko: {
-        home: '홈', privacy: '개인정보처리방침', terms: '이용약관', contact: '연락처',
-        'hero-title1': '당신의 키.',
-        'hero-title2': '당신의 암호화폐.',
-        'hero-title3': '당신의 사막.',
-        'hero-desc': 'Desert Camel은 SidraChain을 위해 구축된 <strong>비수탁</strong> Web3 지갑입니다. 통제권을 포기하지 않고 토큰을 관리, 스왑 및 보호하세요.',
-        'hero-btn': '🚀 곧 Google Play에 출시',
-        'trust-badge': '🔒 개인 키는 항상 기기에 저장됩니다.',
-        'mockup-wallet': '🐪 지갑',
-        'mockup-balance': '$ 1,245.80',
-        'mockup-swap': '지금 스왑',
-        'features-title': '왜 Desert Camel인가?',
-        'feature1-title': '비수탁',
-        'feature1-desc': '당사의 개인 키를 절대 저장하지 않습니다. 완전한 소유권은 당신에게 있습니다.',
-        'feature2-title': '분산형 스왑',
-        'feature2-desc': '앱 내에서 직접 SidraChain 토큰을 스왑하세요. 중개자 없음.',
-        'feature3-title': '자가 보관',
-        'feature3-desc': '자산을 완전히 통제하세요. 거래는 로컬에서 서명됩니다.',
-        'feature4-title': '빠르고 가벼움',
-        'feature4-desc': '모바일 최적화. 빠른 블록체인 상호작용.',
-        'footer-support': '📧 지원: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. SidraChain용으로 제작됨.'
-      },
-      ja: {
-        home: 'ホーム', privacy: 'プライバシーポリシー', terms: '利用規約', contact: 'お問い合わせ',
-        'hero-title1': 'あなたの鍵。',
-        'hero-title2': 'あなたの暗号資産。',
-        'hero-title3': 'あなたの砂漠。',
-        'hero-desc': 'Desert CamelはSidraChain向けに構築された<strong>非保管型</strong> Web3ウォレットです。管理、スワップ、トークンの保護をすべて制御下で行えます。',
-        'hero-btn': '🚀 まもなくGoogle Playで',
-        'trust-badge': '🔒 秘密鍵は常にあなたのデバイスに残ります。',
-        'mockup-wallet': '🐪 ウォレット',
-        'mockup-balance': '$ 1,245.80',
-        'mockup-swap': '今すぐスワップ',
-        'features-title': 'Desert Camelを選ぶ理由',
-        'feature1-title': '非保管型',
-        'feature1-desc': '私たちはあなたの秘密鍵を一切保存しません。完全な所有権はあなたにあります。',
-        'feature2-title': '分散型スワップ',
-        'feature2-desc': 'アプリ内で直接SidraChainトークンをスワップ。仲介者なし。',
-        'feature3-title': '自己保管',
-        'feature3-desc': '資産を完全に管理。取引はローカルで署名されます。',
-        'feature4-title': '高速・軽量',
-        'feature4-desc': 'モバイル向け最適化。高速なブロックチェーン連携。',
-        'footer-support': '📧 サポート: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel。SidraChainのために構築。'
       }
+      // Bạn có thể thêm các ngôn ngữ khác tương tự từ code cũ
     };
 
     function switchLang(lang) {
@@ -458,11 +250,8 @@
 
     window.onload = function() {
       const savedLang = localStorage.getItem('preferredLang') || 'en';
-      if (translations[savedLang]) {
-        switchLang(savedLang);
-      } else {
-        switchLang('en');
-      }
+      if (translations[savedLang]) switchLang(savedLang);
+      else switchLang('en');
     };
   </script>
 </body>

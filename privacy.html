@@ -113,24 +113,38 @@
 
   <script>
     const translations = {
-      en: {
-        home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
-        'privacy-title': 'Privacy Policy',
-        'last-updated': 'Last Updated: July 8, 2026',
-        'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Built for SidraChain.'
-      },
-      vi: {
-        home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
-        'privacy-title': 'Chính sách bảo mật',
-        'last-updated': 'Cập nhật lần cuối: 8 tháng 7, 2026',
-        'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
-      }
-      // Thêm các ngôn ngữ khác nếu cần
+      en: { home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact', 'privacy-title': 'Privacy Policy', 'last-updated': 'Last Updated: July 8, 2026', 'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Built for SidraChain.' },
+      vi: { home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ', 'privacy-title': 'Chính sách bảo mật', 'last-updated': 'Cập nhật lần cuối: 8 tháng 7, 2026', 'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.' },
+      zh: { home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们', 'privacy-title': '隐私政策', 'last-updated': '最后更新: 2026年7月8日', 'footer-support': '📧 支持: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. 为 SidraChain 构建。' },
+      hi: { home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें', 'privacy-title': 'गोपनीयता नीति', 'last-updated': 'अंतिम अद्यतन: 8 जुलाई 2026', 'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. SidraChain के लिए निर्मित।' },
+      ar: { home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا', 'privacy-title': 'سياسة الخصوصية', 'last-updated': 'آخر تحديث: 8 يوليو 2026', 'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. تم بناؤها لـ SidraChain.' },
+      id: { home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Kontak', 'privacy-title': 'Kebijakan Privasi', 'last-updated': 'Terakhir diperbarui: 8 Juli 2026', 'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.' },
+      ms: { home: 'Rumah', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi', 'privacy-title': 'Dasar Privasi', 'last-updated': 'Dikemaskini terakhir: 8 Julai 2026', 'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.' },
+      fr: { home: 'Accueil', privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact', 'privacy-title': 'Politique de confidentialité', 'last-updated': 'Dernière mise à jour: 8 juillet 2026', 'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Construit pour SidraChain.' },
+      pt: { home: 'Início', privacy: 'Privacidade', terms: 'Termos', contact: 'Contato', 'privacy-title': 'Política de Privacidade', 'last-updated': 'Última atualização: 8 de julho de 2026', 'footer-support': '📧 Suporte: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Construído para SidraChain.' },
+      ko: { home: '홈', privacy: '개인정보처리방침', terms: '서비스 약관', contact: '연락처', 'privacy-title': '개인정보처리방침', 'last-updated': '마지막 업데이트: 2026년 7월 8일', 'footer-support': '📧 지원: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. SidraChain용으로 제작되었습니다.' },
+      ja: { home: 'ホーム', privacy: 'プライバシーポリシー', terms: '利用規約', contact: 'お問い合わせ', 'privacy-title': 'プライバシーポリシー', 'last-updated': '最終更新日: 2026年7月8日', 'footer-support': '📧 サポート: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. SidraChain用に構築されました。' }
     };
 
     const privacyTranslations = {
+      en: `
+        <h2>1. Information We Collect</h2>
+        <p>Desert Camel is a <strong>tap-to-earn game</strong> on SidraChain. We do <strong>not</strong> collect, store, or transmit any personal identifiable information (PII).</p>
+        <h2>2. Game Data & Blockchain</h2>
+        <p>Your game progress, including XP, Camel XP (Cxp), and CML tokens, is recorded on the <strong>public SidraChain blockchain</strong>. This data is publicly visible by nature but not linked to your real identity.</p>
+        <h2>3. Private Keys & Recovery</h2>
+        <p>Your wallet private key is generated and stored <strong>locally</strong> on your device. It is <strong>never</strong> transmitted to our servers or accessible by us.</p>
+        <h2>4. Third-Party Services</h2>
+        <p>The game connects to SidraChain via third-party RPC providers. They may collect IP addresses for functionality but are not authorized to use your data for other purposes.</p>
+        <h2>5. Cookies & Analytics</h2>
+        <p>This website does not use tracking cookies or analytics scripts that collect personal data.</p>
+        <h2>6. Data Security</h2>
+        <p>We implement industry-standard practices to protect our infrastructure. However, you are responsible for securing your device and private keys.</p>
+        <h2>7. Your Rights</h2>
+        <p>Since we do not store your personal data, there is no data to access, modify, or delete. If you have concerns, contact us below.</p>
+        <h2>8. Contact</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
       vi: `
         <h2>1. Thông tin chúng tôi thu thập</h2>
         <p>Desert Camel là game <strong>tap-to-earn</strong> trên SidraChain. Chúng tôi <strong>không</strong> thu thập, lưu trữ hoặc truyền bất kỳ thông tin nhận dạng cá nhân nào.</p>
@@ -147,6 +161,168 @@
         <h2>7. Quyền của bạn</h2>
         <p>Vì chúng tôi không lưu trữ dữ liệu cá nhân, nên không có dữ liệu để truy cập, sửa đổi hoặc xóa. Nếu bạn có thắc mắc, hãy liên hệ với chúng tôi bên dưới.</p>
         <h2>8. Liên hệ</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      zh: `
+        <h2>1. 我们收集的信息</h2>
+        <p>Desert Camel 是 SidraChain 上的<strong>点击赚取游戏</strong>。我们<strong>不</strong>收集、存储或传输任何个人身份信息 (PII)。</p>
+        <h2>2. 游戏数据和区块链</h2>
+        <p>您的游戏进度，包括 XP、Camel XP (Cxp) 和 CML 代币，记录在<strong>公开的 SidraChain 区块链</strong>上。这些数据本质上是公开可见的，但不会链接到您的真实身份。</p>
+        <h2>3. 私钥和恢复</h2>
+        <p>您的钱包私钥是在您的设备上<strong>本地</strong>生成和存储的。它<strong>永远不会</strong>传输到我们的服务器或由我们访问。</p>
+        <h2>4. 第三方服务</h2>
+        <p>游戏通过第三方 RPC 提供商连接到 SidraChain。他们可能会收集 IP 地址以实现功能，但未被授权将您的数据用于其他目的。</p>
+        <h2>5. Cookie 和分析</h2>
+        <p>本网站不使用跟踪 Cookie 或收集个人数据的分析脚本。</p>
+        <h2>6. 数据安全</h2>
+        <p>我们采用行业标准实践来保护我们的基础设施。但是，您有责任保护您的设备和私钥的安全。</p>
+        <h2>7. 您的权利</h2>
+        <p>由于我们不存储您的个人数据，因此没有数据可供访问、修改或删除。如果您有疑问，请通过以下方式联系我们。</p>
+        <h2>8. 联系方式</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      hi: `
+        <h2>1. हम क्या जानकारी एकत्र करते हैं</h2>
+        <p>Desert Camel SidraChain पर एक <strong>टैप-टू-अर्न गेम</strong> है। हम कोई भी व्यक्तिगत पहचान योग्य जानकारी (PII) <strong>एकत्र, संग्रहीत या प्रसारित नहीं</strong> करते हैं।</p>
+        <h2>2. खेल डेटा और ब्लॉकचेन</h2>
+        <p>आपकी खेल प्रगति, जिसमें XP, Camel XP (Cxp) और CML टोकन शामिल हैं, <strong>सार्वजनिक SidraChain ब्लॉकचेन</strong> पर दर्ज की जाती है। यह डेटा स्वभाव से सार्वजनिक रूप से दिखाई देता है लेकिन आपकी वास्तविक पहचान से नहीं जुड़ा है।</p>
+        <h2>3. निजी कुंजी और पुनर्प्राप्ति</h2>
+        <p>आपका वॉलेट प्राइवेट की <strong>स्थानीय रूप से</strong> आपके डिवाइस पर जनरेट और संग्रहीत किया जाता है। यह <strong>कभी भी</strong> हमारे सर्वर पर प्रसारित नहीं किया जाता है या हमारे द्वारा पहुँच योग्य नहीं है।</p>
+        <h2>4. थर्ड-पार्टी सेवाएँ</h2>
+        <p>गेम तृतीय-पक्ष RPC प्रदाताओं के माध्यम से SidraChain से जुड़ता है। वे कार्यक्षमता के लिए IP पते एकत्र कर सकते हैं लेकिन आपके डेटा को अन्य उद्देश्यों के लिए उपयोग करने के लिए अधिकृत नहीं हैं।</p>
+        <h2>5. कुकीज़ और विश्लेषिकी</h2>
+        <p>यह वेबसाइट व्यक्तिगत डेटा एकत्र करने वाली ट्रैकिंग कुकीज़ या विश्लेषण स्क्रिप्ट का उपयोग नहीं करती है।</p>
+        <h2>6. डेटा सुरक्षा</h2>
+        <p>हम अपने बुनियादी ढांचे की सुरक्षा के लिए उद्योग-मानक प्रथाओं को लागू करते हैं। हालाँकि, आपके डिवाइस और निजी कुंजियों को सुरक्षित करने की जिम्मेदारी आपकी है।</p>
+        <h2>7. आपके अधिकार</h2>
+        <p>चूंकि हम आपका व्यक्तिगत डेटा संग्रहीत नहीं करते हैं, इसलिए एक्सेस, संशोधित या हटाने के लिए कोई डेटा नहीं है। यदि आपको कोई चिंता है, तो नीचे हमसे संपर्क करें।</p>
+        <h2>8. संपर्क</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      ar: `
+        <h2>1. المعلومات التي نجمعها</h2>
+        <p>Desert Camel هي لعبة <strong>اضغط لتربح</strong> على SidraChain. نحن <strong>لا</strong> نجمع أو نخزن أو ننقل أي معلومات تعريف شخصية (PII).</p>
+        <h2>2. بيانات اللعبة وسلسلة الكتل</h2>
+        <p>يتم تسجيل تقدم لعبتك، بما في ذلك XP و Camel XP (Cxp) ورموز CML، على <strong>سلسلة الكتل العامة SidraChain</strong>. هذه البيانات مرئية للعامة بطبيعتها ولكنها غير مرتبطة بهويتك الحقيقية.</p>
+        <h2>3. المفاتيح الخاصة والاسترداد</h2>
+        <p>يتم إنشاء المفتاح الخاص لمحفظتك وتخزينه <strong>محليًا</strong> على جهازك. لا يتم <strong>أبدًا</strong> نقله إلى خوادمنا أو يمكننا الوصول إليه.</p>
+        <h2>4. خدمات الطرف الثالث</h2>
+        <p>تتصل اللعبة بـ SidraChain عبر موفري RPC تابعين لجهات خارجية. قد يقومون بجمع عناوين IP للوظائف ولكن لا يُسمح لهم باستخدام بياناتك لأغراض أخرى.</p>
+        <h2>5. ملفات تعريف الارتباط والتحليلات</h2>
+        <p>لا يستخدم هذا الموقع ملفات تعريف الارتباط للتتبع أو نصوص التحليلات التي تجمع البيانات الشخصية.</p>
+        <h2>6. أمن البيانات</h2>
+        <p>نحن نطبق ممارسات معايير الصناعة لحماية البنية التحتية لدينا. ومع ذلك، فأنت مسؤول عن تأمين جهازك ومفاتيحك الخاصة.</p>
+        <h2>7. حقوقك</h2>
+        <p>نظرًا لأننا لا نخزن بياناتك الشخصية، فلا توجد بيانات للوصول إليها أو تعديلها أو حذفها. إذا كانت لديك مخاوف، فاتصل بنا أدناه.</p>
+        <h2>8. الاتصال</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      id: `
+        <h2>1. Informasi yang Kami Kumpulkan</h2>
+        <p>Desert Camel adalah <strong>game tap-to-earn</strong> di SidraChain. Kami <strong>tidak</strong> mengumpulkan, menyimpan, atau mengirimkan informasi identitas pribadi (PII).</p>
+        <h2>2. Data Game & Blockchain</h2>
+        <p>Kemajuan game Anda, termasuk XP, Camel XP (Cxp), dan token CML, dicatat di <strong>blockchain SidraChain publik</strong>. Data ini terlihat publik tetapi tidak terkait dengan identitas asli Anda.</p>
+        <h2>3. Kunci Pribadi & Pemulihan</h2>
+        <p>Kunci pribadi dompet Anda dibuat dan disimpan <strong>secara lokal</strong> di perangkat Anda. Itu <strong>tidak pernah</strong> dikirim ke server kami atau dapat diakses oleh kami.</p>
+        <h2>4. Layanan Pihak Ketiga</h2>
+        <p>Game terhubung ke SidraChain melalui penyedia RPC pihak ketiga. Mereka dapat mengumpulkan alamat IP untuk fungsi tetapi tidak diizinkan menggunakan data Anda untuk tujuan lain.</p>
+        <h2>5. Cookie & Analitik</h2>
+        <p>Situs web ini tidak menggunakan cookie pelacakan atau skrip analitik yang mengumpulkan data pribadi.</p>
+        <h2>6. Keamanan Data</h2>
+        <p>Kami menerapkan praktik standar industri untuk melindungi infrastruktur kami. Namun, Anda bertanggung jawab untuk mengamankan perangkat dan kunci pribadi Anda.</p>
+        <h2>7. Hak Anda</h2>
+        <p>Karena kami tidak menyimpan data pribadi Anda, tidak ada data yang dapat diakses, dimodifikasi, atau dihapus. Jika Anda memiliki masalah, hubungi kami di bawah ini.</p>
+        <h2>8. Kontak</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      ms: `
+        <h2>1. Maklumat yang Kami Kumpulkan</h2>
+        <p>Desert Camel adalah <strong>permainan ketuk-untuk-peroleh</strong> di SidraChain. Kami <strong>tidak</strong> mengumpul, menyimpan, atau menghantar sebarang maklumat pengenalan peribadi (PII).</p>
+        <h2>2. Data Permainan & Blockchain</h2>
+        <p>Kemajuan permainan anda, termasuk XP, Camel XP (Cxp), dan token CML, direkodkan pada <strong>blockchain SidraChain awam</strong>. Data ini boleh dilihat secara umum tetapi tidak dikaitkan dengan identiti sebenar anda.</p>
+        <h2>3. Kunci Peribadi & Pemulihan</h2>
+        <p>Kunci peribadi dompet anda dijana dan disimpan <strong>secara setempat</strong> pada peranti anda. Ia <strong>tidak pernah</strong> dihantar ke pelayan kami atau boleh diakses oleh kami.</p>
+        <h2>4. Perkhidmatan Pihak Ketiga</h2>
+        <p>Permainan ini menyambung ke SidraChain melalui pembekal RPC pihak ketiga. Mereka mungkin mengumpul alamat IP untuk fungsi tetapi tidak dibenarkan menggunakan data anda untuk tujuan lain.</p>
+        <h2>5. Kuki & Analitik</h2>
+        <p>Laman web ini tidak menggunakan kuki penjejakan atau skrip analitik yang mengumpul data peribadi.</p>
+        <h2>6. Keselamatan Data</h2>
+        <p>Kami melaksanakan amalan standard industri untuk melindungi infrastruktur kami. Walau bagaimanapun, anda bertanggungjawab untuk melindungi peranti dan kunci peribadi anda.</p>
+        <h2>7. Hak Anda</h2>
+        <p>Oleh kerana kami tidak menyimpan data peribadi anda, tiada data untuk diakses, diubah, atau dipadamkan. Jika anda mempunyai kebimbangan, hubungi kami di bawah.</p>
+        <h2>8. Hubungan</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      fr: `
+        <h2>1. Informations que nous collectons</h2>
+        <p>Desert Camel est un <strong>jeu tap-to-earn</strong> sur SidraChain. Nous ne collectons, stockons ou transmettons <strong>aucune</strong> information personnelle identifiable (PII).</p>
+        <h2>2. Données du jeu et Blockchain</h2>
+        <p>Votre progression dans le jeu, y compris les XP, Camel XP (Cxp) et les jetons CML, est enregistrée sur la <strong>blockchain publique SidraChain</strong>. Ces données sont publiquement visibles par nature mais ne sont pas liées à votre identité réelle.</p>
+        <h2>3. Clés privées et récupération</h2>
+        <p>La clé privée de votre portefeuille est générée et stockée <strong>localement</strong> sur votre appareil. Elle n'est <strong>jamais</strong> transmise à nos serveurs ni accessible par nous.</p>
+        <h2>4. Services tiers</h2>
+        <p>Le jeu se connecte à SidraChain via des fournisseurs RPC tiers. Ils peuvent collecter des adresses IP pour la fonctionnalité mais ne sont pas autorisés à utiliser vos données à d'autres fins.</p>
+        <h2>5. Cookies et analyses</h2>
+        <p>Ce site web n'utilise pas de cookies de suivi ou de scripts d'analyse collectant des données personnelles.</p>
+        <h2>6. Sécurité des données</h2>
+        <p>Nous mettons en œuvre des pratiques standard de l'industrie pour protéger notre infrastructure. Cependant, vous êtes responsable de la sécurité de votre appareil et de vos clés privées.</p>
+        <h2>7. Vos droits</h2>
+        <p>Comme nous ne stockons pas vos données personnelles, il n'y a pas de données à accéder, modifier ou supprimer. Si vous avez des préoccupations, contactez-nous ci-dessous.</p>
+        <h2>8. Contact</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      pt: `
+        <h2>1. Informações que Coletamos</h2>
+        <p>Desert Camel é um <strong>jogo toque-para-ganhar</strong> no SidraChain. Nós <strong>não</strong> coletamos, armazenamos ou transmitimos nenhuma informação de identificação pessoal (PII).</p>
+        <h2>2. Dados do Jogo e Blockchain</h2>
+        <p>Seu progresso no jogo, incluindo XP, Camel XP (Cxp) e tokens CML, é registrado na <strong>blockchain pública do SidraChain</strong>. Esses dados são publicamente visíveis por natureza, mas não estão vinculados à sua identidade real.</p>
+        <h2>3. Chaves Privadas e Recuperação</h2>
+        <p>A chave privada da sua carteira é gerada e armazenada <strong>localmente</strong> no seu dispositivo. Ela <strong>nunca</strong> é transmitida aos nossos servidores ou acessível por nós.</p>
+        <h2>4. Serviços de Terceiros</h2>
+        <p>O jogo se conecta ao SidraChain por meio de provedores RPC terceirizados. Eles podem coletar endereços IP para funcionalidade, mas não estão autorizados a usar seus dados para outros fins.</p>
+        <h2>5. Cookies e Análises</h2>
+        <p>Este site não utiliza cookies de rastreamento ou scripts de análise que coletam dados pessoais.</p>
+        <h2>6. Segurança de Dados</h2>
+        <p>Implementamos práticas padrão da indústria para proteger nossa infraestrutura. No entanto, você é responsável por proteger seu dispositivo e chaves privadas.</p>
+        <h2>7. Seus Direitos</h2>
+        <p>Como não armazenamos seus dados pessoais, não há dados para acessar, modificar ou excluir. Se tiver dúvidas, entre em contato conosco abaixo.</p>
+        <h2>8. Contato</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      ko: `
+        <h2>1. 수집하는 정보</h2>
+        <p>Desert Camel은 SidraChain의 <strong>탭하여 획득 게임</strong>입니다. 당사는 개인 식별 정보(PII)를 <strong>수집, 저장 또는 전송하지 않습니다</strong>.</p>
+        <h2>2. 게임 데이터 및 블록체인</h2>
+        <p>XP, Camel XP(Cxp) 및 CML 토큰을 포함한 게임 진행 상황은 <strong>공개 SidraChain 블록체인</strong>에 기록됩니다. 이 데이터는 본질적으로 공개적으로 볼 수 있지만 실제 신원과 연결되지는 않습니다.</p>
+        <h2>3. 개인 키 및 복구</h2>
+        <p>지갑 개인 키는 사용자 기기에서 <strong>로컬로</strong> 생성 및 저장됩니다. 당사 서버로 <strong>절대</strong> 전송되지 않으며 당사가 액세스할 수 없습니다.</p>
+        <h2>4. 타사 서비스</h2>
+        <p>게임은 타사 RPC 제공업체를 통해 SidraChain에 연결됩니다. 기능을 위해 IP 주소를 수집할 수 있지만 다른 목적으로 데이터를 사용할 수 있는 권한은 없습니다.</p>
+        <h2>5. 쿠키 및 분석</h2>
+        <p>이 웹사이트는 개인 데이터를 수집하는 추적 쿠키나 분석 스크립트를 사용하지 않습니다.</p>
+        <h2>6. 데이터 보안</h2>
+        <p>당사는 인프라를 보호하기 위해 업계 표준 관행을 구현합니다. 그러나 기기와 개인 키를 보호하는 것은 사용자의 책임입니다.</p>
+        <h2>7. 귀하의 권리</h2>
+        <p>당사는 귀하의 개인 데이터를 저장하지 않으므로 액세스, 수정 또는 삭제할 데이터가 없습니다. 우려 사항이 있으시면 아래로 연락해 주세요.</p>
+        <h2>8. 연락처</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      ja: `
+        <h2>1. 収集する情報</h2>
+        <p>Desert CamelはSidraChain上の<strong>タップして稼ぐゲーム</strong>です。個人を特定できる情報（PII）を<strong>収集、保存、送信しません</strong>。</p>
+        <h2>2. ゲームデータとブロックチェーン</h2>
+        <p>XP、Camel XP (Cxp)、CMLトークンを含むゲームの進行状況は、<strong>公開SidraChainブロックチェーン</strong>に記録されます。このデータは本質的に公開されていますが、実際の身元とは関連付けられません。</p>
+        <h2>3. 秘密鍵と復元</h2>
+        <p>ウォレットの秘密鍵は、お客様のデバイス上で<strong>ローカルに</strong>生成および保存されます。当社のサーバーに<strong>送信されることは決してなく</strong>、当社がアクセスすることもできません。</p>
+        <h2>4. サードパーティサービス</h2>
+        <p>ゲームはサードパーティのRPCプロバイダーを介してSidraChainに接続します。機能のためにIPアドレスを収集する場合がありますが、他の目的でデータを使用することは許可されていません。</p>
+        <h2>5. クッキーと分析</h2>
+        <p>このウェブサイトは、個人データを収集するトラッキングクッキーや分析スクリプトを使用しません。</p>
+        <h2>6. データセキュリティ</h2>
+        <p>当社は、インフラストラクチャを保護するために業界標準の慣行を実装しています。ただし、デバイスと秘密鍵の保護はお客様の責任です。</p>
+        <h2>7. お客様の権利</h2>
+        <p>当社はお客様の個人データを保存しないため、アクセス、変更、削除するデータはありません。ご不明な点がございましたら、下記までお問い合わせください。</p>
+        <h2>8. お問い合わせ</h2>
         <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
       `
     };

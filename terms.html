@@ -120,23 +120,45 @@
 
   <script>
     const translations = {
-      en: {
-        home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
-        'terms-title': 'Terms of Service',
-        'last-updated': 'Last Updated: July 8, 2026',
-        'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Built for SidraChain.'
-      },
-      vi: {
-        home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
-        'terms-title': 'Điều khoản sử dụng',
-        'last-updated': 'Cập nhật lần cuối: 8 tháng 7, 2026',
-        'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
-      }
+      en: { home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact', 'terms-title': 'Terms of Service', 'last-updated': 'Last Updated: July 8, 2026', 'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Built for SidraChain.' },
+      vi: { home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ', 'terms-title': 'Điều khoản sử dụng', 'last-updated': 'Cập nhật lần cuối: 8 tháng 7, 2026', 'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.' },
+      zh: { home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们', 'terms-title': '服务条款', 'last-updated': '最后更新: 2026年7月8日', 'footer-support': '📧 支持: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. 为 SidraChain 构建。' },
+      hi: { home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें', 'terms-title': 'सेवा की शर्तें', 'last-updated': 'अंतिम अद्यतन: 8 जुलाई 2026', 'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. SidraChain के लिए निर्मित।' },
+      ar: { home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا', 'terms-title': 'شروط الخدمة', 'last-updated': 'آخر تحديث: 8 يوليو 2026', 'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. تم بناؤها لـ SidraChain.' },
+      id: { home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Kontak', 'terms-title': 'Syarat Layanan', 'last-updated': 'Terakhir diperbarui: 8 Juli 2026', 'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.' },
+      ms: { home: 'Rumah', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi', 'terms-title': 'Terma Perkhidmatan', 'last-updated': 'Dikemaskini terakhir: 8 Julai 2026', 'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.' },
+      fr: { home: 'Accueil', privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact', 'terms-title': 'Conditions d\'utilisation', 'last-updated': 'Dernière mise à jour: 8 juillet 2026', 'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Construit pour SidraChain.' },
+      pt: { home: 'Início', privacy: 'Privacidade', terms: 'Termos', contact: 'Contato', 'terms-title': 'Termos de Serviço', 'last-updated': 'Última atualização: 8 de julho de 2026', 'footer-support': '📧 Suporte: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. Construído para SidraChain.' },
+      ko: { home: '홈', privacy: '개인정보처리방침', terms: '서비스 약관', contact: '연락처', 'terms-title': '서비스 약관', 'last-updated': '마지막 업데이트: 2026년 7월 8일', 'footer-support': '📧 지원: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. SidraChain용으로 제작되었습니다.' },
+      ja: { home: 'ホーム', privacy: 'プライバシーポリシー', terms: '利用規約', contact: 'お問い合わせ', 'terms-title': '利用規約', 'last-updated': '最終更新日: 2026年7月8日', 'footer-support': '📧 サポート: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>', 'footer-copy': '© 2026 Desert Camel. SidraChain用に構築されました。' }
     };
 
     const termsTranslations = {
+      en: `
+        <h2>1. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using Desert Camel, you agree to be bound by these Terms. If you do not agree, please do not use the game.</p>
+        <h2>2. Game Description</h2>
+        <p>Desert Camel is a <strong>tap-to-earn</strong> game built on the SidraChain blockchain. Players earn XP by tapping the camel and can redeem them for rewards.</p>
+        <h2>3. Non-Custodial Wallet</h2>
+        <p>Desert Camel uses a <strong>non-custodial</strong> wallet. We do <strong>not</strong> hold, control, or have access to your private keys, recovery phrases, or funds.</p>
+        <h2>4. User Responsibilities</h2>
+        <ul>
+          <li>You are solely responsible for safeguarding your private keys and recovery phrase.</li>
+          <li>You must ensure your device is secure and free from malware.</li>
+          <li>You must comply with all applicable laws regarding cryptocurrency use.</li>
+        </ul>
+        <h2>5. Blockchain Risks</h2>
+        <p>Blockchain transactions are <strong>irreversible</strong>. Token prices, network availability, and transaction fees are outside our control. You accept all risks associated with blockchain technology.</p>
+        <p>The game is provided on an <strong>"AS IS"</strong> basis without any warranties.</p>
+        <h2>6. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, Desert Camel shall <strong>not</strong> be liable for any indirect, incidental, or consequential damages arising from your use of the game.</p>
+        <h2>7. Intellectual Property</h2>
+        <p>All content, trademarks, and code within the game are the property of Desert Camel. You are granted a limited, non-exclusive license for personal use.</p>
+        <h2>8. Governing Law</h2>
+        <p>These Terms shall be governed by the laws of the jurisdiction in which you reside.</p>
+        <h2>9. Contact</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
       vi: `
         <h2>1. Chấp nhận điều khoản</h2>
         <p>Bằng cách tải xuống, cài đặt hoặc sử dụng Desert Camel, bạn đồng ý bị ràng buộc bởi các Điều khoản này. Nếu bạn không đồng ý, vui lòng không sử dụng trò chơi.</p>
@@ -160,6 +182,231 @@
         <h2>8. Luật điều chỉnh</h2>
         <p>Các Điều khoản này sẽ được điều chỉnh bởi luật pháp của khu vực bạn cư trú.</p>
         <h2>9. Liên hệ</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      zh: `
+        <h2>1. 接受条款</h2>
+        <p>下载、安装或使用 Desert Camel 即表示您同意受本条款约束。如果您不同意，请不要使用本游戏。</p>
+        <h2>2. 游戏描述</h2>
+        <p>Desert Camel 是建立在 SidraChain 区块链上的<strong>点击赚取</strong>游戏。玩家通过点击骆驼获得 XP，并可兑换奖励。</p>
+        <h2>3. 非托管钱包</h2>
+        <p>Desert Camel 使用<strong>非托管</strong>钱包。我们<strong>不</strong>持有、控制或访问您的私钥、恢复短语或资金。</p>
+        <h2>4. 用户责任</h2>
+        <ul>
+          <li>您全权负责保护您的私钥和恢复短语。</li>
+          <li>确保您的设备安全且没有恶意软件。</li>
+          <li>您必须遵守所有关于加密货币使用的适用法律。</li>
+        </ul>
+        <h2>5. 区块链风险</h2>
+        <p>区块链交易是<strong>不可逆的</strong>。代币价格、网络可用性和交易费用超出我们的控制范围。您接受与区块链技术相关的所有风险。</p>
+        <p>本游戏按<strong>"原样"</strong>提供，不作任何保证。</p>
+        <h2>6. 责任限制</h2>
+        <p>在法律允许的最大范围内，Desert Camel <strong>不</strong>对您因使用本游戏而产生的任何间接、偶然或后果性损害承担责任。</p>
+        <h2>7. 知识产权</h2>
+        <p>游戏中的所有内容、商标和代码均为 Desert Camel 的财产。您被授予有限、非排他性的个人使用许可。</p>
+        <h2>8. 管辖法律</h2>
+        <p>本条款受您所在司法管辖区的法律管辖。</p>
+        <h2>9. 联系方式</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      hi: `
+        <h2>1. शर्तों की स्वीकृति</h2>
+        <p>Desert Camel को डाउनलोड, इंस्टॉल या उपयोग करके, आप इन शर्तों से बंधे होने के लिए सहमत होते हैं। यदि आप सहमत नहीं हैं, तो कृपया गेम का उपयोग न करें।</p>
+        <h2>2. गेम विवरण</h2>
+        <p>Desert Camel एक <strong>टैप-टू-अर्न</strong> गेम है जो SidraChain ब्लॉकचेन पर बनाया गया है। खिलाड़ी ऊँट को टैप करके XP अर्जित करते हैं और उन्हें पुरस्कार के लिए भुना सकते हैं।</p>
+        <h2>3. गैर-संरक्षक वॉलेट</h2>
+        <p>Desert Camel एक <strong>गैर-संरक्षक</strong> वॉलेट का उपयोग करता है। हम आपकी निजी कुंजियों, पुनर्प्राप्ति वाक्यांश या धनराशि को <strong>नहीं</strong> रखते, नियंत्रित नहीं करते, या उन तक पहुंच नहीं रखते।</p>
+        <h2>4. उपयोगकर्ता की जिम्मेदारियाँ</h2>
+        <ul>
+          <li>आप अपनी निजी कुंजियों और पुनर्प्राप्ति वाक्यांश की सुरक्षा के लिए पूरी तरह से जिम्मेदार हैं।</li>
+          <li>आपको यह सुनिश्चित करना होगा कि आपका डिवाइस सुरक्षित है और मैलवेयर से मुक्त है।</li>
+          <li>आपको क्रिप्टोकरेंसी उपयोग के संबंध में सभी लागू कानूनों का पालन करना होगा।</li>
+        </ul>
+        <h2>5. ब्लॉकचेन जोखिम</h2>
+        <p>ब्लॉकचेन लेनदेन <strong>अपरिवर्तनीय</strong> हैं। टोकन मूल्य, नेटवर्क उपलब्धता और लेनदेन शुल्क हमारे नियंत्रण से बाहर हैं। आप ब्लॉकचेन तकनीक से जुड़े सभी जोखिमों को स्वीकार करते हैं।</p>
+        <p>गेम बिना किसी वारंटी के <strong>"जैसा है"</strong> आधार पर प्रदान किया जाता है।</p>
+        <h2>6. दायित्व की सीमा</h2>
+        <p>कानून द्वारा अनुमत अधिकतम सीमा तक, Desert Camel आपके गेम के उपयोग से उत्पन्न होने वाली किसी भी अप्रत्यक्ष, आकस्मिक या परिणामी क्षति के लिए <strong>जिम्मेदार नहीं</strong> होगा।</p>
+        <h2>7. बौद्धिक संपदा</h2>
+        <p>गेम के भीतर सभी सामग्री, ट्रेडमार्क और कोड Desert Camel की संपत्ति हैं। आपको व्यक्तिगत उपयोग के लिए एक सीमित, गैर-अनन्य लाइसेंस दिया गया है।</p>
+        <h2>8. शासी कानून</h2>
+        <p>ये शर्तें उस क्षेत्राधिकार के कानूनों द्वारा शासित होंगी जिसमें आप रहते हैं।</p>
+        <h2>9. संपर्क</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      ar: `
+        <h2>1. قبول الشروط</h2>
+        <p>بتحميل أو تثبيت أو استخدام Desert Camel، فإنك توافق على الالتزام بهذه الشروط. إذا كنت لا توافق، يرجى عدم استخدام اللعبة.</p>
+        <h2>2. وصف اللعبة</h2>
+        <p>Desert Camel هي لعبة <strong>اضغط لتربح</strong> مبنية على سلسلة الكتل SidraChain. يكسب اللاعبون XP عن طريق النقر على الجمل ويمكنهم استبدالها للحصول على مكافآت.</p>
+        <h2>3. محفظة غير أمينة</h2>
+        <p>تستخدم Desert Camel محفظة <strong>غير أمينة</strong>. نحن <strong>لا</strong> نحتفظ بمفاتيحك الخاصة أو عبارات الاسترداد أو الأموال أو نتحكم فيها أو يمكننا الوصول إليها.</p>
+        <h2>4. مسؤوليات المستخدم</h2>
+        <ul>
+          <li>أنت وحدك المسؤول عن حماية مفاتيحك الخاصة وعبارة الاسترداد الخاصة بك.</li>
+          <li>يجب عليك التأكد من أن جهازك آمن وخالٍ من البرامج الضارة.</li>
+          <li>يجب عليك الامتثال لجميع القوانين المعمول بها فيما يتعلق باستخدام العملات المشفرة.</li>
+        </ul>
+        <h2>5. مخاطر سلسلة الكتل</h2>
+        <p>معاملات سلسلة الكتل <strong>لا رجعة فيها</strong>. أسعار الرموز وتوافر الشبكة ورسوم المعاملات خارجة عن سيطرتنا. أنت تقبل جميع المخاطر المرتبطة بتقنية سلسلة الكتل.</p>
+        <p>يتم تقديم اللعبة على أساس <strong>"كما هي"</strong> دون أي ضمانات.</p>
+        <h2>6. الحد من المسؤولية</h2>
+        <p>إلى أقصى حد يسمح به القانون، لن تكون Desert Camel <strong>مسؤولة</strong> عن أي أضرار غير مباشرة أو عرضية أو تبعية ناتجة عن استخدامك للعبة.</p>
+        <h2>7. الملكية الفكرية</h2>
+        <p>جميع المحتويات والعلامات التجارية والرمز داخل اللعبة هي ملك لـ Desert Camel. يتم منحك ترخيصًا محدودًا وغير حصري للاستخدام الشخصي.</p>
+        <h2>8. القانون الحاكم</h2>
+        <p>تخضع هذه الشروط لقوانين الولاية القضائية التي تقيم فيها.</p>
+        <h2>9. الاتصال</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      id: `
+        <h2>1. Penerimaan Syarat</h2>
+        <p>Dengan mengunduh, menginstal, atau menggunakan Desert Camel, Anda setuju untuk terikat oleh Syarat ini. Jika Anda tidak setuju, jangan gunakan game ini.</p>
+        <h2>2. Deskripsi Game</h2>
+        <p>Desert Camel adalah game <strong>tap-to-earn</strong> yang dibangun di atas blockchain SidraChain. Pemain mendapatkan XP dengan mengetuk unta dan dapat menukarkannya untuk hadiah.</p>
+        <h2>3. Dompet Non-Kustodian</h2>
+        <p>Desert Camel menggunakan dompet <strong>non-kustodian</strong>. Kami <strong>tidak</strong> menyimpan, mengontrol, atau memiliki akses ke kunci pribadi, frasa pemulihan, atau dana Anda.</p>
+        <h2>4. Tanggung Jawab Pengguna</h2>
+        <ul>
+          <li>Anda bertanggung jawab penuh untuk menjaga kunci pribadi dan frasa pemulihan Anda.</li>
+          <li>Anda harus memastikan perangkat Anda aman dan bebas dari malware.</li>
+          <li>Anda harus mematuhi semua hukum yang berlaku terkait penggunaan mata uang kripto.</li>
+        </ul>
+        <h2>5. Risiko Blockchain</h2>
+        <p>Transaksi blockchain <strong>tidak dapat dibatalkan</strong>. Harga token, ketersediaan jaringan, dan biaya transaksi di luar kendali kami. Anda menerima semua risiko yang terkait dengan teknologi blockchain.</p>
+        <p>Game ini disediakan berdasarkan <strong>"APA ADANYA"</strong> tanpa jaminan apapun.</p>
+        <h2>6. Batasan Tanggung Jawab</h2>
+        <p>Sejauh diizinkan oleh hukum, Desert Camel <strong>tidak</strong> bertanggung jawab atas segala kerusakan tidak langsung, insidental, atau konsekuensial yang timbul dari penggunaan game.</p>
+        <h2>7. Kekayaan Intelektual</h2>
+        <p>Semua konten, merek dagang, dan kode dalam game adalah milik Desert Camel. Anda diberikan lisensi terbatas, non-eksklusif untuk penggunaan pribadi.</p>
+        <h2>8. Hukum yang Berlaku</h2>
+        <p>Syarat ini akan diatur oleh hukum yurisdiksi tempat Anda tinggal.</p>
+        <h2>9. Kontak</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      ms: `
+        <h2>1. Penerimaan Terma</h2>
+        <p>Dengan memuat turun, memasang, atau menggunakan Desert Camel, anda bersetuju untuk terikat dengan Terma ini. Jika anda tidak bersetuju, jangan gunakan permainan ini.</p>
+        <h2>2. Penerangan Permainan</h2>
+        <p>Desert Camel adalah permainan <strong>ketuk-untuk-peroleh</strong> yang dibina di atas blockchain SidraChain. Pemain memperoleh XP dengan mengetuk unta dan boleh menebusnya untuk ganjaran.</p>
+        <h2>3. Dompet Bukan-Penjaga</h2>
+        <p>Desert Camel menggunakan dompet <strong>bukan-penjaga</strong>. Kami <strong>tidak</strong> memegang, mengawal, atau mempunyai akses kepada kunci peribadi, frasa pemulihan, atau dana anda.</p>
+        <h2>4. Tanggungjawab Pengguna</h2>
+        <ul>
+          <li>Anda bertanggungjawab sepenuhnya untuk melindungi kunci peribadi dan frasa pemulihan anda.</li>
+          <li>Anda mesti memastikan peranti anda selamat dan bebas daripada perisian hasad.</li>
+          <li>Anda mesti mematuhi semua undang-undang yang berkenaan mengenai penggunaan mata wang kripto.</li>
+        </ul>
+        <h2>5. Risiko Blockchain</h2>
+        <p>Transaksi blockchain adalah <strong>tidak boleh balik</strong>. Harga token, ketersediaan rangkaian, dan yuran transaksi di luar kawalan kami. Anda menerima semua risiko yang berkaitan dengan teknologi blockchain.</p>
+        <p>Permainan ini disediakan atas dasar <strong>"SEBAGAIMANA ADANYA"</strong> tanpa sebarang jaminan.</p>
+        <h2>6. Had Liabiliti</h2>
+        <p>Setakat yang dibenarkan oleh undang-undang, Desert Camel <strong>tidak</strong> bertanggungjawab atas sebarang kerosakan tidak langsung, sampingan, atau berbangkit daripada penggunaan permainan.</p>
+        <h2>7. Harta Intelek</h2>
+        <p>Semua kandungan, tanda dagangan, dan kod dalam permainan adalah hak milik Desert Camel. Anda diberikan lesen terhad, tidak eksklusif untuk kegunaan peribadi.</p>
+        <h2>8. Undang-undang Pentadbir</h2>
+        <p>Terma ini akan ditadbir oleh undang-undang bidang kuasa di mana anda tinggal.</p>
+        <h2>9. Hubungan</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      fr: `
+        <h2>1. Acceptation des conditions</h2>
+        <p>En téléchargeant, installant ou utilisant Desert Camel, vous acceptez d'être lié par ces Conditions. Si vous n'acceptez pas, veuillez ne pas utiliser le jeu.</p>
+        <h2>2. Description du jeu</h2>
+        <p>Desert Camel est un jeu <strong>tap-to-earn</strong> construit sur la blockchain SidraChain. Les joueurs gagnent des XP en tapotant le chameau et peuvent les échanger contre des récompenses.</p>
+        <h2>3. Portefeuille non custodial</h2>
+        <p>Desert Camel utilise un portefeuille <strong>non custodial</strong>. Nous ne détenons, contrôlons ou n'avons pas accès à vos clés privées, phrases de récupération ou fonds.</p>
+        <h2>4. Responsabilités de l'utilisateur</h2>
+        <ul>
+          <li>Vous êtes seul responsable de la sauvegarde de vos clés privées et de votre phrase de récupération.</li>
+          <li>Vous devez vous assurer que votre appareil est sécurisé et exempt de logiciels malveillants.</li>
+          <li>Vous devez vous conformer à toutes les lois applicables concernant l'utilisation des cryptomonnaies.</li>
+        </ul>
+        <h2>5. Risques de la blockchain</h2>
+        <p>Les transactions blockchain sont <strong>irréversibles</strong>. Les prix des jetons, la disponibilité du réseau et les frais de transaction échappent à notre contrôle. Vous acceptez tous les risques associés à la technologie blockchain.</p>
+        <p>Le jeu est fourni sur une base <strong>"EN L'ÉTAT"</strong> sans aucune garantie.</p>
+        <h2>6. Limitation de responsabilité</h2>
+        <p>Dans toute la mesure permise par la loi, Desert Camel ne sera <strong>pas</strong> responsable des dommages indirects, accessoires ou consécutifs résultant de votre utilisation du jeu.</p>
+        <h2>7. Propriété intellectuelle</h2>
+        <p>Tout le contenu, les marques et le code du jeu sont la propriété de Desert Camel. Vous bénéficiez d'une licence limitée et non exclusive pour un usage personnel.</p>
+        <h2>8. Droit applicable</h2>
+        <p>Ces Conditions sont régies par les lois de la juridiction dans laquelle vous résidez.</p>
+        <h2>9. Contact</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      pt: `
+        <h2>1. Aceitação dos Termos</h2>
+        <p>Ao baixar, instalar ou usar o Desert Camel, você concorda em ficar vinculado a estes Termos. Se não concordar, não use o jogo.</p>
+        <h2>2. Descrição do Jogo</h2>
+        <p>Desert Camel é um jogo <strong>toque-para-ganhar</strong> construído na blockchain SidraChain. Os jogadores ganham XP tocando no camelo e podem resgatá-los por recompensas.</p>
+        <h2>3. Carteira não custodial</h2>
+        <p>Desert Camel usa uma carteira <strong>não custodial</strong>. Nós <strong>não</strong> detemos, controlamos ou temos acesso às suas chaves privadas, frases de recuperação ou fundos.</p>
+        <h2>4. Responsabilidades do Utilizador</h2>
+        <ul>
+          <li>Você é o único responsável por proteger suas chaves privadas e frase de recuperação.</li>
+          <li>Você deve garantir que seu dispositivo esteja seguro e livre de malware.</li>
+          <li>Você deve cumprir todas as leis aplicáveis sobre o uso de criptomoedas.</li>
+        </ul>
+        <h2>5. Riscos da Blockchain</h2>
+        <p>As transações blockchain são <strong>irreversíveis</strong>. Os preços dos tokens, a disponibilidade da rede e as taxas de transação estão fora do nosso controle. Você aceita todos os riscos associados à tecnologia blockchain.</p>
+        <p>O jogo é fornecido numa base <strong>"COMO ESTÁ"</strong> sem quaisquer garantias.</p>
+        <h2>6. Limitação de Responsabilidade</h2>
+        <p>Na extensão máxima permitida por lei, a Desert Camel <strong>não</strong> será responsável por quaisquer danos indiretos, incidentais ou consequentes decorrentes do uso do jogo.</p>
+        <h2>7. Propriedade Intelectual</h2>
+        <p>Todo o conteúdo, marcas registradas e código no jogo são propriedade da Desert Camel. Você recebe uma licença limitada e não exclusiva para uso pessoal.</p>
+        <h2>8. Lei Aplicável</h2>
+        <p>Estes Termos serão regidos pelas leis da jurisdição em que você reside.</p>
+        <h2>9. Contacto</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      ko: `
+        <h2>1. 약관 동의</h2>
+        <p>Desert Camel을 다운로드, 설치 또는 사용함으로써 귀하는 본 약관의 적용을 받는 데 동의합니다. 동의하지 않으시면 게임을 사용하지 마십시오.</p>
+        <h2>2. 게임 설명</h2>
+        <p>Desert Camel은 SidraChain 블록체인에서 구축된 <strong>탭하여 획득</strong> 게임입니다. 플레이어는 낙타를 탭하여 XP를 획득하고 보상으로 교환할 수 있습니다.</p>
+        <h2>3. 비수탁 지갑</h2>
+        <p>Desert Camel은 <strong>비수탁</strong> 지갑을 사용합니다. 당사는 귀하의 개인 키, 복구 문구 또는 자금을 <strong>보유, 통제 또는 액세스하지 않습니다</strong>.</p>
+        <h2>4. 사용자 책임</h2>
+        <ul>
+          <li>귀하는 개인 키와 복구 문구를 보호할 책임이 전적으로 있습니다.</li>
+          <li>귀하는 기기가 안전하고 맬웨어가 없는지 확인해야 합니다.</li>
+          <li>암호화폐 사용에 관한 모든 관련 법률을 준수해야 합니다.</li>
+        </ul>
+        <h2>5. 블록체인 위험</h2>
+        <p>블록체인 거래는 <strong>되돌릴 수 없습니다</strong>. 토큰 가격, 네트워크 가용성 및 거래 수수료는 당사의 통제 범위를 벗어납니다. 귀하는 블록체인 기술과 관련된 모든 위험을 수락합니다.</p>
+        <p>게임은 보증 없이 <strong>"있는 그대로"</strong> 제공됩니다.</p>
+        <h2>6. 책임의 제한</h2>
+        <p>법이 허용하는 최대한도 내에서 Desert Camel은 게임 사용으로 인해 발생하는 간접적, 부수적 또는 결과적 손해에 대해 <strong>책임을 지지 않습니다</strong>.</p>
+        <h2>7. 지적 재산권</h2>
+        <p>게임 내 모든 콘텐츠, 상표 및 코드는 Desert Camel의 자산입니다. 귀하는 개인적인 사용을 위한 제한적이고 비독점적인 라이선스를 부여받습니다.</p>
+        <h2>8. 준거법</h2>
+        <p>본 약관은 귀하가 거주하는 관할권의 법률에 의해 규율됩니다.</p>
+        <h2>9. 연락처</h2>
+        <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+      `,
+      ja: `
+        <h2>1. 利用規約の同意</h2>
+        <p>Desert Camelをダウンロード、インストール、または使用することにより、本規約に拘束されることに同意したものとします。同意しない場合は、ゲームを使用しないでください。</p>
+        <h2>2. ゲームの説明</h2>
+        <p>Desert CamelはSidraChainブロックチェーン上に構築された<strong>タップして稼ぐ</strong>ゲームです。プレイヤーはラクダをタップしてXPを獲得し、報酬と引き換えることができます。</p>
+        <h2>3. 非カストディアルウォレット</h2>
+        <p>Desert Camelは<strong>非カストディアル</strong>ウォレットを使用します。当社はお客様の秘密鍵、リカバリーフレーズ、または資金を<strong>保持、管理、またはアクセスすることはありません</strong>。</p>
+        <h2>4. ユーザーの責任</h2>
+        <ul>
+          <li>お客様は、秘密鍵とリカバリーフレーズを保護する責任を負います。</li>
+          <li>お客様のデバイスが安全でマルウェアに感染していないことを確認する必要があります。</li>
+          <li>暗号通貨の使用に関するすべての適用法を遵守する必要があります。</li>
+        </ul>
+        <h2>5. ブロックチェーンのリスク</h2>
+        <p>ブロックチェーン取引は<strong>元に戻せません</strong>。トークンの価格、ネットワークの可用性、取引手数料は当社の管理外です。お客様はブロックチェーン技術に関連するすべてのリスクを受け入れます。</p>
+        <p>ゲームは保証なしに<strong>"現状有姿"</strong>で提供されます。</p>
+        <h2>6. 責任の制限</h2>
+        <p>法律で認められる最大限の範囲において、Desert Camelはゲームの使用に起因するいかなる間接的、偶発的、または結果的損害についても<strong>責任を負いません</strong>。</p>
+        <h2>7. 知的財産</h2>
+        <p>ゲーム内のすべてのコンテンツ、商標、コードはDesert Camelの財産です。お客様には、個人的な使用のための限定的で非独占的なライセンスが付与されます。</p>
+        <h2>8. 準拠法</h2>
+        <p>本規約は、お客様が居住する管轄区域の法律に準拠します。</p>
+        <h2>9. お問い合わせ</h2>
         <p>📧 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
       `
     };

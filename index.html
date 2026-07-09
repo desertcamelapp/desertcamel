@@ -40,6 +40,13 @@
     ul { padding-left: 1.5rem; }
     .hero { text-align: center; padding: 2rem 0; }
     .hero img { max-width: 200px; border-radius: 20px; }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
     .cta-button {
       display: inline-block;
       background: #c89b3c;
@@ -48,9 +55,16 @@
       border-radius: 40px;
       font-weight: 700;
       text-decoration: none;
-      margin-top: 1rem;
     }
     .cta-button:hover { background: #a87b2a; }
+    .cta-button-test {
+      background: #2d7d46;
+    }
+    .cta-button-test:hover { background: #1e5f33; }
+    .cta-button-coming {
+      background: #6c757d;
+      cursor: default;
+    }
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -112,7 +126,10 @@
     <div class="hero">
       <h1 data-key="hero-title">🐪 Desert Camel</h1>
       <p data-key="hero-subtitle" style="font-size: 1.2rem; color: #5a4a34;">Tap the camel, earn XP, and win real rewards on SidraChain!</p>
-      <a href="#" class="cta-button" data-key="cta-download">📲 Download Now</a>
+      <div class="cta-group">
+        <a href="#" class="cta-button cta-button-coming" data-key="cta-download">📲 Coming Soon</a>
+        <a href="https://drive.google.com/file/d/1iiyNEBorQ0Y4pkaDXoyh9bPsAbJsjfTs/view?usp=drive_link" target="_blank" class="cta-button cta-button-test" data-key="cta-test">🧪 Bản thử nghiệm</a>
+      </div>
     </div>
 
     <div class="features">
@@ -160,7 +177,8 @@
         home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
         'hero-title': '🐪 Desert Camel',
         'hero-subtitle': 'Tap the camel, earn XP, and win real rewards on SidraChain!',
-        'cta-download': '📲 Download Now',
+        'cta-download': '📲 Coming Soon',
+        'cta-test': '🧪 Test Version',
         'feature-tap-title': 'Tap to Earn',
         'feature-tap-desc': 'Earn XP with every tap. Simple, fun, and rewarding.',
         'feature-chain-title': 'SidraChain Powered',
@@ -182,7 +200,8 @@
         home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
         'hero-title': '🐪 Desert Camel',
         'hero-subtitle': 'Chạm vào lạc đà, kiếm XP, và nhận thưởng thật trên SidraChain!',
-        'cta-download': '📲 Tải xuống ngay',
+        'cta-download': '📲 Sắp ra mắt',
+        'cta-test': '🧪 Bản thử nghiệm',
         'feature-tap-title': 'Chạm để kiếm',
         'feature-tap-desc': 'Kiếm XP với mỗi lần chạm. Đơn giản, vui nhộn và có thưởng.',
         'feature-chain-title': 'Được hỗ trợ bởi SidraChain',
@@ -204,7 +223,8 @@
         home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们',
         'hero-title': '🐪 沙漠骆驼',
         'hero-subtitle': '点击骆驼，赚取 XP，并在 SidraChain 上赢取真正奖励！',
-        'cta-download': '📲 立即下载',
+        'cta-download': '📲 即将推出',
+        'cta-test': '🧪 测试版本',
         'feature-tap-title': '点击赚取',
         'feature-tap-desc': '每次点击赚取 XP。简单、有趣且有回报。',
         'feature-chain-title': '由 SidraChain 驱动',
@@ -226,7 +246,8 @@
         home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
         'hero-title': '🐪 डेजर्ट कैमल',
         'hero-subtitle': 'ऊँट को टैप करें, XP अर्जित करें, और SidraChain पर वास्तविक पुरस्कार जीतें!',
-        'cta-download': '📲 अभी डाउनलोड करें',
+        'cta-download': '📲 जल्द आ रहा है',
+        'cta-test': '🧪 परीक्षण संस्करण',
         'feature-tap-title': 'टैप करके कमाएं',
         'feature-tap-desc': 'हर टैप के साथ XP अर्जित करें। सरल, मजेदार और पुरस्कृत।',
         'feature-chain-title': 'SidraChain द्वारा संचालित',
@@ -248,7 +269,8 @@
         home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
         'hero-title': '🐪 الجمل الصحراوي',
         'hero-subtitle': 'انقر على الجمل، واربح XP، واربح مكافآت حقيقية على SidraChain!',
-        'cta-download': '📲 تحميل الآن',
+        'cta-download': '📲 قريباً',
+        'cta-test': '🧪 نسخة تجريبية',
         'feature-tap-title': 'انقر لتربح',
         'feature-tap-desc': 'اربح XP مع كل نقرة. بسيط وممتع ومجزٍ.',
         'feature-chain-title': 'مدعوم من SidraChain',
@@ -270,7 +292,8 @@
         home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Kontak',
         'hero-title': '🐪 Unta Gurun',
         'hero-subtitle': 'Ketuk unta, dapatkan XP, dan menangkan hadiah nyata di SidraChain!',
-        'cta-download': '📲 Unduh Sekarang',
+        'cta-download': '📲 Segera Hadir',
+        'cta-test': '🧪 Versi Uji Coba',
         'feature-tap-title': 'Ketuk untuk Mendapatkan',
         'feature-tap-desc': 'Dapatkan XP dengan setiap ketukan. Sederhana, menyenangkan, dan bermanfaat.',
         'feature-chain-title': 'Didukung oleh SidraChain',
@@ -292,7 +315,8 @@
         home: 'Rumah', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
         'hero-title': '🐪 Unta Gurun',
         'hero-subtitle': 'Ketik unta, peroleh XP, dan menangi ganjaran sebenar di SidraChain!',
-        'cta-download': '📲 Muat Turun Sekarang',
+        'cta-download': '📲 Akan Datang',
+        'cta-test': '🧪 Versi Ujian',
         'feature-tap-title': 'Ketik untuk Peroleh',
         'feature-tap-desc': 'Peroleh XP dengan setiap ketukan. Mudah, menyeronokkan, dan berbaloi.',
         'feature-chain-title': 'Dikuasakan oleh SidraChain',
@@ -314,7 +338,8 @@
         home: 'Accueil', privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact',
         'hero-title': '🐪 Chameau du Désert',
         'hero-subtitle': 'Tapez sur le chameau, gagnez des XP et remportez de vraies récompenses sur SidraChain !',
-        'cta-download': '📲 Télécharger maintenant',
+        'cta-download': '📲 Bientôt disponible',
+        'cta-test': '🧪 Version test',
         'feature-tap-title': 'Tapotez pour gagner',
         'feature-tap-desc': 'Gagnez des XP à chaque tapotement. Simple, amusant et gratifiant.',
         'feature-chain-title': 'Propulsé par SidraChain',
@@ -336,7 +361,8 @@
         home: 'Início', privacy: 'Privacidade', terms: 'Termos', contact: 'Contato',
         'hero-title': '🐪 Camelo do Deserto',
         'hero-subtitle': 'Toque no camelo, ganhe XP e ganhe recompensas reais no SidraChain!',
-        'cta-download': '📲 Baixar agora',
+        'cta-download': '📲 Em breve',
+        'cta-test': '🧪 Versão de teste',
         'feature-tap-title': 'Toque para Ganhar',
         'feature-tap-desc': 'Ganhe XP a cada toque. Simples, divertido e recompensador.',
         'feature-chain-title': 'Impulsionado por SidraChain',
@@ -358,7 +384,8 @@
         home: '홈', privacy: '개인정보처리방침', terms: '서비스 약관', contact: '연락처',
         'hero-title': '🐪 사막 낙타',
         'hero-subtitle': '낙타를 탭하여 XP를 획득하고 SidraChain에서 실제 보상을 받으세요!',
-        'cta-download': '📲 지금 다운로드',
+        'cta-download': '📲 곧 출시',
+        'cta-test': '🧪 테스트 버전',
         'feature-tap-title': '탭하여 획득',
         'feature-tap-desc': '매 탭마다 XP를 획득하세요. 간단하고 재미있으며 보상이 있습니다.',
         'feature-chain-title': 'SidraChain 기반',
@@ -380,7 +407,8 @@
         home: 'ホーム', privacy: 'プライバシーポリシー', terms: '利用規約', contact: 'お問い合わせ',
         'hero-title': '🐪 砂漠のラクダ',
         'hero-subtitle': 'ラクダをタップしてXPを獲得し、SidraChainで本当の報酬を勝ち取りましょう！',
-        'cta-download': '📲 今すぐダウンロード',
+        'cta-download': '📲 近日公開',
+        'cta-test': '🧪 テスト版',
         'feature-tap-title': 'タップして獲得',
         'feature-tap-desc': 'タップするたびにXPを獲得。シンプルで楽しく、報酬があります。',
         'feature-chain-title': 'SidraChain搭載',
@@ -540,8 +568,8 @@
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[lang] && translations[lang][key] !== undefined) {
-          // Đặc biệt xử lý cho các phần tử chứa HTML (link)
-          if (key === 'cta-download' || key === 'hero-title' || key === 'feature-tap-title' || key === 'feature-chain-title' || key === 'feature-reward-title' || key === 'about-title' || key === 'how-title' || key === 'how-cta') {
+          // Cho phép HTML trong một số key
+          if (key === 'cta-download' || key === 'cta-test' || key === 'feature-tap-title' || key === 'feature-chain-title' || key === 'feature-reward-title' || key === 'about-title' || key === 'how-title' || key === 'how-cta' || key === 'how-step1' || key === 'how-step2' || key === 'how-step3' || key === 'how-step4') {
             el.innerHTML = translations[lang][key];
           } else {
             el.innerText = translations[lang][key];

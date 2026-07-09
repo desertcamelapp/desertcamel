@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desert Camel – Tap to Earn on SidraChain</title>
+  <title>Desert Camel – Tap Game on SidraChain</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -13,7 +13,7 @@
       color: #2d2a24;
       line-height: 1.6;
       padding: 1.5rem;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       min-height: 100vh;
       display: flex;
@@ -34,51 +34,93 @@
     nav a { color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
     nav a:hover { color: #c89b3c; }
     .lang-select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid #c89b3c; background: white; font-size: 0.9rem; cursor: pointer; }
-    h1 { font-size: 2.4rem; border-bottom: 3px solid #c89b3c; padding-bottom: 0.5rem; margin-bottom: 0.5rem; }
-    h2 { margin-top: 2rem; font-size: 1.4rem; color: #a87b2a; }
-    p, li { margin-bottom: 0.8rem; }
-    ul { padding-left: 1.5rem; }
-    .hero { text-align: center; padding: 2rem 0; }
-    .hero img { max-width: 200px; border-radius: 20px; }
-    .cta-group {
+    .hero {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
+      align-items: center;
+      gap: 3rem;
+      background: linear-gradient(135deg, #f5ede1, #e8dccc);
+      padding: 2.5rem;
+      border-radius: 2rem;
+      margin-bottom: 3rem;
     }
-    .cta-button {
+    .hero-text { flex: 1 1 300px; }
+    .hero-text h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.2; font-weight: 800; }
+    .hero-text h1 span { color: #c89b3c; }
+    .hero-text p { font-size: 1.1rem; margin: 1.2rem 0; }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+    .btn {
       display: inline-block;
       background: #c89b3c;
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      font-weight: 700;
+      color: #fff;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
       text-decoration: none;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
     }
-    .cta-button:hover { background: #a87b2a; }
-    .cta-button-beta {
+    .btn:hover { background: #a87b2a; transform: scale(1.02); }
+    .btn-secondary {
       background: #2d7d46;
     }
-    .cta-button-beta:hover { background: #1e5f33; }
-    .cta-button-coming {
+    .btn-secondary:hover { background: #1e5f33; }
+    .btn-coming {
       background: #6c757d;
       cursor: default;
     }
-    .features {
+    .btn-coming:hover { transform: none; background: #6c757d; }
+    .trust-badge {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.6);
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+    }
+    .hero-mockup { flex: 1 1 250px; display: flex; justify-content: center; }
+    .phone {
+      width: 200px; height: 400px;
+      background: #111; border-radius: 36px; padding: 10px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .phone-screen {
+      width: 100%; height: 100%;
+      background: linear-gradient(145deg, #fcf3e6, #f0e3d0);
+      border-radius: 28px; padding: 16px 12px;
+      display: flex; flex-direction: column;
+    }
+    .game-ui { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+    .game-ui .camel { font-size: 4rem; margin: 8px 0; }
+    .game-ui .tap-btn {
+      background: #c89b3c; color: white; padding: 8px 20px; border-radius: 30px;
+      font-weight: 700; font-size: 0.9rem; border: none; cursor: pointer;
+      margin: 8px 0;
+    }
+    .game-ui .stats { width: 100%; font-size: 0.75rem; font-weight: 600; display: flex; justify-content: space-between; padding: 4px 0; }
+    .game-ui .stats span { background: rgba(255,255,255,0.6); padding: 2px 8px; border-radius: 12px; }
+    .game-ui .xp-bar { width: 100%; height: 6px; background: #e0d4c0; border-radius: 10px; overflow: hidden; margin: 4px 0; }
+    .game-ui .xp-fill { height: 100%; width: 65%; background: #c89b3c; border-radius: 10px; }
+    .features { margin: 3rem 0; }
+    .features h2 { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
+    .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
     }
     .feature-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      text-align: center;
+      background: #fff; padding: 1.8rem 1.5rem; border-radius: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08); text-align: center;
     }
-    .feature-card .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .feature-card .icon { font-size: 2.5rem; }
+    .feature-card h3 { margin: 0.8rem 0 0.4rem; font-size: 1.2rem; }
+    .feature-card p { font-size: 0.95rem; color: #5a4a34; }
     footer {
       margin-top: auto;
       border-top: 1px solid #e6d5b8;
@@ -89,14 +131,17 @@
     }
     footer a { color: #a87b2a; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-    a { color: #c89b3c; text-decoration: none; font-weight: 600; }
-    a:hover { text-decoration: underline; }
     @media (max-width: 700px) {
       header { flex-direction: column; gap: 0.8rem; align-items: center; }
       nav { justify-content: center; }
       nav a { margin: 0 0.4rem; font-size: 0.85rem; }
-      h1 { font-size: 1.8rem; }
+      .hero { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+      .btn-group { justify-content: center; }
+      .phone { width: 160px; height: 320px; }
+      .game-ui .camel { font-size: 3rem; }
+      .feature-grid { grid-template-columns: 1fr 1fr; }
     }
+    @media (max-width: 450px) { .feature-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -123,444 +168,333 @@
     </nav>
   </header>
   <main>
-    <div class="hero">
-      <h1 data-key="hero-title">🐪 Desert Camel</h1>
-      <p data-key="hero-subtitle" style="font-size: 1.2rem; color: #5a4a34;">Tap the camel, earn XP, and win real rewards on SidraChain!</p>
-      <div class="cta-group">
-        <a href="#" class="cta-button cta-button-coming" data-key="cta-download">📲 Coming Soon</a>
-        <a href="https://drive.google.com/file/d/1iiyNEBorQ0Y4pkaDXoyh9bPsAbJsjfTs/view?usp=drive_link" target="_blank" class="cta-button cta-button-beta" data-key="cta-beta">🧪 Beta Version</a>
+    <section class="hero">
+      <div class="hero-text">
+        <h1><span data-key="hero-title1">Tap the Camel,</span><br><span data-key="hero-title2">Earn XP,</span><br><span data-key="hero-title3">On SidraChain!</span></h1>
+        <p data-key="hero-desc">Desert Camel is a <strong>tap-to-earn</strong> game built on <strong>SidraChain</strong> blockchain. Tap the camel to earn XP, collect Camel XP (Cxp) and Camel (CML) tokens – all securely recorded on the public chain. No private keys required – just pure fun!</p>
+        <div class="btn-group">
+          <a href="#" class="btn btn-coming" data-key="hero-btn">🚀 Coming Soon on Google Play</a>
+          <a href="https://drive.google.com/file/d/1iiyNEBorQ0Y4pkaDXoyh9bPsAbJsjfTs/view?usp=drive_link" target="_blank" class="btn btn-secondary" data-key="hero-beta">🧪 Beta Version</a>
+        </div>
+        <div class="trust-badge" data-key="trust-badge">⛓️ All progress stored on SidraChain – transparent and secure.</div>
       </div>
-    </div>
-
-    <div class="features">
-      <div class="feature-card">
-        <div class="icon">👆</div>
-        <h3 data-key="feature-tap-title">Tap to Earn</h3>
-        <p data-key="feature-tap-desc">Earn XP with every tap. Simple, fun, and rewarding.</p>
+      <div class="hero-mockup">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="game-ui">
+              <div class="stats"><span data-key="mockup-xp">🔥 XP 1,250</span><span data-key="mockup-cxp">🐪 Cxp 0.8</span><span data-key="mockup-cml">💎 CML 12</span></div>
+              <div class="xp-bar"><div class="xp-fill"></div></div>
+              <div class="camel">🐫</div>
+              <button class="tap-btn" data-key="mockup-tap">👆 Tap!</button>
+              <div style="font-size:0.65rem;color:#5a4a34;margin-top:4px;" data-key="mockup-level">Level 7 • 850 XP to next level</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="icon">🔗</div>
-        <h3 data-key="feature-chain-title">SidraChain Powered</h3>
-        <p data-key="feature-chain-desc">All progress is stored on the SidraChain blockchain – secure and transparent.</p>
+    </section>
+    <section class="features">
+      <h2 data-key="features-title">Why Play Desert Camel?</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><div class="icon">👆</div><h3 data-key="feature1-title">Simple Tap Game</h3><p data-key="feature1-desc">Just tap the camel to earn XP. Easy to learn, fun to play.</p></div>
+        <div class="feature-card"><div class="icon">⛓️</div><h3 data-key="feature2-title">Blockchain-Powered</h3><p data-key="feature2-desc">Every tap and point is recorded on SidraChain – public, transparent, and permanent.</p></div>
+        <div class="feature-card"><div class="icon">📈</div><h3 data-key="feature3-title">Earn & Upgrade</h3><p data-key="feature3-desc">Collect XP, earn Camel XP (Cxp) and CML tokens, and upgrade your tap power.</p></div>
+        <div class="feature-card"><div class="icon">🏆</div><h3 data-key="feature4-title">Daily Missions</h3><p data-key="feature4-desc">Complete daily challenges to earn bonus points and climb the leaderboard.</p></div>
       </div>
-      <div class="feature-card">
-        <div class="icon">💰</div>
-        <h3 data-key="feature-reward-title">Redeem Rewards</h3>
-        <p data-key="feature-reward-desc">Convert XP to Camel XP (Cxp) and CML tokens. Your effort has real value.</p>
-      </div>
-    </div>
-
-    <div id="index-content">
-      <div class="en-content">
-        <h2 data-key="about-title">About Desert Camel</h2>
-        <p data-key="about-desc">Desert Camel is a <strong>tap-to-earn</strong> game built on the SidraChain blockchain. It combines the fun of tapping with the power of decentralized finance. Whether you're a crypto enthusiast or just looking for a fun way to earn, Desert Camel offers a unique and engaging experience.</p>
-        <h2 data-key="how-title">How It Works</h2>
-        <ul>
-          <li data-key="how-step1"><strong>Tap:</strong> Tap the camel to earn XP points.</li>
-          <li data-key="how-step2"><strong>Earn:</strong> Accumulate XP and unlock achievements.</li>
-          <li data-key="how-step3"><strong>Redeem:</strong> Exchange XP for Camel XP (Cxp) and CML tokens.</li>
-          <li data-key="how-step4"><strong>Upgrade:</strong> Use CML to upgrade your tap power and earn even faster.</li>
-        </ul>
-        <p data-key="how-cta">Ready to start? Download the app today and join the caravan!</p>
-      </div>
-      <div id="translated-content" style="display:none;"></div>
-    </div>
+    </section>
   </main>
   <footer>
     <p data-key="footer-support">📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
-    <p data-key="footer-copy">© 2026 Desert Camel. Built for SidraChain.</p>
+    <p data-key="footer-copy">© 2026 Desert Camel. Built on SidraChain.</p>
   </footer>
 
   <script>
     const translations = {
       en: {
         home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
-        'hero-title': '🐪 Desert Camel',
-        'hero-subtitle': 'Tap the camel, earn XP, and win real rewards on SidraChain!',
-        'cta-download': '📲 Coming Soon',
-        'cta-beta': '🧪 Beta Version',
-        'feature-tap-title': 'Tap to Earn',
-        'feature-tap-desc': 'Earn XP with every tap. Simple, fun, and rewarding.',
-        'feature-chain-title': 'SidraChain Powered',
-        'feature-chain-desc': 'All progress is stored on the SidraChain blockchain – secure and transparent.',
-        'feature-reward-title': 'Redeem Rewards',
-        'feature-reward-desc': 'Convert XP to Camel XP (Cxp) and CML tokens. Your effort has real value.',
-        'about-title': 'About Desert Camel',
-        'about-desc': 'Desert Camel is a <strong>tap-to-earn</strong> game built on the SidraChain blockchain. It combines the fun of tapping with the power of decentralized finance. Whether you\'re a crypto enthusiast or just looking for a fun way to earn, Desert Camel offers a unique and engaging experience.',
-        'how-title': 'How It Works',
-        'how-step1': '<strong>Tap:</strong> Tap the camel to earn XP points.',
-        'how-step2': '<strong>Earn:</strong> Accumulate XP and unlock achievements.',
-        'how-step3': '<strong>Redeem:</strong> Exchange XP for Camel XP (Cxp) and CML tokens.',
-        'how-step4': '<strong>Upgrade:</strong> Use CML to upgrade your tap power and earn even faster.',
-        'how-cta': 'Ready to start? Download the app today and join the caravan!',
+        'hero-title1': 'Tap the Camel,',
+        'hero-title2': 'Earn XP,',
+        'hero-title3': 'On SidraChain!',
+        'hero-desc': 'Desert Camel is a <strong>tap-to-earn</strong> game built on <strong>SidraChain</strong> blockchain. Tap the camel to earn XP, collect Camel XP (Cxp) and Camel (CML) tokens – all securely recorded on the public chain. No private keys required – just pure fun!',
+        'hero-btn': '🚀 Coming Soon on Google Play',
+        'hero-beta': '🧪 Beta Version',
+        'trust-badge': '⛓️ All progress stored on SidraChain – transparent and secure.',
+        'mockup-xp': '🔥 XP 1,250',
+        'mockup-cxp': '🐪 Cxp 0.8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 Tap!',
+        'mockup-level': 'Level 7 • 850 XP to next level',
+        'features-title': 'Why Play Desert Camel?',
+        'feature1-title': 'Simple Tap Game',
+        'feature1-desc': 'Just tap the camel to earn XP. Easy to learn, fun to play.',
+        'feature2-title': 'Blockchain-Powered',
+        'feature2-desc': 'Every tap and point is recorded on SidraChain – public, transparent, and permanent.',
+        'feature3-title': 'Earn & Upgrade',
+        'feature3-desc': 'Collect XP, earn Camel XP (Cxp) and CML tokens, and upgrade your tap power.',
+        'feature4-title': 'Daily Missions',
+        'feature4-desc': 'Complete daily challenges to earn bonus points and climb the leaderboard.',
         'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Built for SidraChain.'
+        'footer-copy': '© 2026 Desert Camel. Built on SidraChain.'
       },
       vi: {
         home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
-        'hero-title': '🐪 Desert Camel',
-        'hero-subtitle': 'Chạm vào lạc đà, kiếm XP, và nhận thưởng thật trên SidraChain!',
-        'cta-download': '📲 Sắp ra mắt',
-        'cta-beta': '🧪 Bản Beta',
-        'feature-tap-title': 'Chạm để kiếm',
-        'feature-tap-desc': 'Kiếm XP với mỗi lần chạm. Đơn giản, vui nhộn và có thưởng.',
-        'feature-chain-title': 'Được hỗ trợ bởi SidraChain',
-        'feature-chain-desc': 'Mọi tiến trình được lưu trên blockchain SidraChain – an toàn và minh bạch.',
-        'feature-reward-title': 'Đổi thưởng',
-        'feature-reward-desc': 'Đổi XP thành Camel XP (Cxp) và token CML. Nỗ lực của bạn có giá trị thực.',
-        'about-title': 'Về Desert Camel',
-        'about-desc': 'Desert Camel là trò chơi <strong>tap-to-earn</strong> được xây dựng trên blockchain SidraChain. Nó kết hợp niềm vui chạm với sức mạnh của tài chính phi tập trung. Dù bạn là người đam mê tiền mã hóa hay chỉ tìm kiếm một cách thú vị để kiếm thêm, Desert Camel mang đến trải nghiệm độc đáo và hấp dẫn.',
-        'how-title': 'Cách hoạt động',
-        'how-step1': '<strong>Chạm:</strong> Chạm vào lạc đà để kiếm điểm XP.',
-        'how-step2': '<strong>Kiếm:</strong> Tích lũy XP và mở khóa thành tựu.',
-        'how-step3': '<strong>Đổi:</strong> Đổi XP lấy Camel XP (Cxp) và token CML.',
-        'how-step4': '<strong>Nâng cấp:</strong> Sử dụng CML để nâng cấp sức mạnh chạm và kiếm nhanh hơn.',
-        'how-cta': 'Sẵn sàng bắt đầu? Tải ứng dụng ngay hôm nay và tham gia đoàn lạc đà!',
+        'hero-title1': 'Chạm vào lạc đà,',
+        'hero-title2': 'Kiếm XP,',
+        'hero-title3': 'Trên SidraChain!',
+        'hero-desc': 'Desert Camel là trò chơi <strong>tap-to-earn</strong> được xây dựng trên blockchain <strong>SidraChain</strong>. Chạm vào lạc đà để kiếm XP, thu thập Camel XP (Cxp) và token Camel (CML) – tất cả được ghi lại trên chuỗi công khai. Không cần khóa riêng tư – chỉ là niềm vui thuần túy!',
+        'hero-btn': '🚀 Sắp ra mắt trên Google Play',
+        'hero-beta': '🧪 Bản Beta',
+        'trust-badge': '⛓️ Mọi tiến trình được lưu trên SidraChain – minh bạch và an toàn.',
+        'mockup-xp': '🔥 XP 1.250',
+        'mockup-cxp': '🐪 Cxp 0,8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 Chạm!',
+        'mockup-level': 'Cấp 7 • 850 XP đến cấp tiếp theo',
+        'features-title': 'Tại sao chơi Desert Camel?',
+        'feature1-title': 'Game chạm đơn giản',
+        'feature1-desc': 'Chỉ cần chạm vào lạc đà để kiếm XP. Dễ học, vui chơi.',
+        'feature2-title': 'Được hỗ trợ bởi Blockchain',
+        'feature2-desc': 'Mọi lần chạm và điểm số được ghi trên SidraChain – công khai, minh bạch và vĩnh viễn.',
+        'feature3-title': 'Kiếm & Nâng cấp',
+        'feature3-desc': 'Thu thập XP, kiếm Camel XP (Cxp) và token CML, nâng cấp sức mạnh chạm.',
+        'feature4-title': 'Nhiệm vụ hàng ngày',
+        'feature4-desc': 'Hoàn thành thử thách hàng ngày để nhận điểm thưởng và leo bảng xếp hạng.',
         'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
+        'footer-copy': '© 2026 Desert Camel. Xây dựng trên SidraChain.'
       },
       zh: {
         home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们',
-        'hero-title': '🐪 沙漠骆驼',
-        'hero-subtitle': '点击骆驼，赚取 XP，并在 SidraChain 上赢取真正奖励！',
-        'cta-download': '📲 即将推出',
-        'cta-beta': '🧪 测试版',
-        'feature-tap-title': '点击赚取',
-        'feature-tap-desc': '每次点击赚取 XP。简单、有趣且有回报。',
-        'feature-chain-title': '由 SidraChain 驱动',
-        'feature-chain-desc': '所有进度存储在 SidraChain 区块链上 – 安全透明。',
-        'feature-reward-title': '兑换奖励',
-        'feature-reward-desc': '将 XP 转换为 Camel XP (Cxp) 和 CML 代币。您的努力具有真正的价值。',
-        'about-title': '关于沙漠骆驼',
-        'about-desc': '沙漠骆驼是一款建立在 SidraChain 区块链上的<strong>点击赚取</strong>游戏。它将点击的乐趣与去中心化金融的力量相结合。无论您是加密货币爱好者还是只是想寻找一种有趣的赚钱方式，沙漠骆驼都能为您提供独特而引人入胜的体验。',
-        'how-title': '工作原理',
-        'how-step1': '<strong>点击：</strong>点击骆驼赚取 XP 积分。',
-        'how-step2': '<strong>赚取：</strong>积累 XP 并解锁成就。',
-        'how-step3': '<strong>兑换：</strong>将 XP 兑换为 Camel XP (Cxp) 和 CML 代币。',
-        'how-step4': '<strong>升级：</strong>使用 CML 升级您的点击威力，赚取更快。',
-        'how-cta': '准备好开始了吗？立即下载应用程序，加入商队！',
+        'hero-title1': '点击骆驼，',
+        'hero-title2': '赚取 XP，',
+        'hero-title3': '在 SidraChain 上！',
+        'hero-desc': 'Desert Camel 是一款建立在 <strong>SidraChain</strong> 区块链上的 <strong>点击赚取</strong> 游戏。点击骆驼赚取 XP，收集 Camel XP (Cxp) 和 Camel (CML) 代币 – 所有记录都安全地保存在公共链上。无需私钥 – 纯粹的乐趣！',
+        'hero-btn': '🚀 即将在 Google Play 上线',
+        'hero-beta': '🧪 测试版',
+        'trust-badge': '⛓️ 所有进度存储在 SidraChain 上 – 透明且安全。',
+        'mockup-xp': '🔥 XP 1,250',
+        'mockup-cxp': '🐪 Cxp 0.8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 点击！',
+        'mockup-level': '等级 7 • 还需 850 XP 升级',
+        'features-title': '为什么玩 Desert Camel？',
+        'feature1-title': '简单点击游戏',
+        'feature1-desc': '只需点击骆驼即可赚取 XP。易于学习，有趣好玩。',
+        'feature2-title': '区块链驱动',
+        'feature2-desc': '每次点击和积分都记录在 SidraChain 上 – 公开、透明、永久。',
+        'feature3-title': '赚取和升级',
+        'feature3-desc': '收集 XP，赚取 Camel XP (Cxp) 和 CML 代币，升级点击威力。',
+        'feature4-title': '每日任务',
+        'feature4-desc': '完成每日挑战，赚取奖励积分并登上排行榜。',
         'footer-support': '📧 支持: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. 为 SidraChain 构建。'
+        'footer-copy': '© 2026 Desert Camel。基于 SidraChain 构建。'
       },
       hi: {
         home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
-        'hero-title': '🐪 डेजर्ट कैमल',
-        'hero-subtitle': 'ऊँट को टैप करें, XP अर्जित करें, और SidraChain पर वास्तविक पुरस्कार जीतें!',
-        'cta-download': '📲 जल्द आ रहा है',
-        'cta-beta': '🧪 परीक्षण संस्करण',
-        'feature-tap-title': 'टैप करके कमाएं',
-        'feature-tap-desc': 'हर टैप के साथ XP अर्जित करें। सरल, मजेदार और पुरस्कृत।',
-        'feature-chain-title': 'SidraChain द्वारा संचालित',
-        'feature-chain-desc': 'सारी प्रगति SidraChain ब्लॉकचेन पर संग्रहीत होती है – सुरक्षित और पारदर्शी।',
-        'feature-reward-title': 'पुरस्कार भुनाएं',
-        'feature-reward-desc': 'XP को Camel XP (Cxp) और CML टोकन में बदलें। आपके प्रयास का वास्तविक मूल्य है।',
-        'about-title': 'डेजर्ट कैमल के बारे में',
-        'about-desc': 'डेजर्ट कैमल एक <strong>टैप-टू-अर्न</strong> गेम है जो SidraChain ब्लॉकचेन पर बनाया गया है। यह टैपिंग के मज़े को विकेन्द्रीकृत वित्त की शक्ति के साथ जोड़ता है। चाहे आप क्रिप्टो उत्साही हों या केवल कमाने का एक मजेदार तरीका ढूंढ रहे हों, डेजर्ट कैमल एक अनूठा और आकर्षक अनुभव प्रदान करता है।',
-        'how-title': 'यह कैसे काम करता है',
-        'how-step1': '<strong>टैप करें:</strong> XP अंक अर्जित करने के लिए ऊँट को टैप करें।',
-        'how-step2': '<strong>कमाएं:</strong> XP जमा करें और उपलब्धियां अनलॉक करें।',
-        'how-step3': '<strong>भुनाएं:</strong> XP को Camel XP (Cxp) और CML टोकन में बदलें।',
-        'how-step4': '<strong>अपग्रेड करें:</strong> अपनी टैप शक्ति को अपग्रेड करने और तेजी से कमाने के लिए CML का उपयोग करें।',
-        'how-cta': 'शुरू करने के लिए तैयार हैं? आज ही ऐप डाउनलोड करें और कारवां में शामिल हों!',
+        'hero-title1': 'ऊँट को टैप करें,',
+        'hero-title2': 'XP कमाएं,',
+        'hero-title3': 'SidraChain पर!',
+        'hero-desc': 'Desert Camel <strong>SidraChain</strong> ब्लॉकचेन पर बनाया गया एक <strong>टैप-टू-अर्न</strong> गेम है। XP कमाने के लिए ऊँट को टैप करें, Camel XP (Cxp) और Camel (CML) टोकन इकट्ठा करें – ये सभी सार्वजनिक चेन पर सुरक्षित रूप से रिकॉर्ड किए जाते हैं। निजी कुंजी की आवश्यकता नहीं – केवल शुद्ध मनोरंजन!',
+        'hero-btn': '🚀 जल्द ही Google Play पर',
+        'hero-beta': '🧪 परीक्षण संस्करण',
+        'trust-badge': '⛓️ सारी प्रगति SidraChain पर संग्रहीत – पारदर्शी और सुरक्षित।',
+        'mockup-xp': '🔥 XP 1,250',
+        'mockup-cxp': '🐪 Cxp 0.8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 टैप करें!',
+        'mockup-level': 'स्तर 7 • अगले स्तर के लिए 850 XP',
+        'features-title': 'Desert Camel क्यों खेलें?',
+        'feature1-title': 'सरल टैप गेम',
+        'feature1-desc': 'XP कमाने के लिए बस ऊँट को टैप करें। सीखने में आसान, खेलने में मजेदार।',
+        'feature2-title': 'ब्लॉकचेन-संचालित',
+        'feature2-desc': 'हर टैप और अंक SidraChain पर रिकॉर्ड किए जाते हैं – सार्वजनिक, पारदर्शी और स्थायी।',
+        'feature3-title': 'कमाएं और अपग्रेड करें',
+        'feature3-desc': 'XP इकट्ठा करें, Camel XP (Cxp) और CML टोकन कमाएं, और अपनी टैप शक्ति को अपग्रेड करें।',
+        'feature4-title': 'दैनिक मिशन',
+        'feature4-desc': 'बोनस अंक अर्जित करने और लीडरबोर्ड पर चढ़ने के लिए दैनिक चुनौतियाँ पूरी करें।',
         'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. SidraChain के लिए निर्मित।'
+        'footer-copy': '© 2026 Desert Camel। SidraChain पर निर्मित।'
       },
       ar: {
         home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
-        'hero-title': '🐪 الجمل الصحراوي',
-        'hero-subtitle': 'انقر على الجمل، واربح XP، واربح مكافآت حقيقية على SidraChain!',
-        'cta-download': '📲 قريباً',
-        'cta-beta': '🧪 نسخة تجريبية',
-        'feature-tap-title': 'انقر لتربح',
-        'feature-tap-desc': 'اربح XP مع كل نقرة. بسيط وممتع ومجزٍ.',
-        'feature-chain-title': 'مدعوم من SidraChain',
-        'feature-chain-desc': 'يتم تخزين كل التقدم على سلسلة الكتل SidraChain – آمن وشفاف.',
-        'feature-reward-title': 'استبدال المكافآت',
-        'feature-reward-desc': 'حوّل XP إلى Camel XP (Cxp) ورموز CML. لجهدك قيمة حقيقية.',
-        'about-title': 'حول الجمل الصحراوي',
-        'about-desc': 'الجمل الصحراوي هي لعبة <strong>اضغط لتربح</strong> مبنية على سلسلة الكتل SidraChain. إنها تجمع بين متعة النقر وقوة التمويل اللامركزي. سواء كنت من عشاق العملات المشفرة أو تبحث فقط عن طريقة ممتعة لكسب المال، يقدم الجمل الصحراوي تجربة فريدة وجذابة.',
-        'how-title': 'كيف يعمل',
-        'how-step1': '<strong>انقر:</strong> انقر على الجمل لكسب نقاط XP.',
-        'how-step2': '<strong>اربح:</strong> اجمع XP وافتح الإنجازات.',
-        'how-step3': '<strong>استبدل:</strong> استبدل XP بـ Camel XP (Cxp) ورموز CML.',
-        'how-step4': '<strong>ترقية:</strong> استخدم CML لترقية قوة النقر وكسب بشكل أسرع.',
-        'how-cta': 'مستعد للبدء؟ قم بتنزيل التطبيق اليوم وانضم إلى القافلة!',
+        'hero-title1': 'انقر على الجمل،',
+        'hero-title2': 'اربح XP،',
+        'hero-title3': 'على SidraChain!',
+        'hero-desc': 'Desert Camel هي لعبة <strong>انقر لتربح</strong> مبنية على بلوكشين <strong>SidraChain</strong>. انقر على الجمل لكسب XP، وجمع Camel XP (Cxp) ورموز Camel (CML) – جميعها مسجلة بشكل آمن على السلسلة العامة. لا حاجة لمفاتيح خاصة – مجرد متعة خالصة!',
+        'hero-btn': '🚀 قريباً على Google Play',
+        'hero-beta': '🧪 نسخة تجريبية',
+        'trust-badge': '⛓️ كل التقدم مخزن على SidraChain – شفاف وآمن.',
+        'mockup-xp': '🔥 XP ١,٢٥٠',
+        'mockup-cxp': '🐪 Cxp ٠.٨',
+        'mockup-cml': '💎 CML ١٢',
+        'mockup-tap': '👆 انقر!',
+        'mockup-level': 'المستوى 7 • 850 XP للمستوى التالي',
+        'features-title': 'لماذا تلعب Desert Camel؟',
+        'feature1-title': 'لعبة نقر بسيطة',
+        'feature1-desc': 'فقط انقر على الجمل لكسب XP. سهل التعلم، ممتع للعب.',
+        'feature2-title': 'مدعوم من البلوكشين',
+        'feature2-desc': 'كل نقرة وكل نقطة يتم تسجيلها على SidraChain – عامة وشفافة ودائمة.',
+        'feature3-title': 'اربح وطور',
+        'feature3-desc': 'اجمع XP، واربح Camel XP (Cxp) ورموز CML، وطور قوة النقر الخاصة بك.',
+        'feature4-title': 'المهام اليومية',
+        'feature4-desc': 'أكمل التحديات اليومية لكسب نقاط إضافية وتصدر لوحة المتصدرين.',
         'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. تم بناؤها لـ SidraChain.'
+        'footer-copy': '© 2026 Desert Camel. مبني على SidraChain.'
       },
       id: {
-        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Kontak',
-        'hero-title': '🐪 Unta Gurun',
-        'hero-subtitle': 'Ketuk unta, dapatkan XP, dan menangkan hadiah nyata di SidraChain!',
-        'cta-download': '📲 Segera Hadir',
-        'cta-beta': '🧪 Versi Uji Coba',
-        'feature-tap-title': 'Ketuk untuk Mendapatkan',
-        'feature-tap-desc': 'Dapatkan XP dengan setiap ketukan. Sederhana, menyenangkan, dan bermanfaat.',
-        'feature-chain-title': 'Didukung oleh SidraChain',
-        'feature-chain-desc': 'Semua kemajuan disimpan di blockchain SidraChain – aman dan transparan.',
-        'feature-reward-title': 'Tebus Hadiah',
-        'feature-reward-desc': 'Konversi XP ke Camel XP (Cxp) dan token CML. Usaha Anda memiliki nilai nyata.',
-        'about-title': 'Tentang Unta Gurun',
-        'about-desc': 'Unta Gurun adalah permainan <strong>ketuk-untuk-peroleh</strong> yang dibangun di blockchain SidraChain. Ini menggabungkan kesenangan mengetuk dengan kekuatan keuangan terdesentralisasi. Apakah Anda seorang penggemar crypto atau hanya mencari cara yang menyenangkan untuk mendapatkan, Unta Gurun menawarkan pengalaman yang unik dan menarik.',
-        'how-title': 'Bagaimana Cara Kerjanya',
-        'how-step1': '<strong>Ketuk:</strong> Ketuk unta untuk mendapatkan poin XP.',
-        'how-step2': '<strong>Dapatkan:</strong> Kumpulkan XP dan buka pencapaian.',
-        'how-step3': '<strong>Tebus:</strong> Tukar XP dengan Camel XP (Cxp) dan token CML.',
-        'how-step4': '<strong>Tingkatkan:</strong> Gunakan CML untuk meningkatkan kekuatan ketuk Anda dan dapatkan lebih cepat.',
-        'how-cta': 'Siap untuk memulai? Unduh aplikasi hari ini dan bergabunglah dengan karavan!',
+        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Hubungi',
+        'hero-title1': 'Ketuk Unta,',
+        'hero-title2': 'Dapatkan XP,',
+        'hero-title3': 'Di SidraChain!',
+        'hero-desc': 'Desert Camel adalah game <strong>ketuk-untuk-peroleh</strong> yang dibangun di blockchain <strong>SidraChain</strong>. Ketuk unta untuk mendapatkan XP, kumpulkan Camel XP (Cxp) dan token Camel (CML) – semuanya tercatat secara aman di rantai publik. Tidak perlu kunci pribadi – murni hiburan!',
+        'hero-btn': '🚀 Segera di Google Play',
+        'hero-beta': '🧪 Versi Uji Coba',
+        'trust-badge': '⛓️ Semua kemajuan disimpan di SidraChain – transparan dan aman.',
+        'mockup-xp': '🔥 XP 1.250',
+        'mockup-cxp': '🐪 Cxp 0.8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 Ketuk!',
+        'mockup-level': 'Level 7 • 850 XP ke level berikutnya',
+        'features-title': 'Mengapa Bermain Desert Camel?',
+        'feature1-title': 'Game Ketuk Sederhana',
+        'feature1-desc': 'Cukup ketuk unta untuk mendapatkan XP. Mudah dipelajari, menyenangkan untuk dimainkan.',
+        'feature2-title': 'Didukung Blockchain',
+        'feature2-desc': 'Setiap ketukan dan poin dicatat di SidraChain – publik, transparan, dan permanen.',
+        'feature3-title': 'Dapatkan & Tingkatkan',
+        'feature3-desc': 'Kumpulkan XP, dapatkan Camel XP (Cxp) dan token CML, dan tingkatkan kekuatan ketuk Anda.',
+        'feature4-title': 'Misi Harian',
+        'feature4-desc': 'Selesaikan tantangan harian untuk mendapatkan poin bonus dan naik papan peringkat.',
         'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.'
+        'footer-copy': '© 2026 Desert Camel. Dibangun di SidraChain.'
       },
       ms: {
-        home: 'Rumah', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
-        'hero-title': '🐪 Unta Gurun',
-        'hero-subtitle': 'Ketik unta, peroleh XP, dan menangi ganjaran sebenar di SidraChain!',
-        'cta-download': '📲 Akan Datang',
-        'cta-beta': '🧪 Versi Ujian',
-        'feature-tap-title': 'Ketik untuk Peroleh',
-        'feature-tap-desc': 'Peroleh XP dengan setiap ketukan. Mudah, menyeronokkan, dan berbaloi.',
-        'feature-chain-title': 'Dikuasakan oleh SidraChain',
-        'feature-chain-desc': 'Semua kemajuan disimpan di blockchain SidraChain – selamat dan telus.',
-        'feature-reward-title': 'Tebus Ganjaran',
-        'feature-reward-desc': 'Tukar XP kepada Camel XP (Cxp) dan token CML. Usaha anda mempunyai nilai sebenar.',
-        'about-title': 'Mengenai Unta Gurun',
-        'about-desc': 'Unta Gurun adalah permainan <strong>ketuk-untuk-peroleh</strong> yang dibina di blockchain SidraChain. Ia menggabungkan keseronokan mengetik dengan kuasa kewangan terpencar. Sama ada anda peminat crypto atau hanya mencari cara yang menyeronokkan untuk memperoleh, Unta Gurun menawarkan pengalaman yang unik dan menarik.',
-        'how-title': 'Bagaimana Ia Berfungsi',
-        'how-step1': '<strong>Ketik:</strong> Ketik unta untuk mendapatkan mata XP.',
-        'how-step2': '<strong>Peroleh:</strong> Kumpulkan XP dan buka pencapaian.',
-        'how-step3': '<strong>Tebus:</strong> Tukar XP kepada Camel XP (Cxp) dan token CML.',
-        'how-step4': '<strong>Tingkatkan:</strong> Gunakan CML untuk meningkatkan kuasa ketuk anda dan peroleh lebih cepat.',
-        'how-cta': 'Sedia untuk bermula? Muat turun aplikasi hari ini dan sertai kafilah!',
+        home: 'Laman Utama', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
+        'hero-title1': 'Ketik Unta,',
+        'hero-title2': 'Dapatkan XP,',
+        'hero-title3': 'Di SidraChain!',
+        'hero-desc': 'Desert Camel adalah permainan <strong>ketuk-untuk-peroleh</strong> yang dibina di blockchain <strong>SidraChain</strong>. Ketik unta untuk mendapatkan XP, kumpulkan Camel XP (Cxp) dan token Camel (CML) – semuanya direkodkan dengan selamat di rantai awam. Tiada kunci peribadi diperlukan – hiburan semata-mata!',
+        'hero-btn': '🚀 Akan Datang di Google Play',
+        'hero-beta': '🧪 Versi Ujian',
+        'trust-badge': '⛓️ Semua kemajuan disimpan di SidraChain – telus dan selamat.',
+        'mockup-xp': '🔥 XP 1,250',
+        'mockup-cxp': '🐪 Cxp 0.8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 Ketik!',
+        'mockup-level': 'Tahap 7 • 850 XP ke tahap seterusnya',
+        'features-title': 'Mengapa Main Desert Camel?',
+        'feature1-title': 'Permainan Ketuk Mudah',
+        'feature1-desc': 'Hanya ketik unta untuk mendapatkan XP. Mudah dipelajari, menyeronokkan untuk dimainkan.',
+        'feature2-title': 'Dikuasakan Blockchain',
+        'feature2-desc': 'Setiap ketukan dan mata direkodkan di SidraChain – awam, telus, dan kekal.',
+        'feature3-title': 'Dapatkan & Tingkatkan',
+        'feature3-desc': 'Kumpulkan XP, dapatkan Camel XP (Cxp) dan token CML, dan tingkatkan kuasa ketuk anda.',
+        'feature4-title': 'Misi Harian',
+        'feature4-desc': 'Selesaikan cabaran harian untuk mendapatkan mata bonus dan naik papan pendahulu.',
         'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.'
+        'footer-copy': '© 2026 Desert Camel. Dibina di SidraChain.'
       },
       fr: {
         home: 'Accueil', privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact',
-        'hero-title': '🐪 Chameau du Désert',
-        'hero-subtitle': 'Tapez sur le chameau, gagnez des XP et remportez de vraies récompenses sur SidraChain !',
-        'cta-download': '📲 Bientôt disponible',
-        'cta-beta': '🧪 Version bêta',
-        'feature-tap-title': 'Tapotez pour gagner',
-        'feature-tap-desc': 'Gagnez des XP à chaque tapotement. Simple, amusant et gratifiant.',
-        'feature-chain-title': 'Propulsé par SidraChain',
-        'feature-chain-desc': 'Toute la progression est stockée sur la blockchain SidraChain – sécurisée et transparente.',
-        'feature-reward-title': 'Échanger des récompenses',
-        'feature-reward-desc': 'Convertissez XP en Camel XP (Cxp) et en jetons CML. Vos efforts ont une vraie valeur.',
-        'about-title': 'À propos de Chameau du Désert',
-        'about-desc': 'Chameau du Désert est un jeu <strong>tap-to-earn</strong> construit sur la blockchain SidraChain. Il combine le plaisir du tapotement avec la puissance de la finance décentralisée. Que vous soyez un passionné de crypto ou simplement à la recherche d\'un moyen amusant de gagner, Chameau du Désert offre une expérience unique et engageante.',
-        'how-title': 'Comment ça fonctionne',
-        'how-step1': '<strong>Tapotez :</strong> Tapez sur le chameau pour gagner des points XP.',
-        'how-step2': '<strong>Gagnez :</strong> Accumulez des XP et débloquez des succès.',
-        'how-step3': '<strong>Échangez :</strong> Échangez XP contre Camel XP (Cxp) et des jetons CML.',
-        'how-step4': '<strong>Améliorez :</strong> Utilisez CML pour améliorer votre puissance de tapotement et gagner plus rapidement.',
-        'how-cta': 'Prêt à commencer ? Téléchargez l\'application dès aujourd\'hui et rejoignez la caravane !',
-        'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Construit pour SidraChain.'
+        'hero-title1': 'Tapez le chameau,',
+        'hero-title2': 'Gagnez des XP,',
+        'hero-title3': 'Sur SidraChain !',
+        'hero-desc': 'Desert Camel est un jeu <strong>tap-to-earn</strong> construit sur la blockchain <strong>SidraChain</strong>. Tapez le chameau pour gagner des XP, collectez des Camel XP (Cxp) et des jetons Camel (CML) – tout est enregistré en toute sécurité sur la chaîne publique. Pas besoin de clé privée – pur divertissement !',
+        'hero-btn': '🚀 Bientôt sur Google Play',
+        'hero-beta': '🧪 Version bêta',
+        'trust-badge': '⛓️ Toute la progression stockée sur SidraChain – transparente et sécurisée.',
+        'mockup-xp': '🔥 XP 1 250',
+        'mockup-cxp': '🐪 Cxp 0,8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 Tapez !',
+        'mockup-level': 'Niveau 7 • 850 XP pour le prochain niveau',
+        'features-title': 'Pourquoi jouer à Desert Camel ?',
+        'feature1-title': 'Jeu de tapotement simple',
+        'feature1-desc': 'Tapez simplement le chameau pour gagner des XP. Facile à apprendre, amusant à jouer.',
+        'feature2-title': 'Propulsé par la blockchain',
+        'feature2-desc': 'Chaque tapotement et point est enregistré sur SidraChain – public, transparent et permanent.',
+        'feature3-title': 'Gagnez et améliorez',
+        'feature3-desc': 'Collectez des XP, gagnez des Camel XP (Cxp) et des jetons CML, et améliorez votre puissance de tapotement.',
+        'feature4-title': 'Missions quotidiennes',
+        'feature4-desc': 'Relevez des défis quotidiens pour gagner des points bonus et monter dans le classement.',
+        'footer-support': '📧 Support : <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Construit sur SidraChain.'
       },
       pt: {
         home: 'Início', privacy: 'Privacidade', terms: 'Termos', contact: 'Contato',
-        'hero-title': '🐪 Camelo do Deserto',
-        'hero-subtitle': 'Toque no camelo, ganhe XP e ganhe recompensas reais no SidraChain!',
-        'cta-download': '📲 Em breve',
-        'cta-beta': '🧪 Versão beta',
-        'feature-tap-title': 'Toque para Ganhar',
-        'feature-tap-desc': 'Ganhe XP a cada toque. Simples, divertido e recompensador.',
-        'feature-chain-title': 'Impulsionado por SidraChain',
-        'feature-chain-desc': 'Todo o progresso é armazenado na blockchain SidraChain – segura e transparente.',
-        'feature-reward-title': 'Resgatar Recompensas',
-        'feature-reward-desc': 'Converta XP em Camel XP (Cxp) e tokens CML. Seu esforço tem valor real.',
-        'about-title': 'Sobre o Camelo do Deserto',
-        'about-desc': 'Camelo do Deserto é um jogo <strong>toque-para-ganhar</strong> construído na blockchain SidraChain. Combina a diversão de tocar com o poder das finanças descentralizadas. Quer você seja um entusiasta de cripto ou apenas procurando uma maneira divertida de ganhar, o Camelo do Deserto oferece uma experiência única e envolvente.',
-        'how-title': 'Como funciona',
-        'how-step1': '<strong>Toque:</strong> Toque no camelo para ganhar pontos XP.',
-        'how-step2': '<strong>Ganhe:</strong> Acumule XP e desbloqueie conquistas.',
-        'how-step3': '<strong>Resgate:</strong> Troque XP por Camel XP (Cxp) e tokens CML.',
-        'how-step4': '<strong>Melhore:</strong> Use CML para melhorar seu poder de toque e ganhar mais rápido.',
-        'how-cta': 'Pronto para começar? Baixe o aplicativo hoje e junte-se à caravana!',
+        'hero-title1': 'Toque no Camelo,',
+        'hero-title2': 'Ganhe XP,',
+        'hero-title3': 'No SidraChain!',
+        'hero-desc': 'Desert Camel é um jogo <strong>toque-para-ganhar</strong> construído na blockchain <strong>SidraChain</strong>. Toque no camelo para ganhar XP, colete Camel XP (Cxp) e tokens Camel (CML) – todos registrados com segurança na cadeia pública. Sem necessidade de chave privada – pura diversão!',
+        'hero-btn': '🚀 Em breve no Google Play',
+        'hero-beta': '🧪 Versão beta',
+        'trust-badge': '⛓️ Todo o progresso armazenado no SidraChain – transparente e seguro.',
+        'mockup-xp': '🔥 XP 1.250',
+        'mockup-cxp': '🐪 Cxp 0,8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 Toque!',
+        'mockup-level': 'Nível 7 • 850 XP para o próximo nível',
+        'features-title': 'Por que jogar Desert Camel?',
+        'feature1-title': 'Jogo de toque simples',
+        'feature1-desc': 'Basta tocar no camelo para ganhar XP. Fácil de aprender, divertido de jogar.',
+        'feature2-title': 'Impulsionado por Blockchain',
+        'feature2-desc': 'Cada toque e ponto é registrado no SidraChain – público, transparente e permanente.',
+        'feature3-title': 'Ganhe e Melhore',
+        'feature3-desc': 'Colete XP, ganhe Camel XP (Cxp) e tokens CML, e melhore seu poder de toque.',
+        'feature4-title': 'Missões Diárias',
+        'feature4-desc': 'Complete desafios diários para ganhar pontos bônus e subir no ranking.',
         'footer-support': '📧 Suporte: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Construído para SidraChain.'
+        'footer-copy': '© 2026 Desert Camel. Construído no SidraChain.'
       },
       ko: {
-        home: '홈', privacy: '개인정보처리방침', terms: '서비스 약관', contact: '연락처',
-        'hero-title': '🐪 사막 낙타',
-        'hero-subtitle': '낙타를 탭하여 XP를 획득하고 SidraChain에서 실제 보상을 받으세요!',
-        'cta-download': '📲 곧 출시',
-        'cta-beta': '🧪 베타 버전',
-        'feature-tap-title': '탭하여 획득',
-        'feature-tap-desc': '매 탭마다 XP를 획득하세요. 간단하고 재미있으며 보상이 있습니다.',
-        'feature-chain-title': 'SidraChain 기반',
-        'feature-chain-desc': '모든 진행 상황은 SidraChain 블록체인에 저장됩니다 – 안전하고 투명합니다.',
-        'feature-reward-title': '보상 받기',
-        'feature-reward-desc': 'XP를 Camel XP(Cxp) 및 CML 토큰으로 전환하세요. 당신의 노력은 실제 가치가 있습니다.',
-        'about-title': '사막 낙타 소개',
-        'about-desc': '사막 낙타는 SidraChain 블록체인에 구축된 <strong>탭하여 획득</strong> 게임입니다. 탭의 재미와 분산 금융의 힘을 결합합니다. 암호화폐 애호가이든 재미있는 수익 창출 방법을 찾고 있든, 사막 낙타는 독특하고 매력적인 경험을 제공합니다.',
-        'how-title': '작동 방식',
-        'how-step1': '<strong>탭:</strong> 낙타를 탭하여 XP 포인트를 획득하세요.',
-        'how-step2': '<strong>획득:</strong> XP를 축적하고 업적을 잠금 해제하세요.',
-        'how-step3': '<strong>교환:</strong> XP를 Camel XP(Cxp) 및 CML 토큰으로 교환하세요.',
-        'how-step4': '<strong>업그레이드:</strong> CML을 사용하여 탭 파워를 업그레이드하고 더 빠르게 획득하세요.',
-        'how-cta': '시작할 준비가 되셨나요? 지금 앱을 다운로드하고 캐러밴에 합류하세요!',
+        home: '홈', privacy: '개인정보처리방침', terms: '이용약관', contact: '연락처',
+        'hero-title1': '낙타를 탭하고,',
+        'hero-title2': 'XP를 획득하고,',
+        'hero-title3': 'SidraChain에서!',
+        'hero-desc': 'Desert Camel은 <strong>SidraChain</strong> 블록체인에 구축된 <strong>탭-투-언</strong> 게임입니다. 낙타를 탭하여 XP를 획득하고, Camel XP(Cxp)와 Camel(CML) 토큰을 수집하세요 – 모든 것이 공개 체인에 안전하게 기록됩니다. 개인 키 필요 없음 – 순수한 재미!',
+        'hero-btn': '🚀 곧 Google Play에 출시',
+        'hero-beta': '🧪 베타 버전',
+        'trust-badge': '⛓️ 모든 진행 상황이 SidraChain에 저장 – 투명하고 안전합니다.',
+        'mockup-xp': '🔥 XP 1,250',
+        'mockup-cxp': '🐪 Cxp 0.8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 탭!',
+        'mockup-level': '레벨 7 • 다음 레벨까지 850 XP',
+        'features-title': 'Desert Camel을 해야 하는 이유?',
+        'feature1-title': '간단한 탭 게임',
+        'feature1-desc': '그냥 낙타를 탭하여 XP를 얻으세요. 배우기 쉽고, 즐겁게 플레이하세요.',
+        'feature2-title': '블록체인 기반',
+        'feature2-desc': '모든 탭과 포인트는 SidraChain에 기록됩니다 – 공개, 투명, 영구적.',
+        'feature3-title': '획득 및 업그레이드',
+        'feature3-desc': 'XP를 모으고, Camel XP(Cxp)와 CML 토큰을 획득하고, 탭 파워를 업그레이드하세요.',
+        'feature4-title': '일일 미션',
+        'feature4-desc': '매일 도전 과제를 완료하여 보너스 포인트를 받고 리더보드에 도전하세요.',
         'footer-support': '📧 지원: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. SidraChain용으로 제작되었습니다.'
+        'footer-copy': '© 2026 Desert Camel. SidraChain에서 구축됨.'
       },
       ja: {
         home: 'ホーム', privacy: 'プライバシーポリシー', terms: '利用規約', contact: 'お問い合わせ',
-        'hero-title': '🐪 砂漠のラクダ',
-        'hero-subtitle': 'ラクダをタップしてXPを獲得し、SidraChainで本当の報酬を勝ち取りましょう！',
-        'cta-download': '📲 近日公開',
-        'cta-beta': '🧪 ベータ版',
-        'feature-tap-title': 'タップして獲得',
-        'feature-tap-desc': 'タップするたびにXPを獲得。シンプルで楽しく、報酬があります。',
-        'feature-chain-title': 'SidraChain搭載',
-        'feature-chain-desc': 'すべての進捗はSidraChainブロックチェーンに保存されます – 安全で透明です。',
-        'feature-reward-title': '報酬を受け取る',
-        'feature-reward-desc': 'XPをCamel XP (Cxp)およびCMLトークンに変換します。あなたの努力には本当の価値があります。',
-        'about-title': '砂漠のラクダについて',
-        'about-desc': '砂漠のラクダはSidraChainブロックチェーン上に構築された<strong>タップして稼ぐ</strong>ゲームです。タップの楽しさと分散型金融の力を組み合わせています。暗号通貨愛好家でも、楽しく稼ぐ方法を探している人でも、砂漠のラクダはユニークで魅力的な体験を提供します。',
-        'how-title': '仕組み',
-        'how-step1': '<strong>タップ:</strong> ラクダをタップしてXPポイントを獲得します。',
-        'how-step2': '<strong>獲得:</strong> XPを貯めて実績をアンロックします。',
-        'how-step3': '<strong>交換:</strong> XPをCamel XP (Cxp)およびCMLトークンと交換します。',
-        'how-step4': '<strong>アップグレード:</strong> CMLを使用してタップパワーをアップグレードし、より速く獲得します。',
-        'how-cta': '始める準備はできましたか？今すぐアプリをダウンロードして、キャラバンに参加しましょう！',
+        'hero-title1': 'ラクダをタップして、',
+        'hero-title2': 'XPを獲得して、',
+        'hero-title3': 'SidraChainで！',
+        'hero-desc': 'Desert Camelは<strong>SidraChain</strong>ブロックチェーン上に構築された<strong>タップして稼ぐ</strong>ゲームです。ラクダをタップしてXPを獲得し、Camel XP (Cxp)とCamel (CML)トークンを集めましょう – すべて公開チェーンに安全に記録されます。秘密鍵は不要 – 純粋な楽しみ！',
+        'hero-btn': '🚀 まもなくGoogle Playで',
+        'hero-beta': '🧪 ベータ版',
+        'trust-badge': '⛓️ すべての進捗がSidraChainに保存 – 透明で安全。',
+        'mockup-xp': '🔥 XP 1,250',
+        'mockup-cxp': '🐪 Cxp 0.8',
+        'mockup-cml': '💎 CML 12',
+        'mockup-tap': '👆 タップ！',
+        'mockup-level': 'レベル7 • 次のレベルまで850 XP',
+        'features-title': 'Desert Camelをプレイする理由',
+        'feature1-title': 'シンプルタップゲーム',
+        'feature1-desc': 'ラクダをタップするだけでXPを獲得。簡単に学べて、楽しくプレイできます。',
+        'feature2-title': 'ブロックチェーン搭載',
+        'feature2-desc': 'すべてのタップとポイントはSidraChainに記録されます – 公開、透明、永続的。',
+        'feature3-title': '獲得してアップグレード',
+        'feature3-desc': 'XPを集め、Camel XP (Cxp)とCMLトークンを獲得し、タップパワーをアップグレードしましょう。',
+        'feature4-title': 'デイリーミッション',
+        'feature4-desc': '毎日のチャレンジをクリアしてボーナスポイントを獲得し、ランキングを上昇させましょう。',
         'footer-support': '📧 サポート: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. SidraChain用に構築されました。'
+        'footer-copy': '© 2026 Desert Camel。SidraChain上に構築。'
       }
-    };
-
-    const indexTranslations = {
-      en: `
-        <h2>About Desert Camel</h2>
-        <p>Desert Camel is a <strong>tap-to-earn</strong> game built on the SidraChain blockchain. It combines the fun of tapping with the power of decentralized finance. Whether you're a crypto enthusiast or just looking for a fun way to earn, Desert Camel offers a unique and engaging experience.</p>
-        <h2>How It Works</h2>
-        <ul>
-          <li><strong>Tap:</strong> Tap the camel to earn XP points.</li>
-          <li><strong>Earn:</strong> Accumulate XP and unlock achievements.</li>
-          <li><strong>Redeem:</strong> Exchange XP for Camel XP (Cxp) and CML tokens.</li>
-          <li><strong>Upgrade:</strong> Use CML to upgrade your tap power and earn even faster.</li>
-        </ul>
-        <p>Ready to start? Download the app today and join the caravan!</p>
-      `,
-      vi: `
-        <h2>Về Desert Camel</h2>
-        <p>Desert Camel là trò chơi <strong>tap-to-earn</strong> được xây dựng trên blockchain SidraChain. Nó kết hợp niềm vui chạm với sức mạnh của tài chính phi tập trung. Dù bạn là người đam mê tiền mã hóa hay chỉ tìm kiếm một cách thú vị để kiếm thêm, Desert Camel mang đến trải nghiệm độc đáo và hấp dẫn.</p>
-        <h2>Cách hoạt động</h2>
-        <ul>
-          <li><strong>Chạm:</strong> Chạm vào lạc đà để kiếm điểm XP.</li>
-          <li><strong>Kiếm:</strong> Tích lũy XP và mở khóa thành tựu.</li>
-          <li><strong>Đổi:</strong> Đổi XP lấy Camel XP (Cxp) và token CML.</li>
-          <li><strong>Nâng cấp:</strong> Sử dụng CML để nâng cấp sức mạnh chạm và kiếm nhanh hơn.</li>
-        </ul>
-        <p>Sẵn sàng bắt đầu? Tải ứng dụng ngay hôm nay và tham gia đoàn lạc đà!</p>
-      `,
-      zh: `
-        <h2>关于沙漠骆驼</h2>
-        <p>沙漠骆驼是一款建立在 SidraChain 区块链上的<strong>点击赚取</strong>游戏。它将点击的乐趣与去中心化金融的力量相结合。无论您是加密货币爱好者还是只是想寻找一种有趣的赚钱方式，沙漠骆驼都能为您提供独特而引人入胜的体验。</p>
-        <h2>工作原理</h2>
-        <ul>
-          <li><strong>点击：</strong>点击骆驼赚取 XP 积分。</li>
-          <li><strong>赚取：</strong>积累 XP 并解锁成就。</li>
-          <li><strong>兑换：</strong>将 XP 兑换为 Camel XP (Cxp) 和 CML 代币。</li>
-          <li><strong>升级：</strong>使用 CML 升级您的点击威力，赚取更快。</li>
-        </ul>
-        <p>准备好开始了吗？立即下载应用程序，加入商队！</p>
-      `,
-      hi: `
-        <h2>डेजर्ट कैमल के बारे में</h2>
-        <p>डेजर्ट कैमल एक <strong>टैप-टू-अर्न</strong> गेम है जो SidraChain ब्लॉकचेन पर बनाया गया है। यह टैपिंग के मज़े को विकेन्द्रीकृत वित्त की शक्ति के साथ जोड़ता है। चाहे आप क्रिप्टो उत्साही हों या केवल कमाने का एक मजेदार तरीका ढूंढ रहे हों, डेजर्ट कैमल एक अनूठा और आकर्षक अनुभव प्रदान करता है।</p>
-        <h2>यह कैसे काम करता है</h2>
-        <ul>
-          <li><strong>टैप करें:</strong> XP अंक अर्जित करने के लिए ऊँट को टैप करें।</li>
-          <li><strong>कमाएं:</strong> XP जमा करें और उपलब्धियां अनलॉक करें।</li>
-          <li><strong>भुनाएं:</strong> XP को Camel XP (Cxp) और CML टोकन में बदलें।</li>
-          <li><strong>अपग्रेड करें:</strong> अपनी टैप शक्ति को अपग्रेड करने और तेजी से कमाने के लिए CML का उपयोग करें।</li>
-        </ul>
-        <p>शुरू करने के लिए तैयार हैं? आज ही ऐप डाउनलोड करें और कारवां में शामिल हों!</p>
-      `,
-      ar: `
-        <h2>حول الجمل الصحراوي</h2>
-        <p>الجمل الصحراوي هي لعبة <strong>اضغط لتربح</strong> مبنية على سلسلة الكتل SidraChain. إنها تجمع بين متعة النقر وقوة التمويل اللامركزي. سواء كنت من عشاق العملات المشفرة أو تبحث فقط عن طريقة ممتعة لكسب المال، يقدم الجمل الصحراوي تجربة فريدة وجذابة.</p>
-        <h2>كيف يعمل</h2>
-        <ul>
-          <li><strong>انقر:</strong> انقر على الجمل لكسب نقاط XP.</li>
-          <li><strong>اربح:</strong> اجمع XP وافتح الإنجازات.</li>
-          <li><strong>استبدل:</strong> استبدل XP بـ Camel XP (Cxp) ورموز CML.</li>
-          <li><strong>ترقية:</strong> استخدم CML لترقية قوة النقر وكسب بشكل أسرع.</li>
-        </ul>
-        <p>مستعد للبدء؟ قم بتنزيل التطبيق اليوم وانضم إلى القافلة!</p>
-      `,
-      id: `
-        <h2>Tentang Unta Gurun</h2>
-        <p>Unta Gurun adalah permainan <strong>ketuk-untuk-peroleh</strong> yang dibangun di blockchain SidraChain. Ini menggabungkan kesenangan mengetuk dengan kekuatan keuangan terdesentralisasi. Apakah Anda seorang penggemar crypto atau hanya mencari cara yang menyenangkan untuk mendapatkan, Unta Gurun menawarkan pengalaman yang unik dan menarik.</p>
-        <h2>Bagaimana Cara Kerjanya</h2>
-        <ul>
-          <li><strong>Ketuk:</strong> Ketuk unta untuk mendapatkan poin XP.</li>
-          <li><strong>Dapatkan:</strong> Kumpulkan XP dan buka pencapaian.</li>
-          <li><strong>Tebus:</strong> Tukar XP dengan Camel XP (Cxp) dan token CML.</li>
-          <li><strong>Tingkatkan:</strong> Gunakan CML untuk meningkatkan kekuatan ketuk Anda dan dapatkan lebih cepat.</li>
-        </ul>
-        <p>Siap untuk memulai? Unduh aplikasi hari ini dan bergabunglah dengan karavan!</p>
-      `,
-      ms: `
-        <h2>Mengenai Unta Gurun</h2>
-        <p>Unta Gurun adalah permainan <strong>ketuk-untuk-peroleh</strong> yang dibina di blockchain SidraChain. Ia menggabungkan keseronokan mengetik dengan kuasa kewangan terpencar. Sama ada anda peminat crypto atau hanya mencari cara yang menyeronokkan untuk memperoleh, Unta Gurun menawarkan pengalaman yang unik dan menarik.</p>
-        <h2>Bagaimana Ia Berfungsi</h2>
-        <ul>
-          <li><strong>Ketik:</strong> Ketik unta untuk mendapatkan mata XP.</li>
-          <li><strong>Peroleh:</strong> Kumpulkan XP dan buka pencapaian.</li>
-          <li><strong>Tebus:</strong> Tukar XP kepada Camel XP (Cxp) dan token CML.</li>
-          <li><strong>Tingkatkan:</strong> Gunakan CML untuk meningkatkan kuasa ketuk anda dan peroleh lebih cepat.</li>
-        </ul>
-        <p>Sedia untuk bermula? Muat turun aplikasi hari ini dan sertai kafilah!</p>
-      `,
-      fr: `
-        <h2>À propos de Chameau du Désert</h2>
-        <p>Chameau du Désert est un jeu <strong>tap-to-earn</strong> construit sur la blockchain SidraChain. Il combine le plaisir du tapotement avec la puissance de la finance décentralisée. Que vous soyez un passionné de crypto ou simplement à la recherche d\'un moyen amusant de gagner, Chameau du Désert offre une expérience unique et engageante.</p>
-        <h2>Comment ça fonctionne</h2>
-        <ul>
-          <li><strong>Tapotez :</strong> Tapez sur le chameau pour gagner des points XP.</li>
-          <li><strong>Gagnez :</strong> Accumulez des XP et débloquez des succès.</li>
-          <li><strong>Échangez :</strong> Échangez XP contre Camel XP (Cxp) et des jetons CML.</li>
-          <li><strong>Améliorez :</strong> Utilisez CML pour améliorer votre puissance de tapotement et gagner plus rapidement.</li>
-        </ul>
-        <p>Prêt à commencer ? Téléchargez l\'application dès aujourd\'hui et rejoignez la caravane !</p>
-      `,
-      pt: `
-        <h2>Sobre o Camelo do Deserto</h2>
-        <p>Camelo do Deserto é um jogo <strong>toque-para-ganhar</strong> construído na blockchain SidraChain. Combina a diversão de tocar com o poder das finanças descentralizadas. Quer você seja um entusiasta de cripto ou apenas procurando uma maneira divertida de ganhar, o Camelo do Deserto oferece uma experiência única e envolvente.</p>
-        <h2>Como funciona</h2>
-        <ul>
-          <li><strong>Toque:</strong> Toque no camelo para ganhar pontos XP.</li>
-          <li><strong>Ganhe:</strong> Acumule XP e desbloqueie conquistas.</li>
-          <li><strong>Resgate:</strong> Troque XP por Camel XP (Cxp) e tokens CML.</li>
-          <li><strong>Melhore:</strong> Use CML para melhorar seu poder de toque e ganhar mais rápido.</li>
-        </ul>
-        <p>Pronto para começar? Baixe o aplicativo hoje e junte-se à caravana!</p>
-      `,
-      ko: `
-        <h2>사막 낙타 소개</h2>
-        <p>사막 낙타는 SidraChain 블록체인에 구축된 <strong>탭하여 획득</strong> 게임입니다. 탭의 재미와 분산 금융의 힘을 결합합니다. 암호화폐 애호가이든 재미있는 수익 창출 방법을 찾고 있든, 사막 낙타는 독특하고 매력적인 경험을 제공합니다.</p>
-        <h2>작동 방식</h2>
-        <ul>
-          <li><strong>탭:</strong> 낙타를 탭하여 XP 포인트를 획득하세요.</li>
-          <li><strong>획득:</strong> XP를 축적하고 업적을 잠금 해제하세요.</li>
-          <li><strong>교환:</strong> XP를 Camel XP(Cxp) 및 CML 토큰으로 교환하세요.</li>
-          <li><strong>업그레이드:</strong> CML을 사용하여 탭 파워를 업그레이드하고 더 빠르게 획득하세요.</li>
-        </ul>
-        <p>시작할 준비가 되셨나요? 지금 앱을 다운로드하고 캐러밴에 합류하세요!</p>
-      `,
-      ja: `
-        <h2>砂漠のラクダについて</h2>
-        <p>砂漠のラクダはSidraChainブロックチェーン上に構築された<strong>タップして稼ぐ</strong>ゲームです。タップの楽しさと分散型金融の力を組み合わせています。暗号通貨愛好家でも、楽しく稼ぐ方法を探している人でも、砂漠のラクダはユニークで魅力的な体験を提供します。</p>
-        <h2>仕組み</h2>
-        <ul>
-          <li><strong>タップ:</strong> ラクダをタップしてXPポイントを獲得します。</li>
-          <li><strong>獲得:</strong> XPを貯めて実績をアンロックします。</li>
-          <li><strong>交換:</strong> XPをCamel XP (Cxp)およびCMLトークンと交換します。</li>
-          <li><strong>アップグレード:</strong> CMLを使用してタップパワーをアップグレードし、より速く獲得します。</li>
-        </ul>
-        <p>始める準備はできましたか？今すぐアプリをダウンロードして、キャラバンに参加しましょう！</p>
-      `
     };
 
     function switchLang(lang) {
@@ -568,33 +502,19 @@
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[lang] && translations[lang][key] !== undefined) {
-          if (key === 'cta-download' || key === 'cta-beta' || key === 'feature-tap-title' || key === 'feature-chain-title' || key === 'feature-reward-title' || key === 'about-title' || key === 'how-title' || key === 'how-cta' || key === 'how-step1' || key === 'how-step2' || key === 'how-step3' || key === 'how-step4') {
-            el.innerHTML = translations[lang][key];
-          } else {
-            el.innerText = translations[lang][key];
-          }
+          el.innerHTML = translations[lang][key];
         }
       });
-      const contentDiv = document.getElementById('translated-content');
-      const enContent = document.querySelector('.en-content');
-      if (lang === 'en') {
-        enContent.style.display = 'block';
-        contentDiv.style.display = 'none';
-      } else if (indexTranslations[lang]) {
-        enContent.style.display = 'none';
-        contentDiv.style.display = 'block';
-        contentDiv.innerHTML = indexTranslations[lang];
-      } else {
-        enContent.style.display = 'block';
-        contentDiv.style.display = 'none';
-      }
       document.getElementById('langSelector').value = lang;
     }
 
     window.onload = function() {
       const savedLang = localStorage.getItem('preferredLang') || 'en';
-      if (translations[savedLang]) switchLang(savedLang);
-      else switchLang('en');
+      if (translations[savedLang]) {
+        switchLang(savedLang);
+      } else {
+        switchLang('en');
+      }
     };
   </script>
 </body>

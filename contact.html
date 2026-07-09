@@ -34,16 +34,25 @@
     nav a { color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
     nav a:hover { color: #c89b3c; }
     .lang-select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid #c89b3c; background: white; font-size: 0.9rem; cursor: pointer; }
-    h1 { font-size: 2.4rem; border-bottom: 3px solid #c89b3c; padding-bottom: 0.5rem; margin-bottom: 1rem; }
-    .contact-card {
-      background: #fff; padding: 1.8rem 2rem; border-radius: 1.5rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08); margin-top: 2rem;
+    h1 { font-size: 2.4rem; border-bottom: 3px solid #c89b3c; padding-bottom: 0.5rem; margin-bottom: 0.5rem; }
+    h2 { margin-top: 2rem; font-size: 1.4rem; color: #a87b2a; }
+    p, li { margin-bottom: 0.8rem; }
+    ul { padding-left: 1.5rem; }
+    .contact-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin: 1.5rem 0;
     }
-    .contact-card h2 { font-size: 1.2rem; color: #a87b2a; margin-bottom: 0.5rem; }
-    .contact-card a { color: #c89b3c; text-decoration: none; font-weight: 600; }
-    .contact-card a:hover { text-decoration: underline; }
-    .social-links { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
-    .social-links a { background: #f0e8da; padding: 0.5rem 1.2rem; border-radius: 40px; font-size: 0.9rem; color: #2d2a24; }
+    .contact-box .icon { font-size: 2rem; margin-right: 0.5rem; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #f0ebe0;
+    }
+    .contact-item:last-child { border-bottom: none; }
     footer {
       margin-top: auto;
       border-top: 1px solid #e6d5b8;
@@ -54,6 +63,8 @@
     }
     footer a { color: #a87b2a; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
+    a { color: #c89b3c; text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
     @media (max-width: 700px) {
       header { flex-direction: column; gap: 0.8rem; align-items: center; }
       nav { justify-content: center; }
@@ -86,25 +97,45 @@
     </nav>
   </header>
   <main>
-    <h1 data-key="contact-title">📬 Get in Touch</h1>
-    <p data-key="contact-desc">We are here to help! Whether you have a technical issue, a feature request, or just want to say hello, feel free to reach out.</p>
-    <div class="contact-card">
-      <h2 data-key="email-title">📧 Email Support</h2>
-      <p><a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
-      <p><small data-key="email-response">Response time: Usually within 24 hours.</small></p>
-    </div>
-    <div class="contact-card">
-      <h2 data-key="social-title">🌐 Community & Social</h2>
-      <p data-key="social-desc">Stay updated and join the community:</p>
-      <div class="social-links">
-        <a href="#" data-key="twitter">🐦 Twitter (X)</a>
-        <a href="#" data-key="telegram">💬 Telegram</a>
-        <a href="#" data-key="github">🐙 GitHub</a>
+    <h1 data-key="contact-title">Contact Us</h1>
+    <p data-key="contact-subtitle">We’d love to hear from you! Reach out via email or social media.</p>
+
+    <div class="contact-box">
+      <div class="contact-item">
+        <span class="icon">📧</span>
+        <div>
+          <strong data-key="email-label">Email</strong><br>
+          <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="icon">🐦</span>
+        <div>
+          <strong data-key="twitter-label">Twitter / X</strong><br>
+          <a href="#" data-key="twitter-link">@DesertCamel</a> <span data-key="twitter-note">(coming soon)</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="icon">💬</span>
+        <div>
+          <strong data-key="discord-label">Discord</strong><br>
+          <a href="#" data-key="discord-link">Join our server</a> <span data-key="discord-note">(coming soon)</span>
+        </div>
       </div>
     </div>
-    <div class="contact-card">
-      <h2 data-key="region-title">📍 Region</h2>
-      <p data-key="region-desc">We operate globally, building fun and secure Web3 games on SidraChain. Our team is based in Vietnam.</p>
+
+    <div id="contact-content">
+      <div class="en-content">
+        <h2 data-key="faq-title">Frequently Asked Questions</h2>
+        <ul>
+          <li data-key="faq-q1"><strong>How do I earn XP?</strong><br>Tap the camel on the main screen. Each tap gives you XP points.</li>
+          <li data-key="faq-q2"><strong>What are Camel XP (Cxp) and CML?</strong><br>Cxp is a reward token you get by redeeming XP. CML is the utility token used to upgrade your tap power.</li>
+          <li data-key="faq-q3"><strong>Is my wallet safe?</strong><br>Yes. Your private key is stored locally on your device. We never have access to it.</li>
+          <li data-key="faq-q4"><strong>What is SidraChain?</strong><br>SidraChain is a fast and low-fee blockchain that powers Desert Camel.</li>
+        </ul>
+        <p data-key="faq-cta">If you have other questions, feel free to email us at <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.</p>
+      </div>
+      <div id="translated-content" style="display:none;"></div>
     </div>
   </main>
   <footer>
@@ -116,36 +147,337 @@
     const translations = {
       en: {
         home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
-        'contact-title': '📬 Get in Touch',
-        'contact-desc': 'We are here to help! Whether you have a technical issue, a feature request, or just want to say hello, feel free to reach out.',
-        'email-title': '📧 Email Support',
-        'email-response': 'Response time: Usually within 24 hours.',
-        'social-title': '🌐 Community & Social',
-        'social-desc': 'Stay updated and join the community:',
-        'twitter': '🐦 Twitter (X)',
-        'telegram': '💬 Telegram',
-        'github': '🐙 GitHub',
-        'region-title': '📍 Region',
-        'region-desc': 'We operate globally, building fun and secure Web3 games on SidraChain. Our team is based in Vietnam.',
+        'contact-title': 'Contact Us',
+        'contact-subtitle': 'We’d love to hear from you! Reach out via email or social media.',
+        'email-label': 'Email',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(coming soon)',
+        'discord-label': 'Discord',
+        'discord-link': 'Join our server',
+        'discord-note': '(coming soon)',
+        'faq-title': 'Frequently Asked Questions',
+        'faq-q1': '<strong>How do I earn XP?</strong><br>Tap the camel on the main screen. Each tap gives you XP points.',
+        'faq-q2': '<strong>What are Camel XP (Cxp) and CML?</strong><br>Cxp is a reward token you get by redeeming XP. CML is the utility token used to upgrade your tap power.',
+        'faq-q3': '<strong>Is my wallet safe?</strong><br>Yes. Your private key is stored locally on your device. We never have access to it.',
+        'faq-q4': '<strong>What is SidraChain?</strong><br>SidraChain is a fast and low-fee blockchain that powers Desert Camel.',
+        'faq-cta': 'If you have other questions, feel free to email us at <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.',
         'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
         'footer-copy': '© 2026 Desert Camel. Built for SidraChain.'
       },
       vi: {
         home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
-        'contact-title': '📬 Liên hệ',
-        'contact-desc': 'Chúng tôi sẵn sàng giúp đỡ! Nếu bạn gặp vấn đề kỹ thuật, có yêu cầu tính năng hoặc chỉ muốn chào hỏi, hãy liên hệ với chúng tôi.',
-        'email-title': '📧 Hỗ trợ qua email',
-        'email-response': 'Thời gian phản hồi: Thường trong vòng 24 giờ.',
-        'social-title': '🌐 Cộng đồng & Mạng xã hội',
-        'social-desc': 'Cập nhật và tham gia cộng đồng:',
-        'twitter': '🐦 Twitter (X)',
-        'telegram': '💬 Telegram',
-        'github': '🐙 GitHub',
-        'region-title': '📍 Khu vực',
-        'region-desc': 'Chúng tôi hoạt động toàn cầu, xây dựng các trò chơi Web3 vui nhộn và an toàn trên SidraChain. Đội ngũ của chúng tôi có trụ sở tại Việt Nam.',
+        'contact-title': 'Liên hệ với chúng tôi',
+        'contact-subtitle': 'Chúng tôi rất muốn nghe ý kiến từ bạn! Liên hệ qua email hoặc mạng xã hội.',
+        'email-label': 'Email',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(sắp ra mắt)',
+        'discord-label': 'Discord',
+        'discord-link': 'Tham gia máy chủ của chúng tôi',
+        'discord-note': '(sắp ra mắt)',
+        'faq-title': 'Câu hỏi thường gặp',
+        'faq-q1': '<strong>Làm thế nào để kiếm XP?</strong><br>Chạm vào lạc đà trên màn hình chính. Mỗi lần chạm cho bạn điểm XP.',
+        'faq-q2': '<strong>Camel XP (Cxp) và CML là gì?</strong><br>Cxp là token thưởng bạn nhận được khi đổi XP. CML là token tiện ích dùng để nâng cấp sức mạnh chạm.',
+        'faq-q3': '<strong>Ví của tôi có an toàn không?</strong><br>Có. Khóa riêng của bạn được lưu trữ cục bộ trên thiết bị của bạn. Chúng tôi không bao giờ có quyền truy cập vào nó.',
+        'faq-q4': '<strong>SidraChain là gì?</strong><br>SidraChain là một blockchain nhanh và phí thấp cung cấp sức mạnh cho Desert Camel.',
+        'faq-cta': 'Nếu bạn có câu hỏi khác, vui lòng gửi email cho chúng tôi tại <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.',
         'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
         'footer-copy': '© 2026 Desert Camel. Xây dựng cho SidraChain.'
+      },
+      zh: {
+        home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们',
+        'contact-title': '联系我们',
+        'contact-subtitle': '我们很乐意听到您的意见！通过电子邮件或社交媒体联系我们。',
+        'email-label': '电子邮件',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(即将推出)',
+        'discord-label': 'Discord',
+        'discord-link': '加入我们的服务器',
+        'discord-note': '(即将推出)',
+        'faq-title': '常见问题解答',
+        'faq-q1': '<strong>如何赚取 XP？</strong><br>在主屏幕上点击骆驼。每次点击会给您 XP 积分。',
+        'faq-q2': '<strong>什么是 Camel XP (Cxp) 和 CML？</strong><br>Cxp 是您通过兑换 XP 获得的奖励代币。CML 是用于升级点击威力的实用代币。',
+        'faq-q3': '<strong>我的钱包安全吗？</strong><br>是的。您的私钥存储在您的设备本地。我们无法访问它。',
+        'faq-q4': '<strong>什么是 SidraChain？</strong><br>SidraChain 是支撑 Desert Camel 的快速低费用区块链。',
+        'faq-cta': '如果您有其他问题，请随时发送电子邮件至 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>。',
+        'footer-support': '📧 支持: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. 为 SidraChain 构建。'
+      },
+      hi: {
+        home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
+        'contact-title': 'हमसे संपर्क करें',
+        'contact-subtitle': 'हम आपसे सुनना पसंद करेंगे! ईमेल या सोशल मीडिया के माध्यम से संपर्क करें।',
+        'email-label': 'ईमेल',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(जल्द आ रहा है)',
+        'discord-label': 'Discord',
+        'discord-link': 'हमारे सर्वर से जुड़ें',
+        'discord-note': '(जल्द आ रहा है)',
+        'faq-title': 'अक्सर पूछे जाने वाले प्रश्न',
+        'faq-q1': '<strong>मैं XP कैसे कमाऊं?</strong><br>मुख्य स्क्रीन पर ऊँट को टैप करें। प्रत्येक टैप आपको XP अंक देता है।',
+        'faq-q2': '<strong>Camel XP (Cxp) और CML क्या हैं?</strong><br>Cxp एक पुरस्कार टोकन है जो आपको XP भुनाकर मिलता है। CML उपयोगिता टोकन है जिसका उपयोग आपकी टैप शक्ति को अपग्रेड करने के लिए किया जाता है।',
+        'faq-q3': '<strong>क्या मेरा वॉलेट सुरक्षित है?</strong><br>हाँ। आपकी निजी कुंजी आपके डिवाइस पर स्थानीय रूप से संग्रहीत है। हमारी कभी उस तक पहुंच नहीं है।',
+        'faq-q4': '<strong>SidraChain क्या है?</strong><br>SidraChain एक तेज़ और कम-शुल्क वाली ब्लॉकचेन है जो Desert Camel को संचालित करती है।',
+        'faq-cta': 'यदि आपके अन्य प्रश्न हैं, तो हमें <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a> पर ईमेल करने में संकोच न करें।',
+        'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. SidraChain के लिए निर्मित।'
+      },
+      ar: {
+        home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
+        'contact-title': 'اتصل بنا',
+        'contact-subtitle': 'نحن سعداء بسماع رأيك! تواصل عبر البريد الإلكتروني أو وسائل التواصل الاجتماعي.',
+        'email-label': 'البريد الإلكتروني',
+        'twitter-label': 'تويتر / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(قريباً)',
+        'discord-label': 'ديسكورد',
+        'discord-link': 'انضم إلى خادمنا',
+        'discord-note': '(قريباً)',
+        'faq-title': 'الأسئلة الشائعة',
+        'faq-q1': '<strong>كيف أربح XP؟</strong><br>انقر على الجمل على الشاشة الرئيسية. كل نقرة تمنحك نقاط XP.',
+        'faq-q2': '<strong>ما هي Camel XP (Cxp) و CML؟</strong><br>Cxp هو رمز مكافأة تحصل عليه عن طريق استبدال XP. CML هو رمز المنفعة المستخدم لترقية قوة النقر.',
+        'faq-q3': '<strong>هل محفظتي آمنة؟</strong><br>نعم. يتم تخزين مفتاحك الخاص محليًا على جهازك. لا يمكننا الوصول إليه أبدًا.',
+        'faq-q4': '<strong>ما هو SidraChain؟</strong><br>SidraChain هو بلوكتشين سريع ومنخفض الرسوم يشغل Desert Camel.',
+        'faq-cta': 'إذا كان لديك أسئلة أخرى، فلا تتردد في مراسلتنا عبر البريد الإلكتروني على <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.',
+        'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. تم بناؤها لـ SidraChain.'
+      },
+      id: {
+        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Kontak',
+        'contact-title': 'Hubungi Kami',
+        'contact-subtitle': 'Kami senang mendengar dari Anda! Hubungi melalui email atau media sosial.',
+        'email-label': 'Email',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(segera hadir)',
+        'discord-label': 'Discord',
+        'discord-link': 'Bergabung dengan server kami',
+        'discord-note': '(segera hadir)',
+        'faq-title': 'Pertanyaan yang Sering Diajukan',
+        'faq-q1': '<strong>Bagaimana cara mendapatkan XP?</strong><br>Ketuk unta di layar utama. Setiap ketukan memberi Anda poin XP.',
+        'faq-q2': '<strong>Apa itu Camel XP (Cxp) dan CML?</strong><br>Cxp adalah token hadiah yang Anda dapatkan dengan menukar XP. CML adalah token utilitas yang digunakan untuk meningkatkan kekuatan ketuk Anda.',
+        'faq-q3': '<strong>Apakah dompet saya aman?</strong><br>Ya. Kunci pribadi Anda disimpan secara lokal di perangkat Anda. Kami tidak pernah memiliki akses ke sana.',
+        'faq-q4': '<strong>Apa itu SidraChain?</strong><br>SidraChain adalah blockchain cepat dan biaya rendah yang mendukung Desert Camel.',
+        'faq-cta': 'Jika Anda memiliki pertanyaan lain, jangan ragu untuk mengirim email kepada kami di <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.',
+        'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibangun untuk SidraChain.'
+      },
+      ms: {
+        home: 'Rumah', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
+        'contact-title': 'Hubungi Kami',
+        'contact-subtitle': 'Kami gembira mendengar daripada anda! Hubungi melalui e-mel atau media sosial.',
+        'email-label': 'E-mel',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(akan datang)',
+        'discord-label': 'Discord',
+        'discord-link': 'Sertai pelayan kami',
+        'discord-note': '(akan datang)',
+        'faq-title': 'Soalan Lazim',
+        'faq-q1': '<strong>Bagaimana saya memperoleh XP?</strong><br>Ketik unta pada skrin utama. Setiap ketukan memberi anda mata XP.',
+        'faq-q2': '<strong>Apakah Camel XP (Cxp) dan CML?</strong><br>Cxp adalah token ganjaran yang anda peroleh dengan menebus XP. CML adalah token utiliti yang digunakan untuk meningkatkan kuasa ketuk anda.',
+        'faq-q3': '<strong>Adakah dompet saya selamat?</strong><br>Ya. Kunci peribadi anda disimpan secara setempat pada peranti anda. Kami tidak pernah mempunyai akses kepadanya.',
+        'faq-q4': '<strong>Apakah SidraChain?</strong><br>SidraChain adalah blockchain yang pantas dan berbayaran rendah yang menggerakkan Desert Camel.',
+        'faq-cta': 'Jika anda mempunyai soalan lain, jangan ragu untuk menghantar e-mel kepada kami di <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.',
+        'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Dibina untuk SidraChain.'
+      },
+      fr: {
+        home: 'Accueil', privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact',
+        'contact-title': 'Contactez-nous',
+        'contact-subtitle': 'Nous serions ravis d\'avoir de vos nouvelles ! Contactez-nous par e-mail ou sur les réseaux sociaux.',
+        'email-label': 'E-mail',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(à venir)',
+        'discord-label': 'Discord',
+        'discord-link': 'Rejoindre notre serveur',
+        'discord-note': '(à venir)',
+        'faq-title': 'Questions fréquemment posées',
+        'faq-q1': '<strong>Comment gagner des XP ?</strong><br>Tapez sur le chameau sur l\'écran principal. Chaque tapotement vous donne des points XP.',
+        'faq-q2': '<strong>Qu\'est-ce que Camel XP (Cxp) et CML ?</strong><br>Cxp est un jeton de récompense que vous obtenez en échangeant des XP. CML est le jeton utilitaire utilisé pour améliorer votre puissance de tapotement.',
+        'faq-q3': '<strong>Mon portefeuille est-il sécurisé ?</strong><br>Oui. Votre clé privée est stockée localement sur votre appareil. Nous n\'y avons jamais accès.',
+        'faq-q4': '<strong>Qu\'est-ce que SidraChain ?</strong><br>SidraChain est une blockchain rapide et à faibles frais qui alimente Desert Camel.',
+        'faq-cta': 'Si vous avez d\'autres questions, n\'hésitez pas à nous envoyer un e-mail à <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.',
+        'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Construit pour SidraChain.'
+      },
+      pt: {
+        home: 'Início', privacy: 'Privacidade', terms: 'Termos', contact: 'Contato',
+        'contact-title': 'Entre em Contato',
+        'contact-subtitle': 'Adoraríamos ouvir você! Entre em contato por e-mail ou redes sociais.',
+        'email-label': 'E-mail',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(em breve)',
+        'discord-label': 'Discord',
+        'discord-link': 'Entre no nosso servidor',
+        'discord-note': '(em breve)',
+        'faq-title': 'Perguntas Frequentes',
+        'faq-q1': '<strong>Como ganhar XP?</strong><br>Toque no camelo na tela principal. Cada toque dá pontos XP.',
+        'faq-q2': '<strong>O que são Camel XP (Cxp) e CML?</strong><br>Cxp é um token de recompensa que você obtém ao resgatar XP. CML é o token utilitário usado para melhorar seu poder de toque.',
+        'faq-q3': '<strong>Minha carteira está segura?</strong><br>Sim. Sua chave privada é armazenada localmente no seu dispositivo. Nós nunca temos acesso a ela.',
+        'faq-q4': '<strong>O que é SidraChain?</strong><br>SidraChain é uma blockchain rápida e com baixas taxas que alimenta o Desert Camel.',
+        'faq-cta': 'Se você tiver outras perguntas, envie um e-mail para <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.',
+        'footer-support': '📧 Suporte: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. Construído para SidraChain.'
+      },
+      ko: {
+        home: '홈', privacy: '개인정보처리방침', terms: '서비스 약관', contact: '연락처',
+        'contact-title': '문의하기',
+        'contact-subtitle': '여러분의 의견을 듣고 싶습니다! 이메일이나 소셜 미디어를 통해 연락해 주세요.',
+        'email-label': '이메일',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(출시 예정)',
+        'discord-label': 'Discord',
+        'discord-link': '서버 참여하기',
+        'discord-note': '(출시 예정)',
+        'faq-title': '자주 묻는 질문',
+        'faq-q1': '<strong>XP를 어떻게 획득하나요?</strong><br>메인 화면에서 낙타를 탭하세요. 각 탭마다 XP 포인트를 얻을 수 있습니다.',
+        'faq-q2': '<strong>Camel XP(Cxp)와 CML은 무엇인가요?</strong><br>Cxp는 XP를 교환하여 얻는 보상 토큰입니다. CML은 탭 파워를 업그레이드하는 데 사용되는 유틸리티 토큰입니다.',
+        'faq-q3': '<strong>제 지갑은 안전한가요?</strong><br>네. 개인 키는 기기에 로컬로 저장됩니다. 당사는 절대 액세스할 수 없습니다.',
+        'faq-q4': '<strong>SidraChain이란 무엇인가요?</strong><br>SidraChain은 Desert Camel을 구동하는 빠르고 수수료가 저렴한 블록체인입니다.',
+        'faq-cta': '다른 질문이 있으시면 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>으로 이메일을 보내주세요.',
+        'footer-support': '📧 지원: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. SidraChain용으로 제작되었습니다.'
+      },
+      ja: {
+        home: 'ホーム', privacy: 'プライバシーポリシー', terms: '利用規約', contact: 'お問い合わせ',
+        'contact-title': 'お問い合わせ',
+        'contact-subtitle': 'お客様のご意見をお聞かせください！メールまたはソーシャルメディアでお問い合わせください。',
+        'email-label': 'メール',
+        'twitter-label': 'Twitter / X',
+        'twitter-link': '@DesertCamel',
+        'twitter-note': '(近日公開)',
+        'discord-label': 'Discord',
+        'discord-link': 'サーバーに参加',
+        'discord-note': '(近日公開)',
+        'faq-title': 'よくある質問',
+        'faq-q1': '<strong>XPを獲得するにはどうすればいいですか？</strong><br>メイン画面でラクダをタップしてください。タップするたびにXPポイントが付与されます。',
+        'faq-q2': '<strong>Camel XP(Cxp)とCMLとは何ですか？</strong><br>CxpはXPを交換して得られる報酬トークンです。CMLはタップパワーをアップグレードするために使用されるユーティリティトークンです。',
+        'faq-q3': '<strong>私のウォレットは安全ですか？</strong><br>はい。秘密鍵はお使いのデバイスにローカルに保存されます。当社は決してアクセスできません。',
+        'faq-q4': '<strong>SidraChainとは何ですか？</strong><br>SidraChainはDesert Camelを支える高速で手数料の低いブロックチェーンです。',
+        'faq-cta': 'その他のご質問がございましたら、<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>までメールにてお問い合わせください。',
+        'footer-support': '📧 サポート: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
+        'footer-copy': '© 2026 Desert Camel. SidraChain用に構築されました。'
       }
+    };
+
+    const contactTranslations = {
+      en: `
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          <li><strong>How do I earn XP?</strong><br>Tap the camel on the main screen. Each tap gives you XP points.</li>
+          <li><strong>What are Camel XP (Cxp) and CML?</strong><br>Cxp is a reward token you get by redeeming XP. CML is the utility token used to upgrade your tap power.</li>
+          <li><strong>Is my wallet safe?</strong><br>Yes. Your private key is stored locally on your device. We never have access to it.</li>
+          <li><strong>What is SidraChain?</strong><br>SidraChain is a fast and low-fee blockchain that powers Desert Camel.</li>
+        </ul>
+        <p>If you have other questions, feel free to email us at <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.</p>
+      `,
+      vi: `
+        <h2>Câu hỏi thường gặp</h2>
+        <ul>
+          <li><strong>Làm thế nào để kiếm XP?</strong><br>Chạm vào lạc đà trên màn hình chính. Mỗi lần chạm cho bạn điểm XP.</li>
+          <li><strong>Camel XP (Cxp) và CML là gì?</strong><br>Cxp là token thưởng bạn nhận được khi đổi XP. CML là token tiện ích dùng để nâng cấp sức mạnh chạm.</li>
+          <li><strong>Ví của tôi có an toàn không?</strong><br>Có. Khóa riêng của bạn được lưu trữ cục bộ trên thiết bị của bạn. Chúng tôi không bao giờ có quyền truy cập vào nó.</li>
+          <li><strong>SidraChain là gì?</strong><br>SidraChain là một blockchain nhanh và phí thấp cung cấp sức mạnh cho Desert Camel.</li>
+        </ul>
+        <p>Nếu bạn có câu hỏi khác, vui lòng gửi email cho chúng tôi tại <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.</p>
+      `,
+      zh: `
+        <h2>常见问题解答</h2>
+        <ul>
+          <li><strong>如何赚取 XP？</strong><br>在主屏幕上点击骆驼。每次点击会给您 XP 积分。</li>
+          <li><strong>什么是 Camel XP (Cxp) 和 CML？</strong><br>Cxp 是您通过兑换 XP 获得的奖励代币。CML 是用于升级点击威力的实用代币。</li>
+          <li><strong>我的钱包安全吗？</strong><br>是的。您的私钥存储在您的设备本地。我们无法访问它。</li>
+          <li><strong>什么是 SidraChain？</strong><br>SidraChain 是支撑 Desert Camel 的快速低费用区块链。</li>
+        </ul>
+        <p>如果您有其他问题，请随时发送电子邮件至 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>。</p>
+      `,
+      hi: `
+        <h2>अक्सर पूछे जाने वाले प्रश्न</h2>
+        <ul>
+          <li><strong>मैं XP कैसे कमाऊं?</strong><br>मुख्य स्क्रीन पर ऊँट को टैप करें। प्रत्येक टैप आपको XP अंक देता है।</li>
+          <li><strong>Camel XP (Cxp) और CML क्या हैं?</strong><br>Cxp एक पुरस्कार टोकन है जो आपको XP भुनाकर मिलता है। CML उपयोगिता टोकन है जिसका उपयोग आपकी टैप शक्ति को अपग्रेड करने के लिए किया जाता है।</li>
+          <li><strong>क्या मेरा वॉलेट सुरक्षित है?</strong><br>हाँ। आपकी निजी कुंजी आपके डिवाइस पर स्थानीय रूप से संग्रहीत है। हमारी कभी उस तक पहुंच नहीं है।</li>
+          <li><strong>SidraChain क्या है?</strong><br>SidraChain एक तेज़ और कम-शुल्क वाली ब्लॉकचेन है जो Desert Camel को संचालित करती है।</li>
+        </ul>
+        <p>यदि आपके अन्य प्रश्न हैं, तो हमें <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a> पर ईमेल करने में संकोच न करें।</p>
+      `,
+      ar: `
+        <h2>الأسئلة الشائعة</h2>
+        <ul>
+          <li><strong>كيف أربح XP؟</strong><br>انقر على الجمل على الشاشة الرئيسية. كل نقرة تمنحك نقاط XP.</li>
+          <li><strong>ما هي Camel XP (Cxp) و CML؟</strong><br>Cxp هو رمز مكافأة تحصل عليه عن طريق استبدال XP. CML هو رمز المنفعة المستخدم لترقية قوة النقر.</li>
+          <li><strong>هل محفظتي آمنة؟</strong><br>نعم. يتم تخزين مفتاحك الخاص محليًا على جهازك. لا يمكننا الوصول إليه أبدًا.</li>
+          <li><strong>ما هو SidraChain؟</strong><br>SidraChain هو بلوكتشين سريع ومنخفض الرسوم يشغل Desert Camel.</li>
+        </ul>
+        <p>إذا كان لديك أسئلة أخرى، فلا تتردد في مراسلتنا عبر البريد الإلكتروني على <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.</p>
+      `,
+      id: `
+        <h2>Pertanyaan yang Sering Diajukan</h2>
+        <ul>
+          <li><strong>Bagaimana cara mendapatkan XP?</strong><br>Ketuk unta di layar utama. Setiap ketukan memberi Anda poin XP.</li>
+          <li><strong>Apa itu Camel XP (Cxp) dan CML?</strong><br>Cxp adalah token hadiah yang Anda dapatkan dengan menukar XP. CML adalah token utilitas yang digunakan untuk meningkatkan kekuatan ketuk Anda.</li>
+          <li><strong>Apakah dompet saya aman?</strong><br>Ya. Kunci pribadi Anda disimpan secara lokal di perangkat Anda. Kami tidak pernah memiliki akses ke sana.</li>
+          <li><strong>Apa itu SidraChain?</strong><br>SidraChain adalah blockchain cepat dan biaya rendah yang mendukung Desert Camel.</li>
+        </ul>
+        <p>Jika Anda memiliki pertanyaan lain, jangan ragu untuk mengirim email kepada kami di <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.</p>
+      `,
+      ms: `
+        <h2>Soalan Lazim</h2>
+        <ul>
+          <li><strong>Bagaimana saya memperoleh XP?</strong><br>Ketik unta pada skrin utama. Setiap ketukan memberi anda mata XP.</li>
+          <li><strong>Apakah Camel XP (Cxp) dan CML?</strong><br>Cxp adalah token ganjaran yang anda peroleh dengan menebus XP. CML adalah token utiliti yang digunakan untuk meningkatkan kuasa ketuk anda.</li>
+          <li><strong>Adakah dompet saya selamat?</strong><br>Ya. Kunci peribadi anda disimpan secara setempat pada peranti anda. Kami tidak pernah mempunyai akses kepadanya.</li>
+          <li><strong>Apakah SidraChain?</strong><br>SidraChain adalah blockchain yang pantas dan berbayaran rendah yang menggerakkan Desert Camel.</li>
+        </ul>
+        <p>Jika anda mempunyai soalan lain, jangan ragu untuk menghantar e-mel kepada kami di <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.</p>
+      `,
+      fr: `
+        <h2>Questions fréquemment posées</h2>
+        <ul>
+          <li><strong>Comment gagner des XP ?</strong><br>Tapez sur le chameau sur l'écran principal. Chaque tapotement vous donne des points XP.</li>
+          <li><strong>Qu'est-ce que Camel XP (Cxp) et CML ?</strong><br>Cxp est un jeton de récompense que vous obtenez en échangeant des XP. CML est le jeton utilitaire utilisé pour améliorer votre puissance de tapotement.</li>
+          <li><strong>Mon portefeuille est-il sécurisé ?</strong><br>Oui. Votre clé privée est stockée localement sur votre appareil. Nous n'y avons jamais accès.</li>
+          <li><strong>Qu'est-ce que SidraChain ?</strong><br>SidraChain est une blockchain rapide et à faibles frais qui alimente Desert Camel.</li>
+        </ul>
+        <p>Si vous avez d'autres questions, n'hésitez pas à nous envoyer un e-mail à <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.</p>
+      `,
+      pt: `
+        <h2>Perguntas Frequentes</h2>
+        <ul>
+          <li><strong>Como ganhar XP?</strong><br>Toque no camelo na tela principal. Cada toque dá pontos XP.</li>
+          <li><strong>O que são Camel XP (Cxp) e CML?</strong><br>Cxp é um token de recompensa que você obtém ao resgatar XP. CML é o token utilitário usado para melhorar seu poder de toque.</li>
+          <li><strong>Minha carteira está segura?</strong><br>Sim. Sua chave privada é armazenada localmente no seu dispositivo. Nós nunca temos acesso a ela.</li>
+          <li><strong>O que é SidraChain?</strong><br>SidraChain é uma blockchain rápida e com baixas taxas que alimenta o Desert Camel.</li>
+        </ul>
+        <p>Se você tiver outras perguntas, envie um e-mail para <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>.</p>
+      `,
+      ko: `
+        <h2>자주 묻는 질문</h2>
+        <ul>
+          <li><strong>XP를 어떻게 획득하나요?</strong><br>메인 화면에서 낙타를 탭하세요. 각 탭마다 XP 포인트를 얻을 수 있습니다.</li>
+          <li><strong>Camel XP(Cxp)와 CML은 무엇인가요?</strong><br>Cxp는 XP를 교환하여 얻는 보상 토큰입니다. CML은 탭 파워를 업그레이드하는 데 사용되는 유틸리티 토큰입니다.</li>
+          <li><strong>제 지갑은 안전한가요?</strong><br>네. 개인 키는 기기에 로컬로 저장됩니다. 당사는 절대 액세스할 수 없습니다.</li>
+          <li><strong>SidraChain이란 무엇인가요?</strong><br>SidraChain은 Desert Camel을 구동하는 빠르고 수수료가 저렴한 블록체인입니다.</li>
+        </ul>
+        <p>다른 질문이 있으시면 <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>으로 이메일을 보내주세요.</p>
+      `,
+      ja: `
+        <h2>よくある質問</h2>
+        <ul>
+          <li><strong>XPを獲得するにはどうすればいいですか？</strong><br>メイン画面でラクダをタップしてください。タップするたびにXPポイントが付与されます。</li>
+          <li><strong>Camel XP(Cxp)とCMLとは何ですか？</strong><br>CxpはXPを交換して得られる報酬トークンです。CMLはタップパワーをアップグレードするために使用されるユーティリティトークンです。</li>
+          <li><strong>私のウォレットは安全ですか？</strong><br>はい。秘密鍵はお使いのデバイスにローカルに保存されます。当社は決してアクセスできません。</li>
+          <li><strong>SidraChainとは何ですか？</strong><br>SidraChainはDesert Camelを支える高速で手数料の低いブロックチェーンです。</li>
+        </ul>
+        <p>その他のご質問がございましたら、<a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>までメールにてお問い合わせください。</p>
+      `
     };
 
     function switchLang(lang) {
@@ -153,9 +485,27 @@
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[lang] && translations[lang][key] !== undefined) {
-          el.innerHTML = translations[lang][key];
+          // Cho phép HTML trong một số key
+          if (key === 'faq-q1' || key === 'faq-q2' || key === 'faq-q3' || key === 'faq-q4' || key === 'faq-cta') {
+            el.innerHTML = translations[lang][key];
+          } else {
+            el.innerText = translations[lang][key];
+          }
         }
       });
+      const contentDiv = document.getElementById('translated-content');
+      const enContent = document.querySelector('.en-content');
+      if (lang === 'en') {
+        enContent.style.display = 'block';
+        contentDiv.style.display = 'none';
+      } else if (contactTranslations[lang]) {
+        enContent.style.display = 'none';
+        contentDiv.style.display = 'block';
+        contentDiv.innerHTML = contactTranslations[lang];
+      } else {
+        enContent.style.display = 'block';
+        contentDiv.style.display = 'none';
+      }
       document.getElementById('langSelector').value = lang;
     }
 

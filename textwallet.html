@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desert Camel Test</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #1a1a2e; color: white; }
+    button { padding: 12px 24px; font-size: 18px; border: none; border-radius: 8px; background: #6C5CE7; color: white; cursor: pointer; }
+    #info { margin-top: 20px; padding: 16px; background: #16213e; border-radius: 8px; }
+    .success { color: #00ff88; }
+    .error { color: #ff4757; }
+  </style>
+</head>
+<body>
+  <h1>🦙 Desert Camel Wallet Test</h1>
+  <button id="connectBtn">Connect Wallet</button>
+  <div id="info"></div>
+
+  <script>
+    const connectBtn = document.getElementById('connectBtn');
+    const info = document.getElementById('info');
+
+    connectBtn.onclick = async () => {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          // Yêu cầu kết nối
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+          const networkVersion = await window.ethereum.request({ method: 'net_version' });
+
+          info.innerHTML = `
+            <p class="success">✅ Connected!</p>
+            <p><strong>Address:</strong> ${accounts[0]}</p>
+            <p><strong>Chain ID:</strong> ${chainId}</p>
+            <p><strong>Network Version:</strong> ${networkVersion}</p>
+            <p><strong>Is MetaMask:</strong> ${window.ethereum.isMetaMask ? 'Yes' : 'No'}</p>
+          `;
+        } catch (error) {
+          info.innerHTML = `<p class="error">❌ Error: ${error.message}</p>`;
+        }
+      } else {
+        info.innerHTML = `<p class="error">❌ No wallet detected. Please open in Desert Camel DApp Browser.</p>`;
+      }
+    };
+
+    // Tự động kết nối nếu ví đã có sẵn
+    window.addEventListener('load', async () => {
+      if (typeof window.ethereum !== 'undefined' && window.ethereum.selectedAddress) {
+        connectBtn.click();
+      }
+    });
+
+    // Lắng nghe sự kiện kết nối
+    window.ethereum?.on('connect', () => {
+      info.innerHTML += `<p class="success">🔔 Connect event received!</p>`;
+    });
+  </script>
+</body>
+</html>

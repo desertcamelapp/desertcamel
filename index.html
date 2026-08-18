@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desert Camel – Tap Game on SidraChain</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desert Camel – Super dApp on DesertCamel Chain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Inter', sans-serif;
       background: #fcf9f2;
       color: #2d2a24;
       line-height: 1.6;
       padding: 1.5rem;
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
       min-height: 100vh;
       display: flex;
@@ -28,31 +33,102 @@
       border-bottom: 2px solid #e6d5b8;
       margin-bottom: 2rem;
     }
-    .logo { font-size: 1.6rem; font-weight: 700; }
-    .logo span { color: #c89b3c; }
-    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 1rem; }
-    nav a { color: #2d2a24; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-    nav a:hover { color: #c89b3c; }
-    .lang-select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid #c89b3c; background: white; font-size: 0.9rem; cursor: pointer; }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .logo span {
+      color: #c89b3c;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+    }
+    nav a {
+      color: #2d2a24;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #c89b3c;
+    }
+    .lang-select {
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #c89b3c;
+      background: white;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    /* Hero */
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 3rem;
       background: linear-gradient(135deg, #f5ede1, #e8dccc);
-      padding: 2.5rem;
+      padding: 3rem 2.5rem;
       border-radius: 2rem;
       margin-bottom: 3rem;
     }
-    .hero-text { flex: 1 1 300px; }
-    .hero-text h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.2; font-weight: 800; }
-    .hero-text h1 span { color: #c89b3c; }
-    .hero-text p { font-size: 1.1rem; margin: 1.2rem 0; }
+    .hero-text {
+      flex: 1 1 340px;
+    }
+    .hero-text h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+    .hero-text h1 .highlight {
+      color: #c89b3c;
+    }
+    .hero-text .tagline {
+      font-size: 1.2rem;
+      margin: 1rem 0 1.5rem;
+      color: #3d352a;
+    }
+    .hero-text .tagline strong {
+      color: #a87b2a;
+    }
+    .hero-text .chain-badge {
+      display: inline-block;
+      background: #2d2a24;
+      color: #f5ede1;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 0.3rem 1rem 0.3rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
     .btn-group {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      margin: 1.2rem 0 0.5rem;
+      margin: 1.5rem 0 1rem;
     }
     .btn {
       display: inline-block;
@@ -62,60 +138,176 @@
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
-      transition: 0.3s;
+      transition: 0.25s ease;
       border: none;
       cursor: pointer;
     }
-    .btn:hover { background: #a87b2a; transform: scale(1.02); }
+    .btn:hover {
+      background: #a87b2a;
+      transform: scale(1.02);
+    }
     .btn-secondary {
       background: #2d7d46;
     }
-    .btn-secondary:hover { background: #1e5f33; }
+    .btn-secondary:hover {
+      background: #1e5f33;
+    }
     .trust-badge {
       margin-top: 1.2rem;
       font-size: 0.9rem;
-      background: rgba(255,255,255,0.6);
-      padding: 0.4rem 1rem;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 0.4rem 1.2rem;
       border-radius: 30px;
       display: inline-block;
     }
-    .hero-mockup { flex: 1 1 250px; display: flex; justify-content: center; }
+    /* Phone mockup */
+    .hero-mockup {
+      flex: 1 1 260px;
+      display: flex;
+      justify-content: center;
+    }
     .phone {
-      width: 200px; height: 400px;
-      background: #111; border-radius: 36px; padding: 10px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      width: 220px;
+      height: 440px;
+      background: #111;
+      border-radius: 36px;
+      padding: 10px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     }
     .phone-screen {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(145deg, #fcf3e6, #f0e3d0);
-      border-radius: 28px; padding: 16px 12px;
-      display: flex; flex-direction: column;
+      border-radius: 28px;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
-    .game-ui { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
-    .game-ui .camel { font-size: 4rem; margin: 8px 0; }
-    .game-ui .tap-btn {
-      background: #c89b3c; color: white; padding: 8px 20px; border-radius: 30px;
-      font-weight: 700; font-size: 0.9rem; border: none; cursor: pointer;
-      margin: 8px 0;
+    .app-ui {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
-    .game-ui .stats { width: 100%; font-size: 0.75rem; font-weight: 600; display: flex; justify-content: space-between; padding: 4px 0; }
-    .game-ui .stats span { background: rgba(255,255,255,0.6); padding: 2px 8px; border-radius: 12px; }
-    .game-ui .xp-bar { width: 100%; height: 6px; background: #e0d4c0; border-radius: 10px; overflow: hidden; margin: 4px 0; }
-    .game-ui .xp-fill { height: 100%; width: 65%; background: #c89b3c; border-radius: 10px; }
-    .features { margin: 3rem 0; }
-    .features h2 { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #3d352a;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d6c8b0;
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+      margin-top: 10px;
+      flex: 1;
+    }
+    .app-icon {
+      background: rgba(200, 155, 60, 0.15);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      padding: 6px 0;
+      transition: 0.2s;
+    }
+    .app-icon span {
+      font-size: 0.55rem;
+      color: #3d352a;
+      margin-top: 2px;
+    }
+    .app-icon.highlight {
+      background: rgba(200, 155, 60, 0.35);
+      border: 1.5px solid #c89b3c;
+    }
+    .app-footer {
+      margin-top: auto;
+      font-size: 0.6rem;
+      color: #5a4a34;
+      text-align: center;
+      padding-top: 8px;
+      border-top: 1px solid #d6c8b0;
+    }
+    /* Features */
+    .features {
+      margin: 3rem 0;
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 2.5rem;
+      font-weight: 700;
+    }
+    .features h2 span {
+      color: #c89b3c;
+    }
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
     }
     .feature-card {
-      background: #fff; padding: 1.8rem 1.5rem; border-radius: 1.5rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08); text-align: center;
+      background: #fff;
+      padding: 2rem 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      transition: transform 0.2s;
     }
-    .feature-card .icon { font-size: 2.5rem; }
-    .feature-card h3 { margin: 0.8rem 0 0.4rem; font-size: 1.2rem; }
-    .feature-card p { font-size: 0.95rem; color: #5a4a34; }
+    .feature-card:hover {
+      transform: translateY(-6px);
+    }
+    .feature-card .icon {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin: 0.6rem 0 0.4rem;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #5a4a34;
+    }
+    .feature-card .tag {
+      display: inline-block;
+      background: #c89b3c20;
+      color: #a87b2a;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      margin-top: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #2d2a24, #4a3f35);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 2rem;
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto 1.8rem;
+    }
+    .cta-section .btn-group {
+      justify-content: center;
+    }
+    /* Footer */
     footer {
       margin-top: auto;
       border-top: 1px solid #e6d5b8;
@@ -124,19 +316,63 @@
       color: #5a4a34;
       font-size: 0.9rem;
     }
-    footer a { color: #a87b2a; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    @media (max-width: 700px) {
-      header { flex-direction: column; gap: 0.8rem; align-items: center; }
-      nav { justify-content: center; }
-      nav a { margin: 0 0.4rem; font-size: 0.85rem; }
-      .hero { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
-      .btn-group { justify-content: center; }
-      .phone { width: 160px; height: 320px; }
-      .game-ui .camel { font-size: 3rem; }
-      .feature-grid { grid-template-columns: 1fr 1fr; }
+    footer a {
+      color: #a87b2a;
+      text-decoration: none;
     }
-    @media (max-width: 450px) { .feature-grid { grid-template-columns: 1fr; } }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+      }
+      nav {
+        justify-content: center;
+      }
+      nav a {
+        font-size: 0.85rem;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .badge-group {
+        justify-content: center;
+      }
+      .phone {
+        width: 180px;
+        height: 360px;
+      }
+      .app-icon {
+        font-size: 1.3rem;
+      }
+      .app-icon span {
+        font-size: 0.5rem;
+      }
+      .features h2 {
+        font-size: 1.8rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 450px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -149,9 +385,9 @@
       <a href="contact.html" data-key="contact">Contact</a>
       <select class="lang-select" id="langSelector" onchange="switchLang(this.value)">
         <option value="en">🇬🇧 English</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
         <option value="zh">🇨🇳 中文</option>
         <option value="hi">🇮🇳 हिंदी</option>
-        <option value="vi">🇻🇳 Tiếng Việt</option>
         <option value="ar">🇸🇦 العربية</option>
         <option value="id">🇮🇩 Indonesia</option>
         <option value="ms">🇲🇾 Melayu</option>
@@ -162,344 +398,602 @@
       </select>
     </nav>
   </header>
+
   <main>
+    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-text">
-        <h1><span data-key="hero-title1">Tap the Camel,</span><br><span data-key="hero-title2">Earn XP,</span><br><span data-key="hero-title3">On SidraChain!</span></h1>
-        <p data-key="hero-desc">Desert Camel is a <strong>tap-to-earn</strong> game built on <strong>SidraChain</strong> blockchain. Tap the camel to earn XP, collect Camel XP (Cxp) and Camel (CML) tokens – all securely recorded on the public chain. No private keys required – just pure fun!</p>
+        <div class="chain-badge" data-key="chain-badge">⛓️ DesertCamel Chain – Chain ID 2026</div>
+        <h1>
+          <span data-key="hero-line1">One App,</span><br />
+          <span data-key="hero-line2">Endless Possibilities</span><br />
+          <span class="highlight" data-key="hero-line3">on DesertCamel Chain</span>
+        </h1>
+        <p class="tagline" data-key="hero-desc">
+          <strong>Desert Camel</strong> is a <strong>Super dApp</strong> ecosystem built on 
+          <strong>DesertCamel Chain</strong> – a public, decentralized blockchain for the community. 
+          Play Web3 games, chat &amp; video call, share on social feed, livestream, browse DApps, 
+          and manage your multi‑chain wallet, all in one non‑custodial app.
+        </p>
+        <div class="badge-group">
+          <span class="badge-item">🎮 <span data-key="badge-games">Games</span></span>
+          <span class="badge-item">💬 <span data-key="badge-chat">Encrypted Chat</span></span>
+          <span class="badge-item">📹 <span data-key="badge-call">Video Call</span></span>
+          <span class="badge-item">🌐 <span data-key="badge-social">Social Feed</span></span>
+          <span class="badge-item">📺 <span data-key="badge-live">Livestream</span></span>
+          <span class="badge-item">🔗 <span data-key="badge-dapp">DApp Browser</span></span>
+        </div>
         <div class="btn-group">
-          <!-- Link Google Play chính thức -->
           <a href="https://play.google.com/store/apps/details?id=app.desertcamel.taponsidrachain" target="_blank" class="btn" data-key="hero-btn">📲 Download on Google Play</a>
-          <!-- Nút beta (giữ nguyên) -->
           <a href="https://drive.google.com/uc?export=download&id=1f9a2H4D3hfqAbuxuEFLCavRrPLI6hvHf" download class="btn btn-secondary" data-key="hero-beta">🧪 Beta Version</a>
         </div>
-        <div class="trust-badge" data-key="trust-badge">⛓️ All progress stored on SidraChain – transparent and secure.</div>
+        <div class="trust-badge" data-key="trust-badge">🔐 Non‑custodial • Multi‑chain • Your keys, your data</div>
       </div>
       <div class="hero-mockup">
         <div class="phone">
           <div class="phone-screen">
-            <div class="game-ui">
-              <div class="stats"><span data-key="mockup-xp">🔥 XP 1,250</span><span data-key="mockup-cxp">🐪 Cxp 0.8</span><span data-key="mockup-cml">💎 CML 12</span></div>
-              <div class="xp-bar"><div class="xp-fill"></div></div>
-              <div class="camel">🐫</div>
-              <button class="tap-btn" data-key="mockup-tap">👆 Tap!</button>
-              <div style="font-size:0.65rem;color:#5a4a34;margin-top:4px;" data-key="mockup-level">Level 7 • 850 XP to next level</div>
+            <div class="app-ui">
+              <div class="app-header">
+                <span>🐪 Desert Camel</span>
+                <span>⚡ Super dApp</span>
+              </div>
+              <div class="app-grid">
+                <div class="app-icon highlight">🎮<span>Games</span></div>
+                <div class="app-icon">💬<span>Chat</span></div>
+                <div class="app-icon">📹<span>Video</span></div>
+                <div class="app-icon">🌐<span>Social</span></div>
+                <div class="app-icon">📺<span>Live</span></div>
+                <div class="app-icon">🔗<span>Browser</span></div>
+                <div class="app-icon">👛<span>Wallet</span></div>
+                <div class="app-icon">📝<span>Notes</span></div>
+                <div class="app-icon">🔍<span>Explorer</span></div>
+              </div>
+              <div class="app-footer" data-key="mockup-footer">20+ games • 10+ chains • 100% on‑chain</div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Features -->
     <section class="features">
-      <h2 data-key="features-title">Why Play Desert Camel?</h2>
+      <h2 data-key="features-title">Built for the <span>Web3 Lifestyle</span></h2>
       <div class="feature-grid">
-        <div class="feature-card"><div class="icon">👆</div><h3 data-key="feature1-title">Simple Tap Game</h3><p data-key="feature1-desc">Just tap the camel to earn XP. Easy to learn, fun to play.</p></div>
-        <div class="feature-card"><div class="icon">⛓️</div><h3 data-key="feature2-title">Blockchain-Powered</h3><p data-key="feature2-desc">Every tap and point is recorded on SidraChain – public, transparent, and permanent.</p></div>
-        <div class="feature-card"><div class="icon">📈</div><h3 data-key="feature3-title">Earn & Upgrade</h3><p data-key="feature3-desc">Collect XP, earn Camel XP (Cxp) and CML tokens, and upgrade your tap power.</p></div>
-        <div class="feature-card"><div class="icon">🏆</div><h3 data-key="feature4-title">Daily Missions</h3><p data-key="feature4-desc">Complete daily challenges to earn bonus points and climb the leaderboard.</p></div>
+        <div class="feature-card">
+          <div class="icon">🎮</div>
+          <h3 data-key="f1-title">Web3 Games Hub</h3>
+          <p data-key="f1-desc">Tap-to-earn, arcade, puzzles, and more. Earn XP and rewards, all recorded on DesertCamel Chain.</p>
+          <span class="tag" data-key="f1-tag">20+ Games</span>
+        </div>
+        <div class="feature-card">
+          <div class="icon">💬</div>
+          <h3 data-key="f2-title">Private &amp; Public Chat</h3>
+          <p data-key="f2-desc">End-to-end encrypted messaging for private conversations, plus public chat rooms.</p>
+          <span class="tag" data-key="f2-tag">E2EE</span>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📹</div>
+          <h3 data-key="f3-title">Video &amp; Voice Calls</h3>
+          <p data-key="f3-desc">Decentralized peer‑to‑peer calls with your contacts. No middleman, clear quality.</p>
+          <span class="tag" data-key="f3-tag">P2P</span>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🌐</div>
+          <h3 data-key="f4-title">Social Feed</h3>
+          <p data-key="f4-desc">Post, like, comment, and follow. All content lives permanently on the blockchain.</p>
+          <span class="tag" data-key="f4-tag">On‑chain</span>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📺</div>
+          <h3 data-key="f5-title">Livestream &amp; Tree Live</h3>
+          <p data-key="f5-desc">Go live with P2P streaming, or join tree‑based streams with up to 200 viewers.</p>
+          <span class="tag" data-key="f5-tag">Decentralized</span>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🔗</div>
+          <h3 data-key="f6-title">DApp Browser + Wallet</h3>
+          <p data-key="f6-desc">Built‑in WebView to interact with any DApp, with your non‑custodial multi‑chain wallet.</p>
+          <span class="tag" data-key="f6-tag">Multi‑chain</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <h2 data-key="cta-title">Ready to Explore?</h2>
+      <p data-key="cta-desc">Download Desert Camel and start your Web3 journey – all in one super app.</p>
+      <div class="btn-group">
+        <a href="https://play.google.com/store/apps/details?id=app.desertcamel.taponsidrachain" target="_blank" class="btn" data-key="cta-btn">📲 Get it on Google Play</a>
       </div>
     </section>
   </main>
+
   <footer>
     <p data-key="footer-support">📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
-    <p data-key="footer-copy">© 2026 Desert Camel. Built on SidraChain.</p>
+    <p data-key="footer-copy">© 2026 Desert Camel – Built on DesertCamel Chain</p>
   </footer>
 
   <script>
+    // ================================================================
+    //  TRANSLATIONS – based on your ARB files
+    // ================================================================
     const translations = {
       en: {
         home: 'Home', privacy: 'Privacy', terms: 'Terms', contact: 'Contact',
-        'hero-title1': 'Tap the Camel,',
-        'hero-title2': 'Earn XP,',
-        'hero-title3': 'On SidraChain!',
-        'hero-desc': 'Desert Camel is a <strong>tap-to-earn</strong> game built on <strong>SidraChain</strong> blockchain. Tap the camel to earn XP, collect Camel XP (Cxp) and Camel (CML) tokens – all securely recorded on the public chain. No private keys required – just pure fun!',
+        'chain-badge': '⛓️ DesertCamel Chain – Chain ID 2026',
+        'hero-line1': 'One App,',
+        'hero-line2': 'Endless Possibilities',
+        'hero-line3': 'on DesertCamel Chain',
+        'hero-desc': '<strong>Desert Camel</strong> is a <strong>Super dApp</strong> ecosystem built on <strong>DesertCamel Chain</strong> – a public, decentralized blockchain for the community. Play Web3 games, chat &amp; video call, share on social feed, livestream, browse DApps, and manage your multi‑chain wallet, all in one non‑custodial app.',
+        'badge-games': 'Games',
+        'badge-chat': 'Encrypted Chat',
+        'badge-call': 'Video Call',
+        'badge-social': 'Social Feed',
+        'badge-live': 'Livestream',
+        'badge-dapp': 'DApp Browser',
         'hero-btn': '📲 Download on Google Play',
         'hero-beta': '🧪 Beta Version',
-        'trust-badge': '⛓️ All progress stored on SidraChain – transparent and secure.',
-        'mockup-xp': '🔥 XP 1,250',
-        'mockup-cxp': '🐪 Cxp 0.8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 Tap!',
-        'mockup-level': 'Level 7 • 850 XP to next level',
-        'features-title': 'Why Play Desert Camel?',
-        'feature1-title': 'Simple Tap Game',
-        'feature1-desc': 'Just tap the camel to earn XP. Easy to learn, fun to play.',
-        'feature2-title': 'Blockchain-Powered',
-        'feature2-desc': 'Every tap and point is recorded on SidraChain – public, transparent, and permanent.',
-        'feature3-title': 'Earn & Upgrade',
-        'feature3-desc': 'Collect XP, earn Camel XP (Cxp) and CML tokens, and upgrade your tap power.',
-        'feature4-title': 'Daily Missions',
-        'feature4-desc': 'Complete daily challenges to earn bonus points and climb the leaderboard.',
+        'trust-badge': '🔐 Non‑custodial • Multi‑chain • Your keys, your data',
+        'mockup-footer': '20+ games • 10+ chains • 100% on‑chain',
+        'features-title': 'Built for the <span>Web3 Lifestyle</span>',
+        'f1-title': 'Web3 Games Hub',
+        'f1-desc': 'Tap-to-earn, arcade, puzzles, and more. Earn XP and rewards, all recorded on DesertCamel Chain.',
+        'f1-tag': '20+ Games',
+        'f2-title': 'Private & Public Chat',
+        'f2-desc': 'End-to-end encrypted messaging for private conversations, plus public chat rooms.',
+        'f2-tag': 'E2EE',
+        'f3-title': 'Video & Voice Calls',
+        'f3-desc': 'Decentralized peer‑to‑peer calls with your contacts. No middleman, clear quality.',
+        'f3-tag': 'P2P',
+        'f4-title': 'Social Feed',
+        'f4-desc': 'Post, like, comment, and follow. All content lives permanently on the blockchain.',
+        'f4-tag': 'On‑chain',
+        'f5-title': 'Livestream & Tree Live',
+        'f5-desc': 'Go live with P2P streaming, or join tree‑based streams with up to 200 viewers.',
+        'f5-tag': 'Decentralized',
+        'f6-title': 'DApp Browser + Wallet',
+        'f6-desc': 'Built‑in WebView to interact with any DApp, with your non‑custodial multi‑chain wallet.',
+        'f6-tag': 'Multi‑chain',
+        'cta-title': 'Ready to Explore?',
+        'cta-desc': 'Download Desert Camel and start your Web3 journey – all in one super app.',
+        'cta-btn': '📲 Get it on Google Play',
         'footer-support': '📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Built on SidraChain.'
+        'footer-copy': '© 2026 Desert Camel – Built on DesertCamel Chain'
       },
       vi: {
         home: 'Trang chủ', privacy: 'Chính sách bảo mật', terms: 'Điều khoản', contact: 'Liên hệ',
-        'hero-title1': 'Chạm vào lạc đà,',
-        'hero-title2': 'Kiếm XP,',
-        'hero-title3': 'Trên SidraChain!',
-        'hero-desc': 'Desert Camel là trò chơi <strong>tap-to-earn</strong> được xây dựng trên blockchain <strong>SidraChain</strong>. Chạm vào lạc đà để kiếm XP, thu thập Camel XP (Cxp) và token Camel (CML) – tất cả được ghi lại trên chuỗi công khai. Không cần khóa riêng tư – chỉ là niềm vui thuần túy!',
+        'chain-badge': '⛓️ DesertCamel Chain – Chain ID 2026',
+        'hero-line1': 'Một ứng dụng,',
+        'hero-line2': 'Vô vàn khả năng',
+        'hero-line3': 'trên DesertCamel Chain',
+        'hero-desc': '<strong>Desert Camel</strong> là hệ sinh thái <strong>Super dApp</strong> được xây dựng trên <strong>DesertCamel Chain</strong> – một blockchain công khai, phi tập trung, dành cho cộng đồng. Chơi game Web3, nhắn tin &amp; gọi video, đăng trên mạng xã hội, livestream, duyệt DApp và quản lý ví đa chuỗi, tất cả trong một ứng dụng không lưu giữ.',
+        'badge-games': 'Trò chơi',
+        'badge-chat': 'Nhắn tin mã hóa',
+        'badge-call': 'Gọi video',
+        'badge-social': 'Mạng xã hội',
+        'badge-live': 'Livestream',
+        'badge-dapp': 'DApp Browser',
         'hero-btn': '📲 Tải xuống trên Google Play',
         'hero-beta': '🧪 Bản Beta',
-        'trust-badge': '⛓️ Mọi tiến trình được lưu trên SidraChain – minh bạch và an toàn.',
-        'mockup-xp': '🔥 XP 1.250',
-        'mockup-cxp': '🐪 Cxp 0,8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 Chạm!',
-        'mockup-level': 'Cấp 7 • 850 XP đến cấp tiếp theo',
-        'features-title': 'Tại sao chơi Desert Camel?',
-        'feature1-title': 'Game chạm đơn giản',
-        'feature1-desc': 'Chỉ cần chạm vào lạc đà để kiếm XP. Dễ học, vui chơi.',
-        'feature2-title': 'Được hỗ trợ bởi Blockchain',
-        'feature2-desc': 'Mọi lần chạm và điểm số được ghi trên SidraChain – công khai, minh bạch và vĩnh viễn.',
-        'feature3-title': 'Kiếm & Nâng cấp',
-        'feature3-desc': 'Thu thập XP, kiếm Camel XP (Cxp) và token CML, nâng cấp sức mạnh chạm.',
-        'feature4-title': 'Nhiệm vụ hàng ngày',
-        'feature4-desc': 'Hoàn thành thử thách hàng ngày để nhận điểm thưởng và leo bảng xếp hạng.',
+        'trust-badge': '🔐 Không lưu giữ • Đa chuỗi • Khóa của bạn, dữ liệu của bạn',
+        'mockup-footer': '20+ game • 10+ chuỗi • 100% trên chuỗi',
+        'features-title': 'Xây dựng cho <span>Lối sống Web3</span>',
+        'f1-title': 'Trung tâm Game Web3',
+        'f1-desc': 'Chạm để kiếm, arcade, giải đố và hơn thế. Kiếm XP và phần thưởng, tất cả được ghi trên DesertCamel Chain.',
+        'f1-tag': '20+ Game',
+        'f2-title': 'Chat Riêng tư & Công khai',
+        'f2-desc': 'Tin nhắn mã hóa đầu cuối cho trò chuyện riêng tư, cộng với phòng chat công khai.',
+        'f2-tag': 'E2EE',
+        'f3-title': 'Gọi Video & Thoại',
+        'f3-desc': 'Cuộc gọi ngang hàng phi tập trung với danh bạ của bạn. Không trung gian, chất lượng rõ ràng.',
+        'f3-tag': 'P2P',
+        'f4-title': 'Bảng tin xã hội',
+        'f4-desc': 'Đăng, thích, bình luận và theo dõi. Mọi nội dung đều tồn tại vĩnh viễn trên blockchain.',
+        'f4-tag': 'Trên chuỗi',
+        'f5-title': 'Livestream & Tree Live',
+        'f5-desc': 'Phát trực tiếp P2P hoặc tham gia phát trực tiếp dạng cây với tối đa 200 người xem.',
+        'f5-tag': 'Phi tập trung',
+        'f6-title': 'DApp Browser + Ví',
+        'f6-desc': 'WebView tích hợp để tương tác với mọi DApp, với ví đa chuỗi không lưu giữ của bạn.',
+        'f6-tag': 'Đa chuỗi',
+        'cta-title': 'Sẵn sàng khám phá?',
+        'cta-desc': 'Tải Desert Camel và bắt đầu hành trình Web3 của bạn – tất cả trong một siêu ứng dụng.',
+        'cta-btn': '📲 Tải trên Google Play',
         'footer-support': '📧 Hỗ trợ: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Xây dựng trên SidraChain.'
+        'footer-copy': '© 2026 Desert Camel – Xây dựng trên DesertCamel Chain'
       },
       zh: {
         home: '首页', privacy: '隐私政策', terms: '服务条款', contact: '联系我们',
-        'hero-title1': '点击骆驼，',
-        'hero-title2': '赚取 XP，',
-        'hero-title3': '在 SidraChain 上！',
-        'hero-desc': 'Desert Camel 是一款建立在 <strong>SidraChain</strong> 区块链上的 <strong>点击赚取</strong> 游戏。点击骆驼赚取 XP，收集 Camel XP (Cxp) 和 Camel (CML) 代币 – 所有记录都安全地保存在公共链上。无需私钥 – 纯粹的乐趣！',
+        'chain-badge': '⛓️ DesertCamel Chain – 链 ID 2026',
+        'hero-line1': '一个应用，',
+        'hero-line2': '无限可能',
+        'hero-line3': '在 DesertCamel Chain 上',
+        'hero-desc': '<strong>Desert Camel</strong> 是一个 <strong>超级 dApp</strong> 生态系统，建立在 <strong>DesertCamel Chain</strong> 上 – 一个公开、去中心化的区块链，属于社区。玩 Web3 游戏，聊天和视频通话，在社交动态分享，直播，浏览 DApp，并管理您的多链钱包，全部在一个非托管应用中。',
+        'badge-games': '游戏',
+        'badge-chat': '加密聊天',
+        'badge-call': '视频通话',
+        'badge-social': '社交动态',
+        'badge-live': '直播',
+        'badge-dapp': 'DApp 浏览器',
         'hero-btn': '📲 在 Google Play 下载',
         'hero-beta': '🧪 测试版',
-        'trust-badge': '⛓️ 所有进度存储在 SidraChain 上 – 透明且安全。',
-        'mockup-xp': '🔥 XP 1,250',
-        'mockup-cxp': '🐪 Cxp 0.8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 点击！',
-        'mockup-level': '等级 7 • 还需 850 XP 升级',
-        'features-title': '为什么玩 Desert Camel？',
-        'feature1-title': '简单点击游戏',
-        'feature1-desc': '只需点击骆驼即可赚取 XP。易于学习，有趣好玩。',
-        'feature2-title': '区块链驱动',
-        'feature2-desc': '每次点击和积分都记录在 SidraChain 上 – 公开、透明、永久。',
-        'feature3-title': '赚取和升级',
-        'feature3-desc': '收集 XP，赚取 Camel XP (Cxp) 和 CML 代币，升级点击威力。',
-        'feature4-title': '每日任务',
-        'feature4-desc': '完成每日挑战，赚取奖励积分并登上排行榜。',
+        'trust-badge': '🔐 非托管 • 多链 • 您的密钥，您的数据',
+        'mockup-footer': '20+ 游戏 • 10+ 条链 • 100% 上链',
+        'features-title': '为 <span>Web3 生活方式</span> 打造',
+        'f1-title': 'Web3 游戏中心',
+        'f1-desc': '点击赚取、街机、拼图等。赚取 XP 和奖励，全部在 DesertCamel Chain 上记录。',
+        'f1-tag': '20+ 游戏',
+        'f2-title': '私密与公开聊天',
+        'f2-desc': '端到端加密消息传递用于私密对话，以及公共聊天室。',
+        'f2-tag': '端到端加密',
+        'f3-title': '视频与语音通话',
+        'f3-desc': '与联系人进行去中心化点对点通话。无中间人，清晰质量。',
+        'f3-tag': 'P2P',
+        'f4-title': '社交动态',
+        'f4-desc': '发布、点赞、评论和关注。所有内容永久保存在区块链上。',
+        'f4-tag': '上链',
+        'f5-title': '直播与树形直播',
+        'f5-desc': '通过 P2P 流媒体直播，或加入基于树的流媒体，最多支持 200 名观众。',
+        'f5-tag': '去中心化',
+        'f6-title': 'DApp 浏览器 + 钱包',
+        'f6-desc': '内置 WebView，可与任何 DApp 交互，使用您的非托管多链钱包。',
+        'f6-tag': '多链',
+        'cta-title': '准备好探索了吗？',
+        'cta-desc': '下载 Desert Camel，开始您的 Web3 之旅 – 全部在一个超级应用。',
+        'cta-btn': '📲 在 Google Play 获取',
         'footer-support': '📧 支持: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel。基于 SidraChain 构建。'
+        'footer-copy': '© 2026 Desert Camel – 基于 DesertCamel Chain 构建'
       },
       hi: {
         home: 'होम', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', contact: 'संपर्क करें',
-        'hero-title1': 'ऊँट को टैप करें,',
-        'hero-title2': 'XP कमाएं,',
-        'hero-title3': 'SidraChain पर!',
-        'hero-desc': 'Desert Camel <strong>SidraChain</strong> ब्लॉकचेन पर बनाया गया एक <strong>टैप-टू-अर्न</strong> गेम है। XP कमाने के लिए ऊँट को टैप करें, Camel XP (Cxp) और Camel (CML) टोकन इकट्ठा करें – ये सभी सार्वजनिक चेन पर सुरक्षित रूप से रिकॉर्ड किए जाते हैं। निजी कुंजी की आवश्यकता नहीं – केवल शुद्ध मनोरंजन!',
+        'chain-badge': '⛓️ DesertCamel Chain – चेन आईडी 2026',
+        'hero-line1': 'एक ऐप,',
+        'hero-line2': 'असीम संभावनाएं',
+        'hero-line3': 'DesertCamel Chain पर',
+        'hero-desc': '<strong>Desert Camel</strong> एक <strong>Super dApp</strong> पारिस्थितिकी तंत्र है जो <strong>DesertCamel Chain</strong> पर बनाया गया है – एक सार्वजनिक, विकेन्द्रीकृत ब्लॉकचेन जो समुदाय के लिए है। Web3 गेम खेलें, चैट करें और वीडियो कॉल करें, सोशल फीड पर साझा करें, लाइवस्ट्रीम करें, DApps ब्राउज़ करें, और अपने मल्टी-चेन वॉलेट को प्रबंधित करें – सब एक नॉन-कस्टोडियल ऐप में।',
+        'badge-games': 'खेल',
+        'badge-chat': 'एन्क्रिप्टेड चैट',
+        'badge-call': 'वीडियो कॉल',
+        'badge-social': 'सोशल फीड',
+        'badge-live': 'लाइवस्ट्रीम',
+        'badge-dapp': 'DApp ब्राउज़र',
         'hero-btn': '📲 Google Play से डाउनलोड करें',
-        'hero-beta': '🧪 परीक्षण संस्करण',
-        'trust-badge': '⛓️ सारी प्रगति SidraChain पर संग्रहीत – पारदर्शी और सुरक्षित।',
-        'mockup-xp': '🔥 XP 1,250',
-        'mockup-cxp': '🐪 Cxp 0.8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 टैप करें!',
-        'mockup-level': 'स्तर 7 • अगले स्तर के लिए 850 XP',
-        'features-title': 'Desert Camel क्यों खेलें?',
-        'feature1-title': 'सरल टैप गेम',
-        'feature1-desc': 'XP कमाने के लिए बस ऊँट को टैप करें। सीखने में आसान, खेलने में मजेदार।',
-        'feature2-title': 'ब्लॉकचेन-संचालित',
-        'feature2-desc': 'हर टैप और अंक SidraChain पर रिकॉर्ड किए जाते हैं – सार्वजनिक, पारदर्शी और स्थायी।',
-        'feature3-title': 'कमाएं और अपग्रेड करें',
-        'feature3-desc': 'XP इकट्ठा करें, Camel XP (Cxp) और CML टोकन कमाएं, और अपनी टैप शक्ति को अपग्रेड करें।',
-        'feature4-title': 'दैनिक मिशन',
-        'feature4-desc': 'बोनस अंक अर्जित करने और लीडरबोर्ड पर चढ़ने के लिए दैनिक चुनौतियाँ पूरी करें।',
+        'hero-beta': '🧪 बीटा संस्करण',
+        'trust-badge': '🔐 गैर-संरक्षक • मल्टी-चेन • आपकी कुंजियाँ, आपका डेटा',
+        'mockup-footer': '20+ खेल • 10+ चेन • 100% ऑन-चेन',
+        'features-title': '<span>Web3 जीवनशैली</span> के लिए निर्मित',
+        'f1-title': 'Web3 गेम हब',
+        'f1-desc': 'टैप-टू-अर्न, आर्केड, पहेलियाँ और बहुत कुछ। XP और पुरस्कार अर्जित करें, सभी DesertCamel Chain पर रिकॉर्ड किए गए।',
+        'f1-tag': '20+ खेल',
+        'f2-title': 'निजी और सार्वजनिक चैट',
+        'f2-desc': 'निजी बातचीत के लिए एंड-टू-एंड एन्क्रिप्टेड मैसेजिंग, साथ ही सार्वजनिक चैट रूम।',
+        'f2-tag': 'E2EE',
+        'f3-title': 'वीडियो और वॉइस कॉल',
+        'f3-desc': 'अपने संपर्कों के साथ विकेन्द्रीकृत पीयर-टू-पीयर कॉल। कोई मध्यस्थ नहीं, स्पष्ट गुणवत्ता।',
+        'f3-tag': 'P2P',
+        'f4-title': 'सोशल फीड',
+        'f4-desc': 'पोस्ट करें, लाइक करें, टिप्पणी करें और फॉलो करें। सभी सामग्री स्थायी रूप से ब्लॉकचेन पर रहती है।',
+        'f4-tag': 'ऑन-चेन',
+        'f5-title': 'लाइवस्ट्रीम और ट्री लाइव',
+        'f5-desc': 'P2P स्ट्रीमिंग के साथ लाइव जाएं, या 200 दर्शकों तक के ट्री-आधारित स्ट्रीम में शामिल हों।',
+        'f5-tag': 'विकेन्द्रीकृत',
+        'f6-title': 'DApp ब्राउज़र + वॉलेट',
+        'f6-desc': 'किसी भी DApp के साथ बातचीत करने के लिए अंतर्निहित WebView, आपके गैर-संरक्षक मल्टी-चेन वॉलेट के साथ।',
+        'f6-tag': 'मल्टी-चेन',
+        'cta-title': 'खोजने के लिए तैयार हैं?',
+        'cta-desc': 'Desert Camel डाउनलोड करें और अपनी Web3 यात्रा शुरू करें – सब एक सुपर ऐप में।',
+        'cta-btn': '📲 Google Play पर प्राप्त करें',
         'footer-support': '📧 सहायता: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel। SidraChain पर निर्मित।'
+        'footer-copy': '© 2026 Desert Camel – DesertCamel Chain पर निर्मित'
       },
       ar: {
         home: 'الرئيسية', privacy: 'سياسة الخصوصية', terms: 'شروط الخدمة', contact: 'اتصل بنا',
-        'hero-title1': 'انقر على الجمل،',
-        'hero-title2': 'اربح XP،',
-        'hero-title3': 'على SidraChain!',
-        'hero-desc': 'Desert Camel هي لعبة <strong>انقر لتربح</strong> مبنية على بلوكشين <strong>SidraChain</strong>. انقر على الجمل لكسب XP، وجمع Camel XP (Cxp) ورموز Camel (CML) – جميعها مسجلة بشكل آمن على السلسلة العامة. لا حاجة لمفاتيح خاصة – مجرد متعة خالصة!',
+        'chain-badge': '⛓️ DesertCamel Chain – معرف السلسلة 2026',
+        'hero-line1': 'تطبيق واحد،',
+        'hero-line2': 'إمكانيات لا حصر لها',
+        'hero-line3': 'على DesertCamel Chain',
+        'hero-desc': '<strong>Desert Camel</strong> هو نظام بيئي <strong>Super dApp</strong> مبني على <strong>DesertCamel Chain</strong> – سلسلة كتل عامة، لا مركزية، للمجتمع. العب ألعاب Web3، وتحدث ودردشة فيديو، وشارك في الخلاصة الاجتماعية، وبث مباشر، وتصفح DApps، وأدر محفظتك متعددة السلاسل – كل ذلك في تطبيق غير أمين واحد.',
+        'badge-games': 'ألعاب',
+        'badge-chat': 'دردشة مشفرة',
+        'badge-call': 'مكالمة فيديو',
+        'badge-social': 'الخلاصة الاجتماعية',
+        'badge-live': 'بث مباشر',
+        'badge-dapp': 'متصفح DApp',
         'hero-btn': '📲 تنزيل من Google Play',
         'hero-beta': '🧪 نسخة تجريبية',
-        'trust-badge': '⛓️ كل التقدم مخزن على SidraChain – شفاف وآمن.',
-        'mockup-xp': '🔥 XP ١,٢٥٠',
-        'mockup-cxp': '🐪 Cxp ٠.٨',
-        'mockup-cml': '💎 CML ١٢',
-        'mockup-tap': '👆 انقر!',
-        'mockup-level': 'المستوى 7 • 850 XP للمستوى التالي',
-        'features-title': 'لماذا تلعب Desert Camel؟',
-        'feature1-title': 'لعبة نقر بسيطة',
-        'feature1-desc': 'فقط انقر على الجمل لكسب XP. سهل التعلم، ممتع للعب.',
-        'feature2-title': 'مدعوم من البلوكشين',
-        'feature2-desc': 'كل نقرة وكل نقطة يتم تسجيلها على SidraChain – عامة وشفافة ودائمة.',
-        'feature3-title': 'اربح وطور',
-        'feature3-desc': 'اجمع XP، واربح Camel XP (Cxp) ورموز CML، وطور قوة النقر الخاصة بك.',
-        'feature4-title': 'المهام اليومية',
-        'feature4-desc': 'أكمل التحديات اليومية لكسب نقاط إضافية وتصدر لوحة المتصدرين.',
+        'trust-badge': '🔐 غير أمين • متعدد السلاسل • مفاتيحك، بياناتك',
+        'mockup-footer': '20+ لعبة • 10+ سلاسل • 100% على السلسلة',
+        'features-title': 'مصمم لـ <span>نمط حياة Web3</span>',
+        'f1-title': 'مركز ألعاب Web3',
+        'f1-desc': 'انقر لتربح، أركيد، ألغاز، والمزيد. اكسب XP والمكافآت، كلها مسجلة على DesertCamel Chain.',
+        'f1-tag': '20+ لعبة',
+        'f2-title': 'دردشة خاصة وعامة',
+        'f2-desc': 'رسائل مشفرة من طرف إلى طرف للمحادثات الخاصة، بالإضافة إلى غرف دردشة عامة.',
+        'f2-tag': 'E2EE',
+        'f3-title': 'مكالمات فيديو وصوت',
+        'f3-desc': 'مكالمات ند لند لا مركزية مع جهات الاتصال الخاصة بك. لا وسطاء، جودة واضحة.',
+        'f3-tag': 'P2P',
+        'f4-title': 'الخلاصة الاجتماعية',
+        'f4-desc': 'انشر، أعجب، علق، وتابع. كل المحتوى يعيش بشكل دائم على سلسلة الكتل.',
+        'f4-tag': 'على السلسلة',
+        'f5-title': 'البث المباشر والبث الشجري',
+        'f5-desc': 'انطلق مباشرة مع بث P2P، أو انضم إلى البث القائم على الشجرة مع ما يصل إلى 200 مشاهد.',
+        'f5-tag': 'لا مركزية',
+        'f6-title': 'متصفح DApp + محفظة',
+        'f6-desc': 'WebView مدمج للتفاعل مع أي DApp، مع محفظتك غير الأمينة متعددة السلاسل.',
+        'f6-tag': 'متعدد السلاسل',
+        'cta-title': 'مستعد للاستكشاف؟',
+        'cta-desc': 'قم بتنزيل Desert Camel وابدأ رحلتك في Web3 – كل ذلك في تطبيق خارق واحد.',
+        'cta-btn': '📲 احصل عليه من Google Play',
         'footer-support': '📧 الدعم: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. مبني على SidraChain.'
+        'footer-copy': '© 2026 Desert Camel – مبني على DesertCamel Chain'
       },
       id: {
-        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Hubungi',
-        'hero-title1': 'Ketuk Unta,',
-        'hero-title2': 'Dapatkan XP,',
-        'hero-title3': 'Di SidraChain!',
-        'hero-desc': 'Desert Camel adalah game <strong>ketuk-untuk-peroleh</strong> yang dibangun di blockchain <strong>SidraChain</strong>. Ketuk unta untuk mendapatkan XP, kumpulkan Camel XP (Cxp) dan token Camel (CML) – semuanya tercatat secara aman di rantai publik. Tidak perlu kunci pribadi – murni hiburan!',
+        home: 'Beranda', privacy: 'Kebijakan Privasi', terms: 'Syarat Layanan', contact: 'Kontak',
+        'chain-badge': '⛓️ DesertCamel Chain – ID Rantai 2026',
+        'hero-line1': 'Satu Aplikasi,',
+        'hero-line2': 'Kemungkinan Tanpa Batas',
+        'hero-line3': 'di DesertCamel Chain',
+        'hero-desc': '<strong>Desert Camel</strong> adalah ekosistem <strong>Super dApp</strong> yang dibangun di <strong>DesertCamel Chain</strong> – blockchain publik, terdesentralisasi untuk komunitas. Mainkan game Web3, obrolan &amp; panggilan video, bagikan di umpan sosial, siaran langsung, jelajahi DApp, dan kelola dompet multi-rantai Anda – semua dalam satu aplikasi non‑kustodial.',
+        'badge-games': 'Game',
+        'badge-chat': 'Obrolan Terenkripsi',
+        'badge-call': 'Panggilan Video',
+        'badge-social': 'Umpan Sosial',
+        'badge-live': 'Siaran Langsung',
+        'badge-dapp': 'Browser DApp',
         'hero-btn': '📲 Unduh di Google Play',
-        'hero-beta': '🧪 Versi Uji Coba',
-        'trust-badge': '⛓️ Semua kemajuan disimpan di SidraChain – transparan dan aman.',
-        'mockup-xp': '🔥 XP 1.250',
-        'mockup-cxp': '🐪 Cxp 0.8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 Ketuk!',
-        'mockup-level': 'Level 7 • 850 XP ke level berikutnya',
-        'features-title': 'Mengapa Bermain Desert Camel?',
-        'feature1-title': 'Game Ketuk Sederhana',
-        'feature1-desc': 'Cukup ketuk unta untuk mendapatkan XP. Mudah dipelajari, menyenangkan untuk dimainkan.',
-        'feature2-title': 'Didukung Blockchain',
-        'feature2-desc': 'Setiap ketukan dan poin dicatat di SidraChain – publik, transparan, dan permanen.',
-        'feature3-title': 'Dapatkan & Tingkatkan',
-        'feature3-desc': 'Kumpulkan XP, dapatkan Camel XP (Cxp) dan token CML, dan tingkatkan kekuatan ketuk Anda.',
-        'feature4-title': 'Misi Harian',
-        'feature4-desc': 'Selesaikan tantangan harian untuk mendapatkan poin bonus dan naik papan peringkat.',
+        'hero-beta': '🧪 Versi Beta',
+        'trust-badge': '🔐 Non‑kustodial • Multi‑rantai • Kunci Anda, data Anda',
+        'mockup-footer': '20+ game • 10+ rantai • 100% on‑chain',
+        'features-title': 'Dibangun untuk <span>Gaya Hidup Web3</span>',
+        'f1-title': 'Pusat Game Web3',
+        'f1-desc': 'Tap-to-earn, arcade, teka-teki, dan lainnya. Dapatkan XP dan hadiah, semua tercatat di DesertCamel Chain.',
+        'f1-tag': '20+ Game',
+        'f2-title': 'Obrolan Pribadi & Publik',
+        'f2-desc': 'Pesan terenkripsi ujung-ke-ujung untuk percakapan pribadi, ditambah ruang obrolan publik.',
+        'f2-tag': 'E2EE',
+        'f3-title': 'Panggilan Video & Suara',
+        'f3-desc': 'Panggilan peer‑to‑peer terdesentralisasi dengan kontak Anda. Tanpa perantara, kualitas jernih.',
+        'f3-tag': 'P2P',
+        'f4-title': 'Umpan Sosial',
+        'f4-desc': 'Posting, suka, komentar, dan ikuti. Semua konten hidup secara permanen di blockchain.',
+        'f4-tag': 'On‑chain',
+        'f5-title': 'Siaran Langsung & Tree Live',
+        'f5-desc': 'Siaran langsung dengan streaming P2P, atau bergabung dengan streaming berbasis pohon hingga 200 pemirsa.',
+        'f5-tag': 'Terdesentralisasi',
+        'f6-title': 'Browser DApp + Dompet',
+        'f6-desc': 'WebView bawaan untuk berinteraksi dengan DApp apa pun, dengan dompet multi-rantai non‑kustodial Anda.',
+        'f6-tag': 'Multi‑rantai',
+        'cta-title': 'Siap Menjelajah?',
+        'cta-desc': 'Unduh Desert Camel dan mulai perjalanan Web3 Anda – semua dalam satu super aplikasi.',
+        'cta-btn': '📲 Dapatkan di Google Play',
         'footer-support': '📧 Dukungan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Dibangun di SidraChain.'
+        'footer-copy': '© 2026 Desert Camel – Dibangun di DesertCamel Chain'
       },
       ms: {
         home: 'Laman Utama', privacy: 'Dasar Privasi', terms: 'Terma Perkhidmatan', contact: 'Hubungi',
-        'hero-title1': 'Ketik Unta,',
-        'hero-title2': 'Dapatkan XP,',
-        'hero-title3': 'Di SidraChain!',
-        'hero-desc': 'Desert Camel adalah permainan <strong>ketuk-untuk-peroleh</strong> yang dibina di blockchain <strong>SidraChain</strong>. Ketik unta untuk mendapatkan XP, kumpulkan Camel XP (Cxp) dan token Camel (CML) – semuanya direkodkan dengan selamat di rantai awam. Tiada kunci peribadi diperlukan – hiburan semata-mata!',
+        'chain-badge': '⛓️ DesertCamel Chain – ID Rantaian 2026',
+        'hero-line1': 'Satu Apl,',
+        'hero-line2': 'Kemungkinan Tidak Terbatas',
+        'hero-line3': 'di DesertCamel Chain',
+        'hero-desc': '<strong>Desert Camel</strong> ialah ekosistem <strong>Super dApp</strong> yang dibina di atas <strong>DesertCamel Chain</strong> – blockchain awam, terpencar untuk komuniti. Mainkan permainan Web3, berbual &amp; panggilan video, kongsi di suapan sosial, siaran langsung, layari DApp, dan urus dompet pelbagai rantaian anda – semuanya dalam satu aplikasi bukan‑penjaga.',
+        'badge-games': 'Permainan',
+        'badge-chat': 'Perbualan Disulitkan',
+        'badge-call': 'Panggilan Video',
+        'badge-social': 'Suapan Sosial',
+        'badge-live': 'Siaran Langsung',
+        'badge-dapp': 'Pelayar DApp',
         'hero-btn': '📲 Muat turun di Google Play',
-        'hero-beta': '🧪 Versi Ujian',
-        'trust-badge': '⛓️ Semua kemajuan disimpan di SidraChain – telus dan selamat.',
-        'mockup-xp': '🔥 XP 1,250',
-        'mockup-cxp': '🐪 Cxp 0.8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 Ketik!',
-        'mockup-level': 'Tahap 7 • 850 XP ke tahap seterusnya',
-        'features-title': 'Mengapa Main Desert Camel?',
-        'feature1-title': 'Permainan Ketuk Mudah',
-        'feature1-desc': 'Hanya ketik unta untuk mendapatkan XP. Mudah dipelajari, menyeronokkan untuk dimainkan.',
-        'feature2-title': 'Dikuasakan Blockchain',
-        'feature2-desc': 'Setiap ketukan dan mata direkodkan di SidraChain – awam, telus, dan kekal.',
-        'feature3-title': 'Dapatkan & Tingkatkan',
-        'feature3-desc': 'Kumpulkan XP, dapatkan Camel XP (Cxp) dan token CML, dan tingkatkan kuasa ketuk anda.',
-        'feature4-title': 'Misi Harian',
-        'feature4-desc': 'Selesaikan cabaran harian untuk mendapatkan mata bonus dan naik papan pendahulu.',
+        'hero-beta': '🧪 Versi Beta',
+        'trust-badge': '🔐 Bukan‑penjaga • Pelbagai rantaian • Kunci anda, data anda',
+        'mockup-footer': '20+ permainan • 10+ rantaian • 100% pada rantaian',
+        'features-title': 'Dibina untuk <span>Gaya Hidup Web3</span>',
+        'f1-title': 'Hab Permainan Web3',
+        'f1-desc': 'Ketuk-untuk-peroleh, arked, teka-teki, dan banyak lagi. Peroleh XP dan ganjaran, semua direkodkan pada DesertCamel Chain.',
+        'f1-tag': '20+ Permainan',
+        'f2-title': 'Perbualan Persendirian & Awam',
+        'f2-desc': 'Pemesejan disulitkan hujung-ke-hujung untuk perbualan persendirian, ditambah bilik perbualan awam.',
+        'f2-tag': 'E2EE',
+        'f3-title': 'Panggilan Video & Suara',
+        'f3-desc': 'Panggilan peer‑to‑peer terpencar dengan kenalan anda. Tiada orang tengah, kualiti jelas.',
+        'f3-tag': 'P2P',
+        'f4-title': 'Suapan Sosial',
+        'f4-desc': 'Siarkan, suka, komen, dan ikuti. Semua kandungan kekal secara kekal di blockchain.',
+        'f4-tag': 'Pada rantaian',
+        'f5-title': 'Siaran Langsung & Tree Live',
+        'f5-desc': 'Siaran langsung dengan penstriman P2P, atau sertai penstriman berasaskan pokok sehingga 200 penonton.',
+        'f5-tag': 'Terpencar',
+        'f6-title': 'Pelayar DApp + Dompet',
+        'f6-desc': 'WebView terbina untuk berinteraksi dengan mana‑mana DApp, dengan dompet pelbagai rantaian bukan‑penjaga anda.',
+        'f6-tag': 'Pelbagai rantaian',
+        'cta-title': 'Sedia Meneroka?',
+        'cta-desc': 'Muat turun Desert Camel dan mulakan perjalanan Web3 anda – semuanya dalam satu super apl.',
+        'cta-btn': '📲 Dapatkan di Google Play',
         'footer-support': '📧 Sokongan: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Dibina di SidraChain.'
+        'footer-copy': '© 2026 Desert Camel – Dibina di DesertCamel Chain'
       },
       fr: {
         home: 'Accueil', privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact',
-        'hero-title1': 'Tapez le chameau,',
-        'hero-title2': 'Gagnez des XP,',
-        'hero-title3': 'Sur SidraChain !',
-        'hero-desc': 'Desert Camel est un jeu <strong>tap-to-earn</strong> construit sur la blockchain <strong>SidraChain</strong>. Tapez le chameau pour gagner des XP, collectez des Camel XP (Cxp) et des jetons Camel (CML) – tout est enregistré en toute sécurité sur la chaîne publique. Pas besoin de clé privée – pur divertissement !',
+        'chain-badge': '⛓️ DesertCamel Chain – ID de chaîne 2026',
+        'hero-line1': 'Une application,',
+        'hero-line2': 'Des possibilités infinies',
+        'hero-line3': 'sur DesertCamel Chain',
+        'hero-desc': '<strong>Desert Camel</strong> est un écosystème <strong>Super dApp</strong> construit sur <strong>DesertCamel Chain</strong> – une blockchain publique, décentralisée pour la communauté. Jouez à des jeux Web3, discutez et appelez en vidéo, partagez sur le fil social, diffusez en direct, parcourez les DApps et gérez votre portefeuille multi‑chaînes – le tout dans une application non‑custodiale.',
+        'badge-games': 'Jeux',
+        'badge-chat': 'Chat chiffré',
+        'badge-call': 'Appel vidéo',
+        'badge-social': 'Fil social',
+        'badge-live': 'Livestream',
+        'badge-dapp': 'Navigateur DApp',
         'hero-btn': '📲 Télécharger sur Google Play',
         'hero-beta': '🧪 Version bêta',
-        'trust-badge': '⛓️ Toute la progression stockée sur SidraChain – transparente et sécurisée.',
-        'mockup-xp': '🔥 XP 1 250',
-        'mockup-cxp': '🐪 Cxp 0,8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 Tapez !',
-        'mockup-level': 'Niveau 7 • 850 XP pour le prochain niveau',
-        'features-title': 'Pourquoi jouer à Desert Camel ?',
-        'feature1-title': 'Jeu de tapotement simple',
-        'feature1-desc': 'Tapez simplement le chameau pour gagner des XP. Facile à apprendre, amusant à jouer.',
-        'feature2-title': 'Propulsé par la blockchain',
-        'feature2-desc': 'Chaque tapotement et point est enregistré sur SidraChain – public, transparent et permanent.',
-        'feature3-title': 'Gagnez et améliorez',
-        'feature3-desc': 'Collectez des XP, gagnez des Camel XP (Cxp) et des jetons CML, et améliorez votre puissance de tapotement.',
-        'feature4-title': 'Missions quotidiennes',
-        'feature4-desc': 'Relevez des défis quotidiens pour gagner des points bonus et monter dans le classement.',
+        'trust-badge': '🔐 Non‑custodial • Multi‑chaînes • Vos clés, vos données',
+        'mockup-footer': '20+ jeux • 10+ chaînes • 100% on‑chain',
+        'features-title': 'Conçu pour le <span>mode de vie Web3</span>',
+        'f1-title': 'Hub de jeux Web3',
+        'f1-desc': 'Tap-to-earn, arcade, puzzles, etc. Gagnez des XP et des récompenses, tout enregistré sur DesertCamel Chain.',
+        'f1-tag': '20+ jeux',
+        'f2-title': 'Chat privé et public',
+        'f2-desc': 'Messagerie chiffrée de bout en bout pour les conversations privées, plus des salons publics.',
+        'f2-tag': 'E2EE',
+        'f3-title': 'Appels vidéo et vocaux',
+        'f3-desc': 'Appels pair‑à‑pair décentralisés avec vos contacts. Pas d’intermédiaire, qualité claire.',
+        'f3-tag': 'P2P',
+        'f4-title': 'Fil social',
+        'f4-desc': 'Publiez, aimez, commentez et suivez. Tout le contenu vit en permanence sur la blockchain.',
+        'f4-tag': 'On‑chain',
+        'f5-title': 'Livestream & Tree Live',
+        'f5-desc': 'Diffusez en direct avec le streaming P2P, ou rejoignez des streams arborescents jusqu’à 200 spectateurs.',
+        'f5-tag': 'Décentralisé',
+        'f6-title': 'Navigateur DApp + Portefeuille',
+        'f6-desc': 'WebView intégré pour interagir avec n’importe quelle DApp, avec votre portefeuille multi‑chaînes non‑custodial.',
+        'f6-tag': 'Multi‑chaînes',
+        'cta-title': 'Prêt à explorer ?',
+        'cta-desc': 'Téléchargez Desert Camel et commencez votre voyage Web3 – tout dans une super application.',
+        'cta-btn': '📲 Obtenez-le sur Google Play',
         'footer-support': '📧 Support : <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Construit sur SidraChain.'
+        'footer-copy': '© 2026 Desert Camel – Construit sur DesertCamel Chain'
       },
       pt: {
         home: 'Início', privacy: 'Privacidade', terms: 'Termos', contact: 'Contato',
-        'hero-title1': 'Toque no Camelo,',
-        'hero-title2': 'Ganhe XP,',
-        'hero-title3': 'No SidraChain!',
-        'hero-desc': 'Desert Camel é um jogo <strong>toque-para-ganhar</strong> construído na blockchain <strong>SidraChain</strong>. Toque no camelo para ganhar XP, colete Camel XP (Cxp) e tokens Camel (CML) – todos registrados com segurança na cadeia pública. Sem necessidade de chave privada – pura diversão!',
+        'chain-badge': '⛓️ DesertCamel Chain – ID da cadeia 2026',
+        'hero-line1': 'Um aplicativo,',
+        'hero-line2': 'Possibilidades infinitas',
+        'hero-line3': 'na DesertCamel Chain',
+        'hero-desc': '<strong>Desert Camel</strong> é um ecossistema <strong>Super dApp</strong> construído na <strong>DesertCamel Chain</strong> – uma blockchain pública, descentralizada para a comunidade. Jogue jogos Web3, converse e faça chamadas de vídeo, compartilhe no feed social, faça transmissões ao vivo, navegue por DApps e gerencie sua carteira multi‑chain – tudo em um aplicativo não‑custodial.',
+        'badge-games': 'Jogos',
+        'badge-chat': 'Chat criptografado',
+        'badge-call': 'Chamada de vídeo',
+        'badge-social': 'Feed social',
+        'badge-live': 'Transmissão ao vivo',
+        'badge-dapp': 'Navegador DApp',
         'hero-btn': '📲 Baixar no Google Play',
         'hero-beta': '🧪 Versão beta',
-        'trust-badge': '⛓️ Todo o progresso armazenado no SidraChain – transparente e seguro.',
-        'mockup-xp': '🔥 XP 1.250',
-        'mockup-cxp': '🐪 Cxp 0,8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 Toque!',
-        'mockup-level': 'Nível 7 • 850 XP para o próximo nível',
-        'features-title': 'Por que jogar Desert Camel?',
-        'feature1-title': 'Jogo de toque simples',
-        'feature1-desc': 'Basta tocar no camelo para ganhar XP. Fácil de aprender, divertido de jogar.',
-        'feature2-title': 'Impulsionado por Blockchain',
-        'feature2-desc': 'Cada toque e ponto é registrado no SidraChain – público, transparente e permanente.',
-        'feature3-title': 'Ganhe e Melhore',
-        'feature3-desc': 'Colete XP, ganhe Camel XP (Cxp) e tokens CML, e melhore seu poder de toque.',
-        'feature4-title': 'Missões Diárias',
-        'feature4-desc': 'Complete desafios diários para ganhar pontos bônus e subir no ranking.',
+        'trust-badge': '🔐 Não‑custodial • Multi‑cadeia • Suas chaves, seus dados',
+        'mockup-footer': '20+ jogos • 10+ cadeias • 100% on‑chain',
+        'features-title': 'Construído para o <span>estilo de vida Web3</span>',
+        'f1-title': 'Hub de jogos Web3',
+        'f1-desc': 'Toque para ganhar, arcade, quebra-cabeças e muito mais. Ganhe XP e recompensas, tudo registrado na DesertCamel Chain.',
+        'f1-tag': '20+ jogos',
+        'f2-title': 'Chat privado e público',
+        'f2-desc': 'Mensagens criptografadas de ponta a ponta para conversas privadas, além de salas públicas.',
+        'f2-tag': 'E2EE',
+        'f3-title': 'Chamadas de vídeo e voz',
+        'f3-desc': 'Chamadas ponto a ponto descentralizadas com seus contatos. Sem intermediários, qualidade clara.',
+        'f3-tag': 'P2P',
+        'f4-title': 'Feed social',
+        'f4-desc': 'Publique, curta, comente e siga. Todo o conteúdo permanece permanentemente na blockchain.',
+        'f4-tag': 'On‑chain',
+        'f5-title': 'Transmissão ao vivo e Tree Live',
+        'f5-desc': 'Transmita ao vivo com streaming P2P ou participe de streams baseados em árvores com até 200 espectadores.',
+        'f5-tag': 'Descentralizado',
+        'f6-title': 'Navegador DApp + Carteira',
+        'f6-desc': 'WebView integrado para interagir com qualquer DApp, com sua carteira multi‑cadeia não‑custodial.',
+        'f6-tag': 'Multi‑cadeia',
+        'cta-title': 'Pronto para explorar?',
+        'cta-desc': 'Baixe Desert Camel e comece sua jornada Web3 – tudo em um super aplicativo.',
+        'cta-btn': '📲 Obtenha no Google Play',
         'footer-support': '📧 Suporte: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. Construído no SidraChain.'
+        'footer-copy': '© 2026 Desert Camel – Construído na DesertCamel Chain'
       },
       ko: {
-        home: '홈', privacy: '개인정보처리방침', terms: '이용약관', contact: '연락처',
-        'hero-title1': '낙타를 탭하고,',
-        'hero-title2': 'XP를 획득하고,',
-        'hero-title3': 'SidraChain에서!',
-        'hero-desc': 'Desert Camel은 <strong>SidraChain</strong> 블록체인에 구축된 <strong>탭-투-언</strong> 게임입니다. 낙타를 탭하여 XP를 획득하고, Camel XP(Cxp)와 Camel(CML) 토큰을 수집하세요 – 모든 것이 공개 체인에 안전하게 기록됩니다. 개인 키 필요 없음 – 순수한 재미!',
+        home: '홈', privacy: '개인정보처리방침', terms: '서비스 약관', contact: '연락처',
+        'chain-badge': '⛓️ DesertCamel Chain – 체인 ID 2026',
+        'hero-line1': '하나의 앱,',
+        'hero-line2': '무한한 가능성',
+        'hero-line3': 'DesertCamel Chain에서',
+        'hero-desc': '<strong>Desert Camel</strong>은 <strong>DesertCamel Chain</strong> 위에 구축된 <strong>Super dApp</strong> 생태계입니다 – 커뮤니티를 위한 공공의 탈중앙화 블록체인입니다. Web3 게임을 하고, 채팅 및 영상 통화를 하고, 소셜 피드에 공유하고, 라이브스트리밍하고, DApp을 탐색하고, 멀티체인 지갑을 관리하세요 – 모두 하나의 비수탁 앱에서 가능합니다.',
+        'badge-games': '게임',
+        'badge-chat': '암호화된 채팅',
+        'badge-call': '영상 통화',
+        'badge-social': '소셜 피드',
+        'badge-live': '라이브스트리밍',
+        'badge-dapp': 'DApp 브라우저',
         'hero-btn': '📲 Google Play에서 다운로드',
         'hero-beta': '🧪 베타 버전',
-        'trust-badge': '⛓️ 모든 진행 상황이 SidraChain에 저장 – 투명하고 안전합니다.',
-        'mockup-xp': '🔥 XP 1,250',
-        'mockup-cxp': '🐪 Cxp 0.8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 탭!',
-        'mockup-level': '레벨 7 • 다음 레벨까지 850 XP',
-        'features-title': 'Desert Camel을 해야 하는 이유?',
-        'feature1-title': '간단한 탭 게임',
-        'feature1-desc': '그냥 낙타를 탭하여 XP를 얻으세요. 배우기 쉽고, 즐겁게 플레이하세요.',
-        'feature2-title': '블록체인 기반',
-        'feature2-desc': '모든 탭과 포인트는 SidraChain에 기록됩니다 – 공개, 투명, 영구적.',
-        'feature3-title': '획득 및 업그레이드',
-        'feature3-desc': 'XP를 모으고, Camel XP(Cxp)와 CML 토큰을 획득하고, 탭 파워를 업그레이드하세요.',
-        'feature4-title': '일일 미션',
-        'feature4-desc': '매일 도전 과제를 완료하여 보너스 포인트를 받고 리더보드에 도전하세요.',
+        'trust-badge': '🔐 비수탁 • 멀티체인 • 내 키, 내 데이터',
+        'mockup-footer': '20+ 게임 • 10+ 체인 • 100% 온체인',
+        'features-title': '<span>Web3 라이프스타일</span>을 위해 제작됨',
+        'f1-title': 'Web3 게임 허브',
+        'f1-desc': '탭하여 획득, 아케이드, 퍼즐 등. XP와 보상을 획득하고 모두 DesertCamel Chain에 기록됩니다.',
+        'f1-tag': '20+ 게임',
+        'f2-title': '비공개 및 공개 채팅',
+        'f2-desc': '비공개 대화를 위한 종단간 암호화 메시징, 공개 채팅방도 제공합니다.',
+        'f2-tag': 'E2EE',
+        'f3-title': '영상 및 음성 통화',
+        'f3-desc': '연락처와 탈중앙화된 P2P 통화. 중개자 없이 선명한 음질.',
+        'f3-tag': 'P2P',
+        'f4-title': '소셜 피드',
+        'f4-desc': '게시, 좋아요, 댓글, 팔로우. 모든 콘텐츠가 블록체인에 영구적으로 저장됩니다.',
+        'f4-tag': '온체인',
+        'f5-title': '라이브스트리밍 및 트리 라이브',
+        'f5-desc': 'P2P 스트리밍으로 라이브 방송하거나 최대 200명 시청자가 참여할 수 있는 트리 기반 스트림에 참여하세요.',
+        'f5-tag': '탈중앙화',
+        'f6-title': 'DApp 브라우저 + 지갑',
+        'f6-desc': '내장 WebView로 모든 DApp과 상호작용하고, 비수탁 멀티체인 지갑을 사용하세요.',
+        'f6-tag': '멀티체인',
+        'cta-title': '탐험할 준비가 되셨나요?',
+        'cta-desc': 'Desert Camel을 다운로드하고 Web3 여정을 시작하세요 – 모두 하나의 슈퍼 앱에서.',
+        'cta-btn': '📲 Google Play에서 받기',
         'footer-support': '📧 지원: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel. SidraChain에서 구축됨.'
+        'footer-copy': '© 2026 Desert Camel – DesertCamel Chain에서 구축됨'
       },
       ja: {
         home: 'ホーム', privacy: 'プライバシーポリシー', terms: '利用規約', contact: 'お問い合わせ',
-        'hero-title1': 'ラクダをタップして、',
-        'hero-title2': 'XPを獲得して、',
-        'hero-title3': 'SidraChainで！',
-        'hero-desc': 'Desert Camelは<strong>SidraChain</strong>ブロックチェーン上に構築された<strong>タップして稼ぐ</strong>ゲームです。ラクダをタップしてXPを獲得し、Camel XP (Cxp)とCamel (CML)トークンを集めましょう – すべて公開チェーンに安全に記録されます。秘密鍵は不要 – 純粋な楽しみ！',
+        'chain-badge': '⛓️ DesertCamel Chain – チェーンID 2026',
+        'hero-line1': '1つのアプリで、',
+        'hero-line2': '無限の可能性',
+        'hero-line3': 'DesertCamel Chain上で',
+        'hero-desc': '<strong>Desert Camel</strong>は<strong>DesertCamel Chain</strong>上に構築された<strong>Super dApp</strong>エコシステムです – コミュニティのための公開・分散型ブロックチェーンです。Web3ゲームをプレイし、チャットやビデオ通話をし、ソーシャルフィードで共有し、ライブ配信し、DAppを閲覧し、マルチチェーンウォレットを管理 – すべてノンカストディアルの1つのアプリで実現します。',
+        'badge-games': 'ゲーム',
+        'badge-chat': '暗号化チャット',
+        'badge-call': 'ビデオ通話',
+        'badge-social': 'ソーシャルフィード',
+        'badge-live': 'ライブ配信',
+        'badge-dapp': 'DAppブラウザ',
         'hero-btn': '📲 Google Playでダウンロード',
         'hero-beta': '🧪 ベータ版',
-        'trust-badge': '⛓️ すべての進捗がSidraChainに保存 – 透明で安全。',
-        'mockup-xp': '🔥 XP 1,250',
-        'mockup-cxp': '🐪 Cxp 0.8',
-        'mockup-cml': '💎 CML 12',
-        'mockup-tap': '👆 タップ！',
-        'mockup-level': 'レベル7 • 次のレベルまで850 XP',
-        'features-title': 'Desert Camelをプレイする理由',
-        'feature1-title': 'シンプルタップゲーム',
-        'feature1-desc': 'ラクダをタップするだけでXPを獲得。簡単に学べて、楽しくプレイできます。',
-        'feature2-title': 'ブロックチェーン搭載',
-        'feature2-desc': 'すべてのタップとポイントはSidraChainに記録されます – 公開、透明、永続的。',
-        'feature3-title': '獲得してアップグレード',
-        'feature3-desc': 'XPを集め、Camel XP (Cxp)とCMLトークンを獲得し、タップパワーをアップグレードしましょう。',
-        'feature4-title': 'デイリーミッション',
-        'feature4-desc': '毎日のチャレンジをクリアしてボーナスポイントを獲得し、ランキングを上昇させましょう。',
+        'trust-badge': '🔐 ノンカストディアル • マルチチェーン • あなたの鍵、あなたのデータ',
+        'mockup-footer': '20+ゲーム • 10+チェーン • 100%オンチェーン',
+        'features-title': '<span>Web3ライフスタイル</span>のために構築',
+        'f1-title': 'Web3ゲームハブ',
+        'f1-desc': 'タップして稼ぐ、アーケード、パズルなど。XPと報酬を獲得し、すべてDesertCamel Chainに記録されます。',
+        'f1-tag': '20+ゲーム',
+        'f2-title': 'プライベート＆パブリックチャット',
+        'f2-desc': 'プライベート会話にはエンドツーエンド暗号化メッセージング、さらにパブリックチャットルームも。',
+        'f2-tag': 'E2EE',
+        'f3-title': 'ビデオ＆ボイス通話',
+        'f3-desc': '連絡先との分散型P2P通話。仲介者なし、クリアな品質。',
+        'f3-tag': 'P2P',
+        'f4-title': 'ソーシャルフィード',
+        'f4-desc': '投稿、いいね、コメント、フォロー。すべてのコンテンツはブロックチェーン上に永続的に残ります。',
+        'f4-tag': 'オンチェーン',
+        'f5-title': 'ライブ配信＆ツリーライブ',
+        'f5-desc': 'P2Pストリーミングでライブ配信、または最大200人の視聴者が参加できるツリーベースのストリームに参加。',
+        'f5-tag': '分散型',
+        'f6-title': 'DAppブラウザ＋ウォレット',
+        'f6-desc': '組み込みWebViewで任意のDAppと連携、ノンカストディアルのマルチチェーンウォレット付き。',
+        'f6-tag': 'マルチチェーン',
+        'cta-title': '探検の準備はできましたか？',
+        'cta-desc': 'Desert Camelをダウンロードして、Web3の旅を始めましょう – すべては1つのスーパーアプリで。',
+        'cta-btn': '📲 Google Playで入手',
         'footer-support': '📧 サポート: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a>',
-        'footer-copy': '© 2026 Desert Camel。SidraChain上に構築。'
+        'footer-copy': '© 2026 Desert Camel – DesertCamel Chain上に構築'
       }
     };
 
+    // Fallback
+    function getTranslations(lang) {
+      return translations[lang] || translations['en'];
+    }
+
     function switchLang(lang) {
       localStorage.setItem('preferredLang', lang);
+      const t = getTranslations(lang);
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
-        if (translations[lang] && translations[lang][key] !== undefined) {
-          el.innerHTML = translations[lang][key];
+        if (t[key] !== undefined) {
+          el.innerHTML = t[key];
         }
       });
       document.getElementById('langSelector').value = lang;

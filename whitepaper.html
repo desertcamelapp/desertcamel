@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whitepaper – Desert Camel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fcf9f2;
+      color: #2d2a24;
+      line-height: 1.7;
+      padding: 1.5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e6d5b8;
+      margin-bottom: 2rem;
+    }
+    .logo { font-size: 1.8rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem; }
+    .logo span { color: #c89b3c; }
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+    }
+    nav a {
+      color: #2d2a24;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: #c89b3c; }
+    nav a.active { font-weight: 700; border-bottom: 2px solid #c89b3c; }
+
+    /* Whitepaper container */
+    .wp-container {
+      max-width: 1000px;
+      margin: 0 auto 3rem;
+      background: white;
+      padding: 2.5rem 3rem;
+      border-radius: 2rem;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
+    }
+    .wp-container h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.25rem; color: #1f1b16; }
+    .wp-container .subhead { font-size: 1.1rem; color: #5a4a34; margin-bottom: 2rem; border-bottom: 2px solid #e6d5b8; padding-bottom: 1rem; }
+    .wp-container h2 {
+      font-size: 1.8rem; font-weight: 700; margin: 2.2rem 0 0.8rem; color: #1f1b16;
+      border-left: 6px solid #c89b3c; padding-left: 1rem;
+    }
+    .wp-container h3 { font-size: 1.3rem; font-weight: 600; margin: 1.8rem 0 0.6rem; color: #2d2a24; }
+    .wp-container h4 { font-size: 1.1rem; font-weight: 600; margin: 1.4rem 0 0.4rem; color: #3d352a; }
+    .wp-container p { margin: 0.8rem 0; color: #3d352a; }
+    .wp-container strong { color: #1f1b16; }
+    .wp-container ul, .wp-container ol { margin: 0.8rem 0 1.2rem 1.8rem; }
+    .wp-container li { margin: 0.3rem 0; }
+    .wp-container table {
+      width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.95rem;
+      background: #f8f4ec; border-radius: 12px; overflow: hidden;
+    }
+    .wp-container table th, .wp-container table td {
+      padding: 0.7rem 1rem; border: 1px solid #e0d4c0; text-align: left; vertical-align: top;
+    }
+    .wp-container table th { background: #e8dccc; font-weight: 600; color: #1f1b16; }
+    .wp-container table td { background: #fffcf7; }
+    .wp-container .spec-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 2rem;
+      background: #f8f4ec; padding: 1.2rem 1.8rem; border-radius: 16px; margin: 1rem 0;
+    }
+    .wp-container .spec-grid .spec-item {
+      display: flex; justify-content: space-between; border-bottom: 1px dashed #d6c8b0; padding: 0.4rem 0;
+    }
+    .wp-container .spec-grid .spec-item:last-child { border-bottom: none; }
+    .wp-container .spec-grid .spec-label { font-weight: 600; color: #2d2a24; }
+    .wp-container .spec-grid .spec-value { color: #5a4a34; }
+    .wp-container .highlight-box {
+      background: #f0e8da; padding: 1.2rem 1.8rem; border-radius: 16px; margin: 1.2rem 0;
+      border-left: 6px solid #c89b3c;
+    }
+    .wp-container .code-block {
+      background: #2d2a24; color: #f0e8da; padding: 1rem 1.5rem; border-radius: 12px;
+      font-family: 'Courier New', monospace; font-size: 0.9rem; overflow-x: auto; margin: 1rem 0;
+    }
+    .wp-container hr { border: none; border-top: 2px solid #e6d5b8; margin: 2.5rem 0; }
+    .wp-container .footnote { font-size: 0.9rem; color: #7a6a54; margin-top: 0.4rem; }
+
+    footer {
+      margin-top: auto; border-top: 1px solid #e6d5b8; padding-top: 1.8rem;
+      text-align: center; color: #5a4a34; font-size: 0.9rem;
+    }
+    footer a { color: #a87b2a; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      header { flex-direction: column; gap: 0.8rem; align-items: center; }
+      nav { justify-content: center; }
+      .wp-container { padding: 1.5rem 1.2rem; }
+      .wp-container h1 { font-size: 2rem; }
+      .wp-container h2 { font-size: 1.4rem; }
+      .wp-container .spec-grid { grid-template-columns: 1fr; padding: 1rem; }
+    }
+    @media (max-width: 450px) {
+      body { padding: 0.8rem; }
+      .wp-container { padding: 1rem; border-radius: 1.2rem; }
+      .wp-container h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🐪 <span>Desert Camel</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="whitepaper.html" class="active">Whitepaper</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="wp-container">
+  <h1>CML — DESERTCAMEL BLOCKCHAIN</h1>
+  <div class="subhead">Whitepaper v1.0 &bull; Native Cryptocurrency: CML &bull; Chain ID: 2026</div>
+
+  <!-- Quick specs -->
+  <div class="spec-grid">
+    <div class="spec-item"><span class="spec-label">Blockchain</span><span class="spec-value">DesertCamel</span></div>
+    <div class="spec-item"><span class="spec-label">Symbol</span><span class="spec-value">CML</span></div>
+    <div class="spec-item"><span class="spec-label">Chain ID</span><span class="spec-value">2026</span></div>
+    <div class="spec-item"><span class="spec-label">Decimals</span><span class="spec-value">18</span></div>
+    <div class="spec-item"><span class="spec-label">Max Supply</span><span class="spec-value">20,000,000,000 CML</span></div>
+    <div class="spec-item"><span class="spec-label">Target Block Rate</span><span class="spec-value">~2 seconds</span></div>
+  </div>
+
+  <!-- 1. Overview -->
+  <h2>1. Overview</h2>
+  <p>DesertCamel is an EVM-compatible blockchain built for high speed, reasonable transaction costs, and support for decentralized applications.</p>
+  <p><strong>CML</strong> is the native cryptocurrency of the DesertCamel network.</p>
+  <p>CML is used as the base asset for transaction fees and as the native asset for network operations.</p>
+  <p>DesertCamel is designed to provide blockchain infrastructure for wallets, digital asset trading, DApps, and future blockchain services.</p>
+
+  <!-- 2. Vision -->
+  <h2>2. Vision</h2>
+  <p>DesertCamel aims to build an accessible blockchain for users and developers, with CML as the central asset.</p>
+  <p>A modern blockchain must meet multiple requirements:</p>
+  <ul>
+    <li>High transaction throughput.</li>
+    <li>Fast confirmation time.</li>
+    <li>Reasonable fees.</li>
+    <li>EVM tool compatibility.</li>
+    <li>Ecosystem scalability.</li>
+    <li>Transparent and verifiable infrastructure.</li>
+    <li>Simple user experience for mainstream users.</li>
+  </ul>
+  <p>DesertCamel is developed with this direction.</p>
+
+  <!-- 3. What is CML? -->
+  <h2>3. What is CML?</h2>
+  <p>CML is the <strong>native cryptocurrency of DesertCamel Blockchain</strong>.</p>
+  <p>Unlike a token deployed on an external blockchain, CML is the native asset of the DesertCamel network itself.</p>
+  <p>CML can be used for:</p>
+  <ul>
+    <li>Paying transaction fees.</li>
+    <li>Transferring CML between accounts.</li>
+    <li>Base asset for applications on DesertCamel.</li>
+    <li>Trading on markets supporting CML.</li>
+    <li>Expanding use cases within the ecosystem.</li>
+  </ul>
+  <p>New use cases may be added as the ecosystem evolves.</p>
+
+  <!-- 4. Network Parameters -->
+  <h2>4. Network Parameters</h2>
+  <table>
+    <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Blockchain</td><td>DesertCamel</td></tr>
+      <tr><td>Native Cryptocurrency</td><td>CML</td></tr>
+      <tr><td>Chain ID</td><td>2026</td></tr>
+      <tr><td>Decimal Precision</td><td>18</td></tr>
+      <tr><td>Maximum Supply</td><td>20,000,000,000 CML</td></tr>
+      <tr><td>Target Block Rate</td><td>~2 seconds</td></tr>
+      <tr><td>Block Gas Limit</td><td>8,000,000</td></tr>
+      <tr><td>Target Gas</td><td>40,000,000</td></tr>
+      <tr><td>Minimum Base Fee</td><td>25 Gwei</td></tr>
+      <tr><td>Base Fee Change Denominator</td><td>36</td></tr>
+      <tr><td>Minimum Block Gas Cost</td><td>0</td></tr>
+      <tr><td>Maximum Block Gas Cost</td><td>1,000,000</td></tr>
+      <tr><td>Block Gas Cost Step</td><td>200,000</td></tr>
+      <tr><td>Warp Quorum Numerator</td><td>67%</td></tr>
+      <tr><td>Primary Network Signers</td><td>Required</td></tr>
+    </tbody>
+  </table>
+  <p class="footnote">These parameters are set in the genesis configuration of DesertCamel.</p>
+
+  <!-- 5. EVM Compatibility -->
+  <h2>5. EVM Compatibility</h2>
+  <p>DesertCamel is built with EVM-compatible architecture.</p>
+  <p>This allows the DesertCamel ecosystem to leverage popular tools and development models from the Ethereum ecosystem.</p>
+  <p>EVM compatibility enables:</p>
+  <ul>
+    <li>Blockchain wallets.</li>
+    <li>Smart contract development tools.</li>
+    <li>DApps.</li>
+    <li>Explorers.</li>
+    <li>Asset management tools.</li>
+    <li>DeFi protocols.</li>
+    <li>Third-party blockchain services.</li>
+  </ul>
+  <p>The goal is to lower the technical barrier for developers building on DesertCamel.</p>
+
+  <!-- 6. Transaction Mechanism -->
+  <h2>6. Transaction Mechanism</h2>
+  <p>Each transaction on DesertCamel is processed through the EVM transaction mechanism.</p>
+  <p>Users pay gas fees using the native asset of the network.</p>
+  <p>CML serves as the native asset and base currency for transaction fees.</p>
+  <div class="highlight-box"><strong>Target Block Rate: approximately 2 seconds</strong></div>
+  <p>This enables fast transaction processing and confirmation.</p>
+  <p>Actual time may vary depending on network status, validators, connectivity, and other conditions.</p>
+
+  <!-- 7. Gas and Transaction Fees -->
+  <h2>7. Gas and Transaction Fees</h2>
+  <p>DesertCamel uses a gas fee model compatible with EVM architecture.</p>
+  <p>Current genesis configuration:</p>
+  <ul>
+    <li>Gas Limit: <strong>8,000,000</strong></li>
+    <li>Minimum Base Fee: <strong>25 Gwei</strong></li>
+    <li>Target Gas: <strong>40,000,000</strong></li>
+    <li>Base Fee Change Denominator: <strong>36</strong></li>
+    <li>Minimum Block Gas Cost: <strong>0</strong></li>
+    <li>Maximum Block Gas Cost: <strong>1,000,000</strong></li>
+    <li>Block Gas Cost Step: <strong>200,000</strong></li>
+  </ul>
+  <p>These parameters allow the network to adjust costs based on usage.</p>
+  <p>Actual fees depend on transaction type, gas used, and network state at the time.</p>
+
+  <!-- 8. CML Supply -->
+  <h2>8. CML Supply</h2>
+  <p>CML has a fixed maximum supply:</p>
+  <div class="highlight-box"><strong>20,000,000,000 CML</strong></div>
+  <p>CML uses <strong>18 decimal places</strong>.</p>
+  <p>This means:</p>
+  <div class="code-block">1 CML = 1,000,000,000,000,000,000 base units</div>
+  <p>The 20 billion CML cap is the defined supply limit.</p>
+
+  <h3>Token Specification</h3>
+  <table>
+    <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Symbol</td><td>CML</td></tr>
+      <tr><td>Maximum Supply</td><td>20,000,000,000</td></tr>
+      <tr><td>Decimals</td><td>18</td></tr>
+      <tr><td>Asset Type</td><td>Native Cryptocurrency</td></tr>
+      <tr><td>Blockchain</td><td>DesertCamel</td></tr>
+      <tr><td>Chain ID</td><td>2026</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 9. Token Allocation -->
+  <h2>9. Token Allocation</h2>
+  <p>At genesis, the initial CML supply is allocated to the address:</p>
+  <div class="code-block">c8e1998d8506825d29b88564ba2bf309593ea896</div>
+  <p>The genesis balance is configured as:</p>
+  <div class="highlight-box"><strong>20,000,000,000 CML</strong></div>
+  <p>This matches the maximum total supply of CML.</p>
+  <p>DesertCamel does not present hypothetical allocations to private sale, public sale, team, or VC groups unless those allocations are deployed on-chain.</p>
+  <p>Any future allocations must be verifiable through on-chain addresses.</p>
+
+  <!-- 10. No Hypothetical Investor Allocations -->
+  <h2>10. No Hypothetical Investor Allocations</h2>
+  <p>CML does not use unverified allocation figures to create a false investment structure.</p>
+  <p>Token distribution information must be verifiable via blockchain data.</p>
+  <p>This helps users, the community, and partners distinguish between:</p>
+  <ul>
+    <li>Actual supply.</li>
+    <li>On-chain allocations.</li>
+    <li>Ecosystem plans.</li>
+    <li>Future development plans.</li>
+  </ul>
+
+  <!-- 11. Native Asset -->
+  <h2>11. Native Asset</h2>
+  <p>CML is not simply a token issued on a third-party blockchain.</p>
+  <p>CML is the native cryptocurrency of DesertCamel.</p>
+  <p>Thus, CML is directly integrated into the network infrastructure and serves as the base asset.</p>
+  <p>The native asset model enables CML to become the center of the DesertCamel ecosystem as new apps and services are deployed.</p>
+
+  <!-- 12. Blockchain Architecture -->
+  <h2>12. Blockchain Architecture</h2>
+  <p>DesertCamel uses EVM-compatible blockchain architecture.</p>
+  <p>The genesis configuration includes components for EVM execution, fee configuration, native minting, reward management, warp, and network signers.</p>
+  <p>These are configured at genesis. The architecture may be upgraded through protocol changes as DesertCamel develops.</p>
+
+  <!-- 13. Warp and Network Security -->
+  <h2>13. Warp and Network Security</h2>
+  <div class="highlight-box"><strong>Warp Quorum: 67%</strong></div>
+  <div class="highlight-box"><strong>Primary Network Signers: true</strong></div>
+  <p>This configuration reflects the network's consensus requirement for Warp-related activities. The 67% threshold aims to protect against decisions not supported by a sufficient majority.</p>
+
+  <!-- 14. Block Time -->
+  <h2>14. Block Time</h2>
+  <div class="highlight-box"><strong>Target Block Rate: 2 seconds</strong></div>
+  <p>A ~2-second block time provides faster transaction confirmation than blockchains with longer intervals. Actual block time may vary based on validator availability, network conditions, node performance, latency, and load.</p>
+
+  <!-- 15. DesertCamel Wallet -->
+  <h2>15. DesertCamel Wallet</h2>
+  <p>The DesertCamel Wallet is designed as the primary interface for users to interact with the blockchain. Core functions: create/manage wallets, receive/send CML, check balances, track transactions, connect to services, and manage assets.</p>
+
+  <!-- 16. Blockchain Explorer -->
+  <h2>16. Blockchain Explorer</h2>
+  <p>The Explorer allows users to inspect public blockchain data: Blocks, Transactions, Addresses, Balances, Gas, Smart Contracts, and Network Activity. The goal is to provide independent verification of on-chain data.</p>
+
+  <!-- 17. Smart Contracts and DApps -->
+  <h2>17. Smart Contracts and DApps</h2>
+  <p>With EVM support, DesertCamel supports smart contracts and DApps. Developers can build DApps, DeFi, Tokens, NFTs, Payment apps, Utilities, and Web3 services. Smart contracts must be security-audited before deployment.</p>
+
+  <!-- 18. CML Ecosystem -->
+  <h2>18. CML Ecosystem</h2>
+  <p>The open ecosystem includes: CML (native), DesertCamel Blockchain, Wallet, Explorer, DApp Ecosystem, and Exchange Ecosystem.</p>
+
+  <!-- 19. Liquidity and Markets -->
+  <h2>19. Liquidity and Markets</h2>
+  <p>CML aims for real liquidity on DEXs, CEXs, and other platforms. Listing depends on the independent decision of each exchange and is not guaranteed.</p>
+
+  <!-- 20. Listing Strategy -->
+  <h2>20. Listing Strategy</h2>
+  <ul>
+    <li><strong>Phase 1:</strong> Mainnet, Explorer, Wallet, RPC.</li>
+    <li><strong>Phase 2:</strong> Community, DApp, Liquidity.</li>
+    <li><strong>Phase 3:</strong> DEX, Coin data, Mid/small CEX.</li>
+    <li><strong>Phase 4:</strong> Market expansion.</li>
+  </ul>
+
+  <!-- 21. Community -->
+  <h2>21. Community</h2>
+  <p>The community includes users, developers, node operators, DApp builders, liquidity providers, traders, and blockchain partners. The community contributes through feedback, testing, and development.</p>
+
+  <!-- 22. Security -->
+  <h2>22. Security</h2>
+  <p>Top priorities: on-chain transparency, smart contract auditing, private key protection, governance control, network monitoring. Users are responsible for protecting their private keys and seed phrases.</p>
+
+  <!-- 23. Decentralization -->
+  <h2>23. Decentralization</h2>
+  <p>DesertCamel aims to expand decentralization with more nodes and validators to increase fault tolerance and reduce reliance on a single entity.</p>
+
+  <!-- 24. Governance -->
+  <h2>24. Governance</h2>
+  <p>Future governance mechanisms may include: upgrade proposals, network change discussions, ecosystem improvements, and parameter adjustments. All changes must ensure network safety.</p>
+
+  <!-- 25. Roadmap -->
+  <h2>25. Roadmap</h2>
+  <ul>
+    <li><strong>Phase 1 – Foundation:</strong> ✅ Genesis, CML, Chain ID, Supply, EVM, Fee.</li>
+    <li><strong>Phase 2 – Infrastructure:</strong> ✅ Wallet, RPC. ⬜ Explorer, Documentation, Monitoring.</li>
+    <li><strong>Phase 3 – Ecosystem:</strong> ⬜ DApp, Developer tools, Liquidity, Community.</li>
+    <li><strong>Phase 4 – Market:</strong> ⬜ DEX, Data platforms, CEX, Liquidity.</li>
+    <li><strong>Phase 5 – Long-term:</strong> ⬜ Validator expansion, Governance, Cross-chain.</li>
+  </ul>
+
+  <!-- 26. Token Economics -->
+  <h2>26. Token Economics</h2>
+  <div class="highlight-box"><strong>20,000,000,000 CML</strong></div>
+  <p>Fixed supply, no hypothetical allocations. Use cases: transaction fees, native transactions, ecosystem apps, DApp economy, exchange markets, liquidity.</p>
+
+  <!-- 27. CML and Market Value -->
+  <h2>27. CML and Market Value</h2>
+  <p>CML price is determined by market supply and demand. DesertCamel does not guarantee price increases, profits, or specific listings. Prices can be highly volatile.</p>
+
+  <!-- 28. Sustainable Development -->
+  <h2>28. Sustainable Development</h2>
+  <div class="highlight-box"><strong>Technology → Users → Developers → Applications → Transactions → Liquidity → Ecosystem</strong></div>
+  <p>The long-term goal is an ecosystem where blockchain usage creates natural demand for CML.</p>
+
+  <!-- 29. Transparency -->
+  <h2>29. Transparency</h2>
+  <p>Verifiable information: network info, Chain ID, Explorer, token supply, transaction data, contract info, wallet addresses, updates. On-chain data is the primary reference.</p>
+
+  <!-- 30. Risks -->
+  <h2>30. Risks</h2>
+  <ul>
+    <li><strong>Market Risk:</strong> Price volatility.</li>
+    <li><strong>Technology Risk:</strong> Blockchain, smart contract, or wallet bugs.</li>
+    <li><strong>Network Risk:</strong> Congestion, node failure.</li>
+    <li><strong>Security Risk:</strong> Loss of private keys.</li>
+    <li><strong>Regulatory Risk:</strong> Changing regulations.</li>
+    <li><strong>Liquidity Risk:</strong> Insufficient liquidity.</li>
+    <li><strong>Exchange Risk:</strong> Listing not guaranteed.</li>
+  </ul>
+
+  <!-- 31. Disclaimer -->
+  <h2>31. Disclaimer</h2>
+  <p>This whitepaper is for informational purposes only, not an investment offer or value promise. CML is subject to price volatility. Users must comply with local laws and assess risks themselves.</p>
+
+  <!-- 32. Technical Information -->
+  <h2>32. Technical Information</h2>
+  <p><strong>Network:</strong> DesertCamel<br><strong>Symbol:</strong> CML<br><strong>Chain ID:</strong> 2026<br><strong>Decimal:</strong> 18<br><strong>Max Supply:</strong> 20,000,000,000 CML<br><strong>Target Block Rate:</strong> 2 seconds<br><strong>Gas Limit:</strong> 8,000,000<br><strong>Min Base Fee:</strong> 25 Gwei<br><strong>Warp Quorum:</strong> 67%<br><strong>Primary Network Signers:</strong> Required</p>
+
+  <!-- 33. Development Principles -->
+  <h2>33. Development Principles</h2>
+  <ul>
+    <li><strong>Simplicity:</strong> Accessible.</li>
+    <li><strong>Transparency:</strong> Verifiable.</li>
+    <li><strong>Security:</strong> Priority.</li>
+    <li><strong>Compatibility:</strong> EVM.</li>
+    <li><strong>Scalability:</strong> Expandable.</li>
+    <li><strong>Community:</strong> Driven.</li>
+  </ul>
+
+  <!-- 34. Long-term Vision -->
+  <h2>34. Long-term Vision</h2>
+  <p>DesertCamel is not just a tradable asset but a blockchain supporting a real application ecosystem. CML is the economic center. As users, DApps, and on-chain activity grow, the ecosystem expands.</p>
+
+  <!-- 35. Conclusion -->
+  <h2>35. Conclusion</h2>
+  <p>CML is the native cryptocurrency of DesertCamel with EVM, Chain ID 2026, ~2s block rate, and 20B max supply. The project focuses on technology, security, UX, community, and ecosystem growth.</p>
+
+  <hr>
+
+  <div style="text-align:center;margin:2rem 0 1rem;">
+    <h2 style="border-left:none;font-size:2rem;">CML</h2>
+    <p style="font-size:1.1rem;"><strong>The Native Cryptocurrency of DesertCamel</strong></p>
+    <div class="spec-grid" style="max-width:600px;margin:1.5rem auto;">
+      <div class="spec-item"><span class="spec-label">Blockchain</span><span class="spec-value">DesertCamel</span></div>
+      <div class="spec-item"><span class="spec-label">Symbol</span><span class="spec-value">CML</span></div>
+      <div class="spec-item"><span class="spec-label">Chain ID</span><span class="spec-value">2026</span></div>
+      <div class="spec-item"><span class="spec-label">Max Supply</span><span class="spec-value">20,000,000,000 CML</span></div>
+      <div class="spec-item"><span class="spec-label">Decimals</span><span class="spec-value">18</span></div>
+    </div>
+    <p style="color:#5a4a34;font-size:0.95rem;">
+      <strong>Website:</strong> <a href="#" style="color:#a87b2a;">Official Website</a> &bull;
+      <strong>Explorer:</strong> <a href="#" style="color:#a87b2a;">DesertCamel Explorer</a>
+    </p>
+  </div>
+
+  <div style="text-align:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e6d5b8;font-size:0.9rem;color:#7a6a54;">
+    <p>Whitepaper Version: 1.0 &bull; Project: DesertCamel &bull; Asset: CML &bull; Max Supply: 20,000,000,000 CML &bull; Chain ID: 2026</p>
+  </div>
+</main>
+
+<footer>
+  <p>📧 Support: <a href="mailto:desertcamel.app@gmail.com">desertcamel.app@gmail.com</a></p>
+  <p>© 2026 Desert Camel – Built on DesertCamel Chain</p>
+</footer>
+
+</body>
+</html>

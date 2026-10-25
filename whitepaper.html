@@ -102,10 +102,25 @@
       background: #f8f4ec; border: 1px solid #e0d4c0; padding: 1.4rem;
       border-radius: 16px; margin: 1.2rem 0;
     }
+    .wp-container .network-connect .network-field {
+      margin-top: 0.85rem;
+    }
+    .wp-container .network-connect .network-field:first-child { margin-top: 0; }
+    .wp-container .network-connect .network-field-value,
     .wp-container .network-connect .rpc-value {
-      display: block; overflow-wrap: anywhere; word-break: break-word;
+      display: block; width: 100%; box-sizing: border-box;
+      overflow-wrap: anywhere; word-break: break-word;
+      background: #fff; border: 1px solid #e7ddcc;
+      padding: 0.8rem; border-radius: 8px; margin-top: 0.35rem;
+    }
+    .wp-container .network-connect .network-field-value {
+      color: #5a4a34; font-size: 0.95rem;
+    }
+    .wp-container .network-connect .network-field-note {
+      color: #7a6a54; font-size: 0.88rem;
+    }
+    .wp-container .network-connect .rpc-value {
       font-family: 'Courier New', monospace; font-size: 0.9rem;
-      background: #fff; padding: 0.8rem; border-radius: 8px; margin-top: 0.35rem;
     }
     .wp-container .network-connect .network-button {
       display: inline-block; border: 0; border-radius: 10px; padding: 0.8rem 1.2rem;
@@ -245,15 +260,21 @@
   <h2>Connect to Desert Camel Network</h2>
   <p>Connect a compatible Web3 wallet, such as MetaMask, to the Desert Camel network using the network details below. You can add the network automatically where your wallet supports it, or enter the details manually.</p>
   <div class="network-connect">
-    <div class="spec-item"><span class="spec-label">Network Name</span><span class="spec-value">Desert Camel</span></div>
-    <div class="spec-item"><span class="spec-label">Chain ID</span><span class="spec-value">2026 (hex: 0x7ea)</span></div>
-    <div style="margin-top:0.8rem;">
+    <div class="network-field">
+      <strong>Network Name</strong>
+      <span class="network-field-value">Desert Camel</span>
+    </div>
+    <div class="network-field">
+      <strong>Chain ID</strong>
+      <span class="network-field-value">2026 <span class="network-field-note">(hex: 0x7ea)</span></span>
+    </div>
+    <div class="network-field">
       <strong>RPC URL</strong>
       <code class="rpc-value" id="desertcamel-rpc">https://rpcchain.desertcamel.app/ext/bc/sXmS4w4CgjbxxNyFUdjWE6DrEyPPbfpp51t8JRtqPWrCPWrdE/rpc</code>
     </div>
-    <div style="margin-top:0.8rem;">
+    <div class="network-field">
       <strong>Native Currency</strong>
-      <span class="rpc-value">CML</span>
+      <span class="network-field-value">CML</span>
     </div>
     <button type="button" class="network-button" id="add-desertcamel-network">Add Network to Wallet</button>
     <button type="button" class="network-button" id="copy-desertcamel-rpc">Copy RPC URL</button>

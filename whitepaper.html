@@ -98,6 +98,24 @@
     .wp-container hr { border: none; border-top: 2px solid #e6d5b8; margin: 2.5rem 0; }
     .wp-container .footnote { font-size: 0.9rem; color: #7a6a54; margin-top: 0.4rem; }
 
+    .wp-container .network-connect {
+      background: #f8f4ec; border: 1px solid #e0d4c0; padding: 1.4rem;
+      border-radius: 16px; margin: 1.2rem 0;
+    }
+    .wp-container .network-connect .rpc-value {
+      display: block; overflow-wrap: anywhere; word-break: break-word;
+      font-family: 'Courier New', monospace; font-size: 0.9rem;
+      background: #fff; padding: 0.8rem; border-radius: 8px; margin-top: 0.35rem;
+    }
+    .wp-container .network-connect .network-button {
+      display: inline-block; border: 0; border-radius: 10px; padding: 0.8rem 1.2rem;
+      background: #c89b3c; color: #1f1b16; font: inherit; font-weight: 700;
+      cursor: pointer; margin: 0.8rem 0.5rem 0 0;
+    }
+    .wp-container .network-connect .network-button:hover { background: #b7892e; }
+    .wp-container .network-connect .network-status { font-size: 0.95rem; margin-top: 0.7rem; }
+
+
     footer {
       margin-top: auto; border-top: 1px solid #e6d5b8; padding-top: 1.8rem;
       text-align: center; color: #5a4a34; font-size: 0.9rem;
@@ -222,6 +240,65 @@
     <li>Third-party blockchain services.</li>
   </ul>
   <p>The goal is to lower the technical barrier for developers building on DesertCamel.</p>
+
+  <!-- Connect external Web3 wallets -->
+  <h2>Connect to Desert Camel Network</h2>
+  <p>Connect a compatible Web3 wallet, such as MetaMask, to the Desert Camel network using the network details below. You can add the network automatically where your wallet supports it, or enter the details manually.</p>
+  <div class="network-connect">
+    <div class="spec-item"><span class="spec-label">Network Name</span><span class="spec-value">Desert Camel</span></div>
+    <div class="spec-item"><span class="spec-label">Chain ID</span><span class="spec-value">2026 (hex: 0x7ea)</span></div>
+    <div style="margin-top:0.8rem;">
+      <strong>RPC URL</strong>
+      <code class="rpc-value" id="desertcamel-rpc">https://rpcchain.desertcamel.app/ext/bc/sXmS4w4CgjbxxNyFUdjWE6DrEyPPbfpp51t8JRtqPWrCPWrdE/rpc</code>
+    </div>
+    <div style="margin-top:0.8rem;">
+      <strong>Native Currency</strong>
+      <span class="rpc-value">CML</span>
+    </div>
+    <button type="button" class="network-button" id="add-desertcamel-network">Add Network to Wallet</button>
+    <button type="button" class="network-button" id="copy-desertcamel-rpc">Copy RPC URL</button>
+    <p class="network-status" id="desertcamel-network-status" role="status" aria-live="polite"></p>
+    <p class="footnote">Only approve network settings you trust. Adding a network does not transfer funds or import your wallet.</p>
+  </div>
+
+  <script>
+    (function () {
+      const rpcUrl = 'https://rpcchain.desertcamel.app/ext/bc/sXmS4w4CgjbxxNyFUdjWE6DrEyPPbfpp51t8JRtqPWrCPWrdE/rpc';
+      const status = document.getElementById('desertcamel-network-status');
+      const addButton = document.getElementById('add-desertcamel-network');
+      const copyButton = document.getElementById('copy-desertcamel-rpc');
+
+      addButton.addEventListener('click', async function () {
+        if (!window.ethereum) {
+          status.textContent = 'No compatible Web3 wallet was detected. Open this page in a browser with MetaMask or enter the network details manually in your wallet.';
+          return;
+        }
+        try {
+          await window.ethereum.request({
+            method: 'wallet_addEthereumChain',
+            params: [{
+              chainId: '0x7ea',
+              chainName: 'Desert Camel',
+              rpcUrls: [rpcUrl],
+              nativeCurrency: { name: 'CML', symbol: 'CML', decimals: 18 }
+            }]
+          });
+          status.textContent = 'Network request sent to your wallet. Check your wallet to confirm.';
+        } catch (error) {
+          status.textContent = error && error.message ? error.message : 'The wallet did not add the network. You can enter the details manually.';
+        }
+      });
+
+      copyButton.addEventListener('click', async function () {
+        try {
+          await navigator.clipboard.writeText(rpcUrl);
+          status.textContent = 'RPC URL copied.';
+        } catch (error) {
+          status.textContent = 'Copy was blocked by your browser. Select and copy the RPC URL above.';
+        }
+      });
+    })();
+  </script>
 
   <!-- 6. Transaction Mechanism -->
   <h2>6. Transaction Mechanism</h2>

@@ -162,19 +162,20 @@
     <a href="whitepaper.html" class="active">Whitepaper</a>
     <a href="privacy.html">Privacy</a>
     <a href="terms.html">Terms</a>
+    <a href="http://scan.desertcamel.app" target="_blank" rel="noopener">Explorer</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <main class="wp-container">
   <h1>CML — DESERTCAMEL BLOCKCHAIN</h1>
-  <div class="subhead">Whitepaper v1.0 &bull; Native Cryptocurrency: CML &bull; Chain ID: 2026</div>
+  <div class="subhead">Whitepaper v1.0 &bull; Native Cryptocurrency: CML &bull; Chain ID: 31473</div>
 
   <!-- Quick specs -->
   <div class="spec-grid">
     <div class="spec-item"><span class="spec-label">Blockchain</span><span class="spec-value">DesertCamel</span></div>
     <div class="spec-item"><span class="spec-label">Symbol</span><span class="spec-value">CML</span></div>
-    <div class="spec-item"><span class="spec-label">Chain ID</span><span class="spec-value">2026</span></div>
+    <div class="spec-item"><span class="spec-label">Chain ID</span><span class="spec-value">31473</span></div>
     <div class="spec-item"><span class="spec-label">Decimals</span><span class="spec-value">18</span></div>
     <div class="spec-item"><span class="spec-label">Max Supply</span><span class="spec-value">20,000,000,000 CML</span></div>
     <div class="spec-item"><span class="spec-label">Target Block Rate</span><span class="spec-value">~2 seconds</span></div>
@@ -223,7 +224,7 @@
     <tbody>
       <tr><td>Blockchain</td><td>DesertCamel</td></tr>
       <tr><td>Native Cryptocurrency</td><td>CML</td></tr>
-      <tr><td>Chain ID</td><td>2026</td></tr>
+      <tr><td>Chain ID</td><td>31473</td></tr>
       <tr><td>Decimal Precision</td><td>18</td></tr>
       <tr><td>Maximum Supply</td><td>20,000,000,000 CML</td></tr>
       <tr><td>Target Block Rate</td><td>~2 seconds</td></tr>
@@ -266,11 +267,11 @@
     </div>
     <div class="network-field">
       <strong>Chain ID</strong>
-      <span class="network-field-value">2026 <span class="network-field-note">(hex: 0x7ea)</span></span>
+      <span class="network-field-value">31473 <span class="network-field-note">(hex: 0x7af1)</span></span>
     </div>
     <div class="network-field">
       <strong>RPC URL</strong>
-      <code class="rpc-value" id="desertcamel-rpc">https://rpcchain.desertcamel.app/ext/bc/sXmS4w4CgjbxxNyFUdjWE6DrEyPPbfpp51t8JRtqPWrCPWrdE/rpc</code>
+      <code class="rpc-value" id="desertcamel-rpc">https://rpc.desertcamel.app/</code>
     </div>
     <div class="network-field">
       <strong>Native Currency</strong>
@@ -284,7 +285,7 @@
 
   <script>
     (function () {
-      const rpcUrl = 'https://rpcchain.desertcamel.app/ext/bc/sXmS4w4CgjbxxNyFUdjWE6DrEyPPbfpp51t8JRtqPWrCPWrdE/rpc';
+      const rpcUrl = 'https://rpc.desertcamel.app/';
       const status = document.getElementById('desertcamel-network-status');
       const addButton = document.getElementById('add-desertcamel-network');
       const copyButton = document.getElementById('copy-desertcamel-rpc');
@@ -298,7 +299,7 @@
           await window.ethereum.request({
             method: 'wallet_addEthereumChain',
             params: [{
-              chainId: '0x7ea',
+              chainId: '0x7af1',
               chainName: 'Desert Camel',
               rpcUrls: [rpcUrl],
               nativeCurrency: { name: 'CML', symbol: 'CML', decimals: 18 }
@@ -364,7 +365,7 @@
       <tr><td>Decimals</td><td>18</td></tr>
       <tr><td>Asset Type</td><td>Native Cryptocurrency</td></tr>
       <tr><td>Blockchain</td><td>DesertCamel</td></tr>
-      <tr><td>Chain ID</td><td>2026</td></tr>
+      <tr><td>Chain ID</td><td>31473</td></tr>
     </tbody>
   </table>
 
@@ -505,7 +506,7 @@
 
   <!-- 32. Technical Information -->
   <h2>32. Technical Information</h2>
-  <p><strong>Network:</strong> DesertCamel<br><strong>Symbol:</strong> CML<br><strong>Chain ID:</strong> 2026<br><strong>Decimal:</strong> 18<br><strong>Max Supply:</strong> 20,000,000,000 CML<br><strong>Target Block Rate:</strong> 2 seconds<br><strong>Gas Limit:</strong> 8,000,000<br><strong>Min Base Fee:</strong> 25 Gwei<br><strong>Warp Quorum:</strong> 67%<br><strong>Primary Network Signers:</strong> Required</p>
+  <p><strong>Network:</strong> DesertCamel<br><strong>Symbol:</strong> CML<br><strong>Chain ID:</strong> 31473<br><strong>Decimal:</strong> 18<br><strong>Max Supply:</strong> 20,000,000,000 CML<br><strong>Target Block Rate:</strong> 2 seconds<br><strong>Gas Limit:</strong> 8,000,000<br><strong>Min Base Fee:</strong> 25 Gwei<br><strong>Warp Quorum:</strong> 67%<br><strong>Primary Network Signers:</strong> Required</p>
 
   <!-- 33. Development Principles -->
   <h2>33. Development Principles</h2>
@@ -524,7 +525,7 @@
 
   <!-- 35. Conclusion -->
   <h2>35. Conclusion</h2>
-  <p>CML is the native cryptocurrency of DesertCamel with EVM, Chain ID 2026, ~2s block rate, and 20B max supply. The project focuses on technology, security, UX, community, and ecosystem growth.</p>
+  <p>CML is the native cryptocurrency of DesertCamel with EVM, Chain ID 31473, ~2s block rate, and 20B max supply. The project focuses on technology, security, UX, community, and ecosystem growth.</p>
 
   <hr>
 
@@ -534,18 +535,18 @@
     <div class="spec-grid" style="max-width:600px;margin:1.5rem auto;">
       <div class="spec-item"><span class="spec-label">Blockchain</span><span class="spec-value">DesertCamel</span></div>
       <div class="spec-item"><span class="spec-label">Symbol</span><span class="spec-value">CML</span></div>
-      <div class="spec-item"><span class="spec-label">Chain ID</span><span class="spec-value">2026</span></div>
+      <div class="spec-item"><span class="spec-label">Chain ID</span><span class="spec-value">31473</span></div>
       <div class="spec-item"><span class="spec-label">Max Supply</span><span class="spec-value">20,000,000,000 CML</span></div>
       <div class="spec-item"><span class="spec-label">Decimals</span><span class="spec-value">18</span></div>
     </div>
     <p style="color:#5a4a34;font-size:0.95rem;">
       <strong>Website:</strong> <a href="#" style="color:#a87b2a;">Official Website</a> &bull;
-      <strong>Explorer:</strong> <a href="#" style="color:#a87b2a;">DesertCamel Explorer</a>
+      <strong>Explorer:</strong> <a href="http://scan.desertcamel.app" target="_blank" rel="noopener" style="color:#a87b2a;">DesertCamel Explorer</a>
     </p>
   </div>
 
   <div style="text-align:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e6d5b8;font-size:0.9rem;color:#7a6a54;">
-    <p>Whitepaper Version: 1.0 &bull; Project: DesertCamel &bull; Asset: CML &bull; Max Supply: 20,000,000,000 CML &bull; Chain ID: 2026</p>
+    <p>Whitepaper Version: 1.0 &bull; Project: DesertCamel &bull; Asset: CML &bull; Max Supply: 20,000,000,000 CML &bull; Chain ID: 31473</p>
   </div>
 </main>
 
